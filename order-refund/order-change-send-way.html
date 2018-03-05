@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>订单详情</title>
+    <!-[if IE9]>
+    <script src="../js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers{display:none!important;}</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a></div>
+    </noscript>
+    <![endif]->
+    <!--订单详情-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/base.css" rel="stylesheet" type="text/css">
+    <link href="../css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="../css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="../css/retail-waitingPay.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/auction.css">
+    <script src="../js/zepto.min.js"></script>
+    <script src="../js/kandan.js"></script>
+    <style type="text/css">
+        body{
+            padding-bottom:40px;
+        }
+    </style>
+    <script>
+        $(function () {
+            $('.get-by-self-wrap').click(function(){
+                $(this).addClass("get-by-self-wrap-active").siblings().removeClass("get-by-self-wrap-active");
+            })
+            /*信息完全重复toast弹出框的显示*/
+            toastAlert()
+            function toastAlert(){
+                var timer;
+                $("#toastWrap").show();
+                if(timer == undefined){
+                    timer = setTimeout(function(){
+                        $("#toastWrap").hide();
+                        clearTimeout(timer);
+                    },3000)
+                }
+            }
+        })
+    </script>
+</head>
+<body>
+<div class="container-fluid small_screen">
+    <div class="row">
+        <div class="change-order-way-rule">
+            配送方式只能修改一次
+        </div>
+        <!--配送方式-同城快递-->
+        <div class="get-shop-way-wrap">
+            <ul class="get-by-self-wrap">
+                <li class="get-by-self get-shop-way">原配送方式：同城快递 <div class="refund-assass-wrap"><span class="refund-assass"></span></div></li>
+                <li class="get-by-self">收货人：小蓝</li>
+                <li class="get-by-self">手机号：13578766755</li>
+                <li class="get-by-self">收货地址：广东省深圳市罗湖区名扬酒店的扣扣上是... </li>
+            </ul>
+            <!--配送方式-自提-->
+            <ul class="get-by-self-wrap" style="display:none;">
+                <li class="get-by-self get-shop-way">新配送方式：到店自提 <div class="refund-assass-wrap"><span class="refund-assass"></span></div></li>
+                <li class="get-by-self">取货人：左修卓</li>
+                <li class="get-by-self">手机号：13578766755</li>
+                <li class="get-by-self">取货地址：广东省深圳市罗湖区名扬酒店的扣扣上是... </li>
+            </ul>
+            <!--选择新配送方式-->
+            <ul class="get-by-self-wrap get-by-self-wrap-active">
+                <li class="get-by-self get-shop-way new-send-way">选择新配送方式 <div class="refund-assass-wrap"><span class="refund-assass"></span></div></li>
+            </ul>
+        </div>
+
+        <div class="retail-waitingPay clearfix">
+            <div class="col-xs-12 retail-com-list">
+                <div class="col-xs-6 padding-0px">订单金额：</div>
+                <div class="col-xs-6 padding-0px text-right">￥2336</div>
+            </div>
+            <div class="col-xs-12 retail-com-list">
+                <div class="col-xs-6 padding-0px">快递运费：</div>
+                <div class="col-xs-6 padding-0px text-right">￥233</div>
+            </div>
+            <div class="col-xs-12 retail-com-list border-bottom-none">
+                <div class="col-xs-6 padding-0px">已付金额：</div>
+                <div class="col-xs-6 padding-0px text-right">￥233</div>
+            </div>
+            <div class="com-interval border-none float-left"></div>
+            <div class="col-xs-12 retail-com-list border-bottom-none">
+                <div class="col-xs-6 padding-0px">需补差价：</div>
+                <div class="col-xs-6 padding-0px text-right auction-price">
+                    <span class="discount-price-reason"><span class="discount-price-description">（优惠券）</span>￥233</span>
+                    <span class="discount-price-reason"><span class="discount-price-description">（优惠券）</span>￥233</span>
+                </div>
+            </div>
+            <div class="auction-price shortfall">您已用优惠券不适用到店自提订单，需补足差额￥30.00</div>
+            <div class="col-xs-12 retail-com-list border-bottom-none">
+                <div class="col-xs-6 padding-0px">商家需退：</div>
+                <div class="col-xs-6 padding-0px text-right auction-price"><span class="discount-price-description">（快递运费）</span>￥233</div>
+            </div>
+            <div class="retail-waitingPay-payment border-none2 line-height-40px float-left">
+                <span class="border-none-text">
+                    <span class="exclamation-point">!</span>
+                    此次修改需商家审核
+                </span>
+            </div>
+            <!--<div class="comafter retail-waitingPay-contact-name"></div>-->
+            <!--当状态等待通知提货时，支付尾款一栏隐藏-->
+            <div class="retail-waitingPay-topay-time navbar-fixed-bottom" style="display:none">
+                <div class="retail-com-list">
+                    <div class="col-xs-8 text-right retail-waitingPay-rest-payment">商家需退款：<span class="color-zby">￥1983</span></div>
+                    <div class="col-xs-4 padding-0px text-center bgcolor-zby retail-waitingPay-topay">提交</div>
+                </div>
+            </div>
+        <!--需补差价-->
+            <div class="retail-waitingPay-topay-time navbar-fixed-bottom" style="display:block">
+                <div class="retail-com-list">
+                    <div class="col-xs-8 text-right retail-waitingPay-rest-payment">需补差价：<span class="color-zby">￥1983</span></div>
+                    <div class="col-xs-4 padding-0px text-center bgcolor-zby retail-waitingPay-topay">去支付</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--联系客服,拨打商家电话-->
+    <div class="refund-sure-cancel-refund" style="display:block;">
+        <div class="col-xs-12 refund-sure-text">商家已发货，请及时联系商家处理</div>
+        <div>
+            <div class="col-xs-6 refund-cancel-alert">联系客服</div>
+            <a href="tel:13265565715"><div class="col-xs-6 refund-sure-alert refund-sure-active call-shop-phone">拨打商家电话</div></a>
+        </div>
+    </div>
+    <!--限购toast弹出框-->
+    <div class="toast-wrap" id="toastWrap" style="display:none;">
+        <span class="toast">
+            配送消息完全重复，请重新填写
+        </span>
+    </div>
+    <!--遮罩层-->
+    <div id="com_black" class="js_com_black js_hide_com js-hide-refund com_black refund-com-black" style="display:block"></div>
+</div>
+</body>
+</html>
+<script src="../js/jquery-1.10.2.min.js"></script>
+<script src="../js/refund.js"></script>

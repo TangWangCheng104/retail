@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>登录</title>
+    <!-[if IE9]>
+    <script src="js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers{display:none!important;}</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <![endif]->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-login.css" rel="stylesheet" type="text/css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/luoLogin.js"></script>
+</head>
+<body>
+<div class="container-fluid" style="height: 100%">
+    <div class="retail-seller-iconWrap">
+        <img class="retail-seller-icon" src="images/partner-img001.png" alt="">
+        <div>金六福珠宝</div>
+    </div>
+    <!--微信浏览器打开-->
+    <div class="js_comOpen retail-seller-btnWrap" style="display: block">
+        <div class="retail-seller-btn"><i class="retail-seller-btnIcon"><img src="images/icon_SellerWeixin.png" alt=""></i>微信登录</div>
+        <div class="retail-seller-btn"><i class="retail-seller-btnIcon"><img src="images/icon_SellerPhone.png" alt=""></i>手机登录</div>
+    </div>
+    <!--QQ浏览器打开-->
+    <div class="js_comOpen retail-seller-btnWrap" style="display: none">
+        <div class="retail-seller-btn"><i class="retail-seller-btnIcon retail-seller-btnIconqq"><img src="images/icon_qq.png" alt=""></i>QQ登录</div>
+        <div class="retail-seller-btn"><i class="retail-seller-btnIcon"><img src="images/icon_SellerPhone.png" alt=""></i>手机登录</div>
+    </div>
+    <!--微博浏览器打开-->
+    <div class="js_comOpen retail-seller-btnWrap" style="display: none">
+        <div class="retail-seller-btn"><i class="retail-seller-btnIcon"><img src="images/icon_weibo.png" alt=""></i>微信登录</div>
+        <div class="retail-seller-btn"><i class="retail-seller-btnIcon"><img src="images/icon_SellerPhone.png" alt=""></i>手机登录</div>
+    </div>
+    <!--网页打开-->
+    <div class="js_comOpen retail-seller-btnWrap retail-seller-webOpen" style="display: none">
+        <div>
+            <div><img src="images/login-third-party.png" class="img-responsive" alt=""></div>
+            <div class="retail-seller-webOpen-iconWrap flex-row">
+                <div class="retail-seller-webOpen-imgWrap">
+                    <img class="img-responsive retail-seller-webOpen-img" src="images/icon_qq_login.png" alt="">
+                </div>
+                <div class="retail-seller-webOpen-imgWrap">
+                    <img class="img-responsive retail-seller-webOpen-img" src="images/icon_weixin_login.png" alt="">
+                </div>
+                <div class="retail-seller-webOpen-imgWrap">
+                    <img class="img-responsive retail-seller-webOpen-img" src="images/icon_weibo_login.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="retail-seller-btn"><i class="retail-seller-btnIcon"><img src="images/icon_SellerPhone.png" alt=""></i>手机登录</div>
+    </div>
+</div>
+<div class="text-center navbar-fixed-bottom retail-btn-register">
+    <a class="retail-seller-register" href="#">点击注册<i class="retail-seller-IconAllow"><img src="images/retail-seller-IconAllow.png" alt=""></i></a>
+</div>
+</body>
+</html>
+

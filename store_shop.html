@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name='apple-itunes-app' content='app-id=1035128844'>
+    <!--样式胡引入-->
+    <link rel="stylesheet" href="css/store-index.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <!--js的引入-->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <title>商城首页</title>
+</head>
+<body>
+<script>
+    $(function(){
+        console.log(2)
+        $('.store-tap').on("click","li",function(){
+
+            var index = $(this).index(".store-tap li");
+            $('.store-tap li').eq(index).find("a").addClass("store-avtive").parent().siblings().find("a").removeClass("store-avtive");
+        })
+    })
+</script>
+<div class="store-wrap">
+    <ul class="store-tap">
+        <li><a href="javascript:;">首页</a></li>
+        <li><a href="javascript:;">商品</a></li>
+        <li><a href="javascript:;" class="store-avtive">活动</a></li>
+    </ul>
+    <div class="store-nav">
+        <div class="store-search">
+            <input class="search-input" type="text" placeholder="搜索商品名称或货号">
+            <img src="images/search_icon.jpg">
+        </div>
+        <div class="store-classfiy">
+            <img src="images/classfiy_icon1.jpg">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

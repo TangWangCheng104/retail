@@ -1,0 +1,156 @@
+.newYear-activityList-title{
+    background: #f3f3f5;
+    text-align: center;
+    color: #999;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+}
+.newYear-activityList-img-wrap{
+    width: 90%;
+    margin: 15px auto 20px;
+    position: relative;
+}
+.newYear-activityList-img-wrap02{
+    width: 80%;
+}
+.newYear-activityList-img-wrap img{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.newYear-activityList-text{
+    font-size: 13px;
+    padding: 10px 70px 10px 0;
+    line-height: 20px;
+}
+.newYear-activityList-text02{
+    padding: 20px 70px 20px 0;
+}
+.newYear-activityList-time{
+    font-size: 12px;
+    color: #999;
+    padding-bottom: 15px;
+}
+.newYear-activityList-btn{
+    padding: 10px 0;
+    border-top: 1px solid #d7d7d7;
+}
+.newYear-activityList-btn .combtn{
+    color: #ff865d;
+    font-size: 14px;
+    padding: 4px 0;
+}
+.newYear-activityList-btn .btn01{
+    border-right: 1px solid #d7d7d7;
+}
+.newYear-activityList-project{
+    background: #fff;
+}
+.newYear-activityList-status{
+    padding-right: 30px;
+}
+@media (max-width: 360px) {
+    .newYear-activityList-img-wrap img{
+        width: 40px;
+        height: 40px;
+    }
+    .newYear-activityList-text{
+        font-size: 12px;
+        padding: 2px 50px 2px 0;
+        line-height: 18px;
+    }
+    .newYear-activityList-text02{
+        padding: 10px 50px 10px 0;
+    }
+}
+
+/*编辑方案页面样式开始*/
+.newYear-project-title{
+    font-size: 14px;
+    padding: 15px 0 0;
+    font-weight: 600;
+}
+.newYear-project-input{
+    width: 100%;
+    height: 33px;
+    border: 1px solid #d8d8d8;
+    padding-left: 10px;
+    font-size: 13px;
+}
+.retail-comverify label.error {
+    left: 0;
+    bottom: -15px;
+}
+.newYear-project-title-warning{
+    font-size: 12px;
+    color: #f5a828;
+    padding-left: 5px;
+}
+.newYear-project-title-img{
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+.newYear-cominput-wrap{
+    padding: 8px 0 10px;
+}
+.newYear-project-img001{
+    width: 80px;
+    height: 80px;
+    border: 1px solid #dedede;
+}
+.newYear-project-img-wrap{
+    position: relative;
+}
+.newYear-project-img-wrap .error{
+    color: #ff865d;
+    position: absolute;
+    bottom: -5px;
+    left: 90px;
+}
+.newYear-project-img-wrap{
+    margin-bottom: 15px;
+}
+.newYear-people-number{
+    width: 60px;
+    margin: 0 5px;
+    text-align: center;
+}
+.newYear-project-rule{
+    margin-bottom: 20px;
+    color: #999;
+    padding-bottom: 15px;
+}
+.newYear-project-warning{
+    color: #999;
+    font-size: 12px;
+}
+.newYear-project-warning-text{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d7d7d7;
+    width: 100%;
+    display: inline-block;
+    padding-left: 15px;
+}
+.newYear-project-warning-wrap{
+    width: 100%;
+    display: block;
+    padding: 20px 0 60px;
+}
+.newYear-project-bigBtn{
+    height: 45px;
+    line-height: 45px;
+    font-size: 17px;
+}
+.newYear-project-bigBtn.disabled{
+    background: #eeeeee;
+    color: #cecece;
+}
+.newYear-project-title02{
+    font-size: 12px;
+    color: #999;
+    padding-left: 3px;
+}
+/*编辑方案页面样式结束*/

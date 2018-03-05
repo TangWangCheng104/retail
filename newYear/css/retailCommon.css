@@ -1,0 +1,415 @@
+body{
+    color: #222;
+    background: #f3f3f5;
+}
+.a_block{
+    display: block;
+    color: #222;
+}
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+    width: 100%;
+}
+.com-line-black{
+    width: 100%;
+    height: 1px;
+    background: #f4f4f5;
+}
+.icon_img{
+    text-align: center;
+    padding: 30px 0;
+    overflow: hidden;
+}
+.icon_img img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.icon_img input{
+    width: 100%;
+    height: 150px;
+    line-height: 150px;
+    opacity: 0;
+    position: absolute;top: 0;left: 0;
+}
+.com_clamp1{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+.icon_jiantouR{
+    display: inline-block;
+}
+.padding-0px{
+    padding: 0;
+}
+.retail-activity{
+    max-height: 201px;
+    overflow: hidden;
+}
+.retail-activity img{
+    width: 100%;
+}
+.retail-comverify{
+    position: relative;
+}
+.retail-comverify label.error{
+    color: #ff3737;
+    position: absolute;
+    font-weight: normal;
+    bottom: -25px;
+    left: 27px;
+}
+.retail-com-list{
+    height: auto;
+    line-height: 45px;
+    background: #fff;
+    border-bottom: solid 1px #d7d7d7 ;
+}
+.color-zby{
+    color: #ff865d;
+}
+.bgcolor-zby{
+    background-color: #ff865d\9;
+    background-color: rgba(255,134,93,1);
+    color: #fff;
+}
+.zby-btn{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid #ff865d;
+    color: #ff865d;
+}
+.size16{
+    font-size: 16px;
+}
+.size12{
+    font-size: 12px;
+}
+.com-interval{
+    width: 100%;
+    height: 8px;
+    border-bottom: solid 1px #d7d7d7 ;
+}
+.disabled{
+    background: #d7d7d7;
+}
+.pay-price-past{
+    text-decoration: line-through;
+}
+@media (max-width: 360px) {
+    .retail-com-list{
+        line-height: 35px;
+    }
+    .com-interval{
+        width: 100%;
+        height: 5px;
+        border-bottom: solid 1px #d7d7d7 ;
+    }
+}
+.icon28_common{
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    border-radius: 14px;
+}
+.icon17_common{
+    width: 17px;
+    height: 20px;
+    line-height: 20px;
+    display: inline-block;
+}
+.icon_jiantouR-img{
+    display: inline-block;
+    margin-left: 5px;
+    width: 7px;
+}
+.retail-goodsDetails-price-past {
+    color: #9d9c9b;
+    text-decoration: line-through;
+    font-size: 12px;
+}
+/*浏览记录样式开始*/
+.retail-goods-price-past{
+    color: #9d9c9b;
+    text-decoration: line-through;
+}
+.retail-borwsingHistory-search-wrap{
+    width: 100%;
+    padding-left: 9px;
+    position: fixed;
+    z-index: 1040;
+    background: #f3f3f5;
+}
+.retail-borwsingHistory-search{
+    width: 85%;
+    height: 30px;
+    border: 1px solid #dadbdf;
+    border-radius: 5px;
+    margin: 9px 0;
+    background: #fff;
+    position: relative;
+}
+.retail-borwsingHistory-search input{
+    width: 85%;
+    height: 28px;
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.retail-borwsingHistory-search img{
+    width: 14px;
+}
+.retail-borwsingHistory-search-icon{
+    width: 8%;
+    text-align: right;
+    display: inline-block;
+    margin-right: 10px;
+    height: 28px;
+}
+.retail-borwsingHistory-search-close{
+    position: absolute;
+    right: 15%;
+    top: 2px;
+    height: 30px;
+    padding: 0 8px;
+}
+.retail-borwsingHistory-search-close img{
+    width: 15px;
+}
+.retail-borwsingHistory-search-sort{
+    width: 15%;
+    padding: 11px 6%;
+    height: 46px;
+    display: inline-block;
+    background: url("../images/icon_sort.png") center no-repeat;
+    background-size: 20px;
+}
+.retail-borwsingHistory-search-sort.selected{
+    background: url("../images/icon_sort_selected.png") center no-repeat;
+    background-size: 20px;
+}
+.retail-borwsingHistory-menu{
+    background: #fff;
+    border-top:1px solid #d7d7d7;
+    border-bottom:1px solid #d7d7d7;
+}
+.retail-borwsingHistory-submenu{
+    margin: 10px 0;
+    border-left: 1px solid #dadbdf;
+}
+.retail-borwsingHistory-submenu.first{
+    border-left: none;
+}
+.retail-borwsingHistory-submenu:first-child{
+    border-left: none;
+}
+.retail-borwsingHistory-submenu.current{
+    color: #ff865d;
+}
+.retail-com-model-goods-wrap{
+    padding-left: 6px;
+}
+.retail-com-model-goods{
+    padding-right: 6px;
+    margin-top: 8px;
+}
+.retail-com-model{
+    background: #fff;
+}
+.retail-com-model{
+    overflow: hidden;
+}
+.retail-com-model-img{
+    height: 200px;
+    position: relative;
+}
+.retail-com-model-img img{
+    height: 200px;
+    position: absolute;
+    left: -30%;
+    right: -30%;
+    top: 0;
+    bottom: 0;
+    margin:auto;
+}
+.retail-off-price-icon{
+    width: 50px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    display: inline-block;
+    background: #ffa493;
+    color: #fff;
+    border-radius: 13px;
+    position: absolute;
+    top: 5px;
+    left: 6px;
+}
+.retail-com-model-title{
+    color: #666;
+    padding: 10px 4px 0;
+}
+.retail-com-model-price{
+    padding: 6px 6px;
+}
+.retail-myInformation{
+    background: #fff;
+    margin: 20px 0 100px;
+    border-top:1px solid #d7d7d7;
+    border-bottom:1px solid #d7d7d7;
+}
+.retail-myInformation .retail-com-list{
+    margin-left: 15px;
+    padding-right: 15px;
+}
+.retail-myInformation .retail-com-list.border-none{
+    border: none;
+}
+.retail-myInformation-icon{
+    height: 70px;
+    line-height: 70px;
+}
+.retail-myInformation-icon-img{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+.retail-goodsDetails-btn-login{
+    height: 50px;
+    line-height: 50px;
+}
+.retail-goodsDetails-btn-login [class*="col-"]{
+    text-align: center;
+    padding: 0;
+}
+.retail-goodsDetails-btn-login span,.retail-goodsDetails-btn-login a{
+    display: inline-block;
+}
+.retail-goodsDetails-btn-login .myAccount{
+    color: #b5b4b4;
+    background: #eeeeee;
+}
+.retail-goodsDetails-btn-login .myCollect{
+    color: #fcfbfb;
+    background: #fcc1ad;
+}
+.retail-goodsDetails-btn-login .buying{
+    color: #fcfbfb;
+    width: 100%;
+    background: #ff865d;
+}
+.retail-borwsingHistory-btn{
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 7px;
+}
+/*浏览记录样式结束*/
+/*缺货通知样式开始*/
+.stockout-inform-input{
+    padding: 15px 15px 25px;
+}
+.stockout-inform-input input{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #d7d7d7;
+    padding-left: 5px;
+}
+.stockout-inform-input .retail-comverify label.error {
+    font-size: 12px;
+    bottom: -25px;
+    left: 5px;
+}
+/*缺货通知样式end*/
+/*商品分类样式开始*/
+.retail-sort-alert{
+    width: 100%;
+    position: fixed;
+    top: 47px;
+    z-index: 1050;
+    background:#f3f3f5;
+}
+.retail-sort-alert-wrap{
+    width: 100%;
+    height: 541px;
+    position: relative;
+    top: 1px;
+}
+.sort_bg02{
+    position: absolute;
+    width: 38px;
+    bottom: 1px;
+    right: 0;
+}
+.retail-sort-alert-title .item{
+    border-bottom: solid 2px #f3f3f5;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #fff;
+}
+.retail-sort-alert-title .item.selected{
+    border-bottom: solid 3px #ff865d;
+}
+.retail-sort-alert-menu-common{
+    max-height: 500px;
+    overflow:auto;
+}
+.retail-sort-alert-menu-common-item{
+    height: 50px;
+    line-height: 50px;
+    position: relative;
+    background: #fff;
+    font-size: 12px;
+}
+.retail-sort-alert-menu-common-item .icon_jiantouR-img{
+    position: absolute;
+    right: 5px;
+    top: 19px;
+}
+.retail-sort-alert-menu-common-item.selected{
+    color: #ff865d;
+}
+.retail-sort-alert-menu-common-five{
+    width: 20%;
+}
+/*商品分类样式结束*/
+/*搜索纪录样式开始*/
+.retail-search-record{
+    height: 800px;
+    background: #f3f3f5;
+}
+.retail-search-record-wrap{
+    background: #fff;
+    padding-left: 15px;
+    border-bottom: 1px solid #d7d7d7;
+}
+.retail-search-record-item{
+    height: 44px;
+    line-height: 44px;
+    position: relative;
+    border-bottom: 1px solid #d7d7d7;
+}
+.retail-search-record-item-icon{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 15px;
+}
+.retail-search-record-item-icon img{
+    width: 14px;
+ }
+.retail-search-sort-cancel{
+    position: absolute;
+    width: 15%;
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    top: 0;
+    right: 0;
+    color: #666;
+    font-size: 15px;
+}
+/*搜索纪录样式结束*/

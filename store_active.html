@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name='apple-itunes-app' content='app-id=1035128844'>
+    <!--样式胡引入-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-goodsDetails.css" rel="stylesheet" type="text/css">
+    <link href="css/procurer.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/store-index.css">
+    <!--js的引入-->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script type="text/javascript" src="js/pinchzoom.js"></script>
+    <script src="js/goodDetail.js"></script>
+    <script src="js/app_product.js"></script>
+    <title>商城首页</title>
+</head>
+<body>
+<script>
+    $(function(){
+        $('.store-tap').on("click","li",function(){
+
+            var index = $(this).index(".store-tap li");
+            $('#store-tap li').eq(index).find("a").addClass("store-avtive").parent().siblings().find("a").removeClass("store-avtive");
+        });
+        var store_tap = document.getElementById("store-tap");
+        var store_tap_height = store_tap.offsetTop;
+        $(window).scroll(function(e){
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+            if(scrollTop>=store_tap_height){
+                $(store_tap).addClass("fixed");
+                console.log('a');
+            }else {
+                $(store_tap).removeClass("fixed");
+                console.log('b');
+            }
+
+        })
+    })
+</script>
+
+<div class="black" style="display: none">
+    <div class="black-banner-wrap">
+        <div id="carousel-bigimg-generic" class="carousel slide daifu-carousel" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators comafter">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active">1/<span class="num">3</span></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1">2/<span class="num">3</span></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2">3/<span class="num">3</span></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner carousel-black" role="listbox">
+                <div class="item active">
+                    <div class="js_carousel">
+                        <img class="img-responsive" id="banner001" src="images/banner01.png" alt="">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="js_carousel">
+                        <img id="banner002" src="images/banner02.png" alt="">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="js_carousel">
+                        <img id="banner003" src="images/banner01.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="store-wrap">
+
+
+    <ul class="store-tap" id="store-tap">
+        <li><a href="javascript:;">首页</a></li>
+        <li><a href="javascript:;">商品</a></li>
+        <li><a href="javascript:;" class="store-avtive">活动</a></li>
+    </ul>
+
+    <div class="store_no_avtive" style="display: block">
+        <div class="store_noAvtive_content">
+            <img class="store_noActive_img" src="images/store-_no_active.jpg"/>
+            <span class="store_noAvtive_text">店铺暂无活动，敬请期待哦~</span>
+        </div>
+    </div>
+
+    <div class="store-goods-list">
+
+        <ul class="store-bottom">
+            <li>
+                <a href="javascript:;" class="store-bottom-active">
+                    <img src="images/icon_shangcheng_xuanzhong_nor@3x.png" />
+                    <p>商城</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="images/icon_kefu_nor@3x.png" />
+                    <p>客服</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="images/icon_wode_nor@3x.png" />
+                    <p>我的</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

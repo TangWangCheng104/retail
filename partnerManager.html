@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name='apple-itunes-app' content='app-id=1035128844'>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>邀请合伙人</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/partner.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/loginVerify.js"></script>
+    <script>
+        $(function(){
+            for(var i = 0; i<3;i++){
+                var storeImgW = $(".js_storeImg").eq(i).find("img").width();
+                var storeImgH = $(".js_storeImg").eq(i).find("img").height();
+                if(storeImgW<=storeImgH){
+                    $(".js_storeImg").eq(i).find("img").css({
+                        width:"100%",
+                        height:"auto"
+                    });
+                }else {
+                    $(".js_storeImg").eq(i).find("img").css({
+                        width:"auto",
+                        height:"100%"
+                    });
+                }
+            }
+            var storeW = $(".js_storeImg").width();
+            $(".js_storeImg").css({"width":storeW+"px"});
+            $(".js_storeImg").css({"height":storeW+"px"});
+        });
+
+    </script>
+</head>
+<body>
+<div class="container-fluid" style="padding-right: 30px">
+    <div class="partner-title">可可香奈儿的奢侈品珠宝批发</div>
+    <div class="partner-intro">
+        <div class="partner-intro-img"><img src="images/partner_icon001.png" alt=""></div>
+        <div class="partner-intro-info">本店世界知名时尚珠宝品牌，细腻卓著的雕琢，独具匠心的设计，卓绝巧手打造的经典珍品。宝格丽世界知名时尚珠宝品牌，细腻卓著的雕琢，独具匠心的设计，卓绝巧手打造的经典珍品。宝格丽的卓绝巧手打造的经典珍品问。</div>
+    </div>
+    <div class="partner-intro">
+        <div class="partner-intro-img"><img src="images/partner_icon002.png" alt=""></div>
+        <div class="partner-intro-info">广东省深圳市罗湖区天北三路明阳街道民阳酒店法武班务63室。</div>
+    </div>
+    <div class="partner-intro">
+        <div class="partner-intro-img"></div>
+        <div class="partner-intro-info partner-storeImg-wrap">
+            <div class="partner-storeImg first"><img src="images/partner-img001.png" alt=""></div>
+            <div class="partner-storeImg"><img src="images/partner-img001.png" alt=""></div>
+            <div class="partner-storeImg"><img src="images/partner-img001.png" alt=""></div>
+        </div>
+    </div>
+    <div class="partner-intro">
+    	<div class="partner-intro-img"><img src="images/phone_icon.png" alt=""></div>
+    	<div class="partner-intro-info">门店号码<a class='partner-tellPhone-number' href='tel:13265565715'>13265565715</a></div>
+    </div>
+    <div class="partner-msgImg"><img class="img-responsive" src="images/partner_icon003.png" alt=""></div>
+    <div class="partner-input-wrap">
+        <div class="flex-row partner-input-group">
+            <div class="partner-input-groupL">电话</div>
+            <div class="flex-row partner-input-groupR js_comverify">
+                <input onkeyup="input_Func(this)" disabled="disabled" placeholder="请输入电话号码" onblur="input_Func(this)" class="disabled" type="number">
+                <img class="js_closeBtn partner-closeBtn" style="display: none" src="images/partner_iconClose.png"  alt="">
+            </div>
+        </div>
+        <div class="flex-row partner-input-group">
+            <div class="partner-input-groupL">验证码</div>
+            <div class="flex-row partner-input-groupR" style="border: none;padding: 0">
+                <div class="flex-row" style="border: 1px solid #d7d7d7;border-radius: 5px;flex: 1;">
+                    <input onkeyup="input_Func(this)" disabled="disabled" placeholder="请输入验证码" onblur="input_Func(this)" class="js_input disabled" type="number">
+                    <img class="js_closeBtn partner-closeBtn" style="display: none" src="images/partner_iconClose.png"  alt="">
+                </div>
+                <div class="partner-input-verify-btn">|<span style="color: #999">获取验证码</span></div>
+            </div>
+        </div>
+        <div class="flex-row partner-input-group">
+            <div class="partner-input-groupL">姓名</div>
+            <div class="flex-row partner-input-groupR">
+                <input onkeyup="input_Func(this)" disabled="disabled" placeholder="请输入真实姓名" onblur="input_Func(this)" class="js_input disabled" type="number">
+                <img class="js_closeBtn partner-closeBtn" style="display: none" src="images/partner_iconClose.png"  alt="">
+            </div>
+        </div>
+        <div class="flex-row partner-input-group">
+            <div class="partner-input-groupL">密码</div>
+            <div class="flex-row partner-input-groupR">
+                <input onkeyup="input_Func(this)" disabled="disabled" placeholder="6~20位字母、数字或 _ 组成" onblur="input_Func(this)" class="js_input disabled" type="text">
+                <img class="js_closeBtn partner-closeBtn" style="display: none" src="images/partner_iconClose.png"  alt="">
+            </div>
+        </div>
+    </div>
+    <div class="text-center"><input class="partner-submitBtn disabled" disabled="disabled" type="button" value="提交申请"></div>
+</div>
+</body>
+</html>

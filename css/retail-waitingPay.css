@@ -1,0 +1,784 @@
+body{
+    font-size: 14px;
+}
+.retail-waitingPay{
+    /*padding-bottom: 100px;*/
+}
+.retail-waitingPay-order-detail{
+    background: #fff;
+}
+.retail-waitingPay-order-num-status{
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+}
+.retail-waitingPay-order-detail-img{
+    font-size: 12px;
+    padding: 7px 15px;
+    background: #f7f7f7;
+    /*margin-top: 5px;*/
+}
+.retail-waitingPay-order-detail-img.first{
+    margin-top: 0;
+}
+.retail-waitingPay-order-detail-img:first-child{
+    margin-top: 0;
+}
+.retail-waitingPay-order-detail-title{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: 13px;
+}
+.retail-waitingPay-order-detail-artnum{
+    font-size: 12px;
+    color: #999999;
+}
+.retail-waitingPay-order-detail-num{
+    color: #999999;
+}
+.retail-waitingPay-order-detail-txt{
+    padding-left: 15px;
+    /*width: 100%;*/
+}
+.retail-waitingPay-contact-msg{
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+}
+.retail-waitingPay-name{
+    border-top:solid 1px #d7d7d7 ;
+}
+.retail-waitingPay-topay-time{
+    border-top:solid 1px #d7d7d7 ;
+    background: #fff;
+}
+.retail-waitingPay-topay{
+    /*width: 40%;*/
+    /*height: 50px;*/
+    color: #fff;
+    font-size: 15px;
+    background: #d7d7d7;
+    cursor: pointer;
+}
+.retail-waitingPay-topay.bgcolor-zby{
+    background-color: #fe4b4b\9;
+    background-color: rgba(254,75,75,1);
+}
+.retail-waitingPay-topay-text{
+    font-size: 15px;
+    padding-top: 8px;
+    font-weight: bold;
+}
+.retail-waitingPay-topay-money{
+    padding-right: 15px;
+    font-size: 15px;
+}
+.retail-waitingPay-topay-money b{
+    font-size: 14px;
+}
+.retail-waitingPay-topay-money span{
+    font-size: 17px;
+}
+.retail-waitingPay-time{
+    font-size: 11px;
+    padding-bottom: 5px;
+}
+.retail-waitingPay-contact-name{
+    padding-bottom: 50px;
+}
+@media (max-width: 360px) {
+    .retail-waitingPay-topay-time .retail-com-list{
+        height: 40px;
+        line-height: 40px;
+    }
+    .retail-waitingPay-contact-msg {
+        font-size: 12px;
+        height: 25px;
+        line-height: 25px;
+    }
+    .retail-waitingPay-contact-name{
+        padding-bottom: 30px;
+    }
+}
+.retail-waitingPay-qrcode{
+    position: relative;
+    padding: 30px 30px;
+    width: 100%;
+    height: 100px;
+    border-bottom:solid 1px #d7d7d7 ;
+    background: #f8f8f8;
+}
+.retail-waitingPay-qrcode-img{
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    position: absolute;
+    top: 15px;
+    right: 30px;
+}
+.flow-unpaid{
+    /*border-bottom:solid 1px #d7d7d7 ;*/
+    background: #fff;
+    font-size: 10px;
+    padding-bottom: 15px;
+}
+.lqy-time-date{
+    padding: 3px 3px 0;
+    text-align: center;
+    color: #999;
+}
+.retail-myorder-order-line{
+    height: 20px;
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+}
+.retail-waitingPay-myorder{
+    background: url("../images/icon_order.png") center no-repeat;
+    background-size: 50px;
+}
+.retail-waitingPay-myaccount{
+    background: url("../images/icon_account.png") center no-repeat;
+    background-size: 50px;
+}
+.retail-waitingPay-myorder.selected{
+    background: url("../images/icon_order_selected.png") center no-repeat;
+    background-size: 50px;
+}
+.retail-waitingPay-myaccount.selected{
+    background: url("../images/icon_account_selected.png") center no-repeat;
+    background-size: 50px;
+}
+.retail-waitingPay-refund{
+    border-right: 1px solid #d7d7d7;
+}
+.retail-waitingPay-refund,.retail-waitingPay-callme{
+    color: #00a6ff;
+    height: 25px;
+    line-height: 25px;
+    margin: 12px 0;
+}
+.retail-waitingPay-rest-payment{
+    padding-right: 15px;
+}
+.retail-waitingPay-order-style-discount{
+    padding-top: 8px;
+}
+.retail-waitingPay-order-style-discount .discount{
+    height: 25px;
+    line-height: 25px;
+}
+.retail-waitingPay-order-select-btn span{
+    display: inline-block;
+    padding: 3px 10px;
+    border: 1px solid #fe4b4b;
+    border-radius: 5px;
+    color: #fe4b4b;
+}
+@media (max-width: 360px) {
+    .retail-waitingPay-refund-callme{
+        height: 40px;
+        line-height: 40px;
+    }
+    .retail-waitingPay-refund,.retail-waitingPay-callme{
+        color: #00a6ff;
+        height: 20px;
+        line-height: 20px;
+        margin: 8px 0;
+    }
+    .retail-waitingPay-order-select-btn{
+        padding-top: 10px;
+    }
+}
+/*申请退款样式开始*/
+.retail-refund{
+    background: #fff;
+    padding-bottom: 80px;
+}
+.retail-refund-title{
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold;
+}
+.retail-refund-reason-text label.error{
+    bottom:-25px;
+    left: 0;
+}
+.retail-refund .input-group{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.retail-refund-reason{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+.retail-refund-myreason{
+    padding-top: 5px;
+    padding-left: 8px;
+    height: 110px;
+}
+.retail-refund-account{
+    background: #f8f8f8;
+    line-height: 25px;
+    font-size: 12px;
+    border: 1px solid #d7d7d7;
+    padding: 5px 15px;
+    margin-bottom: 15px;
+}
+.retail-refund-account-select{
+    margin-top: 5px;
+}
+/*申请退款样式结束*/
+/*订单详情样式开始*/
+.retail-orderDetail-refund-myreason{
+    padding:10px 15px;
+    line-height: 22px;
+    height: inherit;
+    border: none;
+}
+.retail-orderDetail-btn .retail-com-list{
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    font-size: 16px;
+}
+/*订单详情样式结束*/
+/*我的订单样式开始*/
+.retail-myorder-icon{
+    position: relative;
+    top: 8px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+.retail-myorder-icon img{
+    /*border-radius: 50%;*/
+    min-height: 28px;
+    min-width:28px;
+}
+.retail-waitingPay-order-detail-img img{
+    max-height: 96px;
+}
+.retail-waitingPay-order-detail-left{
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.retail-order-detail-left{
+    width: 91px;
+    height: 91px;
+    overflow: hidden;
+}
+.retail-waitingPay-order-detail-left img{
+    min-width: 75px;
+    min-height: 75px;
+    max-height: inherit;
+}
+.retail-order-detail-left img{
+    min-width: 91px;
+    min-height: 91px;
+    max-height: inherit;
+}
+.retail-myorder-detail{
+    flex: 1;
+}
+.retail-myorder-detail a{
+    height: 75px;
+    line-height: 75px;
+    display: inline-block;
+    color: #222;
+    font-size: 14px;
+}
+.retail-myorder-btn{
+    height: 45px;
+    line-height: 45px;
+    justify-content: flex-end;
+}
+.retail-myorder-btn .btn{
+    min-width: 66px;
+    height: 28px;
+    line-height: 26px;
+    display: inline-block;
+    border: 1px solid #222;
+    padding: 0 3px;
+    color: #222;
+    margin: 8px 3px 8px 10px;
+}
+.retail-myorder-btn .btn.disabled{
+    border: 1px solid #999;
+    color: #999;
+    background: #fff;
+}
+.flex-data{
+    flex: 1;
+}
+.retail-myorder{
+    padding-bottom: 180px;
+}
+.retail-myorder-order-account{
+    border: none;
+    /*border-top:#cbcbcb 0.5px solid;*/
+    box-shadow: 0 0 10px #cbcbcb;
+}
+.retail-myorder-order-account a{
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+.lqy-myaccount-btn{
+    background: #fbb567;
+}
+.lqy-storeIndex-btn{
+    background: #fe4b4b;
+}
+.retail-myorder-order-account a.selected{
+    color: #fe4b4b;
+}
+.icon17_common.icon_order{
+    position: relative;
+    top: -2px;
+}
+.retail-com-list-time{
+    font-size: 12px;
+    color: #fe4b4b;
+}
+.luo-address{
+    padding: 8px 0 15px;
+    background-size: auto 5px;
+    background:#fff;
+    /*border-bottom: 1px solid #d7d7d7;*/
+}
+.dilivery-address{
+    padding: 8px 0 5px;
+    background-size: auto 5px;
+    background:#fff;
+}
+.luo-address02{
+    background:#fff url("../images/luo-address-bg.png") left bottom repeat-x;
+    background-size: auto 5px;
+}
+.delivery-address-name{
+    color: #666;
+}
+.delivery-address-name{
+    color: #666;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+.dilivery-detail{
+    padding-left: 27px;
+}
+.luo-address-left img{
+    height: 12px;
+    padding-right: 14px;
+}
+.delivery-title{
+    padding: 7px 0 10px;
+    font-weight: bold;
+}
+.delivery-item{
+    padding-bottom: 12px;
+    color: #666;
+    font-weight: 500;
+}
+.delivery-item-way{
+    color: #222;
+}
+.dilivery-send{
+    padding-left: 15px;
+}
+.dilivery-send-item{
+    padding-right: 15px;
+    border-top: 1px solid #d7d7d7;
+    padding-top: 15px;
+}
+.icon-round img{
+    height: 17px;
+    padding-right: 10px;
+}
+.luo-address-left01 img{
+    height: 15px;
+}
+.luo-address-right img{
+    height: 12px;
+    padding-left: 14px;
+}
+.luo-leaveWords{
+    width: 100%;
+    border: none;
+    line-height: 18px;
+    padding-top: 2px;
+}
+.luo-leaveWords-wrap{
+    line-height: inherit;
+    padding-top: 13px;
+    background: #fff;
+    align-items: flex-start;
+}
+/*将来删掉*/
+input.unuseful::-webkit-input-placeholder{ /* WebKit browsers */
+    color: #f00;
+}
+input.unuseful{ /* WebKit browsers */
+    color: #f00;
+}
+/*将来删掉end*/
+@media (max-width: 350px) {
+    .retail-myorder-btn{
+        height: 40px;
+        line-height: 40px;
+    }
+    .retail-myorder-btn .btn {
+        border: 1px solid #222;
+        padding: 1px 3px;
+        color: #222;
+        margin: 4px 3px 4px 0;
+    }
+    .retail-myorder-icon{
+        width: 22px;
+        height: 22px;
+        position: relative;
+        top: 5px;
+        margin-right: 5px;
+    }
+}
+/*我的订单样式结束*/
+/*我的账号样式开始*/
+.lqy-myaccount-username{
+    position: absolute;top: 30px;width: 100%
+}
+.retail-myaccount-icon-username{
+    background: #686f78;
+    /*padding: 20px 0;*/
+}
+.retail-myaccount-icon{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.retail-myaccount-icon img{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+}
+.retail-myaccount-username{
+    padding: 10px;
+    color: #fff;
+    font-size: 18px;
+}
+.retail-myaccount-msg{
+    background: #fff;
+}
+.retail-myaccount-msg-common{
+    width: 100%;
+    border-bottom: 1px solid #d7d7d7;
+    font-size: 14px;
+}
+.retail-myaccount-msg .center{
+    border-left:1px solid #d7d7d7;
+    border-right:1px solid #d7d7d7;
+}
+.lqy-orders-status{
+    width: 100%;
+    font-size: 11px;
+}
+.lqy-orders-myorder{
+    margin: 10px auto;
+}
+.lqy-orders-myorder .a_block{
+    border-left: 1px solid #d7d7d7;
+    padding: 8px 0;
+}
+.lqy-myaccount-orders{
+    height: 82px;
+    background: #fff;
+    border-bottom:1px solid #d7d7d7;
+    text-align: center;
+    /*display: box;              !* OLD - Android 4.4- *!*/
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    /* 09版 */
+    -webkit-box-orient: horizontal;
+    /* 12版 */
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    -o-flex-direction: row;
+    flex-direction: row;
+}
+.lqy-orders-img{
+    width: 22px;
+    height: 22px;
+    position: relative;
+    margin: 20px auto 0;
+}
+.lqy-orders-myorder .lqy-orders-img{
+    margin: 0 auto;
+}
+.lqy-orders-account{
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    border-radius: 10px;
+    display: inline-block;
+    background: #f00;
+    color: #fff;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    position: absolute;
+    right: -10px;
+    top:-10px;
+}
+.lqy-orders-statusText{
+    padding-top: 5px;
+}
+.lqy-orders-statusText01{
+    padding-top: 10px;
+}
+.retail-myaccount-msg{
+    /*display: box;              !* OLD - Android 4.4- *!*/
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    /* 09版 */
+    -webkit-box-orient: horizontal;
+    /* 12版 */
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    -o-flex-direction: row;
+    flex-direction: row;
+    height: 94px;
+}
+.lqy-myaccount-msg{
+    width: 27px;
+    height: 27px;
+    line-height: 27px;
+}
+.lqy-myaccount-record{
+    color: #6ac20b;
+    font-weight: bold;
+    font-size: 18px;
+    width: 100%;
+    height: 27px;
+    line-height: 27px;
+    text-align: center;
+}
+.lqy-myaccount-mycollect{
+    width: 100%;
+    height: 27px;
+    line-height: 27px;
+    text-align: center;
+    color: #ff9900;
+    font-weight: bold;
+    font-size: 18px;
+}
+.goods-time{
+    color: #fe4b4b;
+    font-size: 12px;
+}
+.delay-btn-info{
+    position: relative;
+    top: 50px;
+    left: -10px;
+}
+.delay-more-wrap{  position: relative; }
+.delay-alert-icon{
+    display: inline-block;
+    width: 0;
+    border-width: 10px;
+    border-color: #000 transparent transparent transparent;
+    border-style: solid;
+    opacity: 0.8;
+    position: absolute;
+    bottom:-15px;
+    left: 40%;
+    /* margin-left: 6%; */
+}
+.delay-alert-icon01{
+    display: inline-block;
+    width: 0;
+    border-width: 10px;
+    border-color:  transparent transparent #000 transparent;
+    border-style: solid;
+    opacity: 0.8;
+    position: absolute;
+    top: -16px;
+    /* margin-left: 6%; */
+    left: 36px;
+}
+.delay-btn{  width:100%;height:40px;position: absolute;top: -40px;left: 0;display: none  }
+.delay-btn01{
+    width:100%;
+    height:40px;
+    position: absolute;
+    bottom: -35px;left: 0;
+    display: none;
+    top: -5px;
+}
+.auction-price-color{
+    color: #fe4b4b;
+}
+.order-go-to-pay{
+    background: #FE4B4B;
+    padding: 0;
+    text-align: center;
+}
+
+.discount-price-description{
+    color: #999;
+    font-size: 12px;
+    margin-right: 14px;
+    position: relative;
+    top:-.01rem;
+}
+
+/*开关灯的样式*/
+[class|=switch] {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 32px;
+    border-radius: 16px;
+    line-height: 32px;
+    -webkit-tap-highlight-color:rgba(255,255,255,0);
+}
+.switch-on {
+    border: 1px solid white;
+    box-shadow: white 0px 0px 0px 16px inset;
+    transition: border 0.4s, box-shadow 0.2s, background-color 1.2s;
+    background-color: white;
+    cursor: pointer;
+    position: absolute;
+    right:0;
+}
+.slider {
+    position: absolute;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+}
+.switch-on .slider {
+    left: 20px;
+    transition: background-color 0.4s, left 0.2s;
+}
+.switch-off {
+    border: 1px solid #dfdfdf;
+    transition: border 0.4s, box-shadow 0.4s;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    position: absolute;
+    right:0;
+}
+.switch-off .slider {
+    left: 0;
+    transition: background-color 0.4s, left 0.2s;
+}
+.switch-on.switch-disabled{
+    opacity:.5;
+    cursor:auto;
+}
+.switch-off.switch-disabled{
+    background-color:#F0F0F0 !important;
+    cursor:auto;
+}
+.common-row {
+    width: 100%;
+    height: 43px;
+    padding-top:6px;
+}
+.cell-left, .cell-right {
+    width: 49%;
+    height: 100%;
+    float: left;
+    line-height: 43px;
+}
+.more-btn-span{
+    background: #333;
+    position: absolute;
+    width: 100px;
+    left: -20px;
+    top: -50px;
+    color: #fff;
+    text-align: center;
+    /* padding: 8px 14px; */
+    border-radius: 4px;
+    margin-left: 20px;
+}
+@media (max-width: 350px) {
+    .lqy-myaccount-username{
+        top: 20px;
+    }
+    .retail-myaccount-icon{
+        width: 55px;
+        height: 55px;
+    }
+    .retail-myaccount-icon img {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+    }
+    .delay-alert-icon01{
+        top: -14px;
+        left: 30px;
+    }
+    .delay-alert-icon{
+        bottom:-14px;
+        left: 40%;
+        /* margin-left: 6%; */
+    }
+    .more-btn-span{ padding: 5px 8px;  margin-left: 10px; }
+}
+/*我的账号样式结束*/
+.order-empty{
+    padding: 161px 15px;
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+}
+.order-empty-img{
+    width: 100px;
+    margin: 0 auto;
+}
+.order-empty-text{
+    padding: 5px 0;
+}
+.order-empty-btn{
+    padding: 8px 15px 8px 15px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 0 7px #ccc;
+}
+.order-empty-btn-text{
+    height: 44px;
+    line-height: 44px;
+    border-radius: 4px;
+}
+
+@media (max-width: 365px) {
+    .delay-goods-text .size16{
+        font-size: 14px;
+    }
+}

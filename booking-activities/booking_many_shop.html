@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>多商品预约</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link href="../css/retail-goodsDetails.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/booking_active.css">
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/retail_cofirmBuying.js"></script>
+    <style type="text/css">
+        .wx-code-wrap{
+            top: 80%;
+            background: rgba(255,255,255,.9);
+        }
+        .wx-code{
+            top: 2px;
+        }
+        .store_code_img1{
+            width: 100%;
+        }
+        .spell-join-code-wrap{
+            top: -3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-many-shop-wrap">
+        <div>
+            <img class="booking-top-img" src="../images/booking_top.png" />
+        </div>
+        <div class="booking_many_content-wrap clearfix">
+            <div class="booking_many_content" style="background:url('../images/booking_many_content.jpg') no-repeat center center/cover;" ></div>
+            <div class="booking_many_content-p">
+                一百克拉钻戒试戴活动预约啦！名额只有100个，先到先得！
+            </div>
+        </div>
+        <div class="booking_many_content-wrap">
+            <div class="booking_many_content" style="background:url('../images/booking_many_img.jpg') no-repeat center center/cover;" ></div>
+            <div class="booking_many_content-p">
+                一百克拉钻戒试戴活动预约啦！名额只有100个，先到先得！
+            </div>
+        </div>
+    </div>
+    <!--遮罩层-->
+    <div id="com_black" class="js_com_black js_hide_com  com_black" style="display:none;"></div>
+    <!--微信二维码弹出框-->
+    <div class="wx-code-wrap" id="wxCode">
+        <span class="wx-bg-opacity"></span>
+        公众号 <img class="wx-code" src="../images/wx_code.png" alt="">
+    </div>
+    <!--商家二维码弹出框-->
+    <div class="js_hide_com store_code_wrap js_code js_com_black" style="display: none">
+        <div class="store_code">
+            <img class="store_code_img" src="../images/store_code.jpg" />
+        </div>
+        <img class="img-responsive store_code_img1" src="../images/store-double.png" />
+        <div class="spell-join-code-wrap">
+            <div class="spell-join-code">
+                <span class="spell-code-p" style="display: none">按长键识别途中二维码</span>
+                <span class="spell-code-p">保存图片后至微信扫一扫</span><br />
+                <span>可进入微信公众号互动！</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

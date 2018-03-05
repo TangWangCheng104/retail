@@ -1,0 +1,48 @@
+<script>
+    $(function(){
+        var init = setInterval(function () {
+            if ($("#btn").val() == "获取验证码") {
+                $("#btn").css("color", "#ff865d");
+            } else {
+                $("#btn").css("color", "#ccc");
+            }
+        }, 1000);
+        document.getElementById("btn").onclick = function () {
+            if ($("#phone").parent().find(".error").text() == "") {
+                time(this);
+            }
+            if ($("#btn").val() == "获取验证码") {
+                $("#btn").css("color", "#ff865d");
+            } else {
+                $("#btn").css("color", "#ccc");
+            }
+        };
+    });
+    var wait = 60;
+    function time(t) {
+        if (wait == 0) {
+            t.removeAttribute("disabled");
+            t.value = "获取验证码";
+            wait = 60;
+        } else {
+            t.setAttribute("disabled", true);
+            t.value = "重新获取(" + wait + ")";
+            wait--;
+            setTimeout(function () {
+                time(t)
+            }, 1000)
+        }
+    }
+</script>
+<div class="retail-comverify retail-login-phone">
+    <input type="text" name="phone" id="phone" class="retail-login-phone-input" onkeyup="phone_verify()" onblur="phone_verify()" placeholder="输入手机号" value="">
+    <label class="error" for="phone"></label>
+</div>
+<div class="retail-comverify retail-login-phone retail-login-verify">
+    <input type="text" name="verify" id="verify" class="retail-login-phone-input" onkeyup="verify_code()" onblur="verify_code()" placeholder="输入验证码" value="">
+    <label id="verify-error" class="error" for="verify"></label>
+    <input class="login-verify-btn text-right" type="button" id="btn" value="获取验证码"/>
+</div>
+<div class="comafter retail-login-href-forgot">
+    <a class="fr retail-login-href text-right" style="display: block;color: #576b95" href="#">注册</a>
+</div>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name='apple-itunes-app' content='app-id=1035128844'>
+    <!--样式胡引入-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-goodsDetails.css" rel="stylesheet" type="text/css">
+    <link href="css/procurer.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/store-index.css">
+    <!--js的引入-->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script type="text/javascript" src="js/pinchzoom.js"></script>
+    <script src="js/goodDetail.js"></script>
+    <script src="js/app_product.js"></script>
+    <title>商城首页</title>
+</head>
+<body>
+<script>
+    $(function(){
+        /*store的js效果*/
+        /*顶部的tap切换*/
+        $('.store-tap').on("click","li",function(){
+
+            var index = $(this).index(".store-tap li");
+            $('#store-tap li').eq(index).find("a").addClass("store-avtive").parent().siblings().find("a").removeClass("store-avtive");
+        });
+        /*顶部的tap切换end*/
+        /*吸顶效果*/
+        var store_tap = document.getElementById("store-tap");
+        var store_tap_height = store_tap.offsetTop;
+        $(window).scroll(function(e){
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            if(scrollTop>=store_tap_height){
+                $(store_tap).addClass("fixed");
+//                $(".store-kong").show();
+                if(navigator.platform == 'iPad' || navigator.platform == 'iPhone' || navigator.platform == 'iPod')
+                {
+                    $(store_tap).css("position", "static");
+//                    $(".store-kong").hide();
+                };
+            }else {
+                $(store_tap).removeClass("fixed");
+//                $(".store-kong").hide();
+            }
+        })
+        $('.store-top').click(function(){
+            $(".js_com_black").show();
+            $(".js_hide_com").show();
+        })
+        /*如果不存在.store-top*/
+        if($('.store-top').length == 0){
+            $('#store-tap').css({"margin-top":"10px"})
+        }
+    })
+</script>
+<div class="js_com_black hide_com_buy com_black" onclick="video.cancelAlert()" style="display: none"></div>
+<div class="store_history_img" style="background: url('images/content_img.jpg') center center/cover"></div>
+<div class="js_hide_com store_code_wrap" style="display: block">
+    <div class="store_code">
+        <img class="store_code_img" src="images/store_code.jpg" />
+    </div>
+    <img class="img-responsive store_code_img1" src="images/store-double.png" />
+    <div class="spell-join-code-wrap">
+        <div class="spell-join-code">
+            <span style="display: none">按长键识别途中二维码</span>
+            <span class="spell-code-p">保存图片后至微信扫一扫</span><br />
+            <span>可进入微信公众号互动！</span>
+        </div>
+    </div>
+</div>
+<div class="black" style="display: none">
+    <div class="black-banner-wrap">
+        <div id="carousel-bigimg-generic" class="carousel slide daifu-carousel" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators comafter">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active">1/<span class="num">3</span></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1">2/<span class="num">3</span></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2">3/<span class="num">3</span></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner carousel-black" role="listbox">
+                <div class="item active">
+                    <div class="js_carousel">
+                        <!--<div class="store_lubotu" style="background: url('images/banner01.png') no-repeat center center/cover"></div>-->
+                        <img class="img-responsive" id="banner001" src="images/banner01.png" alt="">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="js_carousel">
+                        <!--<div class="store_lubotu" style="background: url('images/banner01.png') no-repeat center center/cover"></div>-->
+                        <img id="banner002" src="images/banner02.png" alt="">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="js_carousel">
+                        <!--<div class="store_lubotu" style="background: url('images/banner01.png') no-repeat center center/cover"></div>-->
+                        <img id="banner003" src="images/banner01.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="store-wrap">
+    <div class="store-header-img" style="background: url('images/banner01.png') no-repeat center center/cover"></div>
+    <div class="store-top">
+        <span class="col-xs-6 store-nav-text">传世金玉珠宝</span>
+        <span class="col-xs-6 padding-0px text-right"><span class="store-right-arrows"></span></span>
+    </div>
+    <!--<div class="store-kong"></div>-->
+    <ul class="store-tap" id="store-tap">
+        <li><a href="javascript:;" class="store-avtive">首页</a></li>
+        <li><a href="javascript:;">商品</a></li>
+        <li><a href="javascript:;">活动</a></li>
+    </ul>
+
+    <!--没有商品时候显示-->
+    <!--<div class="store_no_avtive store_no_shop1" style="display: block;">
+        <div class="store_noAvtive_content">
+            <img class="store_noActive_img" src="images/store_no_shop.jpg"/>
+            <span class="store_noAvtive_text">没有相关的商品，换个词试试吧~</span>
+        </div>
+    </div>-->
+
+    <!--<div class="store-content-img">-->
+        <!--<img src="images/content_img.jpg" alt="">-->
+    <!--</div>-->
+    <div id="banner" class="store-banner">
+        <div id="carousel-example-generic" class="carousel slide daifu-carousel store-change-img" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators comafter">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active">1/<span class="num">3</span></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1">2/<span class="num">3</span></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2">3/<span class="num">3</span></li>
+            </ol>
+            <!--视频播放按钮-->
+            <!--<div class="video-play-btn" controls onclick="video.play()">-->
+            <!--<img class="video-play-btn-img" src="images/video_play_btn.png" alt="">-->
+            <!--</div>-->
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner carousel-banner " role="listbox">
+                <div class="item active">
+                    <div class="store-content-img comafter" style="background: url('images/banner01.png') no-repeat center center/cover">
+                        <!--<img src="images/content_img.jpg" alt="">-->
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="store-content-img comafter" style="background: url('images/banner01.png') no-repeat center center/cover">
+                        <!--<img src="images/content_img.jpg" alt="">-->
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="store-content-img comafter" style="background: url('images/banner01.png') no-repeat center center/cover">
+                        <!--<img src="images/content_img.jpg" alt="">-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="store-text-hot"><img src="images/text_hot.jpg"></div>
+
+    <div class="store-goods-list clearfix">
+        <ul class="store-content-img1 clearfix">
+            <li>
+                <div class="store-content-li" style="background: url('images/content_img.jpg') no-repeat center center/cover">
+                    <!--<img src="images/content_img.jpg">-->
+                </div>
+
+                <span class="store-text">
+
+                    25银戒指情侣一对男女对戒简约刻字学生饰品日韩
+                </span>
+            </li>
+            <li>
+                <div class="store-content-li" style="background: url('images/content_img.jpg') no-repeat center center/cover">
+                    <!--<img src="images/content_img.jpg">-->
+                </div>
+                <span class="store-text">
+                    <span class="store-text-new">新品</span>
+                    25银戒指情侣一对男女对戒简约刻字学生饰品日韩
+                </span>
+            </li>
+            <li>
+                <div class="store-content-li" style="background: url('images/content_img.jpg') no-repeat center center/cover">
+                    <!--<img src="images/content_img.jpg">-->
+                </div>
+                <span class="store-text">
+                    25银戒指情侣一对男女对戒简约刻字学生饰品日韩
+                </span>
+            </li>
+        </ul>
+        <ul class="store-bottom">
+            <li>
+                <a href="javascript:;" class="store-bottom-active">
+                    <img src="images/icon_shangcheng_xuanzhong_nor@3x.png" />
+                    <p>商城</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="images/icon_kefu_nor@3x.png" />
+                    <p>客服</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="images/icon_wode_nor@3x.png" />
+                    <p>我的</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

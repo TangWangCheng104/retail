@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,
+maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-waitingPay.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="js/messages.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script src="js/app_product.js"></script>
+    <script src="js/retail_cofirmBuying.js"></script>
+    <style type="text/css">
+        .top{
+            top: 0;
+        }
+        .footer{
+            bottom: 0;
+        }
+        .top,.footer{
+            position: fixed;
+            left: 0;
+            text-align: center;
+            line-height: 50px;
+            height: 50px;
+            width: 100%;
+            background-color: #0dcecb;
+            color: #fff;
+            z-index: 100;
+        }
+        #wrapper{
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 52px;
+            width: 100%;
+            background-color: #fafafa;
+            z-index: 10;
+        }
+        .news-lists .item{
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #CFCFCF;
+        }
+
+        #pullDown, #pullUp {
+            background:#fff;
+            height:40px;
+            line-height:40px;
+            border-bottom:1px solid #ccc;
+            font-weight:bold;
+            font-size:14px;
+            color:#888;
+        }
+        #pullDown .pullDownIcon, #pullUp .pullUpIcon  {
+            display:block; float:left;
+            width:40px; height:40px;
+            background:url(images/pull-icon@2x.png) 0 0 no-repeat;
+            -webkit-background-size:40px 80px;
+            background-size:40px 80px;
+            -webkit-transition-property:-webkit-transform;
+            -webkit-transition-duration:250ms;
+        }
+        #pullDown .pullDownIcon {
+            -webkit-transform:rotate(0deg) translateZ(0);
+        }
+        #pullUp .pullUpIcon  {
+            -webkit-transform:rotate(-180deg) translateZ(0);
+        }
+
+        #pullDown.flip .pullDownIcon {
+            -webkit-transform:rotate(-180deg) translateZ(0);
+        }
+
+        #pullUp.flip .pullUpIcon {
+            -webkit-transform:rotate(0deg) translateZ(0);
+        }
+
+        #pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
+            background-position:0 100%;
+            -webkit-transform:rotate(0deg) translateZ(0);
+            -webkit-transition-duration:0ms;
+
+            -webkit-animation-name:loading;
+            -webkit-animation-duration:2s;
+            -webkit-animation-iteration-count:infinite;
+            -webkit-animation-timing-function:linear;
+        }
+
+        @-webkit-keyframes loading {
+            from { -webkit-transform:rotate(0deg) translateZ(0); }
+            to { -webkit-transform:rotate(360deg) translateZ(0); }
+        }
+    </style>
+    <script>
+        var urlPrefix = "http://" + window.location.host + "/h5/loading/";
+        var data,
+                myScroll,
+                pullDownEl, pullDownOffset,
+                pullUpEl, pullUpOffset,
+                generatedCount = 0;
+        var page = 0;
+        function pullDownAction() {
+            $.ajax({
+                type: "GET",
+                url: urlPrefix + "a2.html",
+                data: "",
+                dataType: 'html',
+                success: function (data) {
+                    setTimeout(function () {
+//                        $('#pullUp').find(".pullUpIcon").show();
+//                        pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉更新...';
+//                    $('#news-lists').before(data.data);
+                        $('#news-lists').html("");
+                        $('#news-lists').html(data);
+                        myScroll.refresh();
+                    }, 600);
+                    page = 1;
+                }
+            });
+        }
+
+//        function pullUpAction() {
+//            $.ajax({
+//                type: "GET",
+//                url: urlPrefix + "a2.html",
+//                data: "",
+//                dataType: 'html',
+//                success: function (data) {
+//                    page++;
+//                    if(page >= 3){
+//                        pullUpEl.querySelector('.pullUpLabel').innerHTML = '已经是最后了';
+//                        $('#pullUp').find(".pullUpIcon").fadeOut(2000);
+//                    }else {
+//                        $('#pullUp').find(".pullUpIcon").show();
+//                        setTimeout(function () {
+////                    $('#news-lists').before(data.data);
+//                            $('#news-lists').append(data);
+//                            myScroll.refresh();
+//                        }, 600);
+//                    }
+//                }
+//            });
+//        }
+        //去除浏览器默认事件
+        document.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+        }, false);
+        //domready后绑定初始化事件
+        document.addEventListener('DOMContentLoaded', loaded, false);
+
+        function loaded() {
+            pullDownEl = document.getElementById('pullDown');
+            pullDownOffset = pullDownEl.offsetHeight;
+//            pullUpEl = document.getElementById('pullUp');
+//            pullUpOffset = pullUpEl.offsetHeight;
+
+            /**
+             * 初始化iScroll控件
+             */
+            myScroll = new iScroll('wrapper', {
+                vScrollbar: false,
+                topOffset: pullDownOffset,
+                onRefresh: function () {
+                    if (pullDownEl.className.match('loading')) {
+                        pullDownEl.className = '';
+                        pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+//                    } else if (pullUpEl.className.match('loading')) {
+//                        pullUpEl.className = '';
+//                        pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+                    }
+                },
+                onScrollMove: function () {
+                    if (this.y > 5 && !pullDownEl.className.match('flip')) {
+                        pullDownEl.className = 'flip';
+                        pullDownEl.querySelector('.pullDownLabel').innerHTML = '松手开始更新...';
+                        this.minScrollY = 0;
+//                    } else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+//                        pullUpEl.className = 'flip';
+//                        pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
+                    }
+                },
+                onScrollEnd: function () {
+                    if (pullDownEl.className.match('flip')) {
+                        pullDownEl.className = 'loading';
+                        pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';
+                        pullDownAction();
+//                    } else if (pullUpEl.className.match('flip')) {
+//                        pullUpEl.className = 'loading';
+//                        pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中02...';
+//                        pullUpAction();
+//                    for(var i = 0 ; i < 3; i++ ){
+//                        var data = $(".item_common").html();
+//                        $(".news-lists").append('<div class="item_common">'+ data + '</div>');
+//                    }
+
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <div id="scroller">
+        <div id="pullDown">
+            <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+        </div>
+        <div class="news-lists" id="news-lists">
+            <div class="comafter retail-myorder">
+                <div class="comafter">
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px">
+                            <i class="icon28_common retail-myorder-icon">
+                                <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                            </i>蝴蝶
+                        </div>
+                        <div class="col-xs-6 padding-0px text-right color-zby">等待通知提货</div>
+                    </div>
+                    <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                        <div class="col-xs-3 padding-0px">
+                            <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                        </div>
+                        <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                            <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                        <div class="col-xs-6 padding-0px text-right color-zby">已付：<span>￥23360</span></div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="text-right retail-myorder-btn">
+                            <a class="btn" href="#">联系我们</a>
+                            <a class="btn" href="#">申请退款</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="com-interval"></div>
+                <div class="comafter">
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                        <div class="col-xs-6 padding-0px text-right color-zby">等待买家付订</div>
+                    </div>
+                    <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                        <div class="col-xs-3 padding-0px">
+                            <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                        </div>
+                        <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                            <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px">订金：<span>￥23360</span></div>
+                        <div class="js_timer col-xs-6 padding-0px text-right" style="color: #fa3c3c"><b>剩余时间：
+                            <span class="js_minute_show" minute="3">14分</span>
+                            <span class="js_second_show"  second="00">00秒</span></b>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="text-right retail-myorder-btn">
+                            <a class="btn" href="#">联系我们</a>
+                            <a class="btn" href="#">去支付</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="com-interval"></div>
+                <div class="comafter">
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                        <div class="col-xs-6 padding-0px text-right color-zby">等待买家付订</div>
+                    </div>
+                    <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                        <div class="col-xs-3 padding-0px">
+                            <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                        </div>
+                        <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                            <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px">订金：<span>￥23360</span></div>
+                        <div class="js_timer col-xs-6 padding-0px text-right" style="color: #fa3c3c"><b>剩余时间：
+                            <span class="js_minute_show" minute="14">14分</span>
+                            <span class="js_second_show"  second="00">00秒</span></b>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="text-right retail-myorder-btn">
+                            <a class="btn" href="#">联系我们</a>
+                            <a class="btn" href="#">去支付</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="com-interval"></div>
+                <div class="comafter">
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                        <div class="col-xs-6 padding-0px text-right color-zby">订单失效</div>
+                    </div>
+                    <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                        <div class="col-xs-3 padding-0px">
+                            <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                        </div>
+                        <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                            <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                        <div class="col-xs-6 padding-0px text-right"><b>支付超时订单无效</b></div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list" style="display: none">
+                        <div class="text-right retail-myorder-btn">
+                            <a class="btn" href="#">联系我们</a>
+                            <a class="btn" href="#">去支付</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="com-interval"></div>
+                <div class="comafter">
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                        <div class="col-xs-6 padding-0px text-right color-zby">等待买家提货</div>
+                    </div>
+                    <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                        <div class="col-xs-3 padding-0px">
+                            <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                        </div>
+                        <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                            <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                        <div class="col-xs-6 padding-0px text-right">已付金额：<span>￥23360</span></div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="text-right retail-myorder-btn">
+                            <a class="btn" href="#">联系我们</a>
+                            <a class="btn" href="#">确认提货</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="com-interval"></div>
+                <div class="comafter">
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                        <div class="col-xs-6 padding-0px text-right color-zby">退款等待审核</div>
+                    </div>
+                    <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                        <div class="col-xs-3 padding-0px">
+                            <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                        </div>
+                        <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                            <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                        <div class="col-xs-6 padding-0px text-right">已付金额：<span>￥23360</span></div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="text-right retail-myorder-btn">
+                            <a class="btn" href="#">联系我们</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="com-interval"></div>
+                <div class="comafter">
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                        <div class="col-xs-6 padding-0px text-right color-zby">退款成功</div>
+                    </div>
+                    <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                        <div class="col-xs-3 padding-0px">
+                            <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                        </div>
+                        <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                            <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                        <div class="col-xs-6 padding-0px text-right">已退金额：<span>￥23360</span></div>
+                    </div>
+                </div>
+                <div class="com-interval"></div>
+                <div class="comafter">
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                        <div class="col-xs-6 padding-0px text-right color-zby">交易成功</div>
+                    </div>
+                    <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                        <div class="col-xs-3 padding-0px">
+                            <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                        </div>
+                        <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                            <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                        <div class="col-xs-6 padding-0px text-right">已退金额：<span>￥23360</span></div>
+                    </div>
+                </div>
+                <div class="com-interval"></div>
+                <div class="comafter">
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                        <div class="col-xs-6 padding-0px text-right color-zby">等待打款</div>
+                    </div>
+                    <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                        <div class="col-xs-3 padding-0px">
+                            <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                        </div>
+                        <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                            <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                        <div class="col-xs-6 padding-0px text-right">已退金额：<span>￥23360</span></div>
+                    </div>
+                </div>
+                <div class="com-interval"></div>
+                <div class="comafter">
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                        <div class="col-xs-6 padding-0px text-right color-zby">等待打款</div>
+                    </div>
+                    <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                        <div class="col-xs-3 padding-0px">
+                            <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                        </div>
+                        <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                            <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                        <div class="col-xs-6 padding-0px text-right">已退金额：<span>￥23360</span></div>
+                    </div>
+                </div>
+                <div class="com-interval"></div>
+                <div class="comafter">
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                        <div class="col-xs-6 padding-0px text-right color-zby">等待活动结果</div>
+                    </div>
+                    <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                        <div class="col-xs-3 padding-0px">
+                            <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                        </div>
+                        <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                            <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 retail-com-list">
+                        <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                        <div class="col-xs-6 padding-0px text-right">已退金额：<span>￥23360</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="pullUp">
+            <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+        </div>
+    </div>
+</div>
+<div class="comafter retail-com-list navbar-fixed-bottom retail-myorder-order-account">
+    <img src="images/order_line.png" class="retail-myorder-order-line" alt="">
+    <a id="myOrder" class="col-xs-6 padding-0px js_btn_order text-center retail-waitingPay-myorder selected"></a>
+    <a id="myAccount" class="col-xs-6 padding-0px js_btn_order text-center retail-waitingPay-myaccount"></a>
+</div>
+</body>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript" src="js/zepto.js"></script>
+</html>

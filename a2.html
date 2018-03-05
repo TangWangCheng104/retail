@@ -1,0 +1,272 @@
+<script>
+    $(function () {
+        for(var i = 0 ; i < $(".js_timer").length ; i++){
+        var min = $(".js_timer").eq(i).find(".js_minute_show").attr("minute");
+        var second = $(".js_timer").eq(i).find(".js_second_show").attr("second");
+        min = parseInt(min);
+        second = parseInt(second);
+        var intDiff = min*60 + second;
+        intDiff = parseInt(intDiff);
+        timer(intDiff,i);
+        }
+    });
+</script>
+<div class="container-fluid small_screen">
+    <div class="row">
+        <div class="comafter retail-myorder">
+            <div class="comafter">
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px">
+                        <i class="icon28_common retail-myorder-icon">
+                            <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                        </i>蝴蝶
+                    </div>
+                    <div class="col-xs-6 padding-0px text-right color-zby">等待通知提货</div>
+                </div>
+                <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                    <div class="col-xs-3 padding-0px">
+                        <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                    </div>
+                    <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                        <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                    <div class="col-xs-6 padding-0px text-right color-zby">已付：<span>￥23360</span></div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="text-right retail-myorder-btn">
+                        <a class="btn" href="#">联系我们</a>
+                        <a class="btn" href="#">申请退款</a>
+                    </div>
+                </div>
+            </div>
+            <div class="com-interval"></div>
+            <div class="comafter">
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                    <div class="col-xs-6 padding-0px text-right color-zby">等待买家付订</div>
+                </div>
+                <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                    <div class="col-xs-3 padding-0px">
+                        <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                    </div>
+                    <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                        <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px">订金：<span>￥23360</span></div>
+                    <div class="js_timer col-xs-6 padding-0px text-right" style="color: #fa3c3c"><b>剩余时间：
+                        <span class="js_minute_show" minute="3">14分</span>
+                        <span class="js_second_show"  second="00">00秒</span></b>
+                    </div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="text-right retail-myorder-btn">
+                        <a class="btn" href="#">联系我们</a>
+                        <a class="btn" href="#">去支付</a>
+                    </div>
+                </div>
+            </div>
+            <div class="com-interval"></div>
+            <div class="comafter">
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                    <div class="col-xs-6 padding-0px text-right color-zby">等待买家付订</div>
+                </div>
+                <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                    <div class="col-xs-3 padding-0px">
+                        <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                    </div>
+                    <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                        <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px">订金：<span>￥23360</span></div>
+                    <div class="js_timer col-xs-6 padding-0px text-right" style="color: #fa3c3c"><b>剩余时间：
+                        <span class="js_minute_show" minute="14">14分</span>
+                        <span class="js_second_show"  second="00">00秒</span></b>
+                    </div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="text-right retail-myorder-btn">
+                        <a class="btn" href="#">联系我们</a>
+                        <a class="btn" href="#">去支付</a>
+                    </div>
+                </div>
+            </div>
+            <div class="com-interval"></div>
+            <div class="comafter">
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                    <div class="col-xs-6 padding-0px text-right color-zby">订单失效</div>
+                </div>
+                <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                    <div class="col-xs-3 padding-0px">
+                        <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                    </div>
+                    <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                        <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                    <div class="col-xs-6 padding-0px text-right"><b>支付超时订单无效</b></div>
+                </div>
+                <div class="col-xs-12 retail-com-list" style="display: none">
+                    <div class="text-right retail-myorder-btn">
+                        <a class="btn" href="#">联系我们</a>
+                        <a class="btn" href="#">去支付</a>
+                    </div>
+                </div>
+            </div>
+            <div class="com-interval"></div>
+            <div class="comafter">
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                    <div class="col-xs-6 padding-0px text-right color-zby">等待买家提货</div>
+                </div>
+                <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                    <div class="col-xs-3 padding-0px">
+                        <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                    </div>
+                    <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                        <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                    <div class="col-xs-6 padding-0px text-right">已付金额：<span>￥23360</span></div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="text-right retail-myorder-btn">
+                        <a class="btn" href="#">联系我们</a>
+                        <a class="btn" href="#">确认提货</a>
+                    </div>
+                </div>
+            </div>
+            <div class="com-interval"></div>
+            <div class="comafter">
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                    <div class="col-xs-6 padding-0px text-right color-zby">退款等待审核</div>
+                </div>
+                <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                    <div class="col-xs-3 padding-0px">
+                        <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                    </div>
+                    <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                        <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                    <div class="col-xs-6 padding-0px text-right">已付金额：<span>￥23360</span></div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="text-right retail-myorder-btn">
+                        <a class="btn" href="#">联系我们</a>
+                    </div>
+                </div>
+            </div>
+            <div class="com-interval"></div>
+            <div class="comafter">
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                    <div class="col-xs-6 padding-0px text-right color-zby">退款成功</div>
+                </div>
+                <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                    <div class="col-xs-3 padding-0px">
+                        <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                    </div>
+                    <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                        <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                    <div class="col-xs-6 padding-0px text-right">已退金额：<span>￥23360</span></div>
+                </div>
+            </div>
+            <div class="com-interval"></div>
+            <div class="comafter">
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                    <div class="col-xs-6 padding-0px text-right color-zby">交易成功</div>
+                </div>
+                <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                    <div class="col-xs-3 padding-0px">
+                        <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                    </div>
+                    <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                        <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                    <div class="col-xs-6 padding-0px text-right">已退金额：<span>￥23360</span></div>
+                </div>
+            </div>
+            <div class="com-interval"></div>
+            <div class="comafter">
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                    <div class="col-xs-6 padding-0px text-right color-zby">等待打款</div>
+                </div>
+                <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                    <div class="col-xs-3 padding-0px">
+                        <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                    </div>
+                    <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                        <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                    <div class="col-xs-6 padding-0px text-right">已退金额：<span>￥23360</span></div>
+                </div>
+            </div>
+            <div class="com-interval"></div>
+            <div class="comafter">
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                    <div class="col-xs-6 padding-0px text-right color-zby">等待打款</div>
+                </div>
+                <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                    <div class="col-xs-3 padding-0px">
+                        <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                    </div>
+                    <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                        <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                    <div class="col-xs-6 padding-0px text-right">已退金额：<span>￥23360</span></div>
+                </div>
+            </div>
+            <div class="com-interval"></div>
+            <div class="comafter">
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px"><i class="icon28_common retail-myorder-icon"><img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt=""></i>蝴蝶</div>
+                    <div class="col-xs-6 padding-0px text-right color-zby">等待活动结果</div>
+                </div>
+                <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                    <div class="col-xs-3 padding-0px">
+                        <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                    </div>
+                    <div class="col-xs-9 text-right padding-0px retail-myorder-detail">
+                        <a href="#">订单详情<i class="icon_jiantouR"><img class="icon_jiantouR-img" src="images/icon_jiantouR.png" alt=""></i></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px">订单总额：<span>￥23360</span></div>
+                    <div class="col-xs-6 padding-0px text-right">已退金额：<span>￥23360</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name='apple-itunes-app' content='app-id=1035128844'>
+    <!--样式胡引入-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/store-index.css">
+    <link rel="stylesheet" href="../css/discount.css">
+    <link rel="stylesheet" href="../css/memberSystem.css">
+    <!--js的引入-->
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/discount.js"></script>
+    <script src="../js/member.js"></script>
+
+    <title>会员体系优惠券</title>
+    <style>
+        html{
+            font-size: 625%;
+            background: #f5f5f5;
+        }
+        body{
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="store-wrap discount-shoper-wrap discount-details-wrap">
+    <div class="discount-used-wrap" style="display:block;">
+        <div class="dicount-kong-line1"></div>
+        <div class="has-discount-left">
+            <div class="not-get">
+                <img class="discount-not-get" src="../images/member_discount.png" alt="">
+                <span class="discount-money-wrap">
+                        <span class="discount-money">￥</span>
+                        <span class="discount-price">900000</span>
+                    </span>
+                <span class="full-money-reduce">可增值10元</span>
+            </div>
+            <div class="has-discount-right">
+                <div class="discount-name"><span class="full-reduce add-cash">增值现金券</span><span class="use-range">指定商品可用</span></div>
+                <div class="discount-effect discount-effect-position">
+                    <span>2017.9.30</span><span class="discount-time-min">15:21</span>至<span>2017.7.30</span><span class="discount-time-min">17:31</span>
+                    <img class="discount-right discount-right-position" src="../images/discount_right.png" alt="">
+                </div>
+                <div class="check-discount-wrap">
+                    <a class="check-discount" href="javascript:;"><img class="shape-code" src="../images/shape_code.png" alt=""></a>
+                </div>
+                <img class="already-pass no-effective" src="../images/no_effective.png" alt="">
+            </div>
+        </div>
+        <div class="mystery-friend-send-wrap discount-name-header">
+            <div class="discount-top-send-right discount-sb-name">
+                <div class="discount-languges discount-send-name-wrap">
+                    <span>
+                        <img class="discount-top-img discount-sb-send" src="../images/retail-goodsDetails-img004.png" />
+                        <span class="discount-send-name">浪子书浪子书</span><span class="discount-send-text">赠送</span>
+                    </span>
+                    <span class="discount-bigger-right" style="display:none;">
+                        <span class="discount-bigger" onclick="bigger()">放大编号</span>
+                        <span class="discount-bigger disabled-send-friend">转赠好友</span>
+                        <span class="discount-bigger disabled-send-friend">立即使用</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <img class="discount-details-rule" src="../images/discount_details_rule.png" alt="">
+    </div>
+    <div class="warn-message-wrap">
+        <div class="warn-message">【注意事项】</div>
+        <div >1. 如无特殊说明，所有赠品的赠送数量均为1件（计件商品）或1克（计重商品）。</div>
+        <div>2. 本优惠券的最终解释权归XXXX店所有。</div>
+        <div class="warn-message">【适用范围】</div>
+        <div >仅限指定商品，<a href="javascript:;">查看商品</a></div>
+        <div class="warn-message">【不适用范围】</div>
+        <div >黄金类不可用。</div>
+        <div class="warn-message">【使用条件】</div>
+        <div >仅限到店领取。</div>
+        <div class="warn-message">【所属门店】</div>
+        <div class="mystery-friend-send-wrap discount-name-header discount-use-range">
+                    <span class="discount-top-img discount-sb-send " style="background: url('../images/retail-goodsDetails-img004.png') center center/cover">
+                    </span>
+            <div class="discount-top-send-right discount-sb-name">
+                <div class="discount-languges discount-send-name-wrap">
+                    <span class="discount-shop-name1">浪子书浪子书</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mystery-friend-send-wrap discount-name-header discount-effected">
+                <span class="discount-top-img discount-sb-send discount-effected-hide" style="background: url('../images/retail-goodsDetails-img004.png') center center/cover">
+                </span>
+        <div class="discount-top-send-right discount-sb-name">
+            <div class="member-send-name-wrap discount-send-name-wrap">
+                <span class="discount-bigger member-bigger" onclick="bigger()">放大编号</span>
+                <span class="discount-bigger member-bigger">转赠好友</span>
+                <span class="discount-bigger member-bigger">立即增值</span>
+                <span class="discount-bigger member-bigger discount-bigger-active">立即使用</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="com_black" class="js_com_black js-show js-hide-refund com_black refund-com-black" onclick="jsHide()" style="display:none"></div>
+<!--分享给好友-->
+<img class="discount-share js-hide-refund" onclick="jsHide()" style="display: none" src="../images/discount_share.png" alt="">
+<!--弹出框-->
+<div class="discount-bigger-wrap js-show js-hide-refund" style="display: none" onclick="jsHide()">
+    <div class="discount-touxiang-wrap">
+        <img class="discount-touxiang" src="../images/author_touxiang.png" alt="">
+        <img class="discount-alert-shape-code" src="../images/shape_code.png" alt="">
+        <span class="shape-code-number">1234&nbsp;&nbsp;1234&nbsp;&nbsp;1234&nbsp;&nbsp;1234&nbsp;&nbsp;12</span>
+        <span class="use-show">使用时向服务员出示此会员卡</span>
+    </div>
+</div>
+</body>
+</html>

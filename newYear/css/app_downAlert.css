@@ -1,0 +1,382 @@
+.com_black{
+    width: 100%;
+    height:800px;
+    position: fixed;
+    top:0;
+    bottom: 0;
+    z-index: 1040;
+    background-color:#000\9;
+    background-color: rgba(0,0,0,0.6);
+}
+/*弹窗样式开始*/
+.black{
+    width: 100%;
+    height:700px;
+    position: absolute;
+    display:none;
+    top: 0;
+    z-index: 1040;
+    background-color:#000;
+    background-repeat: no-repeat;
+    background-position:50% 50%;
+    background-size: contain;
+}
+.black-banner-wrap{
+    width: 100%;
+    height:700px;
+    position: relative;
+}
+.black-banner-wrap .slide{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right:0;
+    margin: auto;
+}
+.black-banner-wrap .carousel-inner {
+    width: 100%;
+    overflow: visible;
+    padding-left: 0;
+}
+.black-banner-wrap .carousel-indicators {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    z-index: 15;
+    width: 60%;
+    padding-left: 0;
+    text-align: center;
+    list-style: none;
+}
+.item img{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right:0;
+    margin: auto;
+}
+/*弹窗样式结束*/
+/*下载弹框样式开始*/
+.news_download{
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+    padding-top: 11px;
+    zoom: 1;                     /* needed in IE up to version 7, or set width or height to trigger "hasLayout" */
+}
+.news_download_opacity{
+    width: 100%;
+    height: 60px;
+    background: #ecebec;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 90;
+    padding-top: 11px;
+    opacity: 0.9;                    /* Firefox, Safari(WebKit), Opera)*/
+    filter: "alpha(opacity=90)";  /* IE 8 */
+    filter: alpha(opacity=90);     /* IE 4-7 */
+    zoom: 1;                     /* needed in IE up to version 7, or set width or height to trigger "hasLayout" */
+}
+.logo-news-wrap{
+    padding-left: 50px;
+    height: 50px;
+    line-height:50px;
+    background: url("../images/logo36.png") no-repeat;
+    background-size: 36px 36px;
+}
+.news-logo-img{
+    padding: 0;
+}
+.news_download .close_news {
+    padding: 12px 10px 15px 0;
+    width: 25px;
+    display: block;
+}
+.new_cont{
+    height: 60px;
+}
+.span{
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: #ccc;
+    z-index: 999;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+img{
+    border: none;
+}
+.new_cont .download_wrap{
+    color: #fff;
+    font-size: 12px;
+}
+.new_cont .download{
+    padding: 3px 10px;
+    background: #eb5d19;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 4px;
+}
+@media (max-width: 340px) {
+    .news-logo-img{
+        padding-top: 3px;
+    }
+}
+@media (min-width: 400px) {
+    .news-logo-img {
+        height: 36px;
+    }
+}
+/*下载弹框样式结束*/
+/*收藏弹窗样式开始*/
+.collect_alert{
+    width: 30%;
+    margin: 0 35%;
+    position: fixed;
+    top: 200px;
+    background-color: #000\9;
+    background-color: rgba(0,0,0,0.5);
+    padding: 10px 0 0;
+    border-radius: 8px;
+    display: none;
+}
+.password-alert{
+    width: 40%;
+    margin: 0 30%;
+}
+.collect_alert_img{
+    padding-bottom: 8px;
+}
+.collect_alert img{
+    width: 20px;
+}
+.collect_alert p{
+    color: #fff;
+}
+.retail-confirmBuying-num-warn{
+    display: block;
+    color: #ff1c1c;
+    font-size: 12px;
+    padding-top: 10px;
+}
+/*收藏弹窗样式结束*/
+/*取消收藏时收藏的商品的提示弹窗样式开始*/
+.cancel-collect-warning{
+    width: 70%;
+    margin: 0 15%;
+    background: #fff;
+    position: fixed;
+    top: 200px;
+    z-index: 1050;
+    border-radius: 8px;
+}
+.cancel-collect-warning{
+    padding: 15px 0 0;
+    font-size: 16px;
+}
+.cancel-collect-warning-txt01,.cancel-collect-warning-txt02{
+    padding: 2px 0;
+}
+.cancel-collect-warning-txt02{
+    padding-bottom: 15px;
+}
+.cancel-collect-warning-btn{
+    border-top:1px solid #d7d7d7 ;
+}
+.cancel-collect-warning-btn .retail-btn{
+    padding: 10px 0;
+    background: none;
+    border: none;
+}
+.cancel-collect-warning-btn .retail-btn.first{
+    border-right:1px solid #d7d7d7 ;
+}
+
+/*取消收藏时收藏的商品的提示弹窗样式end*/
+/*零售版消费者商品立即购买样式开始*/
+.retail-confirmBuying{
+    background: #fff;
+}
+.retail-confirmBuying-img-price{
+    position: relative;
+    top: -15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #d7d7d7;
+}
+.retail-confirmBuying-img{
+    padding: 0;
+}
+.retail-confirmBuying-img img{
+    border: #fff solid 2px;
+    border-radius: 5px;
+}
+.retail-confirmBuying-price{
+    padding-top: 30px;
+    position: relative;
+    bottom: -15px;
+    padding-right: 0;
+}
+.retail-confirmBuying-price p{
+    line-height: 30px;
+    font-size: 15px;
+    margin: 0;
+}
+.retail-confirmBuying-price-num{
+    display: block;
+    line-height: 30px;
+    color: #ff865d;
+    font-size: 17px;
+}
+.retail-confirmBuying-style{
+    border-bottom: 1px solid #d7d7d7;
+}
+.retail-confirmBuying-style-type{
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+.retail-confirmBuying-style-type span{
+    padding: 8px 15px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    display: inline-block;
+    margin-right: 5px;
+}
+.retail-confirmBuying-style-type .disabled{
+    color: #ccc;
+}
+.retail-confirmBuying-style-type span.selected{
+    background: #ff865d;
+    color: #fff;
+}
+.retail-confirmBuying-num-buying{
+    padding: 20px 0 200px;
+}
+.retail-confirmBuying-num{
+    display: inline-block;
+    border: 1px solid #222;
+    border-radius: 5px;
+}
+.retail-confirmBuying-num span{
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+}
+.retail-confirmBuying-num .sub,.retail-confirmBuying-num .add{
+    font-size: 25px;
+    width: 35px;
+    border-radius: 5px;
+}
+.retail-confirmBuying-num .sub{
+    border-right:1px solid #222;
+}
+.retail-confirmBuying-num .add{
+    border-left:1px solid #222;
+}
+.retail-confirmBuying-num .disabled{
+    color:#ddd;
+    background:#ccc;
+}
+.retail-confirmBuying-num .num{
+    width: 50px;
+    height: 27px;
+    line-height: 27px;
+    text-align: center;
+    border: none;
+}
+.retail-confirmBuying-num-buying-left{
+    height: 36px;
+    line-height: 36px;
+}
+.retail-confirmBuying-buying{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #ff865d;
+    display: block;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+}
+.retail-confirmBuying{
+    position: fixed;
+    bottom:-700px;
+    z-index: 1050;
+    left: 0;
+    right: 0;
+}
+.buying_close{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+/*零售版消费者商品立即购买样式结束*/
+/*拼单规则弹窗样式开始*/
+.pingdan-rule-alert{
+    width:80%;
+    margin:0 10%;
+    display:inline-block;
+    position: fixed;
+    top: 100px;
+    background: #fff;
+    z-index: 1050;
+    border-radius: 5px;
+    padding-top: 12px;
+}
+.pingdan-rule-alert-title{
+    color: #f5a828;
+    padding-top: 8px;
+    margin-bottom: 5px;
+}
+.pingdan-rule-alert-item{
+    padding: 3px 20px;
+    font-weight:bold;
+    font-size: 14px;
+}
+.pingdan-rule-alert-item.refund-notice{
+    color: #7e7e7e;
+}
+.pingdan-rule-alert-btn{
+    width: 96%;
+    margin: 0 2%;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    border-top: 1px solid #d7d7d7;
+    margin-top: 30px;
+    font-size: 17px;
+}
+@media (max-width: 340px) {
+    .pingdan-rule-alert{
+        padding-top: 5px;
+        top:60px;
+    }
+    .pingdan-rule-alert-title{
+        font-size: 14px;
+    }
+    .pingdan-rule-alert-item{
+        padding: 3px 12px;
+        font-size: 12px;
+    }
+    .pingdan-rule-alert-btn{
+        margin-top: 15px;
+        font-size: 16px;
+    }
+}
+/*拼单规则弹窗样式结束*/

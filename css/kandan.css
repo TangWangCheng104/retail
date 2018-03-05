@@ -1,0 +1,671 @@
+/*.lazy{
+    background-color: #fff;
+}*/
+.kandan-bgColor{
+    background-color:#FDA39C ;
+    opacity: 1;
+}
+.kandan-only-less,.kandan-less-zero{
+    color: #fff;
+}
+.kandan-font-size{
+    font-size: 13px;
+}
+.kandan-content{
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top:91px;
+    background: #fff;
+}
+.kandan-bg-gzIcon{
+    width: 100%;
+    position: absolute;
+    left: 10%;
+    top:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    background: #70c3ff;
+    height: 32px;
+    border-radius: 25px;
+}
+.icon-jidutiao{
+    width: 95%;
+    height: 20px;
+    position: absolute;
+    z-index: 1030;
+    left: 12.5%;
+    top:0;
+    bottom:0;
+    margin:auto;
+    border-radius: 25px;
+}
+.pindan-user-header-wrap{
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    background-color:#fe716b ;
+    border-radius: 50%;
+    position: relative;
+    top:-13px;
+    left: 100%;
+    margin-left: -23px;
+    z-index: 1030;
+}
+.pindan-user-header{
+    width: 42px!important;
+    height: 42px!important;
+    border-radius: 50%;
+    position: absolute;
+    left:0;
+    top:0;
+    right: 0;
+    bottom: 0;
+    margin:auto;
+    z-index: 1040;
+}
+
+.kandan-price-range{
+    position: absolute;
+    top:51px;
+    left: 0;
+    width: 100%;
+    color: #fe716b;
+    line-height: 17px;
+    font-size: 17px;
+}
+.min-price{
+    text-align: right;
+}
+.pindan-content-position{
+    position: relative;
+    width: 80%;
+    padding:0 6%;
+    box-sizing: border-box;
+
+}
+.kandan-username,.kandan-now-price{
+    color: #fe716b;
+    position: absolute;
+}
+.kandan-username{
+    display: inline-block;
+    width: 76px;
+    font-size: 15px;
+    bottom:-25px;
+    left:-15px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.kandan-now-price{
+    font-size: 17px;
+    width: auto;
+    white-space: nowrap;
+    box-sizing: border-box;
+    top:-56px;
+    height: 31px;
+    line-height: 31px;
+    background: #fe716b;
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    padding:0 10px;
+    color: #fff;
+    box-shadow: 2px 2px 10px #fe716b;
+    margin: auto;
+    /*display: inline-block;*/
+}
+.red-down-assass{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left:5px solid transparent;
+    border-right:5px solid #fe716b;
+    border-top:5px solid transparent;
+    border-bottom:5px solid #fe716b;
+    transform:rotate(45deg);
+    position: absolute;
+    bottom:-30px;
+    left: 0;
+    right: 0;
+    top:0;
+    margin: auto;
+}
+.price-font-size{
+    font-size: 15px;
+}
+.make-friend-kanjia{
+    width: 62.5%;
+}
+.make-friend-kanjia-wrap{
+    margin-top: 62px;
+    text-align: center;
+}
+.double-right-assass{
+    width: 10px;
+}
+.kanjia-rule{
+    text-align: center;
+    color: #8b4e00;
+    font-size: 14px;
+    /*width: 100%;*/
+    display: inline-block;
+    margin-top:32px;
+}
+.kandan-into-list{
+    width: 37.8%;
+    position: absolute;
+    bottom:0;
+    left: 7.2%;
+}
+.into-honor-list{
+    position: relative;
+    width:100%;
+    padding-top: 22px;
+}
+.honor-list{
+    width: 39%;
+    position: relative;
+    bottom:-2px;
+    left:53%;
+    z-index:10;
+}
+.kandan-list-wrap{
+    background: #fff;
+}
+.kandan-list{
+    border:2px solid #653900;
+    background: #eaf6ff;
+    margin: 0 3%;
+    border-radius: 5px;
+    position: relative;
+}
+.kandan-list-sort{
+    line-height: 58px;
+    padding:0 11px;
+    display: flex;
+}
+.kandan-sort-img{
+    display: inline-block;
+    position: relative;
+    color: #fff;
+    top:14px;
+    box-sizing: border-box;
+}
+.kandan-sort-img1{
+    top:19px;
+}
+.kandan-sort-img-wrap{
+    flex: 1;
+}
+.kandan-nb1,.kandan-sort-img{
+    width: 30px;
+    vertical-align: top;
+}
+.kandan-list-sort{
+    font-size: 15px;
+    color: #8b4e00;
+}
+.shop-img{
+    width: 35px;
+    height: 35px;
+    border-radius: 25px;
+}
+.kandan-list-sort .shop-img{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.shop-img-wrap{
+    flex: 1;
+}
+.kandan-number{
+    width: 100%;
+    display: inline-block;
+    position: absolute;
+    bottom: 61px;
+    /*left: 11px;*/
+    font-size: 12px;
+    height: 12px;
+    text-align: center;
+}
+.kandan-username-sort{
+    font-weight: bold;
+    flex: 2;
+}
+.kandan-sort-use-time{
+    flex:4;
+    text-align: right;
+    font-weight: bold;
+}
+.kandan-nb4{
+    width: 26px;
+    text-align: center;
+    margin-left: 2px;
+}
+.assass-public-out,.assass-public-in{
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+    /*border:1px solid #576894;*/
+    position: absolute;
+    border-left:1px solid transparent;
+    border-right:1px solid #576894;
+    border-bottom:1px solid #576894;
+    border-top:1px solid transparent;
+    transform: rotate(45deg)!important;
+}
+.assass-public-out{
+    left: 20px;
+    top:5px;
+}
+.assass-public-in{
+    left: 20px;
+    top:0;
+}
+.assass-public{
+    /*display: inline-block;*/
+    position: relative;
+    left: -10px;
+    top:0!important;
+}
+.assass-public-out-up,.assass-public-in-up{
+    transform: rotate(-135deg)!important;
+
+}
+.assass-public-in-up{
+    top: 10px;
+}
+/*.assass-public-in-up{
+    top: 10px;
+}*/
+.check-more{
+    width: 100%;
+    text-align: center;
+}
+.kandan-list-last{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    color: #576894;
+    padding-bottom:11px;
+}
+.kandan-friends-wrap-record{
+    border-top:0;
+    border-bottom: 1px solid #d7d7d7;
+    padding:17px 10px 15px 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.kandan-contribution-wrap{
+    text-align: center;
+    height: 78px;
+    /*line-height: 78px!important;*/
+    background: #fff;
+}
+.kandan-contribution-text{
+    color: #fff;
+    position: absolute;
+    display: inline-block;
+    width: 100px;
+    line-height: 17px;
+    height: 17px;
+    font-size: 17px;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin: auto;
+}
+.kandan-contribution-img{
+    width: 100%;
+}
+.kandan-contribution-position{
+    width: 43.4%;
+    display: inline-block;
+    line-height: normal;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.shop-img-wrap-record{
+    flex: 2;
+}
+.browse-record{
+    flex:8;
+    margin-left:10px;
+}
+.kandan-browse-record{
+    background-color: #eaf6ff;
+    margin-bottom: 0;
+    color: #8b4e00;
+    position: relative;
+}
+.kandan-browse-record-list{
+    padding: 15px 5.6%;
+}
+.kandan-browse-list-last{
+    padding: 30px 0 35px 0;
+}
+.slide .carousel-indicators{
+    bottom: 30px;
+   /* width: 50%;
+    left: 50%;*/
+    margin-left: -30%;
+    text-align: center;
+}
+.carousel-indicators li {
+    display: inline-block!important;
+    width: 4px!important;
+    height: 4px!important;
+    margin: 1px 3px!important;
+    text-indent: -999px!important;
+    cursor: pointer;
+    /*background-color: #fbfcfb\9;
+    background-color: rgba(251,252,251,1);*/
+    background: #797979!important;
+    border: 1px solid #797979!important;
+    border-radius: 4px!important;
+}
+.carousel-indicators .active {
+    width: 8px!important;
+    height: 4px!important;
+    /*margin: 0;*/
+    background-color: #fe4b4b!important;
+    border: 1px solid #fe4b4b!important;
+}
+.kandan-bottom-icon{
+    width: 19px;
+}
+.sippliers-icon-background{
+    background: #fff;
+    border-top:1px solid #d7d7d7;
+    box-sizing: border-box;
+}
+.pindan-lunbo{
+    padding-bottom: 0;
+    height: 375px;
+    content: '.';
+    overflow: hidden;
+    /*visibility: hidden;*/
+    clear: both;
+    display:block;
+    width: 100%;
+}
+.i-will-join{
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    width: 55px;
+    height: 55px;
+    position: fixed;
+    right: 11px;
+    top:50%;
+    border-radius: 50%;
+    padding-top: 12px;
+    z-index: 1040;
+}
+.bg-opacity{
+    display: inline-block;
+    border-radius: 50%;
+    top:0;
+    left: 0;
+    opacity: .8;
+    background: #FA8C89;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.wrap-bottom{
+    padding-bottom: 60px;
+}
+.kandan-bottom-icon-change{
+    width: 22px;
+}
+.kandan-wrap-bgImg{
+    left: 10%;
+    z-index: 1040;
+}
+.kandan-already-help{
+    font-weight:normal;
+    font-size: 14px;
+    margin-top:5px ;
+}
+.kandan-time{
+    color: #FE7676;
+}
+.kandan-alert-text-change{
+    font-size: 16px;
+}
+.kandan-list-noPerson{
+    width: 20.5%;
+    border-radius: 50%;
+}
+.kandan-list-noPerson-wrap{
+    text-align: center;
+    margin-top: 91px;
+    margin-bottom: 127px;
+    color: #999999;
+}
+.kandan-list-noPerson{
+    margin-bottom: 10px;
+}
+.kandan-browse-alert{
+    position: absolute;
+    width: auto;
+    text-align: center;
+    z-index: 1020;
+    color: #fff;
+    top:45px;
+    left:20px;
+    padding:2px;
+}
+.kandan-list-bg{
+    width: 100%;
+    height: 100%;
+    background: #bcc5cc;
+    opacity: .7;
+    border-radius: 25px;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: -1;
+}
+.already-kanjia{
+    width: 51.7%;
+}
+
+.Invite-friend,.Invite-friend-wrap{
+    display: inline-block;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    color: #fff;
+    border-radius: 4px;
+    background: #ffd053;
+    width: 100%;
+    font-size: 16px;
+}
+.Invite-friend-wrap{
+    height: 40px;
+    background: #e1b43e;
+    width: 62.4%;
+}
+.you-already-kandan-wrap{
+    background: #D4D4D4;
+}
+.you-already-kandan{
+    background: #E0E0E0;
+}
+.Invite-friend-wrap-change{
+    background: #DB4A5B;
+}
+.Invite-friend-change{
+    background: #FF6073;
+}
+.kandan-buy-succussful-wrap{
+    background: #3BA1EB;
+}
+.kandan-buy-succussful{
+    background: #70C3FF;
+}
+.my-kanjia{
+    background: #7CBCED;
+}
+.kandian-advance{
+    bottom: -2px;
+    width: 39%;
+    z-index: 2;
+}
+.honor-list-change{
+    width: 37.8%;
+}
+.kandan-share{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40%;
+    z-index: 1050;
+}
+.kanjia-rule-wrap{
+    text-align: center;
+}
+.toast-wrap{
+    height: 30px;
+    position: fixed;
+    top:0;
+    bottom:0;
+    left: 0;
+    margin: auto 0;
+    text-align: center;
+    width: 100%;
+    z-index: 1050;
+}
+.toast{
+    padding: 10px 15px;
+    display: inline-block;
+    background: rgba(0,0,0,.7);
+    border-radius:5px;
+    color: #fff;
+    line-height: 20px;
+    font-size: 16px;
+}
+.kandan-alert-close .pindan-no-shop{
+    width: 116%!important;
+    position: absolute;
+    top:-40px;
+    left: -8%;
+
+}
+.kandan-alert-wrap-position{
+    top:0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    height: 190px;
+    margin: auto;
+
+}
+.pindan-more-suprice{
+    display: inline-block;
+    width: 80%;
+    height: 52px;
+    background: #e6f5ff;
+    color: #6bc4ff;
+    font-size: 15px;
+    line-height: 52px;
+    text-align: center;
+    margin-left:10% ;
+    margin-bottom: 18px;
+}
+.kandan-buyBtnBgColor{
+    background: #d1d1d1;
+}
+.kandan-buyBtnFontSize{
+    line-height: inherit ;
+    font-size: 16px;
+}
+.pindan-price-fontSize{
+    font-size: 12px;
+    line-height: 20px;
+}
+.kandan-no-stock{
+    display: inline-block;
+    height: 22px;
+    padding: 0 10px;
+    background: #ffdc5b;
+    color: #fe716b;
+    box-sizing: border-box;
+    border-radius: 25px;
+    line-height: 22px;
+    text-align: center;
+
+}
+.kandan-assass-public-out{
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+    /*border:1px solid #576894;*/
+    position: absolute;
+    border-left:1px solid transparent;
+    border-right:1px solid #333;
+    border-bottom:1px solid #333;
+    border-top:1px solid transparent;
+    transform: rotate(-45deg);
+}
+
+/*.kandan-username-ellepsis{
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}*/
+.kandan-wrap-bgImg-active{
+    top: -40px;
+    left: -20%;
+    right: 0;
+    margin: 0 auto;
+    z-index: 1031;
+    position: absolute;
+    width: 40%;
+}
+.li-position-static li{
+    position: relative!important;
+}
+.kandan-notLogin-alert-wrap{
+    color: #fff;
+    position: fixed;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    z-index: 1040;
+}
+.kandan-notLogin-alert{
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+}
+.kandan-now-login:link,.kandan-now-login:visited,.kandan-now-login:hover,.kandan-now-login:active{
+    color: #fff;
+}
+.notLogin_cutAct{
+    color: #fff;
+}
+.booking-back-to-top{
+    position: fixed;
+    bottom: 65px;
+    right: 2px;
+}
+.booking-back-to-img{
+    width: 42px;
+    border-radius: 25px;
+}

@@ -1,0 +1,345 @@
+.retail-refundSubmit{
+    padding: 30px 0;
+}
+.retail-refundSubmit-status{
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 150px;
+}
+.retail-refundSubmit-look{
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    border-radius: 25px;
+    font-size: 16px;
+}
+.retail-refundSubmit p{
+    font-size: 14px;
+}
+/*付款成功样式开始*/
+.return-orderBtn{
+    padding: 30px 0;
+}
+.return-orderBtn-item{
+    width: 80%;
+    height: 44px;
+    line-height: 44px;
+    display: inline-block;
+    border-radius: 50px;
+    color: #222;
+    border: 1px solid #d7d7d7;
+    font-size: 15px;
+}
+.return-orderBtn-href{
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    display: inline-block;
+    border-radius: 50px;
+    color: #222;
+    border: 1px solid #d7d7d7;
+    font-size: 15px;
+}
+.return-orderBtn-hrefShare{
+    background: #fe4b4b;
+    color: #fff;
+    border: 1px solid #fe4b4b;
+}
+.retail-paySuccess-code .size12{
+    padding-top:8px;
+}
+.retail-paySuccess-code-img{
+    width: 120px;
+    /*height: 150px;*/
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.retail-paySuccess-code-img img{
+    width: 120px;
+    height: 120px;
+}
+.retail-paySuccess-status{
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+/*付款成功样式结束*/
+/*退款账户样式开始*/
+.retail-refundAccount-common{
+    padding:20px 15px;
+    position: relative;
+    border-bottom: 1px solid #d7d7d7;
+}
+.retail-refundAccount-common-icon{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+}
+.retail-refundAccount-common-name{
+    padding-left: 70px;
+    padding-top: 10px;
+}
+.retail-refundAccount-common-default{
+    line-height: 60px;
+}
+.retail-refundAccount-common-default-img{
+    width: 17px;
+    padding-right: 5px;
+}
+.retail-refundAccount-common-default-img img{
+    width: 17px;
+}
+.retail-refundAccount-addAccount{
+    color: #fffefe;
+    height: 45px;
+    line-height: 45px;
+}
+.retail-refundAccount-addAccount-icon{
+    padding-right: 5px;
+}
+.retail-refundAccount-addAccount-icon img{
+    width: 15px;
+}
+.retail-addAccount-common-name{
+    padding-left: 70px;
+}
+.retail-setAccount{
+    margin-top: 40px;
+}
+.retail-setAccount-btn{
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    color: #fff;
+    margin-bottom: 25px;
+}
+/*退款账户样式结束*/
+/*修改手机号码样式开始*/
+.retail-updatePhone-phone{
+    background: #fff;
+    margin-bottom: 70px;
+    margin-top: 15px;
+}
+.retail-updatePhone-phone span{
+    height: 40px;
+    line-height: 40px;
+    padding-right: 0;
+}
+.retail-updatePhone-input{
+    height: 40px;
+    border: none;
+}
+.retail-updatePhone-phone label.error{
+    left: 15px;
+    font-size: 12px;
+    position: absolute;
+    bottom: -30px;
+    color: #999;
+}
+.retail-updatePhone-icon{
+    display: inline-block;
+    width: 14px;
+    position: absolute;
+    right: 2px;
+    top: 0;
+    margin: 13px;
+}
+
+.retail-updatePhone-btn{
+    height: 45px;
+    line-height: 45px;
+    border-radius: 30px;
+}
+/*修改手机号码样式结束*/
+/*账号设置样式开始*/
+.retail-settingAccount-list-href{
+    display: block;
+    color: #222;
+}
+.retail-settingAccount{
+    padding-top: 10px;
+}
+.retail-settingAccount-list{
+    margin-bottom: 90px;
+}
+/*账号设置样式结束*/
+/*支付宝账号，银行卡设置样式开始*/
+.accountAlipay-warning{
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    padding: 0 15px;
+}
+.accountAlipay-msg{
+    background: #fff;
+    border-top: 1px solid #d7d7d7;
+    border-bottom: 1px solid #d7d7d7;
+}
+.accountAlipay-msg-item{
+    height: 48px;
+    line-height: 46px;
+    margin-left: 15px;
+    border-bottom: 1px solid #d7d7d7;
+}
+.unborder{
+    border:0;
+}
+.accountAlipay-msg-item-input{
+    border: none;
+    width: 200px;
+}
+.accountAlipay-btn{
+    height: 45px;
+    line-height: 45px;
+    border-radius: 30px;
+    background: #eee;
+    color: #cecece;
+    margin-top: 30px;
+}
+.accountAlipay-btn.active{
+    background: #ff865d;
+    color: #fff;
+}
+.accountAlipay-msg-item b{
+    display: inline-block;
+    width: 90px;
+}
+.accountAlipay-msg-item-input-wrap{
+    width: 200px;
+    display: inline-block;
+}
+/*支付宝账号，银行卡设置样式结束*/
+/*查看物流信息*/
+.retail-checkLogistics{
+    padding: 20px 12px;
+    background: #fff;
+    color: #666;
+    font-size: 13px;
+}
+.retail-checkLogistics-img{
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    border: 1px solid #efefef;
+}
+.retail-checkLogistics-img img{
+    min-width: 90px;
+    min-height: 90px;
+    width: 100%;
+}
+.retail-checkLogistics-text{
+    padding-left: 10px;
+}
+.retail-checkLogistics-text{
+    padding-left: 10px;
+}
+.retail-checkLogistics-status{
+    color: #25ae5f;
+}
+.retail-checkLogistics-text01{
+    letter-spacing: 4.5px;
+}
+.retail-checkLogistics-copy{
+    padding: 1px 5px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    margin-left: 5px;
+    background: #fff;
+}
+.retail-checkLogistics-input{
+    width: 50%;
+    border: none;
+    height: 18px;
+}
+.retail-checkLogistics-msg{
+    margin-top: 10px;
+    background: #fff;
+    padding-right: 12px;position: relative;margin-bottom: 105px;
+}
+.retail-checkLogistics-msg-left{ position:absolute;top: 0;width: 30px;height:175px;border-right:#ccc solid 1px;margin-top: 30px;overflow: hidden }
+.retail-checkLogistics-msg-right{padding-top: 5px;}
+.retail-checkLogistics-msg-data{color:#666;font-size: 14px;margin-left: 60px;padding: 20px 0;border-bottom: 1px solid #d7d7d7;position: relative}
+.retail-checkLogistics-msg-data.current{color: #25ae5f;}
+.retail-checkLogistics-msg-data.last{border:0;}
+.retail-checkLogistics-msg-data-time{font-size: 11px;}
+.retail-checkLogistics-msg-data-icon{width: 20px;position: absolute;top:20px;left: -40px}
+.booking-success{
+    padding:20px 0 35px;
+    font-size: 17px;
+}
+.invite-moreGoods{
+  padding:75px 15px 35px;
+}
+.invite-moreGoods-item{
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    display: inline-block;
+    border-radius: 4px;
+    color: #fe4b4b;
+    border: 1px solid #fe4b4b;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+.invite-moreGoods-item:visited,.invite-moreGoods-item:link,.invite-moreGoods-item:active{
+    color: #fe4b4b;
+}
+.activityOver{
+    padding: 137px 15px;
+}
+.activityOver-img{
+    width: 135px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+.activityOver-btn-href{
+    display: inline-block;
+}
+.activityOver-btn-wrap{
+    padding: 30px 0;
+}
+.activityOver-btn{
+    width: 147px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 auto;
+    border:1px solid #53cac3;
+    border-radius: 4px;
+    font-size: 15px;
+}
+.retail-activity-background{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 1050;
+    position: fixed;
+    top:0;
+    left: 0;
+    opacity: 0;
+}
+
+
+@media (max-width: 350px) {
+    .retail-checkLogistics-img{
+        width: 80px;
+        height: 80px;
+    }
+    .retail-checkLogistics-img img{
+        min-width: 80px;
+        min-height: 80px;
+    }
+    .retail-checkLogistics{
+        padding: 20px 12px;
+        background: #fff;
+        color: #666;
+        font-size: 12px;
+    }
+    .retail-checkLogistics-copy{
+        display: none;
+    }
+}
+@media (min-width: 400px) {
+    .lqy-qrcode-img{
+        margin-right: 40px;
+    }
+}
+/*查看物流信息end*/

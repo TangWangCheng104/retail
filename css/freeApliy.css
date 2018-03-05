@@ -1,0 +1,215 @@
+body{
+    font-size: 14px;
+}
+.freeApliy{
+    padding: 0 50px;
+}
+.freeApliy-title{
+    color: #666;
+    font-size: 14px;
+    padding: 20px 0 5px;
+}
+.freeApliy-phone{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    border: 1px solid #d7d7d7;
+    padding-left: 20px;
+    margin-top: 12px;
+}
+.retail-comverify{
+    position: relative;
+}
+.retail-comverify .error{
+    position: absolute;
+    bottom: -18px;
+    color: #f00;
+    font-weight: 500;
+    font-size: 11px;
+    left: 20px;
+    z-index: 1040;
+}
+.freeApliy-btn{
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    background: #ff6666;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+.freeApliy-verify-btn{
+    margin-top: 12px;
+}
+.freeApliy-verify-btn input{
+    padding-left: 10px;
+    border: none;
+    background: none;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    color: #3b67a4;
+    font-weight: bold;
+}
+
+.freeApliy-verify-btn .disabled{
+    color: #999;
+}
+.freeApliy-alert{
+    width: 70%;
+    background: #fff;
+    border-radius: 5px;
+    margin: 0 15%;
+    height: 130px;
+    position: absolute;
+    top: 40%;
+    z-index: 1040;
+}
+.freeApliy-alert-msg{
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+    text-align: center;
+    padding: 20px 0 22px;
+    border-bottom: 1px solid #d7d7d7;
+}
+.freeApliy-alert-btn{
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    width: 100%;
+    display: block;
+    color: #ff865d;
+    font-size: 17px;
+}
+.freeApliy-text{
+    background-color: rgba(246,229,181,.7) ;
+    height: 38px;
+    text-align: center;
+    color: #e8941c;
+    font-size: 13px;
+    line-height: 38px;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    z-index:1040;
+}
+/*不能再砍单了弹窗*/
+.kandan-alert-wrap{
+    width: 70%;
+    position: fixed;
+    z-index: 1040;
+    margin: 0 15%;
+}
+.freeApliy-alert-wrap{
+    top: 50%;
+    transform: translateY(-50%);
+}
+.kandan-alert-close{
+    justify-content: flex-end;
+}
+.kandan-alert-close img{
+    width: 44px;
+}
+.kandan-alert{
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+}
+.kandan-alert-img01{
+    text-align: center;
+    padding: 35px 0 25px;
+}
+.kandan-alert-img01 img{
+    width: 90px;
+}
+.kandan-alert-text{
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: #666;
+    padding-bottom: 26px;
+}
+.kandan-alert-btn{
+    width: 100%;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    border-top: 1px solid #d7d7d7;
+    text-align: center;
+    font-weight: bold;
+    color: #fe4b4b;
+}
+.kandan-alert-btn:focus, .kandan-alert-btn:hover, .kandan-alert-btn:active{
+    color: #fe4b4b;
+}
+.kandan-alert-text01{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #666;
+    padding-bottom: 40px;
+}
+.freeApliy-shop-text,.freeApliy-user-text{
+    font-size: 14px;
+    color: #666666;
+    padding: 0 23px 0 50px;
+    position: relative;
+}
+.freeApliy-shop-text{
+    padding-top: 30px;
+}
+.freeApliy-user-text{
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+.freeApliy-shop{
+    color: #46b0ff;
+}
+.freeApliy-user{
+    color: #ff66ab;
+}
+.serial-number1{
+    width: 21px;
+    position: absolute;
+    left: 20px;
+}
+.free-I-get-it{
+    color: #53CAC3 ;
+    font-size: 15px;
+    font-weight: bold;
+    height: 50px;
+    box-sizing: border-box;
+    border-top: 1px solid #d7d7d7;
+    text-align: center;
+    line-height: 50px;
+}
+@media (max-width: 340px) {
+    .freeApliy{
+        padding: 0 35px;
+    }
+    .freeApliy-title{
+        font-size: 12px;
+        padding: 12px 0 0;
+        text-align: center;
+    }
+    .freeApliy-phone{
+        height: 32px;
+        line-height: 32px;
+    }
+    .freeApliy-verify-btn input {
+        padding-left: 10px;
+        height: 35px;
+        line-height: 35px;
+    }
+    .freeApliy-btn {
+        height: 40px;
+        line-height: 40px;
+    }
+}
+@media (min-width: 400px) {
+
+}

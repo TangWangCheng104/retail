@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name='apple-itunes-app' content='app-id=1035128844'>
+    <!--样式胡引入-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/discount-iscroll.css">
+    <link rel="stylesheet" href="../css/store-index.css">
+    <link rel="stylesheet" href="../css/discount.css">
+    <!--js的引入-->
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/discount-iscroll.js"></script>
+    <title>优惠券</title>
+    <style>
+        html{
+            font-size: 625%;
+            background: #f5f5f5;
+        }
+        body{
+            font-size: 14px;
+
+        }
+    </style>
+</head>
+<body>
+<script>
+    $(function(){
+        $('.store-tap').on("click","li",function(){
+
+            var index = $(this).index(".store-tap li");
+            $('#store-tap li').eq(index).find("a").addClass("store-avtive").parent().siblings().find("a").removeClass("store-avtive");
+        });
+        var store_tap = document.getElementById("store-tap");
+        var store_tap_height = store_tap.offsetTop;
+        $(window).scroll(function(e){
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+            if(scrollTop>=store_tap_height){
+                $(store_tap).addClass("fixed");
+            }else {
+                $(store_tap).removeClass("fixed");
+            }
+            if(scrollTop <= 40){
+                $(store_tap).removeClass("fixed");
+            }
+        })
+    })
+</script>
+
+<div class="store-wrap discount-shoper-wrap">
+    <ul class="store-tap" id="store-tap">
+        <li><a href="javascript:;">首页</a></li>
+        <li><a href="javascript:;">商品</a></li>
+        <li><a href="javascript:;">活动</a></li>
+        <li><a href="javascript:;" class="store-avtive">优惠券</a></li>
+    </ul>
+    <!--没有优惠券的时候-->
+    <div class="store_no_avtive" style="display: none">
+        <div class="store_noAvtive_content" >
+            <img class="store_noActive_img" src="../images/discount_img.png"/>
+            <span class="store_noAvtive_text">更多优惠敬请期待哦～</span>
+        </div>
+    </div>
+    <!--有优惠券的时候-->
+    <div class="has-discount" style="display: block">
+        <div id="wrapper" class="discount-content-wrapper">
+            <div class="scroller">
+                <ul>
+                    <li>
+                        <!--未领取的优惠券-->
+                        <div class="has-discount-left">
+                            <div class="not-get">
+                                <!--红色背景图-->
+                                <img style="display: none" class="discount-not-get" src="../images/discount_no_get1.png" alt="">
+                                <!--灰色背景图-->
+                                <img style="display: block" class="discount-not-get" src="../images/discount_already_pass1.png" alt="">
+                                <span class="discount-money-wrap">
+                                    <span class="discount-money">￥</span>
+                                    <span class="discount-price">900</span>
+                                </span>
+                                <span class="full-money-reduce">满100000可减</span>
+                            </div>
+                            <div class="has-discount-right">
+                                <div class="discount-name"><span class="full-reduce">满减券</span></div>
+                                <!--指定商品可用-->
+                                <div style="display: block" class="discount-effect">指定商品可用</div>
+                                <!--全部商品可用-->
+                                <div style="display: none" class="discount-effect">全部商品可用</div>
+                                <!--当查看详情隐藏时显示这个，也就是加了个类discount-already-pass-->
+                                <div style="display: none" class="discount-effect discount-already-pass">全部商品可用</div>
+                                <!--当查看详情隐藏时显示这个，也就是加了个类discount-already-pass  end-->
+                                <div style="display: block" class="check-discount-wrap">
+                                    <a class="check-discount" href="javascript:;">查看券详情<img class="discount-right" src="../images/discount_right.png" alt=""></a>
+                                </div>
+                                <!--立即领取-->
+                                <span style="display:none " class="discount-use-now">立即领取</span>
+                                <!--立即使用-->
+                                <span style="display:block " class="discount-use-now discount-use-now-active">立即使用</span>
+                                <!--抢光了-->
+                                <span style="display:none " class="discount-use-now discount-get-over">抢光了</span>
+                                <!--已过期背景图-->
+                                <img style="display:none " class="already-pass" src="../images/already_pass.jpg" alt="">
+                                <!--已经领取背景图-->
+                                <img style="display:block " class="already-get" src="../images/already_get.png" alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <!--未领取的优惠券-->
+                        <div class="has-discount-left">
+                            <div class="not-get">
+                                <!--红色背景图-->
+                                <img style="display: none" class="discount-not-get" src="../images/discount_no_get1.png" alt="">
+                                <!--灰色背景图-->
+                                <img style="display: block" class="discount-not-get" src="../images/discount_already_pass1.png" alt="">
+                                <span class="discount-money-wrap">
+                                    <span class="discount-money">￥</span>
+                                    <span class="discount-price">900</span>
+                                </span>
+                                <span class="full-money-reduce">满100000可减</span>
+                            </div>
+                            <div class="has-discount-right">
+                                <div class="discount-name"><span class="full-reduce">满减券</span></div>
+                                <!--指定商品可用-->
+                                <div style="display: block" class="discount-effect">指定商品可用</div>
+                                <!--全部商品可用-->
+                                <div style="display: none" class="discount-effect">全部商品可用</div>
+                                <!--当查看详情隐藏时显示这个，也就是加了个类discount-already-pass-->
+                                <div style="display: none" class="discount-effect discount-already-pass">全部商品可用</div>
+                                <!--当查看详情隐藏时显示这个，也就是加了个类discount-already-pass  end-->
+                                <div style="display: block" class="check-discount-wrap">
+                                    <a class="check-discount" href="javascript:;">查看券详情<img class="discount-right" src="../images/discount_right.png" alt=""></a>
+                                </div>
+                                <!--立即领取-->
+                                <span style="display:none " class="discount-use-now">立即领取</span>
+                                <!--立即使用-->
+                                <span style="display:none " class="discount-use-now discount-use-now-active">立即使用</span>
+                                <!--抢光了-->
+                                <span style="display:block " class="discount-use-now discount-get-over">抢光了</span>
+                                <!--已过期背景图-->
+                                <img style="display:none " class="already-pass" src="../images/already_pass.jpg" alt="">
+                                <!--已经领取背景图-->
+                                <img style="display:block " class="already-get" src="../images/already_get.png" alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <!--未领取的优惠券-->
+                        <div class="has-discount-left">
+                            <div class="not-get">
+                                <!--红色背景图-->
+                                <img style="display: none" class="discount-not-get" src="../images/discount_no_get1.png" alt="">
+                                <!--灰色背景图-->
+                                <img style="display: block" class="discount-not-get" src="../images/discount_already_pass1.png" alt="">
+                                <span class="discount-money-wrap">
+                                    <span class="discount-money">￥</span>
+                                    <span class="discount-price">900</span>
+                                </span>
+                                <span class="full-money-reduce">满100000可减</span>
+                            </div>
+                            <div class="has-discount-right">
+                                <div class="discount-name"><span class="full-reduce">满减券</span></div>
+                                <!--指定商品可用-->
+                                <div style="display: block" class="discount-effect">指定商品可用</div>
+                                <!--全部商品可用-->
+                                <div style="display: none" class="discount-effect">全部商品可用</div>
+                                <!--当查看详情隐藏时显示这个，也就是加了个类discount-already-pass-->
+                                <div style="display: none" class="discount-effect discount-already-pass">全部商品可用</div>
+                                <!--当查看详情隐藏时显示这个，也就是加了个类discount-already-pass  end-->
+                                <div style="display: block" class="check-discount-wrap">
+                                    <a class="check-discount" href="javascript:;">查看券详情<img class="discount-right" src="../images/discount_right.png" alt=""></a>
+                                </div>
+                                <!--立即领取-->
+                                <span style="display:none " class="discount-use-now">立即领取</span>
+                                <!--立即使用-->
+                                <span style="display:none " class="discount-use-now discount-use-now-active">立即使用</span>
+                                <!--抢光了-->
+                                <span style="display:block " class="discount-use-now discount-get-over">抢光了</span>
+                                <!--已过期背景图-->
+                                <img style="display:none " class="already-pass" src="../images/already_pass.jpg" alt="">
+                                <!--已经领取背景图-->
+                                <img style="display:block " class="already-get" src="../images/already_get.png" alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <!--未领取的优惠券-->
+                        <div class="has-discount-left">
+                            <div class="not-get">
+                                <!--红色背景图-->
+                                <img style="display: none" class="discount-not-get" src="../images/discount_no_get1.png" alt="">
+                                <!--灰色背景图-->
+                                <img style="display: block" class="discount-not-get" src="../images/discount_already_pass1.png" alt="">
+                                <span class="discount-money-wrap">
+                                    <span class="discount-money">￥</span>
+                                    <span class="discount-price">900</span>
+                                </span>
+                                <span class="full-money-reduce">满100000可减</span>
+                            </div>
+                            <div class="has-discount-right">
+                                <div class="discount-name"><span class="full-reduce">满减券</span></div>
+                                <!--指定商品可用-->
+                                <div style="display: block" class="discount-effect">指定商品可用</div>
+                                <!--全部商品可用-->
+                                <div style="display: none" class="discount-effect">全部商品可用</div>
+                                <!--当查看详情隐藏时显示这个，也就是加了个类discount-already-pass-->
+                                <div style="display: none" class="discount-effect discount-already-pass">全部商品可用</div>
+                                <!--当查看详情隐藏时显示这个，也就是加了个类discount-already-pass  end-->
+                                <div style="display: block" class="check-discount-wrap">
+                                    <a class="check-discount" href="javascript:;">查看券详情<img class="discount-right" src="../images/discount_right.png" alt=""></a>
+                                </div>
+                                <!--立即领取-->
+                                <span style="display:none " class="discount-use-now">立即领取</span>
+                                <!--立即使用-->
+                                <span style="display:none " class="discount-use-now discount-use-now-active">立即使用</span>
+                                <!--抢光了-->
+                                <span style="display:block " class="discount-use-now discount-get-over">抢光了</span>
+                                <!--已过期背景图-->
+                                <img style="display:none " class="already-pass" src="../images/already_pass.jpg" alt="">
+                                <!--已经领取背景图-->
+                                <img style="display:block " class="already-get" src="../images/already_get.png" alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <!--未领取的优惠券-->
+                        <div class="has-discount-left">
+                            <div class="not-get">
+                                <!--红色背景图-->
+                                <img style="display: none" class="discount-not-get" src="../images/discount_no_get1.png" alt="">
+                                <!--灰色背景图-->
+                                <img style="display: block" class="discount-not-get" src="../images/discount_already_pass1.png" alt="">
+                                <span class="discount-money-wrap">
+                                    <span class="discount-money">￥</span>
+                                    <span class="discount-price">900</span>
+                                </span>
+                                <span class="full-money-reduce">满100000可减</span>
+                            </div>
+                            <div class="has-discount-right">
+                                <div class="discount-name"><span class="full-reduce full-reduce-acitve">满减券</span></div>
+                                <!--指定商品可用-->
+                                <div style="display: block" class="discount-effect">指定商品可用</div>
+                                <!--全部商品可用-->
+                                <div style="display: none" class="discount-effect">全部商品可用</div>
+                                <!--当查看详情隐藏时显示这个，也就是加了个类discount-already-pass-->
+                                <div style="display: none" class="discount-effect discount-already-pass">全部商品可用</div>
+                                <!--当查看详情隐藏时显示这个，也就是加了个类discount-already-pass  end-->
+                                <div style="display: block" class="check-discount-wrap">
+                                    <a class="check-discount" href="javascript:;">查看券详情<img class="discount-right" src="../images/discount_right.png" alt=""></a>
+                                </div>
+                                <!--立即领取-->
+                                <span style="display:block " class="discount-use-now">立即领取</span>
+                                <!--立即使用-->
+                                <span style="display:none " class="discount-use-now discount-use-now-active">立即使用</span>
+                                <!--抢光了-->
+                                <span style="display:none " class="discount-use-now discount-get-over">抢光了</span>
+                                <!--已过期背景图-->
+                                <img style="display:none " class="already-pass" src="../images/already_pass.jpg" alt="">
+                                <!--已经领取背景图-->
+                                <img style="display:block " class="already-get" src="../images/already_get.png" alt="">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="more"><i class="pull_icon"></i><span>上拉加载...</span></div>
+            </div>
+        </div>
+        <!--未领取的优惠券-->
+        <!--<div class="has-discount-left">
+            <div class="not-get">
+                <img class="discount-not-get" src="../images/discount_no_get1.png" alt="">
+            <span class="discount-money-wrap">
+                <span class="discount-money">￥</span>
+                <span class="discount-price">900</span>
+            </span>
+                <span class="full-money-reduce">满100000可减</span>
+            </div>
+            <div class="has-discount-right">
+                <div class="discount-name"><span class="full-reduce">满减券</span></div>
+                <div class="discount-effect">指定商品可用</div>
+                <div class="check-discount-wrap">
+                    <a class="check-discount" href="javascript:;">查看券详情<img class="discount-right" src="../images/discount_right.png" alt=""></a>
+                </div>
+                <span class="discount-use-now">立即使用</span>
+            </div>
+        </div>
+        &lt;!&ndash;已经领取但未使用的优惠券&ndash;&gt;
+        <div class="has-discount-left">
+            <div class="not-get">
+                <img class="discount-not-get" src="../images/discount_no_get1.png" alt="">
+            <span class="discount-money-wrap">
+                <span class="discount-money">￥</span>
+                <span class="discount-price">900</span>
+            </span>
+                <span class="full-money-reduce">满100000可减</span>
+            </div>
+            <div class="has-discount-right">
+                <div class="discount-name"><span class="full-reduce">满减券</span></div>
+                <div class="discount-effect">全部商品可用</div>
+                <div class="check-discount-wrap">
+                    <a class="check-discount" href="javascript:;">查看券详情<img class="discount-right" src="../images/discount_right.png" alt=""></a>
+                </div>
+                <span class="discount-use-now discount-use-now-active">立即领取</span>
+                <img class="already-get" src="../images/already_get.png" alt="">
+            </div>
+        </div>
+        &lt;!&ndash;被抢光了的优惠券&ndash;&gt;
+        <div class="has-discount-left">
+            <div class="not-get">
+                <img class="discount-not-get" src="../images/discount_no_get1.png" alt="">
+            <span class="discount-money-wrap">
+                <span class="discount-money">￥</span>
+                <span class="discount-price">900</span>
+            </span>
+                <span class="full-money-reduce">满100000可减</span>
+            </div>
+            <div class="has-discount-right">
+                <div class="discount-name"><span class="full-reduce">满减券</span></div>
+                <div class="discount-effect">全部商品可用</div>
+                <div class="check-discount-wrap">
+                    <a class="check-discount" href="javascript:;">查看券详情<img class="discount-right" src="../images/discount_right.png" alt=""></a>
+                </div>
+                <span class="discount-use-now discount-get-over">抢光了</span>
+            </div>
+        </div>
+        &lt;!&ndash;已经过期了的优惠券&ndash;&gt;
+        <div class="has-discount-left">
+            <div class="not-get">
+                <img class="discount-not-get" src="../images/discount_already_pass1.png" alt="">
+            <span class="discount-money-wrap">
+                <span class="discount-money">￥</span>
+                <span class="discount-price">900</span>
+            </span>
+                <span class="full-money-reduce">满100000可减</span>
+            </div>
+            <div class="has-discount-right">
+                <div class="discount-name discount-name-pass"><span class="full-reduce full-reduce-pass">满减券</span></div>
+                <div class="discount-effect discount-already-pass">全部商品可用</div>
+                &lt;!&ndash;<div class="check-discount-wrap">
+                    <a class="check-discount" href="javascript:;">查看券详情<img class="discount-right" src="../images/discount_right.png" alt=""></a>
+                </div>&ndash;&gt;
+                <img class="already-pass" src="../images/already_pass.jpg" alt="">
+            </div>
+        </div>
+    </div>-->
+    <div class="store-goods-list">
+
+        <ul class="store-bottom">
+            <li>
+                <a href="javascript:;" class="store-bottom-active">
+                    <img src="../images/icon_shangcheng_xuanzhong_nor@3x.png" />
+                    <p>商城</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../images/icon_kefu_nor@3x.png" />
+                    <p>客服</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../images/icon_wode_nor@3x.png" />
+                    <p>我的</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    <script>
+        var myscroll = new iScroll("wrapper",{
+            onScrollMove:function(){
+                if (this.y<(this.maxScrollY)) {
+                    $('.pull_icon').addClass('flip');
+                    $('.pull_icon').removeClass('loading');
+                    $('.more span').text('释放加载...');
+                }else{
+                    $('.pull_icon').removeClass('flip loading');
+                    $('.more span').text('上拉加载...')
+                }
+            },
+            onScrollEnd:function(){
+                if ($('.pull_icon').hasClass('flip')) {
+                    $('.pull_icon').addClass('loading');
+                    $('.more span').text('加载中...');
+                    pullUpAction();
+                }
+
+            },
+            onRefresh:function(){
+                $('.more').removeClass('flip');
+                $('.more span').text('上拉加载...');
+            }
+
+        });
+
+        function pullUpAction(){
+            setTimeout(function(){
+                /*$.ajax({
+                 url:'/json/ay.json',
+                 type:'get',
+                 dataType:'json',
+                 success:function(data){
+                 for (var i = 0; i < 5; i++) {
+                 $('.scroller ul').append(data);
+                 }
+                 myscroll.refresh();
+                 },
+                 error:function(){
+                 console.log('error');
+                 },
+                 })*/
+                for (var i = 0; i < 5; i++) {
+                    $('.scroller ul').append(`<li>
+                        <!--未领取的优惠券-->
+                        <div class="has-discount-left">
+                            <div class="not-get">
+                                <!--红色背景图-->
+                                <img style="display: none" class="discount-not-get" src="../images/discount_no_get1.png" alt="">
+                                <!--灰色背景图-->
+                                <img style="display: block" class="discount-not-get" src="../images/discount_already_pass1.png" alt="">
+                                <span class="discount-money-wrap">
+                                    <span class="discount-money">￥</span>
+                                    <span class="discount-price">900</span>
+                                </span>
+                                <span class="full-money-reduce">满100000可减</span>
+                            </div>
+                            <div class="has-discount-right">
+                                <div class="discount-name"><span class="full-reduce full-reduce-acitve">满减券</span></div>
+                                <!--指定商品可用-->
+                                <div style="display: block" class="discount-effect">指定商品可用</div>
+                                <!--全部商品可用-->
+                                <div style="display: none" class="discount-effect">全部商品可用</div>
+                                <!--当查看详情隐藏时显示这个，也就是加了个类discount-already-pass-->
+                                <div style="display: none" class="discount-effect discount-already-pass">全部商品可用</div>
+                                <!--当查看详情隐藏时显示这个，也就是加了个类discount-already-pass  end-->
+                                <div style="display: block" class="check-discount-wrap">
+                                    <a class="check-discount" href="javascript:;">查看券详情<img class="discount-right" src="../images/discount_right.png" alt=""></a>
+                                </div>
+                                <!--立即领取-->
+                                <span style="display:none " class="discount-use-now">立即领取</span>
+                                <!--立即使用-->
+                                <span style="display:block " class="discount-use-now discount-use-now-active">立即使用</span>
+                                <!--抢光了-->
+                                <span style="display:none " class="discount-use-now discount-get-over">抢光了</span>
+                                <!--已过期背景图-->
+                                <img style="display:none " class="already-pass" src="../images/already_pass.jpg" alt="">
+                                <!--已经领取背景图-->
+                                <img style="display:block " class="already-get" src="../images/already_get.png" alt="">
+                            </div>
+                        </div>
+                    </li>`);
+                }
+                myscroll.refresh();
+            }, 1000)
+        }
+            if ($('.scroller').height()<$('#wrapper').height()) {
+                $('.more').hide();
+                myscroll.destroy();
+            }
+
+    </script>
+
+</body>
+</html>

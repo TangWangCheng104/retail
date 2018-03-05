@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>我的祝福卡</title>
+    <!-[if IE9]>
+    <script src="../js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers {
+            display: none !important;
+        }</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <![endif]->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-login-register.css" rel="stylesheet" type="text/css">
+    <link href="css/newYearCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/newYear-activityList.css" rel="stylesheet" type="text/css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/html2canvas.js"></script>
+    <!--<script>-->
+    <!--var img=new Image;-->
+    <!--img.onload=function(){-->
+    <!--var canvas=document.createElement("canvas");-->
+    <!--canvas.width=img.width;-->
+    <!--canvas.height=img.height;-->
+    <!--var g=canvas.getContext("2d");-->
+    <!--g.drawImage(img,0,0,img.width,img.height);-->
+    <!--console.log(canvas.toDataURL());-->
+    <!--};-->
+    <!--img.crossOrigin="anonymous"; //关键-->
+    <!--img.src="http://localhost:8888/h5/retail/newYear/images/newYear_cardBg.png";-->
+    <!--</script>-->
+    <script>
+        function cutImg() {
+            html2canvas(document.getElementById('cutImg'), {
+                allowTaint: true,
+                taintTest: false,
+                onrendered: function (canvas) {
+                    canvas.id = "mycanvas";
+                    //document.body.appendChild(canvas);
+                    //生成base64图片数据
+                    var dataUrl = canvas.toDataURL("image/png");
+                    document.execCommand("dataUrl");
+                    var newImg = document.createElement("img");
+                    newImg.crossOrigin = "anonymous"; //关键
+                    newImg.src = dataUrl;
+                    $(".js_share").html('');
+                    $(".js_share").html(newImg);
+                    $(".js_share").css({"margin": "15px 0 0"});
+                    $(".js_share").find("img").css({"width": "100%"});
+                    $(".js_warning").html("长按保存贺卡把祝福送给好友");
+                }
+            });
+        }
+    </script>
+</head>
+<body onload="cutImg();">
+<!--<div id="lqyCanvas" class="lqyCanvas" style="">-->
+    <!--<canvas id="myCanvas" class="myCanvas">-->
+        <!--Your browser does not support the canvas element.-->
+    <!--</canvas>-->
+    <!--<img id="myImg" style="display: none;"/>-->
+<!--</div>-->
+<div class="container-fluid padding-0px" id="aaa">
+    <img class="img-responsive newYear-modelBg" src="images/newYear-createImg.png" alt="">
+    <div id="cutImg" class="js_share newYear-modelIcon-wrap newYear-createImg-wrap" style="margin: 20px 0 0">
+        <div id="icon_img" class="newYear-modelIcon newYear-createImg" style="border: 1px solid #f00">
+            <div class="text-center newYear-makePhoto-title"><span class="js_nickName newYear-nickName">小骨头</span>祝您
+            </div>
+            <img class="js_photoModel newYear-photoModel active img-responsive" src="images/model001.png" alt="">
+            <img class="this_img newYear-photo" src="images/newYear_cardBg.png" alt="">
+        </div>
+        <div class="newYear-createImg-qrcode-wrap" style="border: 1px solid #f00">
+            <div class="newYear-createImg-qrcode">
+                <img src="images/logo_qrcode.jpg" style="width: 100%" alt="">
+            </div>
+            <div class="text-left newYear-createImg-qrcode-txt" style="">
+                小骨头给你送了一份新年礼物<br>
+                长按识别二维码领取
+            </div>
+        </div>
+    </div>
+    <div class="js_warning text-center newYear-warningBtn" style="">截图发送好友，速领奖品</div>
+</div>
+</body>
+</html>
+

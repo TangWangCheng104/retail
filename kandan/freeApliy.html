@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name='apple-itunes-app' content='app-id=1035128844'>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>申请免费试用</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/app_downAlert.css" rel="stylesheet">
+    <link href="../css/freeApliy.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.min.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/loginVerify.js"></script>
+    <script>
+        var $errormsg;
+        $(function(){
+            var t;
+            var obj;
+            var screenW = window.outerWidth;
+            var comH = $(".js_height").css("height");
+            comH = parseInt(comH);
+            comH = (comH/375)*screenW;
+            //点击获取验证码判断：手机号码格式是否正确/是否已申请过/是否是合伙人
+            $(".js_getVerify").click(function(){
+                var v = $(".js_phone").val();
+                var len = v.length;
+                $(".js_phoneError").show();
+                if(len==11){
+                    $(".js_phoneError").text("");
+                    $(obj).attr("aria-invalid", "false");
+                    $(".js_phoneError").hide();
+                    $(".js_getVerify") .addClass("disabled");
+                    time(this);
+                }else {
+                    $(".js_phoneError").text("请填写11位正确的手机号");
+                    $(obj).attr("aria-invalid", "true");
+                    $(".js_phoneError").show();
+                    $(".js_getVerify").removeClass("disabled");
+                }
+            });
+            $(".js_freeApliyBtn").click(function(){
+                testbtn();
+//                alert($errormsg);
+                $(".js_error").show();
+                if(!$errormsg){
+                    $(".js_com_black").show();
+                    $(".js_freeApliy-alert").show();
+                    var t=setTimeout(function(){
+                        window.location.href="http://www.zhubaoyi.cn/static/zh/app.html";
+                    },3000);
+//                    window.location.href="http://www.zhubaoyi.cn/static/zh/app.html";//所有信息正确后跳转
+                }
+            });
+            /*关闭商家或者用户登录的蒙版*/
+            canceAlertSelf();
+        });
+
+        function testbtn(){
+            $errormsg = 0;
+            var $input = $(".js_input");
+            for (var i = 0; i < $input.length; i++) {
+                if ($input.eq(i).attr("aria-invalid") == 'true') {
+                    $errormsg = 1;
+                    break;
+                }
+            }
+            if (!$errormsg) {
+//                $(".js_freeApliyBtn").removeClass("disabled");
+                $(".js_freeApliyBtn").removeAttr("disabled");
+//                $(".js_password_alert").fadeIn(500);
+//                var t = setTimeout(function () {
+//                    $(".js_password_alert").fadeOut(800);
+//                }, 800);
+            } else {
+//                $(".js_freeApliyBtn").addClass("disabled");
+                $(".js_freeApliyBtn").attr("disabled",true);
+            }
+        }
+        /*判断输入是否为合法的手机号码*/
+        function isphone2(inputString)
+        {
+            var partten = /^1[3,5,8]\d{9}$/;
+            var fl=false;
+            if(partten.test(inputString))
+            {
+                //alert('是手机号码');
+                return true;
+            }
+            else
+            {
+                return false;
+                //alert('不是手机号码');
+            }
+        }
+
+        //倒计时
+        var wait = 60;
+        function time(t) {
+            if (wait == 0) {
+                t.removeAttribute("disabled");
+                t.value = "获取验证码";
+                $(".js_getVerify").removeClass("disabled");
+                wait = 60;
+            } else {
+                t.setAttribute("disabled", true);
+                t.value = "重新获取(" + wait + ")";
+                $(".js_getVerify") .addClass("disabled");
+                wait--;
+                setTimeout(function () {
+                    time(t)
+                }, 1000)
+            }
+        }
+
+        //手机验证
+        function phone_verify(obj){
+            var v = $(obj).val();
+            len = v.length;
+            $(".js_phoneError").hide();
+            if(len>11){
+                v = v.substr(0,11);
+                $(obj).val(v);
+                len = v.length;
+            }else if(len==11){
+                $(obj).attr("aria-invalid", "false");
+                $(".js_phoneError").text("");
+            }else{
+                $(obj).attr("aria-invalid", "true");
+                $(".js_phoneError").text("请填写11位正确的手机号");
+            }
+        }
+        //验证码验证
+        function verify_code (obj) {
+            var v = $(obj).val();
+            var len = $("#verify").val().length;
+            len = parseInt(len);
+            if(len>6){
+                v = v.substr(0,6);
+                $(obj).val(v);
+                len = v.length;
+            }else if (len < 6) {
+                $(obj).attr("aria-invalid", "true");
+                $(obj).parent().find(".error").text("验证码为6位");
+//                $("#verify").parent().find(".error").text("验证码不正确");
+            }else {
+                $(obj).attr("aria-invalid", "false");
+                $(obj).parent().find(".error").text("");
+            }
+        }
+
+        //input不能为空判断
+        function input_verify(obj){
+            var v = $(obj).val();
+            var t = $(obj).attr("placeholder");
+            len = v.length;
+            if(len!=0){
+                $(obj).parent().find(".error").text("");
+                $(obj).attr("aria-invalid", "false");
+            }else if(t=="您的称呼"){
+                $(obj).attr("aria-invalid", "true");
+                $(obj).parent().find(".error").text("请填写您的称呼");
+            }else if(t=="所在省市"){
+                $(obj).attr("aria-invalid", "true");
+                $(obj).parent().find(".error").text("请填写所在省市");
+            }else if(t=="经营类品"){
+                $(obj).attr("aria-invalid", "true");
+                $(obj).parent().find(".error").text("请填写您的经营类品");
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="container-fluid padding-0px">
+    <div class="freeApliy-text">填写申请表单后，工作人员将会联系您，帮您制作活动哦</div>
+    <div><img class="img-responsive" src="../images/freeApliy_Bg.png" alt=""></div>
+    <div class="freeApliy">
+        <div class="freeApliy-title">填写表单后，工作人员将会联系您，免费帮您制作活动哦</div>
+        <div class="retail-comverify">
+            <input type="text" name="phone" id="name" aria-invalid="true" onkeyup="input_verify(this)" onblur="input_verify(this)" class="js_input freeApliy-phone" placeholder="您的称呼" value="">
+            <label class="js_error error" for="name" style="display: none" >请填写您的称呼</label>
+        </div>
+        <div class="retail-comverify">
+            <input type="tel" name="phone" id="phone" aria-invalid="true" onkeyup="phone_verify(this)" class="js_input js_phone freeApliy-phone" placeholder="手机号码" value="">
+            <label class="js_phoneError js_error error" for="phone" style="display: none">请填写11位正确的手机号</label>
+        </div>
+        <div class="retail-comverify flex-row">
+            <input type="tel" name="phone" id="verify" aria-invalid="true" onkeyup="verify_code(this)" onblur="verify_code(this)" class="js_input freeApliy-phone" placeholder="验证码" value="">
+            <div class="freeApliy-verify-btn"><input type="button" class="js_getVerify" value="获取验证码"></div>
+            <label class="js_error error" for="verify" style="display: none">验证码错误或过期，请重新获取。</label>
+        </div>
+        <div class="retail-comverify">
+            <input type="text" name="phone" id="address" aria-invalid="true" onkeyup="input_verify(this)" onblur="input_verify(this)" class="js_input freeApliy-phone" placeholder="所在省市" value="">
+            <label class="js_error error" for="address" style="display: none">请填写所在省市</label>
+        </div>
+        <div class="retail-comverify">
+            <input type="text" name="phone" id="sorts" aria-invalid="true" onkeyup="input_verify(this)" onblur="input_verify(this)" class="js_input freeApliy-phone" placeholder="经营类品" value="">
+            <label class="js_error error" for="sorts" style="display: none">请填写您的经营类品</label>
+        </div>
+        <div class="js_freeApliyBtn freeApliy-btn">申请免费试用</div>
+    </div>
+</div>
+<div id="com_black" class="js_com_black hide_com_buy js_hide_com com_black" style="display: block"></div>
+<div class="js_hide_com js_freeApliy-alert freeApliy-alert" style="display: none">
+    <div class="freeApliy-alert-msg">
+        <div>申请成功</div>
+        <div>请等待工作人员与您联系</div>
+    </div>
+    <a href="http://www.zhubaoyi.cn/static/zh/app.html" class="freeApliy-alert-btn">先下载APP</a>
+</div>
+<!--免费申请试用弹框-->
+<!--成功砍掉金额-->
+<div class="js_hide_com js_kandan_alert02 kandan-alert-wrap freeApliy-alert-wrap" style="display: block">
+    <div class="kandan-alert">
+        <p class="freeApliy-shop-text">
+            <img class="serial-number1" src="../images/serial_number1.png" alt="" />我是<span class="freeApliy-shop">商家</span>,填写表单后，可免费制作活动哦～
+        </p>
+        <p  class="freeApliy-user-text">
+            <img class="serial-number1" src="../images/serial_number2.png" alt="" />我是<span class="freeApliy-user">用户</span>,不用填写表单啦～
+        </p>
+        <p onclick="cancelAlert()" class="free-I-get-it">我知道了</p>
+    </div>
+</div>
+<!--成功砍掉金额end-->
+</body>
+</html>

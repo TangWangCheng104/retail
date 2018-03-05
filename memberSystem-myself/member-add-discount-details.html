@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>会员体系现金增值</title>
+    <!-[if IE9]>
+    <script src="../js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers {
+            display: none !important;
+        }</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/memberSystem.css">
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/member.js"></script>
+    <script src="../js/retail_cofirmBuying.js"></script>
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/axios.min.js"></script>
+    <style type="text/css">
+        body,html{
+            width: 100%;
+            overflow-x: inherit;
+        }
+        .member-add-header{
+            background: url("../images/member_nav_img.png") no-repeat center center/cover;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var vm = new Vue({
+                el:"#memberPaySuccess",
+                data : {
+                    /*显示*/
+                    show:true,
+                    /*隐藏*/
+                    hide:false,
+                    /*现金券增值显示*/
+                    moneyAddPrice:false,
+                    /*是否到增值上限*/
+                    isArraveLimit:true,
+                    /*增值记录是否为空*/
+                    isKongAddRecord:true,
+                    /*今天是否为自己增值*/
+                    isTodayAddForself:true,
+                    /*为自己增值的弹框*/
+                    addSelfAlert:false,
+                    /*成功增值弹窗*/
+                    successAddAlert:false,
+                    /*帮增值列表*/
+                    helpAddPrice:[],
+                    /*还可以增值的空间*/
+                    canAddPriceRange:0,
+                    /*已经增值的数*/
+                    alreadyAddPrice:0,
+                    /*增值上限*/
+                    addTopLimit:0,
+                    /*单个人最大增值数*/
+                    MaxAddPriceNum:0,
+                    /*单个人最小增值数*/
+                    MinAddPriceNum:0,
+                    /*单个人点击时的值数*/
+                    addPrice:0,
+
+                    /*助力显示*/
+                    addPower:false,
+                    /*今天是否已经助力*/
+                    useAlreadyAdd:false,
+
+
+                    /*蒙版的显示与隐藏*/
+                    comBackShowHide:false,
+                    /*分享给朋友*/
+                    shareFriend:false,
+
+                },
+                beforeMount : function () {
+
+                },
+                mounted:function () {
+                    /*获取用户信息*/
+                    /*var useMsgApi = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx520c15f417810387&redirect_uri=https%3A%2F%2Fchong.qq.com%2Fphp%2Findex.php%3Fd%3D%26c%3DwxAdap
+                    ter%26m%3DmobileDeal%26showwxpaytitle%3D1%26vb2ctag%3D4_2030_5_1194_60&response_type=code&scope=snsapi_bas
+                    e&state=123#wechat_redirect`
+                    axios.get( useMsgApi ).then(function(res){
+                        alert(res);
+                    });*/
+                    /*向数据库里面post数据（用户名，拿到相关的返回值）（在数据库里面查询数据，是否有此用户名id）*/
+                   /* axios.post(url,{}).then(function () {
+                   //length 是数据库查询有相关id的条数
+
+                    }.bind(this))*/
+                   /*只在现金增值中显示的变量*/
+                    var  moneyAddPowerArr= [ this.isArraveLimit,this.isKongAddRecord,this.addSelfAlert,this.isTodayAddForself,this.successAddAlert ];
+                    /*只在助力增值页面显示的变量*/
+                    var addPowerArr = [];
+                    var twoPage = "addPower";
+                    /*获取接口中的数据,助力增值页面*/
+                    function showPageFn( showPageArr,boolen ) {
+                        for (let i = 0 ; i < showPageArr.length ;i ++ ){
+                            console.log(moneyAddPowerArr);
+                            console.log( showPageArr[i] );
+
+                            showPageArr[i] = showPageArr[i] && boolen;
+                            console.log( showPageArr[i] );
+                        }
+                    };
+                    if( twoPage == "addPower" ){
+                        axios.get( 'memberPaySuccess.json').then(function (res) {
+                            /*是助力增值页面,现金券增值页面隐藏*/
+                            var data = res.data[1]
+                            this.addPower = true;
+                            this.moneyAddPrice = false;
+                            this.useAlreadyAdd = data.ualreadyAdd;
+                            showPageFn( moneyAddPowerArr,this.moneyAddPrice );
+                        }.bind(this));
+                    }
+                    else if( twoPage == "moneyAdd"){
+                        /*获取接口中的数据,现金券增值页面*/
+                        axios.get( 'memberPaySuccess.json').then(function (res) {
+                            /*是现金券增值页面,助力增值页面隐藏*/
+                            this.addPower = false;
+                            this.moneyAddPrice = true;
+
+                            var doc = document;
+                            var data = res.data[0];
+                            this.addTopLimit = data.addLimit;
+                            for(var addPriceI = 0 ; addPriceI < data.helpAddPrice.length ; addPriceI++ ){
+                                this.alreadyAddPrice += parseInt( data.helpAddPrice[addPriceI].addPrice )
+                            }
+                            /*判断增值是否达到已增值极限*/
+                            if( data.addLimit == this.alreadyAddPrice ){
+                                this.isArraveLimit = true;
+                                this.isKongAddRecord = false;
+                                this.isTodayAddForself = false
+                            }else if( data.addLimit > this.alreadyAddPrice  ){
+                                this.isArraveLimit = false;
+                                var helpAddPriceLength = parseInt( data.helpAddPrice.length );
+                                /*增值是为空*/
+                                if( helpAddPriceLength == 0 ){
+                                    this.isKongAddRecord = true;
+                                    this.isTodayAddForself = false;
+                                    /*获取最大，最小随机增值值*/
+                                    this.MaxAddPriceNum = data.jMaxAddPriceNum;
+                                    this.MinAddPriceNum = data.jMinAddPriceNum;
+                                    /*增值不为空*/
+                                }else if( helpAddPriceLength > 0 ){
+                                    this.isKongAddRecord = false;
+                                    /*此id今天是否已经增值*/
+                                    if( data.todayAddForself == 1 ){
+                                        this.isTodayAddForself = true
+                                    }
+                                    else if( data.todayAddForself == 0 ){
+                                        this.isTodayAddForself = false
+                                    }
+                                }
+                            }
+                            /*今天是否为自己增值*/
+
+                            /*可增值空间*/
+                            this.canAddPriceRange = data.addLimit - this.alreadyAddPrice;
+                            /*帮助力的人和列表*/
+                            this.helpAddPrice = data.helpAddPrice;
+
+                        }.bind(this))
+                    }
+
+                },
+                updated:function () {
+                    $('.member-other-name').each(function () {
+                        var username = $(this).text();
+                        var myName = "zishu";
+                        var thisHtml = parseInt( $(this).siblings('.member-other-time').html() );
+                        nameLogogram(username,this,myName);
+                        $(this).siblings('.member-other-time').html( timestampChangeTime( thisHtml ) )
+                    });
+                },
+                methods:{
+                    addSelfAlertShowFn : function (){
+//                        var showAndHideTimer;
+                        this.comBackShowHide = true;
+                        this.addSelfAlert = true;
+                        /*showAndHideTimer = setTimeout(function () {
+                            this.comBackShowHide = false;
+                            this.addSelfAlert = false;
+                            clearTimeout(showAndHideTimer)
+                        },3000)*/
+                    },
+                    addSelfAlertHideFn : function () {
+                        this.comBackShowHide = false;
+                        this.addSelfAlert = false;
+                        this.shareFriend = false
+                    },
+                    shareFriendFn : function () {
+                        this.addSelfAlert = false;
+                        this.shareFriend = true;
+                        this.comBackShowHide = true;
+                    },
+                    clickToAddFn : function () {
+
+                        var AddAlertTimer;
+                        var MaxAddPrice = this.MaxAddPriceNum;
+                        var MinAddPrice = this.MinAddPriceNum;
+                        var addPriceNum = Math.random();
+                        /*最小值到最大值之间的随机数，这个应该是后台设置的*/
+                        this.addPrice =  parseInt( MinAddPrice + addPriceNum * ( MaxAddPrice - MinAddPrice + 1 ) );
+                        this.successAddAlert = true;
+                        console.log(this.successAddAlert);
+                        AddAlertTimer = setTimeout(function () {
+                            this.successAddAlert = false;
+                            window.location.reload();
+                            clearTimeout( AddAlertTimer )
+                        },2000)
+                        /*把用户信息传入后台*/
+                        /*axios.post({
+                         })*/
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <div class="member-add-discount-detail-wrap" id="memberPaySuccess">
+        <header class="member-add-header">
+            <nav class="member-add-nav">
+                <div class="member-shopName-wrap" v-if="addPower">
+                    <span class="member-shop-name">
+                        周大福深圳田贝店
+                    </span>
+                    <a href="#">
+                        <span class="member-right-assass-wrap">
+                            <img class="member-right-assass" src="../images/member-right-assass.png" alt="">
+                        </span>
+                    </a>
+                </div>
+                <span class="member-cricle-wrap">
+                    <span class="member-click-to-add-cricle" v-if="!isArraveLimit">
+                        <!--没有点击助力之前-->
+                        <span class="member-click-to-add" @click="clickToAddFn" v-if="isKongAddRecord || !isTodayAddForself ">
+                            点击<br />
+                            增值
+                        </span>
+                        <!--点击助力了之后-->
+                         <span class="member-click-to-add" v-if="hide">
+                            点击助力<br />
+                            可+0.1元
+                        </span>
+                        <!--今天已增值-->
+                         <span class="member-click-to-add" @click="addSelfAlertShowFn" class="member-click-to-add" v-if="isTodayAddForself ">
+                            您已<br />
+                            增值
+                        </span>
+                        <!--已助力0.1元-->
+                         <span class="member-click-to-add" onclick="showAndHimSelfHide('#inviteFriendAdd')" v-if="useAlreadyAdd">
+                            已助力<br />
+                             0.1元
+                        </span>
+                    </span>
+                    <span class="member-yellow-flag-wrap" v-if="isArraveLimit ">
+                        <img class="member-yellow-flag" src="../images/member_yellow_flag.png" alt="">
+                    </span>
+                </span>
+                <!--头部邀请好友助力-->
+                <a href="#" @click="shareFriendFn" v-if="!isArraveLimit ">
+                    <span class="invite-friend-help">
+                        邀请好友助力
+                        <span class="auction-assass"></span>
+                    </span>
+                </a>
+                <!--增值已达上限-->
+                <div class="member-add-limit" v-if="isArraveLimit ">已到达人生巅峰</div>
+            </nav>
+            <!--有人帮助力了-->
+            <div>
+                <ul class="member-add-list-wrap" v-if="show">
+                    <li class="member-add-list">
+                        <span class="member-add-text">
+                            累计增值<br />
+                            ￥{{alreadyAddPrice}}
+                        </span>
+                        <span class="small-line"></span>
+                    </li>
+                    <li class="member-add-list">
+                        <span class="member-add-text">
+                            可增值空间<br />
+                            ￥{{canAddPriceRange}}
+                        </span>
+                        <span class="small-line"></span>
+                    </li>
+                </ul>
+            </div>
+
+            <ul v-if="hide" class="member-help-me-wrap">
+                <li class="member-add-list">
+                    <img class="member-touxiang" src="../images/author_touxiang.png" alt="">
+                    <!--没人帮助力-->
+                    <span class="member-help-me-text" v-if="hide">
+                        快来助我一臂之力吧～
+                    </span>
+                        <!--本人帮助助力-->
+                        <span class="member-help-me-text" v-if="hide">
+                        谢谢你的助力，祝你人见人爱，花见花开～
+                    </span>
+                </li>
+
+            </ul>
+        </header>
+        <article>
+            <header class="member-add-article-decoration" :class="{'bottom-border-none':!isArraveLimit }" >
+                <!--点击了助力-->
+                <span v-if="show">
+                    <span class="member-add-warn" >提示：</span>除自己增值外，还可邀请朋友助力增值哦～累计最多可增值{{addTopLimit}}元
+                </span>
+                <!--没有点击助力之前-->
+                <span v-if="hide">
+                    <span class="member-add-warn">提示：</span>除自己助力外，还可邀请朋友一起助力哦～
+                </span>
+            </header>
+            <section>
+                <!--助力列表-->
+                <ul class="member-add-decoration-list-wrap" v-show="!isKongAddRecord ">
+                    <li v-for="value of helpAddPrice" class="member-add-decoration-list">
+                        <span class="member-add-decoration-left">
+                            <span class="member-other-name">{{value.name}}</span>助力增值
+                            <span class="member-other-time">
+                                <!--<span class="member-other-time-month">11-30</span><span class="member-other-time-house">11:20:11</span>-->
+                                {{ value.addPriceTime }}
+                            </span>
+                        </span>
+                        <span class="member-other-add-money">
+                            <img class="member-wallet" src="../images/member_wallet.png" alt="">
+                            +{{value.addPrice}}元
+                        </span>
+                    </li>
+                </ul>
+                <!--没人帮助助力-->
+                <div class="member-nobody-help" v-if="hide">
+                    <div class="member-nobody-help-img-wrap">
+                        <img class="member-nobody-help-img" src="../images/member_nobody_help.png" alt="">
+                    </div>
+                    <div class="member-nobody-help-text">
+                        来做第一个助力的好盆友吧～
+                    </div>
+                    <div class="member-invite-friend-wrap">
+                        <span class="member-invite-friend">
+                            邀请朋友为他助力
+                        </span>
+                    </div>
+                </div>
+                <!--没有增值记录-->
+                <div class="member-nobody-help" v-if="isKongAddRecord ">
+                    <div class="member-nobody-help-img-wrap">
+                        <img class="member-nobody-help-img" src="../images/member_no_add_recond.png" alt="">
+                    </div>
+                    <div class="member-nobody-help-text">
+                        你还没有增值记录哦～<br />
+                        快邀请朋友助力增值吧～
+                    </div>
+                </div>
+            </section>
+        </article>
+        <!--助力成功后/已经助力过了的toast-->
+        <div class="member-toast-wrap" id="successAddPriceToast" style="display:block;">
+            <span class="member-toast" v-if="hide">
+                <!--自己已经助力-->
+                您已经助力了哦~可邀请朋友来助力
+            </span>
+            <span class="member-toast" v-if="successAddAlert">
+                <!--成功增值-->
+                成功增值{{addPrice}}元
+            </span>
+        </div>
+        <!--蒙版，遮罩层-->
+        <div v-if="comBackShowHide" @click="addSelfAlertHideFn" id="com_black" class="js_com_black js_hide_com com_black" ></div>
+        <!--分享给朋友-->
+        <img v-if="shareFriend" @click="addSelfAlertHideFn" id="shareToFriend" class="member-invate-friend-help js_hide_com js_com_black" src="../images/member_invate_friend_help.png" alt="">
+        <!--为自己增值的弹出框-->
+        <div v-if="addSelfAlert" id="alreadAddSlef" class="member-add-alert-wrap js_com_black js_hide_com">
+            <div class="member-add-self-wrap">
+                <img class="member-add-for-self" src="../images/member_add_for_self.png" alt="">
+                <div class="member-add-self-text">
+                    今天已经为自己增值了哦～
+                </div>
+                <div class="member-invite-friend-alert-wrap">
+                    <span class="member-invite-friend" @click="shareFriendFn">
+                        邀请朋友助力增值
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

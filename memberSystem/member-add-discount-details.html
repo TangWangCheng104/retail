@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>会员体系现金增值</title>
+    <!-[if IE9]>
+    <script src="../js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers {
+            display: none !important;
+        }</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/memberSystem.css">
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/member.js"></script>
+    <script src="../js/retail_cofirmBuying.js"></script>
+    <style type="text/css">
+        body,html{
+            width: 100%;
+            overflow-x: inherit;
+        }
+        .member-add-header{
+            background: url("../images/member_nav_img.png") no-repeat center center/cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="member-add-discount-detail-wrap" id="memberPaySuccess">
+        <header class="member-add-header">
+            <nav class="member-add-nav">
+                <div class="member-shopName-wrap">
+                    <span class="member-shop-name">
+                        周大福深圳田贝店
+                    </span>
+                    <span class="member-right-assass-wrap">
+                        <a href="#"><img class="member-right-assass" src="../images/member-right-assass.png" alt=""></a>
+                    </span>
+                </div>
+                <span class="member-cricle-wrap">
+                    <span class="member-click-to-add-cricle">
+                        <!--没有点击助力之前-->
+                        <span class="member-click-to-add" onclick="arrShowHideRefresh(['#successAddPrice'],['#inviteFriendAdd','#successHelpPrice'])">
+                            点击<br />
+                            增值
+                        </span>
+                        <!--点击助力了之后-->
+                         <span class="member-click-to-add" onclick="arrShowHideRefresh(['#successHelpPrice'],['#inviteFriendAdd','#successAddPrice'])" style="display:block;">
+                            点击助力<br />
+                            可+0.1元
+                        </span>
+                        <!--今天已增值-->
+                         <span class="member-click-to-add" onclick="showAndHide('#alreadAddSlef','#com_black')" class="member-click-to-add">
+                            您已<br />
+                            增值
+                        </span>
+                        <!--已助力0.1元-->
+                         <span class="member-click-to-add" onclick="arrShowHide(['#inviteFriendAdd'],['#successAddPrice','successHelpPrice'])" style="display:block;">
+                            已助力<br />
+                             0.1元
+                        </span>
+                    </span>
+                    <span class="member-yellow-flag-wrap" style="display:none;">
+                        <img class="member-yellow-flag" src="../images/member_yellow_flag.png" alt="">
+                    </span>
+                </span>
+                <!--头部邀请好友助力-->
+                <span onclick="showAndHide('#shareToFriend','#com_black')">
+                    <span class="invite-friend-help">
+                        邀请好友助力
+                        <span class="auction-assass"></span>
+                    </span>
+                </span>
+                <!--增值已达上限-->
+                <div class="member-add-limit">已到达人生巅峰</div>
+            </nav>
+            <!--有人帮助力了-->
+            <div>
+                <ul class="member-add-list-wrap">
+                    <li class="member-add-list">
+                        <span class="member-add-text">
+                            累计增值<br />
+                            ￥200
+                        </span>
+                        <span class="small-line"></span>
+                    </li>
+                    <li class="member-add-list">
+                        <span class="member-add-text">
+                            可增值空间<br />
+                            ￥200
+                        </span>
+                        <span class="small-line"></span>
+                    </li>
+                </ul>
+            </div>
+            <ul class="member-add-list-wrap">
+                <li class="member-add-list">
+                    <img class="member-touxiang" src="../images/author_touxiang.png" alt="">
+                    <!--没人帮助力-->
+                    <span class="member-help-me-text">
+                        快来助我一臂之力吧～
+                    </span>
+                    <!--本人帮助助力-->
+                    <span class="member-help-me-text">
+                        谢谢你的助力，祝你人见人爱，花见花开～
+                    </span>
+                </li>
+            </ul>
+        </header>
+        <article>
+            <header class="member-add-article-decoration">
+                <!--点击了助力-->
+                <span style="display:block;">
+                    <span class="member-add-warn">提示：</span>除自己增值外，还可邀请朋友助力增值哦～累计最多可增
+                    值XXX元
+                </span>
+                <!--没有点击助力之前-->
+                <span>
+                    <span class="member-add-warn">提示：</span>除自己助力外，还可邀请朋友一起助力哦～
+                </span>
+            </header>
+            <section>
+                <!--助力列表-->
+                <ul class="member-add-decoration-list-wrap" style="display:block;">
+                    <li class="member-add-decoration-list">
+                        <span class="member-add-decoration-left">
+                            <span class="member-other-name">医保通</span>助力增值
+                            <span class="member-other-time">
+                                <span class="member-other-time-month">11-30</span><span>11:20:11</span>
+                            </span>
+                        </span>
+                        <span class="member-other-add-money">
+                            <img class="member-wallet" src="../images/member_wallet.png" alt="">
+                            +12元
+                        </span>
+                    </li>
+                    <li class="member-add-decoration-list">
+                        <span class="member-add-decoration-left">
+                            <span class="member-other-name">医保通</span>助力增值
+                            <span class="member-other-time">
+                                <span class="member-other-time-month">11-30</span><span>11:20:11</span>
+                            </span>
+                        </span>
+                        <span class="member-other-add-money">
+                            <img class="member-wallet" src="../images/member_wallet.png" alt="">
+                            +12元
+                        </span>
+                    </li>
+                    <li class="member-add-decoration-list">
+                        <span class="member-add-decoration-left">
+                            <span class="member-other-name">医保通</span>助力增值
+                            <span class="member-other-time">
+                                <span class="member-other-time-month">11-30</span><span>11:20:11</span>
+                            </span>
+                        </span>
+                        <span class="member-other-add-money">
+                            <img class="member-wallet" src="../images/member_wallet.png" alt="">
+                            +12元
+                        </span>
+                    </li>
+                </ul>
+                <!--没人帮助助力-->
+                <div class="member-nobody-help" style="display:block;">
+                    <div class="member-nobody-help-img-wrap">
+                        <img class="member-nobody-help-img" src="../images/member_nobody_help.png" alt="">
+                    </div>
+                    <div class="member-nobody-help-text">
+                        来做第一个助力的好盆友吧～
+                    </div>
+                    <div class="member-invite-friend-wrap" style="display:block;">
+                        <span class="member-invite-friend" onclick="showAndHide('#shareToFriend','#com_black')">
+                            邀请朋友为他助力
+                        </span>
+                    </div>
+                </div>
+                <!--没有增值记录-->
+                <div class="member-nobody-help" style="display:block;">
+                    <div class="member-nobody-help-img-wrap">
+                        <img class="member-nobody-help-img" src="../images/member_no_add_recond.png" alt="">
+                    </div>
+                    <div class="member-nobody-help-text">
+                        你还没有增值记录哦～<br />
+                        快邀请朋友助力增值吧～
+                    </div>
+                </div>
+            </section>
+        </article>
+        <!--助力成功后/已经助力过了的toast-->
+        <div class="member-toast-wrap" id="successAddPriceToast">
+            <span class="member-toast" id="inviteFriendAdd">
+                <!--自己已经助力-->
+                您已经助力了哦~可邀请朋友来助力
+            </span>
+            <span class="member-toast" id="successAddPrice">
+                <!--成功增值-->
+                成功增值1元
+            </span>
+            <!--成功助力0.1元-->
+            <span class="member-toast" id="successHelpPrice">
+                成功助力0.1元
+            </span>
+        </div>
+        <!--蒙版，遮罩层-->
+        <div id="com_black" class="js_com_black js_hide_com com_black" style="display:block"></div>
+        <!--分享给朋友-->
+        <img id="shareToFriend" class="member-invate-friend-help js_hide_com js_com_black" src="../images/member_invate_friend_help.png" alt="">
+        <!--为自己增值的弹出框-->
+        <div class="member-add-alert-wrap js_hide_com" id="alreadAddSlef">
+            <div class="member-add-self-wrap">
+                <img class="member-add-for-self" src="../images/member_add_for_self.png" alt="">
+                <div class="member-add-self-text">
+                    今天已经为自己增值了哦～
+                </div>
+                <div class="member-invite-friend-alert-wrap">
+                    <span class="member-invite-friend" onclick="showAndHide('#shareToFriend','#com_black','#alreadAddSlef')" >
+                        邀请朋友助力增值
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

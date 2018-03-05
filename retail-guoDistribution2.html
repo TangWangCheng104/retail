@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>选择配送方式</title>
+    <!-[if IE9]>
+    <script src="js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers{display:none!important;}</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <![endif]->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-addAddress.css" rel="stylesheet" type="text/css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/loginVerify.js"></script>
+    <script src="js/retail_cofirmBuying.js"></script>
+    <script src="js/addAddress.js"></script>
+    <script type="application/javascript">
+        $(function(){
+//            同城快递和到店提货切换
+            $(".js_distributionBtn").click(function(){
+                //console.log(index);
+                if(!$(this).hasClass("active")){
+                    var index = $(this).index();
+                    $(".js_distribution_menu").attr('tabindex',index);
+                    $(".js_distributionBtn").removeClass("active");
+                    $(this).addClass("active");
+                    $(".js_distribution_item").hide();
+                    $(".js_distribution_item").eq(index).show();
+                }
+            });
+            //添加后设为默认
+            $(".js_setDefault01").click(function(){
+                var aa = $(this).find(".js_addressSet01");
+                aa.toggleClass("active");
+            });
+            //设为默认
+            $(".js_setDefault").click(function(){
+                var lqy = $(this).parents(".js_distribution_item");
+                var aa = $(this).find(".js_addressSet");
+                var index = $(this).parents(".js_distribution_item").index();
+                if(index == 1){
+                    lqy.find(".js_addressSet").removeClass("active");
+                    lqy.find(".js_addressSetText").text("设为默认");
+                    aa.addClass("active");
+                    $(this).find(".js_addressSetText").text("默认取货人");
+                    lqy.find(".js_adderss_delete").removeClass("myhide");
+                    lqy.find(".js_adderss_delete").attr("onclick", "javascript:adderssDel_Click(this)");
+                    aa.parents(".js_addAddress_item").find(".js_adderss_delete").attr("onclick", "");
+                    aa.parents(".js_addAddress_item").find(".js_adderss_delete").addClass("myhide")
+                }else if(index == 2){
+                        lqy.find(".js_addressSet").removeClass("active");
+                        lqy.find(".js_addressSetText").text("设为默认");
+                        aa.addClass("active");
+                        $(this).find(".js_addressSetText").text("默认地址");
+                }
+
+            });
+//            $(".js_submit01").click(function(){
+//                var content = '<div class="js_addAddress_item retail-addAddress-item"> <div class="retail-addAddress-username"><span class="js_address_name">小骨他爹</span>，<span class="js_address_phone">15822815211</span></div> <div class="js_address_detail retail-addAddress-address">广东省深圳市翠竹街道田贝三路32号明阳酒店九楼9A88</div> <div class="flex-row retail-addAddress-way"> <div class="flex-data flex-row js_setDefault"><i class="js_addressSet icon_addressSet"></i><div class="js_addressSetText">设为默认</div></div> <div class="flex-row retail-address-edit js_adderss_edit" onclick="javascript:adderssDel_Click(this)" onclick="javascript:editClick(this)"><i class="icon_address_edit"><img src="images/icon_address_edit.png" alt=""></i>编辑</div> <div class="flex-row retail-address-delete js_adderss_delete"><i class="icon_address_edit"><img src="images/icon_address_delete.png" alt=""></i>删除</div> </div> </div>'
+//                var name_input = $(".js_name").val();
+//                var phone_input = $(".js_phone").val();
+//                var address_input = $(".js_address").val();
+//                var edit =  $(".js_phoneVerify_alert").attr('edit');
+//                var index;
+//                var index01 = $(".js_phoneVerify_alert").attr('myindex');
+//                var len = $(".js_addAddress_item").length;
+//                if(edit == '1'){
+//                    index = index01;
+//                }else {
+//                    index = len;
+//                }
+//                var item = $(".js_addAddress_item").eq(index);
+//                var name = item.find(".js_address_name");
+//                var phone = item.find(".js_address_phone");
+//                var detail = item.find(".js_address_detail");
+//                if(name_input==''){
+//                    input_alert();
+//                    $(".js_collect_text").text("姓名不能为空");
+//                }else if(phone_input==''){
+//                    input_alert();
+//                    $(".js_collect_text").text("手机不能为空");
+//                }else if(!isphone3(phone_input)){
+//                    input_alert();
+//                    $(".js_collect_text").text("请输入正确的手机号");
+//                }else if(address_input==''){
+//                    input_alert();
+//                    $(".js_collect_text").text('地址不能为空');
+//                }else if(edit == '1'){
+//                    name.text(name_input);
+//                    phone.text(phone_input);
+//                    detail.text(address_input);
+//                    cancel_phoneAlert(  );
+//                    input_alert();
+//                    $(".js_collect_text").text("修改成功");
+//                }else if(edit == '0'){
+//                    $(".js_addAddress_items").append(content);
+//                    item = $(".js_addAddress_item").eq(index);
+//                    name = item.find(".js_address_name");
+//                    phone = item.find(".js_address_phone");
+//                    detail = item.find(".js_address_detail");
+//                    name.text(name_input);
+//                    phone.text(phone_input);
+//                    detail.text(address_input);
+//                    console.log(name_input);
+//                    console.log(name);
+//                    console.log(index);
+//                    cancel_phoneAlert(  );
+//                    input_alert();
+//                    $(".js_collect_text").text("添加成功");
+//                }
+//            });
+            $(".js_delAddress_sure").click(function(){
+                for (var i = 0; i < $(".js_addAddress_item").length; i++){
+                    var a = $(".js_addAddress_item").eq(i).attr("del");
+                    if(a == '1'){
+                        if($(".js_addAddress_item").eq(i).find('.js_addressSet').hasClass('active')) {
+                            $(".js_addAddress_item").eq(i+1).find(".js_addressSet").addClass("active")
+                        }
+                        cancelAlert();
+                        $(".js_addAddress_item").eq(i).remove();
+                        input_alert();
+                        $(".js_collect_text").text("删除成功");
+                    }
+                }
+
+            });
+            // 编辑后点击保存按钮
+            $(".js_mySubmit01").click(function(){
+                if(!$(this).hasClass("disabled")){
+                    var item = $(this).parents(".js_addAddress_item");
+                    var name_input = item.find(".js_name").val();
+                    var phone_input = item.find(".js_phone").val();
+                    var address_input = item.find(".js_address").val();
+                    if(!isphone3(phone_input)){
+                        input_alert();
+                        $(".js_collect_text").text("请输入正确的手机号");
+                    }else {
+                        item.find(".js_address_name").text(name_input);
+                        item.find(".js_address_phone").text(phone_input);
+                        item.find(".js_address_detail").text(address_input);
+                        item.find(".js_item_edit").hide();
+                        item.find(".js_item_info").show();
+                        $(".js_items_edit").show();
+                        input_alert();
+                        $(".js_collect_text").text("修改成功");
+                    }
+                }
+            });
+
+            // 新增后点击保存按钮
+            $(".js_mySubmit02").click(function(){
+                if(!$(this).hasClass("disabled")){
+                    var item = $(this).parents(".js_items_edit");
+                    var name_input = item.find(".js_name").val();
+                    var phone_input = item.find(".js_phone").val();
+                    var address_input = item.find(".js_address").val();
+                    if(!isphone3(phone_input)){
+                        input_alert();
+                        $(".js_collect_text").text("请输入正确的手机号");
+                    }else {
+//                        var content = '<div class="js_item js_addAddress_item retail-addAddress-item"> <div class="js_item_info retail-addAddress-itemInfo"> <div class="retail-addAddress-username"><span class="js_address_name">小骨他爹</span>，<span class="js_address_phone">15822815211</span></div> <div class="flex-row retail-addAddress-way"> <div class="flex-data flex-row js_setDefault"><i class="js_addressSet icon_addressSet"></i><div class="js_addressSetText">设为默认</div></div> <div class="flex-row retail-address-edit js_adderss_edit" onclick="javascript:editClick(this)"><i class="icon_address_edit"><img src="images/icon_address_edit.png"  alt=""></i>编辑</div> <div class="flex-row retail-address-delete js_adderss_delete" onclick="javascript:adderssDel_Click(this)"><i class="icon_address_edit"><img src="images/icon_address_delete.png" alt=""></i>删除</div> </div> </div> <div class="js_item_edit retail-addAddress-itemEdit" style="display:none;"> <div class="retail-addAddress-username01 flex-row"> <div class="flex-data"> <div class="js_comverify flex-row partner-input-groupR"> <div class="lqy-input-wrap flex-data"> <input onkeyup="javascript:name_verify(this)" aria-invalid="false" placeholder="输入取货人姓名" onblur="javascript:name_verify(this)" class="js_name js_input" type="text"> </div> <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: block" src="images/partner_iconClose.png"  alt=""></div> </div> </div> <div class="flex-data"> <div class="js_comverify flex-row partner-input-groupR"> <div class="lqy-input-wrap flex-data"> <input placeholder="输入取货人手机号" onkeyup="javascript:phone_verify01(this)"onblur="javascript:phone_verify01(this)" aria-invalid="false" class="js_phone js_input phone-input"type="tel"> </div> <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: block"src="images/partner_iconClose.png" alt=""></div> </div> </div> </div> <div class="flex-row retail-addAddress-way"> <div class="flex-data flex-row js_setDefault"><i class="js_addressSet icon_addressSet"></i><div class="js_addressSetText">设为默认</div></div> <div class="flex-row retail-address-edit js_adderss_cancel" onclick="javascript:cancelEdit(this)"><i class="icon_address_edit"><img src="images/icon_address_cancel.png"  alt=""></i>取消</div> <div class="flex-row retail-address-save js_mySubmit js_mySubmit01"> <i class="icon_address_save"></i>保存并使用 </div> </div> </div> </div>';
+//                        $(".js_addAddress_items").append(content);
+//                        var len = item.parent().find(".js_addAddress_item").length;
+//                        var item01 = $(".js_addAddress_item").eq(len-1);
+//                        item01.find(".js_address_name").text(name_input);
+//                        item01.find(".js_address_phone").text(phone_input);
+//                        item01.find(".js_address_detail").text(address_input);
+//                        item.find(".js_item_edit").hide();
+//                        item.find(".js_item_info").show();
+//                        $(".js_items_edit").show();
+//                        item.find(".js_name").val('');
+//                        item.find(".js_phone").val('');
+//                        item.find(".js_address").val('');
+                        input_alert();
+                        $(".js_collect_text").text("添加成功");
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="container-fluid small_screen">
+    <div class="row">
+        <div class="js_distribution_menu retail-distribution-menu" tabindex="0">
+            <div class="flex-row" style="margin: 0 auto;width: 180px;">
+                <div class="js_distributionBtn flex-data active retail-distribution-btn retail-distribution-storeBtn">到店提货</div>
+                <div class="js_distributionBtn flex-data retail-distribution-btn disabled retail-distribution-expressBtn t-change">同城快递</div>
+            </div>
+        </div>
+        <!--到店提货-->
+        <div class="js_distribution_item retail-distribution-item" style="display: block">
+            <!--没有取货人信息时-->
+            <div class="retail-addAddress" style="display: none">
+                <div class="retail-addAddress-img">
+                    <img class="img-responsive" src="images/icon_address_people.png" alt="">
+                </div>
+                <div class="text-center">还没有取货人信息哦~</div>
+            </div>
+            <!--没有取货人信息时end-->
+            <div class="retail-distribution-store">
+                <div class="retail-addAddress-title">取货人信息</div>
+                <div class="js_addAddress_items retail-addAddress" style="display: block">
+                    <div class="js_item js_addAddress_item retail-addAddress-item">
+                        <div class="js_item_info retail-addAddress-itemInfo">
+                            <div class="retail-addAddress-username flex-row">
+                                <div class="flex-data flex-row"><span class="js_address_name address-name-label white-space1">sslslslslsdsssssssssssssss</span>，<span class="js_address_phone">15822815211</span></div>
+                                <div class="retail-distribution-tick flex-row">
+                                    <i class="icon_tick"><img class="" src="images/icon_tickSelected.png" alt=""></i>
+                                </div>
+                            </div>
+                            <div class="flex-row retail-addAddress-way">
+                                <div class="flex-data flex-row js_setDefault"><i class="js_addressSet icon_addressSet active"></i><div class="js_addressSetText">默认取货人</div></div>
+                                <div class="flex-row retail-address-edit js_adderss_edit" onclick="javascript:editClick(this)"><i class="icon_address_edit"><img src="images/icon_address_edit.png"  alt=""></i>编辑</div>
+                                <div class="flex-row retail-address-delete js_adderss_delete myhide"><i class="icon_address_edit"><img src="images/icon_address_delete.png" alt=""></i>删除</div>
+                            </div>
+                        </div>
+                        <div class="js_item_edit retail-addAddress-itemEdit" style="display:none;">
+                            <div class="retail-addAddress-username01 flex-row">
+                                <div class="flex-data">
+                                    <div class="js_comverify flex-row partner-input-groupR">
+                                        <div class="lqy-input-wrap flex-data">
+                                            <input onkeyup="javascript:name_verify(this)" id="name" value="小骨" aria-invalid="false" placeholder="输入取货人姓名" onblur="javascript:name_verify(this)" class="js_name js_input" type="text">
+                                        </div>
+                                        <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: block" src="images/partner_iconClose.png"  alt=""></div>
+                                    </div>
+                                </div>
+                                <div class="flex-data">
+                                    <div class="js_comverify flex-row partner-input-groupR">
+                                        <div class="lqy-input-wrap flex-data">
+                                            <input placeholder="输入取货人手机号" value="15811714177" onkeyup="javascript:phone_verify01(this)"
+                                                   onblur="javascript:phone_verify01(this)" aria-invalid="false" class="js_phone js_input phone-input"
+                                                   type="tel">
+                                        </div>
+                                        <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: block"
+                                                                           src="images/partner_iconClose.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-row retail-addAddress-way">
+                                <div class="flex-data flex-row js_setDefault"><i class="js_addressSet icon_addressSet active"></i><div class="js_addressSetText">设为默认</div></div>
+                                <div class="flex-row retail-address-edit js_adderss_cancel" onclick="javascript:cancelEdit(this)"><i class="icon_address_edit"><img src="images/icon_address_cancel.png"  alt=""></i>取消</div>
+                                <div class="flex-row retail-address-save js_mySubmit js_mySubmit01">
+                                    <i class="icon_address_save"></i>保存并使用
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="js_item js_addAddress_item retail-addAddress-item">
+                        <div class="js_item_info retail-addAddress-itemInfo">
+                            <div class="retail-addAddress-username flex-row">
+                                <div class="flex-data flex-row"><span class="js_address_name address-name-label white-space1">小骨他爹小骨他爹小骨他爹小骨他爹小骨他爹ggggggggggggggggggggggggg</span>，<span class="js_address_phone">15822815211</span></div>
+                                <div class="retail-distribution-tick flex-row">
+                                    <i class="icon_tick_use"><img class="" src="images/icon_tick_use.png" alt=""></i>
+                                </div>
+                            </div>
+                            <div class="flex-row retail-addAddress-way">
+                                <div class="flex-data flex-row js_setDefault"><i class="js_addressSet icon_addressSet"></i><div class="js_addressSetText">设为默认</div></div>
+                                <div class="flex-row retail-address-edit js_adderss_edit" onclick="javascript:editClick(this)"><i class="icon_address_edit"><img src="images/icon_address_edit.png"  alt=""></i>编辑</div>
+                                <div class="flex-row retail-address-delete js_adderss_delete" onclick="javascript:adderssDel_Click(this)"><i class="icon_address_edit"><img src="images/icon_address_delete.png" alt=""></i>删除</div>
+                            </div>
+                        </div>
+                        <div class="js_item_edit retail-addAddress-itemEdit" style="display:none;">
+                            <div class="retail-addAddress-username01 flex-row">
+                                <div class="flex-data">
+                                    <div class="js_comverify flex-row partner-input-groupR">
+                                        <div class="lqy-input-wrap flex-data">
+                                            <input onkeyup="javascript:name_verify(this)" aria-invalid="false" placeholder="输入取货人姓名" onblur="javascript:name_verify(this)" class="js_name js_input" type="text">
+                                        </div>
+                                        <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: block" src="images/partner_iconClose.png"  alt=""></div>
+                                    </div>
+                                </div>
+                                <div class="flex-data">
+                                    <div class="js_comverify flex-row partner-input-groupR">
+                                        <div class="lqy-input-wrap flex-data">
+                                            <input placeholder="输入取货人手机号" onkeyup="javascript:phone_verify01(this)"
+                                                   onblur="javascript:phone_verify01(this)" aria-invalid="false" class="js_phone js_input phone-input"
+                                                   type="tel">
+                                        </div>
+                                        <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: block"
+                                                                           src="images/partner_iconClose.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-row retail-addAddress-way">
+                                <div class="flex-data flex-row js_setDefault"><i class="js_addressSet icon_addressSet"></i><div class="js_addressSetText01">设为默认</div></div>
+                                <div class="flex-row retail-address-edit js_adderss_cancel" onclick="javascript:cancelEdit(this)"><i class="icon_address_edit"><img src="images/icon_address_cancel.png"  alt=""></i>取消</div>
+                                <div class="flex-row retail-address-save js_mySubmit js_mySubmit01">
+                                    <i class="icon_address_save"></i>保存并使用
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar-fixed-bottom js_newAddress text-center bgcolor-zby retail-addAddress-btn" style="display: block" onclick="newAddress_Click()" >添加取货人</div>
+                </div>
+                <div class="js_item js_items_edit retail-addAddress-item last" style="display: none">
+                    <div class="retail-addAddress-username01 flex-row">
+                        <div class="flex-data">
+                            <div class="js_comverify flex-row partner-input-groupR">
+                                <div class="lqy-input-wrap flex-data">
+                                    <input onclick="javascript:cancelEdit()" onkeyup="javascript:name_verify(this)" aria-invalid="true" placeholder="输入取货人姓名" onblur="javascript:name_verify(this)" class="js_name js_input" type="text">
+                                </div>
+                                <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none" src="images/partner_iconClose.png"  alt=""></div>
+                            </div>
+                        </div>
+                        <div class="flex-data">
+                            <div class="js_comverify flex-row partner-input-groupR">
+                                <div class="lqy-input-wrap flex-data">
+                                    <input onclick="javascript:cancelEdit()" placeholder="输入取货人手机号" onkeyup="javascript:phone_verify01(this)"
+                                           onblur="javascript:phone_verify01(this)" aria-invalid="true" class="js_phone js_input phone-input"
+                                           type="tel">
+                                </div>
+                                <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none"
+                                                                   src="images/partner_iconClose.png" alt=""></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-row retail-addAddress-way">
+                        <div class="flex-data flex-row js_setDefault01"><i class="js_addressSet01 icon_addressSet01 active"></i><div class="">添加后设为默认</div></div>
+                        <div class="flex-row retail-address-save js_mySubmit js_mySubmit02 disabled">
+                            <i class="icon_address_save"></i>保存并使用
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="navbar-fixed-bottom js_newAddress text-center bgcolor-zby retail-addAddress-btn" onclick="newAddress_Click()" >添加取货人</div>-->
+            </div>
+        </div>
+        <!--到店提货end-->
+        <!--没有收获地址-->
+        <div class="js_distribution_item retail-distribution-item" style="display: none">
+            <!--没有取货人信息时-->
+                    <span class="send-way-noadress">
+                        <img src="images/send_way_noadress.png" />
+                    </span>
+            <div class="noadress-nowrap">还没有收货地址哦~</div>
+            <div class="navbar-fixed-bottom js_newAddress text-center bgcolor-zby retail-addAddress-btn" style="display: block" onclick="newAddress_Click()" >添加新地址</div>
+        </div>
+
+        <!--同城快递-->
+        <div class="js_distribution_item retail-distribution-item"  style="display: none">
+            <!--没有发货人地址时-->
+            <div class="retail-addAddress" style="display: none">
+                <div class="retail-addAddress-img">
+                    <img class="img-responsive" src="images/icon_address.png" alt="">
+                </div>
+                <div class="text-center">还没有发货地址哦~</div>
+            </div>
+            <!--没有发货人地址时end-->
+            <div class="retail-distribution-express">
+                <div class="retail-addAddress-title" style="display: none">收货人地址</div>
+                <div class="js_addAddress_items retail-addAddress" style="display: none">
+                    <div class="js_item js_addAddress_item retail-addAddress-item">
+                        <div class="js_item_info retail-addAddress-itemInfo">
+                            <div class="flex-row">
+                                <div class="flex-data">
+                                    <div class="retail-addAddress-username flex-row"><span class="js_address_name address-name-label white-space1">小骨ffffffffffffffffffffffffffffff</span>，<span class="js_address_phone">15822815211</span></div>
+                                    <div class="js_address_detail retail-addAddress-address">广东省深圳市翠竹街道田贝三路32号明阳酒店九楼9A88</div>
+                                </div>
+                                <div class="retail-distribution-tick flex-row">
+                                    <i class="icon_tick"><img class="" src="images/icon_tickSelected.png" alt=""></i>
+                                </div>
+                            </div>
+                            <div class="flex-row retail-addAddress-way">
+                                <div class="flex-data flex-row js_setDefault"><i class="js_addressSet icon_addressSet active"></i><div class="js_addressSetText">默认地址</div></div>
+                                <div class="flex-row retail-address-edit js_adderss_edit" onclick="javascript:editClick(this)"><i class="icon_address_edit"><img src="images/icon_address_edit.png"  alt=""></i>编辑</div>
+                                <div class="flex-row retail-address-delete js_adderss_delete"><i class="icon_address_edit"><img src="images/icon_address_delete.png" alt=""></i>删除</div>
+                            </div>
+                        </div>
+                        <div class="js_item_edit retail-addAddress-itemEdit" style="display:none;">
+                            <div class="retail-addAddress-username01 flex-row">
+                                <div class="flex-data">
+                                    <div class="js_comverify flex-row partner-input-groupR">
+                                        <div class="lqy-input-wrap flex-data">
+                                            <input onkeyup="javascript:name_verify(this)" value="小骨" aria-invalid="false" placeholder="输入取货人姓名" onblur="javascript:name_verify(this)" class="js_name js_input" type="text">
+                                        </div>
+                                        <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: block" src="images/partner_iconClose.png"  alt=""></div>
+                                    </div>
+                                </div>
+                                <div class="flex-data">
+                                    <div class="js_comverify flex-row partner-input-groupR">
+                                        <div class="lqy-input-wrap flex-data">
+                                            <input placeholder="输入取货人手机号" value="15811714177" onkeyup="javascript:phone_verify01(this)"
+                                                   onblur="javascript:phone_verify01(this)" aria-invalid="false" class="js_phone js_input phone-input"
+                                                   type="tel">
+                                        </div>
+                                        <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: block"
+                                                                           src="images/partner_iconClose.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="retail-addAddress-username01 retail-addAddress-myaddress">
+                                <div class="js_comverify flex-row partner-input-groupR">
+                                    <div class="lqy-input-wrap flex-data">
+                                        <textarea  onkeyup="address_verify(this)" aria-invalid="false" onblur="address_verify(this)" style="width: 100%;border: none;font-size: 14px;height: 60px;padding-top: 8px;line-height: 17px;" class="js_input js_address" placeholder="输入收货详细地址" maxlength="60"></textarea>
+                                    </div>
+                                    <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none" src="images/partner_iconClose.png"  alt=""></div>
+                                </div>
+                            </div>
+                            <div class="flex-row retail-addAddress-way">
+                                <div class="flex-data flex-row js_setDefault"><i class="js_addressSet icon_addressSet active"></i><div class="js_addressSetText">设为默认</div></div>
+                                <div class="flex-row retail-address-edit js_adderss_cancel" onclick="javascript:cancelEdit(this)"><i class="icon_address_edit"><img src="images/icon_address_cancel.png"  alt=""></i>取消</div>
+                                <div class="flex-row retail-address-save js_mySubmit js_mySubmit01">
+                                    <i class="icon_address_save"></i>保存并使用
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="js_item js_addAddress_item retail-addAddress-item">
+                        <div class="js_item_info retail-addAddress-itemInfo">
+                            <div class="flex-row">
+                                <div class="flex-data">
+                                    <div class="retail-addAddress-username flex-row"><span class="js_address_name address-name-label">小骨</span>，<span class="js_address_phone">15822815211</span></div>
+                                    <div class="js_address_detail retail-addAddress-address">广东省深圳市翠竹街道田贝三路32号明阳酒店九楼9A88</div>
+                                </div>
+                                <div class="retail-distribution-tick flex-row">
+                                    <i class="icon_tick_use"><img class="" src="images/icon_tick_use.png" alt=""></i>
+                                </div>
+                            </div>
+                            <div class="flex-row retail-addAddress-way">
+                                <div class="flex-data flex-row js_setDefault"><i class="js_addressSet icon_addressSet"></i><div class="js_addressSetText">设为默认</div></div>
+                                <div class="flex-row retail-address-edit js_adderss_edit" onclick="javascript:editClick(this)"><i class="icon_address_edit"><img src="images/icon_address_edit.png"  alt=""></i>编辑</div>
+                                <div class="flex-row retail-address-delete js_adderss_delete" onclick="javascript:adderssDel_Click(this)"><i class="icon_address_edit"><img src="images/icon_address_delete.png" alt=""></i>删除</div>
+                            </div>
+                        </div>
+                        <div class="js_item_edit retail-addAddress-itemEdit" style="display:none;">
+                            <div class="retail-addAddress-username01 flex-row">
+                                <div class="flex-data">
+                                    <div class="js_comverify flex-row partner-input-groupR">
+                                        <div class="lqy-input-wrap flex-data">
+                                            <input onkeyup="javascript:name_verify(this)" aria-invalid="false" placeholder="输入取货人姓名" onblur="javascript:name_verify(this)" class="js_name js_input" type="text">
+                                        </div>
+                                        <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: block" src="images/partner_iconClose.png"  alt=""></div>
+                                    </div>
+                                </div>
+                                <div class="flex-data">
+                                    <div class="js_comverify flex-row partner-input-groupR">
+                                        <div class="lqy-input-wrap flex-data">
+                                            <input placeholder="输入取货人手机号" onkeyup="javascript:phone_verify01(this)"
+                                                   onblur="javascript:phone_verify01(this)" aria-invalid="false" class="js_phone js_input phone-input"
+                                                   type="tel">
+                                        </div>
+                                        <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: block"
+                                                                           src="images/partner_iconClose.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="retail-addAddress-username01 retail-addAddress-myaddress">
+                                <div class="js_comverify flex-row partner-input-groupR">
+                                    <div class="lqy-input-wrap flex-data">
+                                        <textarea  onkeyup="address_verify(this)" aria-invalid="false" onblur="address_verify(this)"
+                                                   style="width: 100%;border: none;font-size: 14px;height: 60px;padding-top: 8px;line-height: 17px;"
+                                                   class="js_address js_input" placeholder="输入收货详细地址" maxlength="60"></textarea>
+                                    </div>
+                                    <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none" src="images/partner_iconClose.png"  alt=""></div>
+                                </div>
+                            </div>
+                            <div class="flex-row retail-addAddress-way">
+                                <div class="flex-data flex-row js_setDefault"><i class="js_addressSet icon_addressSet"></i><div class="js_addressSetText">设为默认</div></div>
+                                <div class="flex-row retail-address-edit js_adderss_cancel" onclick="javascript:cancelEdit(this)"><i class="icon_address_edit"><img src="images/icon_address_cancel.png"  alt=""></i>取消</div>
+                                <div class="flex-row retail-address-save js_mySubmit js_mySubmit01">
+                                    <i class="icon_address_save"></i>保存并使用
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="js_item js_items_edit retail-addAddress-item last" style="display: none">
+                    <div class="retail-addAddress-username01 flex-row">
+                        <div class="flex-data">
+                            <div class="js_comverify flex-row partner-input-groupR">
+                                <div class="lqy-input-wrap flex-data">
+                                    <input onclick="javascript:cancelEdit()" onkeyup="javascript:name_verify(this)" aria-invalid="true" placeholder="输入收货人姓名" onblur="javascript:name_verify(this)" class="js_name js_input" type="text">
+                                </div>
+                                <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none" src="images/partner_iconClose.png"  alt=""></div>
+                            </div>
+                        </div>
+                        <div class="flex-data">
+                            <div class="js_comverify flex-row partner-input-groupR">
+                                <div class="lqy-input-wrap flex-data">
+                                    <input onclick="javascript:cancelEdit()" placeholder="输入收货人手机号" onkeyup="javascript:phone_verify01(this)"
+                                           onblur="javascript:phone_verify01(this)" aria-invalid="true" class="js_phone js_input phone-input"
+                                           type="tel">
+                                </div>
+                                <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none"
+                                                                   src="images/partner_iconClose.png" alt=""></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--这是一个手机号码错误的提示框-->
+                    <span class="t-ture-phonenumber">请输入正确的手机号</span>
+                    <div class="retail-addAddress-username01 retail-addAddress-myaddress">
+                        <div class="js_comverify flex-row partner-input-groupR">
+                            <div class="lqy-input-wrap flex-data">
+                                <textarea  onkeyup="address_verify(this)" aria-invalid="true" onblur="address_verify(this)" style="width: 100%;border: none;font-size: 14px;height: 60px;padding-top: 8px;line-height: 17px;" class="js_input" placeholder="输入收货详细地址" maxlength="60"></textarea>
+                            </div>
+                            <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none" src="images/partner_iconClose.png"  alt=""></div>
+                        </div>
+                    </div>
+                    <div class="flex-row retail-addAddress-way">
+                        <div class="flex-data flex-row js_setDefault01"><i class="icon_addressSet01 active"></i><div class="">添加后设为默认</div></div>
+                        <div class="flex-row retail-address-save js_mySubmit js_mySubmit02 disabled">
+                            <i class="icon_address_save"></i>保存并使用
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-fixed-bottom js_newAddress text-center bgcolor-zby retail-addAddress-btn" onclick="newAddress_Click()" >添加新地址</div>
+            </div>
+        </div>
+        <!--同城快递end-->
+    </div>
+</div>
+<!--&lt;!&ndash;手机号码验证弹窗开始&ndash;&gt;-->
+<!--<div class="js_comBlack hide_com_buy com_black" style="display: none"></div>-->
+<!--<div class="js_phoneVerify_alert comafter luo-phoneVerify-alert retail-newAddress-alert" edit="0" style="display: none;">-->
+    <!--<div class="luo-phoneVerify-alert-info retail-newAddress-alert-info">-->
+        <!--&lt;!&ndash;<img class="img-responsive" src="images/phoneVerify-alertBg.png" alt="">&ndash;&gt;-->
+        <!--<img class="img-responsive" src="images/newAddress_bg.png" alt="">-->
+        <!--<img class="icon-closeBtn-phoneVerify" src="images/icon-closeBtn-phoneVerify.png" onclick="cancel_phoneAlert()"-->
+             <!--alt="">-->
+        <!--<div class="groupCard-userName-alert-input">-->
+            <!--<div class="js_comverify flex-row partner-input-groupR">-->
+                <!--<div class="lqy-input-wrap flex-data">-->
+                    <!--<input id="name" onkeyup="javascript:length_verify(this,13)" onblur="javascript:blurPOS()" onfocus="javascript:length_verify(this,13)"  aria-invalid="true" placeholder="输入收货人姓名" value="小骨他爹" class="js_name js_input" type="text">-->
+                <!--</div>-->
+                <!--<div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none" src="images/partner_iconClose.png"  alt=""></div>-->
+            <!--</div>-->
+            <!--<div class="js_comverify flex-row partner-input-groupR">-->
+                <!--<div class="lqy-input-wrap flex-data">-->
+                    <!--<input placeholder="输入收货人手机号" onblur="javascript:blurPOS()" onkeyup="javascript:length_verify(this,5.5)" onfocus="javascript:length_verify(this,5.5)"  value="15919467391" style="height: 49px" aria-invalid="true" class="js_phone js_input" type="tel">-->
+                <!--</div>-->
+                <!--<div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none"-->
+                                                   <!--src="images/partner_iconClose.png" alt=""></div>-->
+            <!--</div>-->
+            <!--<div class="js_comverify flex-row partner-input-groupR">-->
+                <!--<div class="lqy-input-wrap flex-data">-->
+                    <!--<textarea id="address" onblur="javascript:blurPOS()" onkeyup="javascript:length_verify(this,60)" onfocus="javascript:length_verify(this,60)"  class="js_address border-none luo-address-textarea js_input" rows="3" placeholder="输入收货人地址" style="width: 100%;padding-top: 10px">输入收货人地址输入收货人地址输入收货人地址输入收货人地址输入收货人地址输入收货人地址输入收货人地址输入收货人地址</textarea>-->
+                <!--</div>-->
+                <!--<div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none" src="images/partner_iconClose.png"  alt=""></div>-->
+            <!--</div>-->
+            <!--<input class="js_submit01 js_submit luo-partner-submitBtn" type="button" value="保存">-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;手机号码验证弹窗end&ndash;&gt;-->
+<!--删除收货地址-->
+<div id="com_black" class="js_com_black hide_com_buy com_black" style="display: none" onclick="cancelAlert()"></div>
+<div class="js_hide_com js_delAddress_alert comafter delete-address-alert flex-row" style="display: none">
+    <div class="delete-address-alert-info">
+        <div class="delete-address-alert-msg">确定要删除该收货地址？</div>
+        <div class="flex-row">
+            <div class="flex-data delete-address-alert-btn delete-address-alert-cancel" onclick="javascript:cancelAlert()">取消</div>
+            <div class="flex-data delete-address-alert-btn delete-address-alert-sure js_delAddress_sure">确定</div>
+        </div>
+    </div>
+</div>
+<!--验证input弹窗-->
+<div class="js_collect_alert text-center input-alert" style="display:none;">
+    <!--<div class="text-center collect_alert_img">-->
+    <!--<img src="images/redStar.png" alt="">-->
+    <!--</div>-->
+    <span class="js_collect_text input-alert-text">添加成功</span>
+</div>
+<!--验证input弹窗end-->
+<!--添加新地址-->
+
+</body>
+</html>

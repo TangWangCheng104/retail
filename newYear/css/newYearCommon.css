@@ -1,0 +1,302 @@
+body{
+    background: #fff;
+    font-size: 14px;
+}
+.retail-comverify label.error {
+    color: #ff865d;
+}
+.retail-comverify label.error02 {
+    color: #f5a828;
+}
+.newYear-activityList-btn01 .combtn{
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+    background: #ffd6c8;
+    font-size: 16px;
+}
+.newYear-activityList-btn01 .newbtn{
+    background: #ff865d;
+}
+/*确认弹窗样式开始*/
+.sure-alert{width:74%;position: fixed;top:200px;margin: 0 13%;background: #fff;z-index:1040;border-radius: 10px}
+.sure-alert-text{
+    padding-bottom: 20px;
+    font-size: 16px;
+}
+.sure-alert-text01{
+    padding-top: 20px;
+}
+.sure-alert-text02{
+    padding-top: 10px;
+}
+.sure-alert-btn div{
+    height: 45px;
+    line-height: 45px;
+    border-top: 1px solid #d7d7d7;
+    font-size: 17px;
+}
+.sure-alert-btn-cancel{
+    border-right: 1px solid #d7d7d7;
+}
+/*确认弹窗样式结束*/
+/*规则弹窗样式开始*/
+.alert-rule-wrap{
+    position: fixed;top:50px;z-index: 1040
+}
+.alert-rule{
+    position: relative;
+}
+.newYear-closeIcon{
+    width: 25px;position: absolute;top: 0;right: 0;
+}
+/*规则弹窗样式结束*/
+/*制作祝福卡样式开始*/
+.newYear-modelIcon{
+    width: 235px;
+    height:335px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+.newYear-modelBg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1
+}
+.newYear-modelIcon-wrap{width:100%;margin-top:120px;text-align: center}
+.newYear-selectedPhoto{width: 100%;height:335px;position:absolute;top: 0;opacity: 0;z-index: 1050;}
+.lqyImg{width: 100%;position:absolute;top:44px;left:0;height: 290px;z-index:1030;overflow: scroll;-webkit-overflow-scrolling: touch;}
+.newYear-photo {
+    width: 100%;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+}
+.newYear-makePhoto-title{
+    width:100%;font-size:20px;position: absolute;top:0;background:#ffffff;padding:8px 0;color:#bb1f1d;z-index: 1040;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+.newYear-photoModel{ width: 100%;height:auto;position: absolute;bottom:0;left:0;z-index: 1040;display: none; }
+.newYear-photoModel.active{
+    display: block;
+}
+.newYear-nickName{
+    border-bottom: 1px solid #bb1f1d;
+}
+.newYear-nickName-input{
+    width: 100%;height: 30px;border-radius: 15px;border: 2px solid #e22836;
+    margin:15px auto;
+    background: #f7f2e8;
+    font-size: 12px;
+}
+.newYear-modelSelect{
+    width: 18%;
+    display: inline-block;
+    padding:0 7px;
+    position: relative;
+}
+.newYear-modelS-imgBlack{
+    width:100%;padding:0 7px;position: absolute;top: 0;left: 0;
+}
+.newYear-modelSelect.active .newYear-modelS-imgBlack{
+    display: none;
+}
+.newYear-modelBtn{
+    padding-top: 10px;
+}
+@media (max-width: 350px) {
+    .newYear-modelIcon-wrap{margin-top:100px;}
+    .newYear-modelIcon {
+        width: 200px;
+        height: 291px;
+    }
+    .newYear-nickName-input {
+        margin: 8px auto;
+    }
+}
+@media (min-width: 400px) {
+    .newYear-modelIcon-wrap{margin-top:140px;}
+}
+/*制作祝福卡样式end*/
+/*我的祝福卡样式*/
+.lqyCanvas{
+    display:none;margin: 35px 22px;z-index: 999;
+}
+.myCanvas{
+    width: 330px;
+    height: 450px;
+}
+.newYear-createImg{
+    width: 330px;
+    height: 450px;
+}
+.newYear-createImg .newYear-photo{
+    /*padding-top: 44px;*/
+    height: 450px;
+}
+.newYear-createImg-wrap{
+    margin-top: 30px;
+}
+.newYear-createImg-qrcode-wrap{
+    width:330px;margin:0 auto;height: 70px;background:#f7f2e8;padding-left:50px;position: relative;
+}
+.newYear-createImg-qrcode{
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    left: 50px;
+    top:11px;
+    overflow: hidden;
+}
+.newYear-createImg-qrcode-txt{
+    padding-left: 60px;
+    font-size: 13px;
+    padding-top: 17px;
+}
+.newYear-warningBtn{
+    position:absolute;bottom:30px;width:100%;color: #f9eeab;font-size: 20px;padding-top: 20px;
+}
+@media (max-width: 350px) {
+    .newYear-createImg{
+        width: 290px;
+        height: 402px;
+    }
+    .newYear-createImg .newYear-photo{
+        /*padding-top: 44px;*/
+        height: 402px;
+    }
+    .newYear-createImg-qrcode-wrap{
+        width:290px;
+        padding-left:30px;
+    }
+    .newYear-warningBtn{
+        bottom:20px;
+    }
+    .newYear-createImg-qrcode{
+        left: 30px;
+    }
+}
+@media (min-width: 400px) {
+    .newYear-createImg{
+        width: 380px;
+        height: 520px;
+    }
+    .newYear-createImg .newYear-photo{
+        /*padding-top: 44px;*/
+        height: 520px;
+    }
+    .newYear-createImg-qrcode-wrap{
+        width: 380px;
+        padding-left:75px;
+    }
+    .newYear-warningBtn{
+        bottom:50px;
+    }
+    .newYear-createImg-qrcode{
+        left: 75px;
+    }
+    .newYear-createImg-wrap .newYear-makePhoto-title{
+        height: 52px;
+    }
+}
+/*我的祝福卡样式end*/
+/*礼品页面样式*/
+.newYear-ruleAward-img{
+    position: relative;
+}
+.newYear-ruleAwardImg01{
+    width:160px;
+    height: 80px;
+    position: absolute;
+    top: 100px;
+    left: 30%;
+}
+@media (max-width: 340px) {
+    .newYear-ruleAwardImg01{
+        width:130px;
+        height: 65px;
+        position: absolute;
+        top: 88px;
+        left: 30%;
+    }
+}
+@media (min-width: 400px) {
+    .newYear-ruleAwardImg01{
+        width:176px;
+        height: 88px;
+        position: absolute;
+        top: 110px;
+        left:30%;
+    }
+}
+.newYear-ruleAward-title{
+    height: 40px;
+    line-height: 40px;
+    font-size: 17px;
+    color: #333;
+}
+.newYear-ruleAward-rule span{
+    color: #fbd991;
+    background: #bb1f1b;
+    padding: 3px 8px;
+    font-size: 15px;
+}
+.newYear-ruleAward-rule-wrap{
+    padding-top: 8px;
+}
+.newYear-ruleAward-rule-wrap li{
+    font-size: 11px;
+    height: 20px;
+    line-height: 20px;
+    color: #777;
+}
+.newYear-ruleAward-phone{
+    height: 35px;
+    line-height: 35px;
+}
+.newYear-ruleAward-phone-input{
+    width: 250px;
+    display: inline-block;
+}
+.newYear-ruleAward-phone-input input{
+    width: 250px;
+    border: #ba1f1b 1px solid;
+}
+.newYear-ruleAward-phone-input label.error{
+    bottom: -35px;
+    left: 5px;
+}
+.newYear-ruleAward-phone{
+    color: #ba1f1b;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+.newYear-ruleAward-Btn{
+    margin-bottom:10px;
+}
+.newYear-ruleAward-Btn a{
+    width: 180px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    display: inline-block;
+    background: #fed81d;
+    border-radius: 20px;
+    color: #6e3627;
+    font-size: 15px;
+}
+.newYear-ruleAward-msg{
+    color: #ba1f1b;
+    font-size: 15px;
+    padding: 3px 0;
+}
+.newYear-ruleAward-msg-wrap{
+    padding-bottom: 20px;
+}
+/*礼品页面样式end*/

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <title>查看物流</title>
+    <!-[if IE9]>
+    <script src="js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers {
+            display: none !important;
+        }</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <![endif]->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-refundSubmit.css" rel="stylesheet" type="text/css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.zclip.js"></script>
+    <!--<script type="text/javascript" src="js/ZeroClipboard.js"></script>-->
+    <script src="js/loginVerify.js"></script>
+    <!--<script>-->
+<!--//        $(function () {-->
+<!--//            console.log(2);-->
+<!--//            $.ajax({-->
+<!--//                url: "http://api.jisuapi.com/express/query",-->
+<!--//                type: "POST",-->
+<!--//                contentType: "text/html; charset=utf-8",-->
+<!--//                data: {type: "auto",number:"443281672031",appkey:"61bcf8f5b4ac43c9"},-->
+<!--//                dataType: "json",-->
+<!--//                success: function (data) { //对数据data处理，输出到html页面 }-->
+<!--////                    console.log(data);-->
+<!--//                    console.log(1);-->
+<!--//                }-->
+<!--//            });-->
+<!--//        });-->
+        <!--var result;  // API结果-->
+        <!--// 回调函数-->
+        <!--var callbackFunction = function (data) {-->
+            <!--var mydata = '<div class="js_mydata retail-checkLogistics-msg-data"><div class="js_data_text">罗湖水贝营业点】的派件员【张连成】正在派件 电话：13543432123</div><div class="js_data_time retail-checkLogistics-msg-data-time">2017-06-30 12:51:14</div> <div class="retail-checkLogistics-msg-data-icon"><img class="js_myround img-responsive" src="images/logistics_round_gray.png" alt=""></div> </div>'-->
+            <!--result = data;-->
+<!--//            console.log(result);-->
+            <!--var len = result.result.list.length;-->
+<!--//            console.log(len);-->
+            <!--var deliverystatus = result.result.deliverystatus;-->
+            <!--if(deliverystatus==1){-->
+                <!--$(".js_status").text("运输中");-->
+            <!--}else if(deliverystatus==2){-->
+                <!--$(".js_status").text("正在派送");-->
+            <!--}else if(deliverystatus==3){-->
+                <!--$(".js_status").text("已签收");-->
+            <!--}else if(deliverystatus==4){-->
+                <!--$(".js_status").text("派送失败(拒收等)");-->
+            <!--}-->
+            <!--for(var i = 0;i<len;i++){-->
+                <!--$(".js_data_height").append(mydata);-->
+                <!--$(".js_mydata").eq(0).addClass("current");-->
+                <!--$(".js_mydata").eq(0).find(".js_myround").attr({"src":"images/logistics_round_green.png"});-->
+                <!--$(".js_mydata").eq(len-1).addClass("js_last_height last");-->
+                <!--$(".js_mydata").eq(i).find(".js_data_text").html(result.result.list[i].status);-->
+                <!--$(".js_mydata").eq(i).find(".js_data_time").html(result.result.list[i].time);-->
+            <!--}-->
+            <!--var H = $(".js_data_height").outerHeight();-->
+            <!--var h = $(".js_last_height").outerHeight();-->
+            <!--H = H - h;-->
+            <!--$(".js_line_height").css({"height":H});-->
+        <!--};-->
+        <!--$(function(){-->
+            <!--//去掉光标-->
+            <!--$(".js_num").focus(function(){-->
+                <!--document.activeElement.blur();-->
+            <!--});-->
+            <!--//量出快递左边线的高度-->
+            <!--var H = $(".js_data_height").outerHeight();-->
+            <!--var h = $(".js_last_height").outerHeight();-->
+            <!--H = H - h;-->
+            <!--$(".js_line_height").css({"height":H});-->
+<!--//            $.ajax({-->
+<!--//                url: "http://api.jisuapi.com/express/query",-->
+<!--//                type: "POST",-->
+<!--//                contentType: "text/html; charset=utf-8",-->
+<!--//                data: {type: "auto",number:"443281672031",appkey:"61bcf8f5b4ac43c9"},-->
+<!--//                dataType: "json",-->
+<!--//                success: function (data) { //对数据data处理，输出到html页面 }-->
+<!--////                    console.log(data);-->
+<!--//                    console.log(1);-->
+<!--//                }-->
+<!--//            });-->
+        <!--})-->
+
+    <!--</script>-->
+    <script>
+        //复制快递单号
+        function jsCopy(){
+            var e=document.getElementById("contents");//对象是contents
+            e.select(); //选择对象
+            tag=document.execCommand("Copy"); //执行浏览器复制命令
+            if(tag){
+                input_alert();
+                $(".js_collect_text").text("复制成功");
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="container-fluid small_screen">
+    <div class="row">
+        <div class="retail-checkLogistics">
+            <div class="flex-row">
+                <div class="retail-checkLogistics-img flex-row">
+                    <img src="images/pull-icon@2x.png" alt="">
+                </div>
+                <div class="flex-data retail-checkLogistics-text">
+                    <div>物流状态：<span class="js_status retail-checkLogistics-status">已签收</span></div>
+                    <div>快递公司：顺丰快递</div>
+                    <div class="js_logistics flex-row"><span>快递编号：</span>
+                        <input id="contents" class="retail-checkLogistics-input js_num flex-data" type="text" value="974691060518"> <!--//602488241259 #-->
+                        <!--<textarea id="contents" class="retail-checkLogistics-input js_num flex-data"  cols="15" rows="1">974691060517</textarea>-->
+                        <input style="display: block" type="button" class="retail-checkLogistics-copy" onClick="jsCopy();" value="复制，">
+                    </div>
+                    <div>联系电话：13588886666</div>
+                    <div class="retail-checkLogistics-text01">联系人<span style="letter-spacing: 0">：田伯</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="retail-checkLogistics-msg flex-row">
+            <div class="js_line_height retail-checkLogistics-msg-left">
+            </div>
+            <!--<div class="flex-data js_data_height retail-checkLogistics-msg-right" style="">-->
+                <!--<div class="retail-checkLogistics-msg-data current">-->
+                    <!--<div>罗湖水贝营业点】已收入</div>-->
+                    <!--<div class="retail-checkLogistics-msg-data-time">2017-06-30 12:51:14</div>-->
+                    <!--<div class="retail-checkLogistics-msg-data-icon"><img class="img-responsive" src="images/logistics_round_green.png" alt=""></div>-->
+                <!--</div>-->
+                <!--<div class="retail-checkLogistics-msg-data">-->
+                    <!--<div>罗湖水贝营业点】的派件员【张连成】正在派件 电话：13543432123</div>-->
+                    <!--<div class="retail-checkLogistics-msg-data-time">2017-06-30 12:51:14</div>-->
+                    <!--<div class="retail-checkLogistics-msg-data-icon"><img class="img-responsive" src="images/logistics_round_gray.png" alt=""></div>-->
+                <!--</div>-->
+                <!--<div class="js_last_height retail-checkLogistics-msg-data last">-->
+                    <!--<div>【罗湖水贝营业点】的派件员【官华成】正在派件 快件已从深圳中心田贝仓库发出，贮备发往田贝支局中心罗湖水贝营业点】的派件员【张连成】正在派件</div>-->
+                    <!--<div class="retail-checkLogistics-msg-data-time">2017-06-30 12:51:14</div>-->
+                    <!--<div class="retail-checkLogistics-msg-data-icon"><img class="img-responsive" src="images/logistics_round_gray.png" alt=""></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="flex-data js_data_height retail-checkLogistics-msg-right" style="">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--验证input弹窗-->
+<div class="js_collect_alert text-center input-alert" style="display:none;">
+    <!--<div class="text-center collect_alert_img">-->
+    <!--<img src="images/redStar.png" alt="">-->
+    <!--</div>-->
+    <span class="js_collect_text input-alert-text">复制成功</span>
+</div>
+<!--验证input弹窗end-->
+</body>
+<script type="text/javascript">
+//    // 调用API
+//    (function (){
+//        var nu = $(".js_num").val();
+////        console.log(nu);
+//        var url = "http://api.jisuapi.com/express/query?appkey=61bcf8f5b4ac43c9&type=auto&number="+nu+"&callback=callbackFunction";
+//        var script = document.createElement("script");
+//        script.src = url;
+//        document.getElementsByTagName('body')[0].appendChild(script);
+//    })();
+</script>
+</html>

@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>商品详情</title><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>商品详情</title>
+    <!-[if IE9]>
+    <script src="js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers{display:none!important;}</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a></div>
+    </noscript>
+    <![endif]->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-goodsDetails.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/suppliers.css">
+    <link href="css/treasure_index.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="js/messages.js"></script>
+    <!--轮播图滑动js引入-->
+    <script src="js/hammer.min.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script type="text/javascript" src="js/pinchzoom.js"></script>
+    <script src="js/app_product.js"></script>
+    <script src="js/goodDetail.js"></script>
+    <script src="js/retail_cofirmBuying.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/suppliers.js"></script>
+    <style type="text/css">
+        /*放大图片样式*/
+        div.js_carousel,
+        div.js_carousel img{
+            width: 100%;
+            -webkit-user-drag: none;
+        }
+        /*放大图片样式end*/
+    </style>
+    <script>
+        function buy_click(){
+            var s = $("#js_style").find(".selected");
+            var num = $("#js_num").find(".num");
+            var showmsg = s.text() + "," + num.val();
+        }
+        $(function (e) {
+            //            手势放大图片
+            $('div.js_carousel').each(function () {
+                new RTP.PinchZoom($(this), {});
+            });
+            //            手势放大图片end
+            //设置成正方形的图
+            series.squareImg();
+            // 30s后出现对话：有什么可以帮您的 2017/6/27
+            var sgh = setTimeout(function(){
+                //js_serviceIcon js_help_alert
+                $(".js_help_alert").show();
+                $(".js_serviceIcon").attr({"src":"images/icon_service_blue.png"});
+            },30000);
+            // 30s后出现对话：有什么可以帮您的end 2017/6/27
+            var $styleList = $("#js_style").children();
+            for (var i = 0; i < $styleList.length; i++) {
+                if ($styleList.eq(i).attr("class") != 'disabled') {
+                    $styleList.eq(i).trigger("click");//模拟点击事件
+                    break;
+                }
+            }
+
+            /*判断图片的宽高，如果宽比高大就宽就横着放，如果高比宽大高就横着放*/
+            isWidther("js-img-layout");
+            function isWidther(className){
+                for(let j=0;j<$('.'+className).length;j++){
+                    $('.'+className).eq(j).css("transform","none");
+//                let imgWidth = getStyleAttr($('.js_carousel').eq(i)[0],"width");
+//                let imgHeight = getStyleAttr($('.js_carousel').eq(i)[0],"height");
+                    var imgWidth = parseInt($('.'+className).eq(j)[0].width)
+                    var imgHeight = parseInt($('.'+className).eq(j)[0].height)
+                    var screenWidth = parseInt(document.documentElement.clientWidth);
+                    /*console.log(screenWidth);*/
+                    if( imgWidth >= imgHeight ){
+                        $('.'+className).eq(j).css('width','100%');
+                        $('.'+className).eq(j).css('height','auto');
+                    }else{
+                        $('.'+className).eq(j).css('height',screenWidth);
+                        $('.'+className).eq(j).css('width','auto');
+                        $('.'+className).eq(j).css("transform","rotate(90deg)");
+                    }
+                }
+            }
+            /*图片放大处*/
+//            isWidther("js-img-bigger");
+        });
+    </script>
+</head>
+<body>
+<div class="black">
+    <div class="black-banner-wrap">
+        <div id="carousel-bigimg-generic" class="carousel slide daifu-carousel pic-minheight" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators comafter">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active">1/<span class="num">3</span></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1">2/<span class="num">3</span></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2">3/<span class="num">3</span></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner carousel-black" role="listbox">
+                <div class="item active">
+                    <div class="js_carousel">
+                        <img class="img-responsive js-img-bigger" id="banner001" src="images/banner01.png" alt="">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="js_carousel">
+                        <img class="js-img-bigger" id="banner002" src="images/banner02.png" alt="">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="js_carousel">
+                        <img class="js-img-bigger" id="banner003" src="images/banner01.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid small_screen">
+    <div class="row">
+        <div class="retail-goodsDetails">
+            <div id="J_gdMenu" class="goodsDetail-menu-wrap">
+                <div class="goodsDetail-menu text-center">
+                    <span class="js_gdMenu goodsDetail-menu-item active">详情</span>
+                    <span class="js_gdMenu goodsDetail-menu-item">参数</span>
+                </div>
+            </div>
+            <div id="J_goodDetails">
+                <div class="banner" id="banner">
+                    <div id="carousel-example-generic" class="carousel slide daifu-carousel" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators comafter">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active">1/<span class="num">3</span></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1">2/<span class="num">3</span></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2">3/<span class="num">3</span></li>
+                        </ol>
+                        <!--视频播放按钮-->
+                        <div class="video-play-btn" >
+                            <a href="retail-guogoodsDetailsVideo.html"><img class="video-play-btn-img" src="images/video_play_btn.png" alt=""></a>
+                        </div>
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner carousel-banner" role="listbox">
+                            <div class="item active" style="background: #000">
+                                <img class="img-responsive js-img-layout" id="banner01" src="images/banner01.png" alt="">
+                            </div>
+                            <div class="item" style="background: #000">
+                                <img class="img-responsive js-img-layout" id="banner02" src="images/banner02.png" alt="">
+                            </div>
+                            <div class="item" style="background: #000">
+                                <img class="img-responsive js-img-layout" id="banner03"  src="images/banner01.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <a href="javascript:;">
+                        <div class="suppliers-down" style="display: none">
+                            <span>
+                                 此商品正处于挖宝活动中，最高可享受<span class="suppliers-three">3折</span>优惠<img src="images/suppliers-right.png">
+                            </span>
+                         </div>
+                        <div class="suppliers-down" style="display: none">
+                             <span class="suppliers-down-text">
+                                 恭喜您，可按<span class="suppliers-three">3.2折</span>购买一件该商品!
+                             </span>
+                            <span class="check-mytreasure">
+                                <a href="javascript" class="check-mytreasure">查看我的挖宝</a>
+                            </span>
+                            <img src="images/suppliers-right.png">
+                        </div>
+                        <div class="suppliers-down" style="display: block">
+                             <span class="suppliers-down-text">
+                                 恭喜您以<span class="suppliers-three">3.2折</span>的优惠价购买到该商品！
+                             </span>
+                            <span class="check-mytreasure">
+                                <a href="javascript" class="check-mytreasure">查看我的挖宝</a>
+                            </span>
+                            <img src="images/suppliers-right.png">
+                        </div>
+                    </a>
+                </div>
+                <div class="comafter retail-goodsDetails-price-description">
+                    <div class="retail-goodsDetails-price comafter">
+                        <div class="col-xs-6">
+                            <span class="retail-goodsDetails-price-now">￥1280</span>
+                            <span class="retail-goodsDetails-price-past">￥2588</span>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <span class="retail-goodsDetails-people-buy">1524</span>
+                            人购买
+                        </div>
+                    </div>
+                    <h3 class="col-xs-12 retail-goodsDetails-title">手把件吊坠挂坠新疆和田玉羊脂白玉平安牌和田玉吊坠男士女士平安无事牌白玉牌子 牌和田玉吊坠男士女士平安无事牌白玉牌子</h3>
+                    <p class="col-xs-12 retail-goodsDetails-description">简介：和田玉颜色为：白、糖白、青白、黄、糖、碧、青、烟青、翠青、青花。我们知道新疆和田玉在清代以前多以黄玉、白玉为主。其中黄玉非常的漂亮。其实不亚于羊脂玉，我们应该给以黄玉正身。</p>
+                </div>
+                <div class="retail-goodsDetails-stores-details">
+                    <a href="#">
+                        <img class="img-responsive" src="images/retail-goodsDetails-img001.png" alt="">
+                        <span>门店<br>详情</span>
+                    </a>
+                </div>
+                <img class="img-responsive" src="images/retail-goodsDetails-icon02.png" alt="">
+                <!--一起购买3个版块时-->
+                <div class="comafter retail-goodsDetails-pingdan">
+                    <div class="col-xs-4 retail-goodsDetails-pingdan-left">
+                        <div class="comafter" style="background: #fff;padding-right: 5px; border-top:1px solid #f7f7f7;border-bottom:1px solid #f7f7f7;">
+                            <div class="img-group">
+                                <img class="img-responsive" src="images/retail-goodsDetails-img002.png" alt="">
+                                <div class="retail-goodsDetails-pingdan-cheaper">搭配购买省<span>￥600</span></div>
+                            </div>
+                            <div class="retail-goodsDetails-pingdan-buy">
+                                <a href="#">一起购买</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 retail-goodsDetails-pingdan-center">
+                        <div class="comafter" style="background: #fff;padding-right: 5px;">
+                            <div class="img-group">
+                                <img class="img-responsive" src="images/retail-goodsDetails-img003.png" alt="">
+                                <div class="retail-goodsDetails-pingdan-cheaper">搭配购买省<span>￥600</span></div>
+                            </div>
+                            <div class="retail-goodsDetails-pingdan-buy">
+                                <a href="#">一起购买</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 retail-goodsDetails-pingdan-right">
+                        <div class="comafter" style=" border-top:1px solid #f7f7f7;border-bottom:1px solid #f7f7f7;background: #fff;padding-left: 5px;">
+                            <div class="img-group">
+                                <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                                <div class="retail-goodsDetails-pingdan-cheaper">搭配购买省<span>￥600</span></div>
+                            </div>
+                            <div class="retail-goodsDetails-pingdan-buy">
+                                <a href="#">一起购买</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--一起购买2个版块时-->
+                <div class="comafter retail-goodsDetails-pingdan">
+                    <div class="col-xs-4 retail-goodsDetails-pingdan-center" style="margin:0 3% 0 15%">
+                        <div class="comafter" style="background: #fff;padding-right: 5px;">
+                            <div class="img-group">
+                                <img class="img-responsive" src="images/retail-goodsDetails-img003.png" alt="">
+                                <div class="retail-goodsDetails-pingdan-cheaper">搭配购买省<span>￥600</span></div>
+                            </div>
+                            <div class="retail-goodsDetails-pingdan-buy">
+                                <a href="#">一起购买</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 retail-goodsDetails-pingdan-center">
+                        <div class="comafter" style="background: #fff;padding-right: 5px;">
+                            <div class="img-group">
+                                <img class="img-responsive" src="images/retail-goodsDetails-img003.png" alt="">
+                                <div class="retail-goodsDetails-pingdan-cheaper">搭配购买省<span>￥600</span></div>
+                            </div>
+                            <div class="retail-goodsDetails-pingdan-buy">
+                                <a href="#">一起购买</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--一起购买1个版块时-->
+                <div class="comafter retail-goodsDetails-pingdan">
+                    <div class="col-xs-4 col-xs-offset-4 retail-goodsDetails-pingdan-center">
+                        <div class="comafter" style="background: #fff;padding-right: 5px;">
+                            <div class="img-group">
+                                <img class="img-responsive" src="images/retail-goodsDetails-img003.png" alt="">
+                                <div class="retail-goodsDetails-pingdan-cheaper">搭配购买省<span>￥600</span></div>
+                            </div>
+                            <div class="retail-goodsDetails-pingdan-buy">
+                                <a href="#">一起购买</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--系列商品-->
+                <img class="img-responsive" src="images/retail-goodsDetails-rangeGoods.png" alt="">
+                <div class="rangeGoods-wrap comafter">
+                    <div onclick="location.href='http://www.baidu.com'" class="col-xs-4 padding-0px rangeGoods-item comafter">
+                        <div class="rangeGoods-item-bg js_rangeGoods">
+                            <div class="img-group">
+                                <img class="img-responsive" src="images/kandan_iconSuccess.png" alt="">
+                            </div>
+                            <div class="rangeGoods-text">
+                                <div class="rangeGoods-text-title">金色手环魅力无限金色手环魅力无限</div>
+                                <div class="rangeGoods-text-price"><span class="icon-price">￥</span>75000000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 padding-0px rangeGoods-item comafter">
+                        <div class="rangeGoods-item-bg js_rangeGoods">
+                            <div class="img-group">
+                                <img class="img-responsive" src="images/retail-goodsDetails-img003.png" alt="">
+                            </div>
+                            <div class="rangeGoods-text">
+                                <div class="rangeGoods-text-title">金色手环魅力无限金色手环魅力无限</div>
+                                <div class="rangeGoods-text-price"><span class="icon-price">￥</span>75000000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 padding-0px rangeGoods-item comafter">
+                        <div class="rangeGoods-item-bg js_rangeGoods">
+                            <div class="img-group">
+                                <img class="img-responsive" src="images/banner02.png" alt="">
+                            </div>
+                            <div class="rangeGoods-text">
+                                <div class="rangeGoods-text-title">金色手环魅力无限金色手环魅力无限</div>
+                                <div class="rangeGoods-text-price"><span class="icon-price">￥</span>75000000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 padding-0px rangeGoods-item comafter">
+                        <div class="rangeGoods-item-bg js_rangeGoods">
+                            <div class="img-group">
+                                <img class="img-responsive" src="images/icon_bankCard.png" alt="">
+                            </div>
+                            <div class="rangeGoods-text">
+                                <div class="rangeGoods-text-title">金色手环魅力无限金色手环魅力无限</div>
+                                <div class="rangeGoods-text-price"><span class="icon-price">￥</span>75000000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 padding-0px rangeGoods-item comafter">
+                        <div class="rangeGoods-item-bg js_rangeGoods">
+                            <div class="img-group">
+                                <img class="img-responsive" src="images/retail-goodsDetails-img003.png" alt="">
+                            </div>
+                            <div class="rangeGoods-text">
+                                <div class="rangeGoods-text-title">金色手环魅力无限金色手环魅力无限</div>
+                                <div class="rangeGoods-text-price"><span class="icon-price">￥</span>75000000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 padding-0px rangeGoods-item comafter">
+                        <div class="rangeGoods-item-bg js_rangeGoods">
+                            <div class="img-group">
+                                <img class="img-responsive" src="images/retail-goodsDetails-img003.png" alt="">
+                            </div>
+                            <div class="rangeGoods-text">
+                                <div class="rangeGoods-text-title">金色手环魅力无限金色手环魅力无限</div>
+                                <div class="rangeGoods-text-price"><span class="icon-price">￥</span>75000000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--系列商品end-->
+                <img class="img-responsive" src="images/retail-goodsDetails-icon03.png" alt="">
+                <div class="retail-goodsDetails-show-detail">
+                    <img class="img-responsive" src="images/retail-goodsDetails-img005.png" alt="">
+                </div>
+                <img class="img-responsive" src="images/retail-goodsDetails-icon04.png" alt="">
+                <div class="retail-goodsDetails-stores-details">
+                    <a href="#">
+                        <img class="img-responsive" src="images/retail-goodsDetails-img001.png" alt="">
+                        <span>活动<br>详情</span>
+                    </a>
+                </div>
+                <div style="width:100%;height:5px;background: #fff"></div>
+                <div class="retail-goodsDetails-stores-details">
+                    <a href="#">
+                        <img class="img-responsive" src="images/retail-goodsDetails-img001.png" alt="">
+                        <span>活动<br>详情</span>
+                    </a>
+                </div>
+            </div>
+            <div id="J_param" style="width:100%;height:800px;background:#ccc">
+                <div><img class="img-responsive" src="images/icon_parameters_goods.png" alt=""></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部菜单栏-->
+<div class="retail-goodsDetails-btn-bottom navbar-fixed-bottom">
+    <!--注册按钮，暂时隐藏-->
+    <div class="retail-goodsDetails-btn-register" style="display: none">
+        <a href="#">注册</a>
+    </div>
+    <!--已登录状态按钮-->
+    <!--<div class="retail-goodsDetails-btn-login" style="display: none">-->
+        <!--<div class="col-xs-6">-->
+            <!--<a class="col-xs-6 myAccount" href="#">我的账户</a>-->
+            <!--<span class="js_myCollect col-xs-6 myCollect">收藏</span>-->
+        <!--</div>-->
+        <!--<div class="col-xs-6">-->
+            <!--<a id="js_buying" class="js_buying_btn buying" href="javascript:;">立即购买</a>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="lqy-btnBuy-bottom">
+        <div class="help-alert js_help_alert" style="display: none">
+            <div class="help-alert-text">
+                <span class="help-alert-text">有什么可以帮您？</span>
+            </div>
+            <div class="help-alert-icon"><span></span></div>
+        </div>
+        <div class="lqy-btnBuy-myAccount">
+            <a href="#" class="a_block">
+                <img class="js_serviceIcon lqy-btnBuy-myAccount-img suppliers-icon-bigger" src="images/icon_kefu01_nor@3x.png" alt="">
+                <div class="lqy-btnBuy-myAccount-text">客服</div>
+            </a>
+        </div>
+        <div class="lqy-btnBuy-myAccount">
+            <a href="#" class="a_block">
+                <img class="lqy-btnBuy-myAccount-img suppliers-icon-bigger" src="images/icon_shangcheng01_nor@3x.png" alt="">
+                <div class="lqy-btnBuy-myAccount-text">商城</div>
+            </a>
+        </div>
+        <div class="lqy-btnBuy-myAccount">
+            <img class="lqy-btnBuy-myAccount-img suppliers-icon-bigger" src="images/icon_shoucang_nor@3x.png" alt="">
+            <div class="lqy-btnBuy-myAccount-text">收藏</div>
+        </div>
+        <div class="lqy-btnBuy-myAccount kandan-myAccount-btn sippliers-icon-background">
+            <a href="#" class="a_block">
+                <img class="lqy-btnBuy-myAccount-img suppliers-icon-bigger" src="images/icon_wode01_nor@3x.png" alt="">
+                <div class="lqy-btnBuy-myAccount-text ">我的</div>
+            </a>
+        </div>
+        <div id="js_buying" class="text-center lqy-btnBuy-now" style="display: block;"><a href="javascript:;" onclick="browserAlert();" class="js_buying_btn a_block suppliers-now-buy">立即购买</a></div>
+        <div id="js_buying" class="text-center lqy-btnBuy-now suppliers-two-buy" style="display:none;">
+            <p>
+                优惠价：￥<span>28000.00</span>
+                <a href="javascript:;" onclick="browserAlert();" class="js_buying_btn a_block suppliers-now-buy suppliers-now-buychange">
+                    立即购买
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+<!--底部菜单栏end-->
+<div id="com_black" class="js_com_black hide_com_buy com_black" onclick="video.pause()" style="display: none"></div>
+<div class="js_video_black hide_com_buy com_black" onclick="video.pause()" style="display: none"></div>
+<!--视频弹窗-->
+<div class="js_hide_com js_videoDiv" style="display: none">
+    <video id="J_myVideo" class="js_myVideo myVideo" width="100%" height="240" onended="video.playEnd()">
+        <source src="https://oss.pg.yibaotong.top/files/item_video/20171019_offline/1572865173100.mp4" type='video/mp4'  >
+        您的浏览器不支持 video 标签。
+    </video>
+</div>
+
+<!--提示浏览器打开弹窗-->
+<div class="js_browser js_hide_com suppliers-not-alert" style="display:none;position: fixed;top: 5px;right:6%;z-index: 1040;text-align: right">
+    <img style="width: 70%;" src="images/icon_tishi_nor@3x.png" alt="">
+</div>
+<!--提示浏览器打开弹窗end-->
+<!--这是遮罩层-->
+<!--挖宝活动的遮罩层-->
+<div class="js_black_type hide_com_buy com_black" style="display: block" onclick="cancelAlert_slide()"></div>
+<div class="js_comBlack hide_com_buy com_black" style="display: none"></div>
+<!--这是采购商无权限弹出框 您不是展厅经理-->
+<ul class="js_hide_com alert-centent" style="display:none;">
+    <li>您不是展厅经理，暂无权操作权限</li>
+    <li><a href="http://m.pg.yibaotong.top/" class="staff-btn" onclick="cancelAlert()">打开或下载APP</a></li>
+</ul>
+
+<!--是推广员或员工时-->
+
+<div class="js_hide_com js_storeP_alert comafter delete-address-alert flex-row" style="display: none">
+    <div class="delete-address-alert-info">
+        <div class="store-text">
+            <div class="store-staff-text">您是推广人或员工，如需创建店铺，请先向门店申请解绑</div>
+        </div>
+        <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()">关闭</span>
+    </div>
+</div>
+<!--我的挖宝弹出框-->
+<div class="js_hide_com js_storeP_alert comafter delete-address-alert-treasure flex-row" style="display: none">
+    <div class="delete-address-alert-info treasure-alert-width">
+        <div class="">
+            <img class="treasure-alert1-img" src="images/treasure_alert1.png" />
+        </div>
+
+        <div class="store-text treasure-text">
+            <div class="store-staff-text treasure-dont-text">别眼馋了</div>
+            <div class="store-staff-text treasure-self-text">这是别人的宝藏，想要自己去挖吧</div>
+        </div>
+        <div class="treasure-mytreasure tresure-alert-active">我的挖宝</div>
+        <a href="javascript:;" onclick="cancelAlert_slide()" ><div class="treasure-mysure">确定</div></a>
+        <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()" style="display: none">关闭</span>
+    </div>
+</div>
+<!--没有挖到宝贝弹出框-->
+<div class="js_hide_com js_storeP_alert comafter delete-address-alert-treasure flex-row" style="display: none">
+    <div class="delete-address-alert-info treasure-alert-width">
+        <img class="treasure-alert1-img" src="images/treasure_alert2.png" />
+        <div class="store-text treasure-text">
+            <div class="store-staff-text treasure-dont-text">尴了个尬</div>
+            <div class="store-staff-text treasure-self-text">帮倒忙手一抖，倒填回去了<span class="treasure-filling-in">5</span>米!</div>
+        </div>
+        <div class="treasure-mytreasure tresure-alert-active">我的挖宝</div>
+        <a href="javascript:;" onclick="cancelAlert_slide()" ><div class="treasure-mysure">确定</div></a>
+        <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()" style="display: none">关闭</span>
+    </div>
+</div>
+<!--挖正数弹出框-->
+<div class="js_hide_com js_storeP_alert comafter delete-address-alert-treasure flex-row" style="display: none">
+    <div class="delete-address-alert-info treasure-alert-width">
+        <img class="treasure-alert1-img" src="images/treasure_alert3.png" />
+        <div class="store-text treasure-text">
+            <div class="store-staff-text treasure-dont-text">关键时刻显真情</div>
+            <div class="store-staff-text treasure-self-text">感谢你勤勤恳恳，帮挖了<span class="treasure-filling-in">5</span>米!</div>
+        </div>
+        <div class="treasure-mytreasure tresure-alert-active ">我的挖宝</div>
+        <a href="javascript:;" onclick="cancelAlert_slide()" ><div class="treasure-mysure">确定</div></a>
+        <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()" style="display: none">关闭</span>
+    </div>
+</div>
+<!--负数弹出框-->
+<div class="js_hide_com js_storeP_alert comafter delete-address-alert-treasure flex-row" style="display: none">
+    <div class="delete-address-alert-info treasure-alert-width">
+        <img class="treasure-alert1-img" src="images/treasure_alert2.png" />
+        <div class="store-text treasure-text">
+            <div class="store-staff-text treasure-self-text">哎呀，手一抖倒填回去<span class="treasure-filling-in">5</span>米!</div>
+        </div>
+        <a href="javascript:;" onclick="cancelAlert_slide()" ><div class="treasure-mysure tresure-alert-active tresure-only-sure">确定</div></a>
+        <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()" style="display: none">关闭</span>
+    </div>
+</div>
+<!--一自己挖正数弹出框-->
+<div class="js_hide_com js_storeP_alert comafter delete-address-alert-treasure flex-row" style="display: none">
+    <div class="delete-address-alert-info treasure-alert-width">
+        <img class="treasure-alert1-img" src="images/treasure_alert3.png" />
+        <div class="store-text treasure-text">
+            <div class="store-staff-text treasure-self-text">哇塞，你一铲子下去挖了<span class="treasure-filling-in">5</span>米!</div>
+        </div>
+        <a href="javascript:;" onclick="cancelAlert_slide()" ><div class="treasure-mysure tresure-alert-active tresure-only-sure">确定</div></a>
+        <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()" style="display: none">关闭</span>
+    </div>
+</div>
+<!--一自己挖第二次弹出框-->
+<div class="js_hide_com js_storeP_alert comafter delete-address-alert-treasure flex-row" style="display: none">
+    <div class="delete-address-alert-info treasure-alert-width">
+        <div class="">
+            <img class="treasure-alert1-img" src="images/treasure_alert1.png" />
+        </div>
+
+        <div class="store-text treasure-text">
+            <div class="store-staff-text treasure-dont-text">今天已经挖过了</div>
+            <div class="store-staff-text treasure-self-text">等明天吧，或者找朋友帮忙！</div>
+        </div>
+        <a href="javascript:;"><div class="treasure-mytreasure tresure-alert-active">喊朋友帮挖</div></a>
+        <a href="javascript:;" onclick="cancelAlert_slide()" ><div class="treasure-mysure">确定</div></a>
+        <!--<span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()" style="display: none">确定</span>-->
+    </div>
+</div>
+
+<!--已帮好友挖-->
+<div class="js_hide_com js_storeP_alert comafter delete-address-alert-treasure flex-row" style="display: none">
+    <div class="delete-address-alert-info treasure-alert-width">
+        <div class="">
+            <img class="treasure-alert1-img" src="images/treasure_alert1.png" />
+        </div>
+
+        <div class="store-text treasure-text">
+            <div class="store-staff-text treasure-dont-text">你真热心</div>
+            <div class="store-staff-text treasure-self-text">不过只能帮好友挖一次哦</div>
+        </div>
+        <a href="javascript:;"><div class="treasure-mytreasure tresure-alert-active">我的挖宝</div></a>
+        <a href="javascript:;" onclick="cancelAlert_slide()" ><div class="treasure-mysure">确定</div></a>
+        <!--<span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()" style="display: none">确定</span>-->
+    </div>
+</div>
+<!--挖宝规则-->
+
+<div class="js_hide_com js_storeP_alert comafter delete-address-alert flex-row " style="display: none;position: fixed">
+    <div class="delete-address-alert-info delete-address-alert-list">
+        <div class="store-text">
+            <div class="store-staff-text">
+                <ul class="suppliers-rules">
+                    <p class="suppliers-title">挖宝规则</p>
+                    <li>
+                        <p class="suppliers-list">
+                            1. 店长开启砍价活动后，推广人可将
+                            活动分享至各个平台（微信，朋友
+                            圈等等）。
+                        </p>
+                    </li>
+                    <li>
+                        <p class="suppliers-list">
+                            2. 用户通过推广人/好友分享的链接开
+                            启挖宝活动。
+                        </p>
+                    </li>
+                    <li>
+                        <p class="suppliers-list">
+                            3. 活动期间自己每天可挖宝一次，可
+                            转发给朋友帮忙挖宝，每位朋友可
+                            以帮挖一次。
+                        </p>
+                    </li>
+                    <li>
+                        <p class="suppliers-list">
+                            4. 每次挖宝将会减少和宝藏的距离，
+                            直至为零，则成功挖到宝藏。活动
+                            结束时依旧没有挖到宝藏，则挖宝
+                            失败。
+                        </p>
+                    </li>
+                    <li>
+                        <p class="suppliers-list">
+                            5. 活动期间每人限开启一次挖宝活动。
+                        </p>
+                    </li>
+                    <li>
+                        <p class="suppliers-list">
+                            6. 店长可在设置帮挖人数处设置至少
+                            需多少人帮忙挖宝才可挖到宝藏。
+                        </p>
+                    </li>
+                </ul>
+                <ul class="suppliers-rules suppliers-last-ul">
+                    <p class="suppliers-title">退款须知</p>
+                    <li>
+                        <p class="suppliers-list">
+                            1. 店长开启砍价活动后，推广人可将
+                            活动分享至各个平台（微信，朋友
+                            圈等等）。
+                        </p>
+                    </li>
+                    <li>
+                        <p class="suppliers-list">
+                            2. 用户通过推广人/好友分享的链接开
+                            启挖宝活动。
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()">关闭</span>
+    </div>
+</div>
+
+
+
+<!--挖宝活动的遮罩层结束-->
+<!--这是遮罩层-->
+<!--<div class="js_black_type hide_com_buy com_black" style="display: block" onclick="cancelAlert_slide()"></div>
+<div class="js_comBlack hide_com_buy com_black" style="display: none"></div>
+&lt;!&ndash;这是采购商无权限弹出框 您不是展厅经理&ndash;&gt;
+<ul class="js_hide_com alert-centent" style="display:none;">
+    <li>您不是展厅经理，暂无权操作权限</li>
+    <li><a href="http://m.pg.yibaotong.top/" class="staff-btn" onclick="cancelAlert()">打开或下载APP</a></li>
+</ul>
+&lt;!&ndash;合作成功&ndash;&gt;
+<div class="js_hide_com js_storeS_alert comafter delete-address-alert flex-row" style="display:none">
+    <div class="delete-address-alert-info">
+        <div class="staff-text">
+            <div class="store-staff-text">成功提交合作申请</div>
+            <div class="store-staff-text">请等待双方同意</div>
+        </div>
+        &lt;!&ndash;该账户是新用户时&ndash;&gt;
+        <a href="http://m.pg.yibaotong.top/" class="staff-btn" onclick="cancelAlert()">打开APP看看</a>
+    </div>
+</div>
+&lt;!&ndash;这是营业厅选择&ndash;&gt;
+
+<div class="js_hide_com js_storeP_alert comafter delete-address-alert flex-row" style="display: none">
+    <div class="delete-address-alert-info">
+        <div class="store-text store-text1">
+            <span class="suppliers-close"><img src="images/suppliers-wrong.png" /></span>
+            <div class="store-staff-text suppliers-choise">请选择您要与之合作的展厅</div>
+            &lt;!&ndash;<div class="supplisers-already-one">已选1家</div>&ndash;&gt;
+            <div class="supplisers-already-one">已选0家</div>
+            <ul class="suppliers-radio1 suppliers-radio2" id="suppliers-all-choice">
+                <li><span class="suppliers-radio suppliers-radio-bg1"></span><span>传世金鱼珠宝北京北厅</span></li>
+                <li><span class="suppliers-radio suppliers-radio-bg"></span><span>传世金鱼珠宝北京东厅</span></li>
+                <li><span class="suppliers-radio "></span><span>传世金鱼珠宝杭州南厅</span></li>
+                <li><span class="suppliers-radio "></span><span>传世金鱼珠宝杭州南厅</span></li>
+                <li><span class="suppliers-radio suppliers-radio-bg1"></span><span>传世金鱼珠宝杭州南厅</span></li>
+                <span class="suppliers-lessOne">至少选择一家展厅</span>
+            </ul>
+        </div>
+        <span href="javascript:;" class="staff-btn store-btn suppliers-sure" onclick="cancelAlert()">确定</span>
+        <span href="javascript:;" class="staff-btn store-btn suppliers-already" onclick="cancelAlert()" style="&lt;!&ndash;none">已全部合作无需操作</span>
+
+    </div>
+</div>-->
+&lt;!&ndash;是推广员或员工时&ndash;&gt;
+
+<div class="js_hide_com js_storeP_alert comafter delete-address-alert flex-row" style="display: none">
+    <div class="delete-address-alert-info">
+        <div class="store-text suppliers-store-text">
+            <div class="store-staff-text">您是推广人或员工，如需创建店铺，请先向门店申请解绑</div>
+        </div>
+        <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()">关闭</span>
+    </div>
+</div>
+&lt;!&ndash;是推广员或员工时end&ndash;&gt;
+&lt;!&ndash;成功提交时下载APP提示&ndash;&gt;
+<div class="js_hide_com js_storeS_alert comafter delete-address-alert flex-row" style="display:none">
+    <div class="delete-address-alert-info">
+        <div class="staff-text">
+            <div class="store-staff-text">成功提交！</div>
+            <div class="store-staff-text01">请下载APP登陆使用</div>
+            <div class="store-staff-text01">如已下载请直接登陆</div>
+        </div>
+        &lt;!&ndash;该账户是新用户时&ndash;&gt;
+        <a href="http://m.pg.yibaotong.top/" class="staff-btn" onclick="cancelAlert()">立即下载</a>
+    </div>
+</div>
+&lt;!&ndash;成功提交时下载APP提示end&ndash;&gt;
+&lt;!&ndash;成功提交时下载APP提示&ndash;&gt;
+<div class="js_hide_com js_storeW_alert comafter delete-address-alert flex-row" style="display:none">
+    <div class="delete-address-alert-info">
+        <div class="staff-text">
+            <div class="store-staff-text">成功提交合作申请</div>
+            <div class="store-staff-text">请等待对方同意</div>
+        </div>
+        &lt;!&ndash;该账户是新用户时&ndash;&gt;
+        <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()">关闭</span>
+    </div>
+</div>-->
+<!--购买选择款式和数量弹窗-->
+<div id="confirmBuying" class="retail-confirmBuying animation">
+    <div class="comafter" style="position: relative;">
+        <div class="col-xs-12">
+            <div class="comafter flex-row retail-confirmBuying-img-price">
+                <div class="js_storeImg retail-confirmBuying-img">
+                    <img src="images/retail-goodsDetails-img001.png" alt="">
+                </div>
+                <div class="retail-confirmBuying-price">
+                    <span class="retail-confirmBuying-price-num">￥2388</span>
+                    <p>商品货号：<span>2362624</span></p>
+                </div>
+            </div>
+            <div class="lqy-goodsOrder">
+                <div class="comafter retail-confirmBuying-style">
+                    <p class="retail-confirmBuying-style-title">
+                        款式
+                    </p>
+                    <div id="js_style" class="retail-confirmBuying-style-type">
+                        <span onclick="javascript:style_select(this,1000,7.61)">龙系列凤系列</span>
+                        <span onclick="style_select(this,1000,7.61)">凤系列凤系列</span>
+                        <span onclick="style_select(this,1000,7.61)">凤系列凤系列</span>
+                    </div>
+                </div>
+                <div class="comafter retail-confirmBuying-num-buying">
+                    <div class="comafter">
+                        <div id="js_num_buying" class="col-xs-6 padding-0px text-left retail-confirmBuying-num-buying-left">
+                            购买数量
+                        </div>
+                        <div class="col-xs-6 padding-0px text-right">
+                <span id="js_num" class="retail-confirmBuying-num">
+                    <span class="sub">-</span>
+                    <input type="number" id="lqyinput" onkeyup="eventCheck(this)" class="num" value="1" onfocus="focusAlert()" onblur="blurAlert()">
+                    <span class="add">+</span>
+                </span>
+                        </div>
+                    </div>
+                    <div class="text-right retail-confirmBuying-num-warn">库存不足，这次就少买点吧!</div>
+                </div>
+            </div>
+        </div>
+        <img class="js_com_black buying_close" src="images/buying_close.png">
+    </div>
+    <div class="js_comfirm_buy navbar-fixed-bottom retail-confirmBuying-buying text-center">
+        确认购买
+    </div>
+</div>
+<!--购买选择款式和数量弹窗end-->
+<!--购买收藏弹窗-->
+<div class="js_collect_alert collect_alert" style="display:none;">
+    <!--<div class="text-center collect_alert_img">-->
+        <!--<img src="images/redStar.png" alt="">-->
+    <!--</div>-->
+    <p class="js_collect_text text-center">收藏成功</p>
+</div>
+<!--购买收藏弹窗end-->
+</body>
+</html>
+

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>2017珠宝考试</title>
+    <!-[if IE9]>
+    <script src="../retail/js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers{display:none!important;}</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a></div>
+    </noscript>
+    <![endif]->
+    <link href="../retail/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../retail/css/base.css" rel="stylesheet" type="text/css">
+    <link href="../retail/css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="../retail/css/answer.css" rel="stylesheet" type="text/css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../retail/js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../retail/js/bootstrap.min.js"></script>
+    <script src="../retail/js/hammer.min.js"></script>
+    <script src="../retail/js/jquery.hammer.js"></script>
+    <script type="text/javascript" src="../retail/js/pinchzoom.js"></script>
+    <script src="../retail/js/app_product.js"></script>
+    <script src="../retail/js/answer.js"></script>
+    <style type="text/css">
+        /*放大图片样式*/
+        div.js_carousel,
+        div.js_carousel img{
+            width: 100%;
+            -webkit-user-drag: none;
+        }
+        /*放大图片样式end*/
+    </style>
+    <script>
+        $(function () {
+            //            手势放大图片
+            $('div.js_carousel').each(function () {
+                new RTP.PinchZoom($(this), {});
+            });
+            //            手势放大图片end
+            //调客户端弹窗
+//            contiTopic('您还剩60题未做，确定提交');
+            // 改变滑动的区域
+            var bannerH = $(".js_myAnswer").height();
+            var height = window.innerHeight-50;
+            if(bannerH<height){
+                $(".js_myAnswer .item").css({
+                    "height":height+"px"
+                });
+            }else {
+                $(".js_myAnswer .item").css({
+                    "height":bannerH+"px"
+                });
+            }
+            //选中答题卡题号后跳到对应的题
+            $(".js_myAnswer_item").click(function(){
+                $("#J_myAnswer_alert").hide();
+                $("#J_myAnswer").show();
+                var index = $(this).index();
+                var pageL = $(".js_answer_page").length;
+                if(index==0){
+                    $(".js_lastPage").hide();
+                    $(".js_nextPage").show();
+                    $(".js_submitPage").hide();
+                }else if(index==pageL-1){
+                    $(".js_lastPage").hide();
+                    $(".js_nextPage").show();
+                    $(".js_submitPage").show();
+                }else {
+                    $(".js_lastPage").show();
+                    $(".js_nextPage").show();
+                    $(".js_submitPage").hide();
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div id="J_myAnswer" style="display: none">
+            <div class="navbar-fixed-top text-center myAnswer-title">员工培训试卷</div>
+            <div class="text-center myAnswer-title"></div>
+            <div class="banner js_myAnswer myAnswer" id="banner">
+                <div id="carousel-answer" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators comafter">
+                        <li data-target="#carousel-answer" data-slide-to="0" class="js_answer_page active"><span class="js_num">1</span>/<span class="num">4</span></li>
+                        <li data-target="#carousel-answer" data-slide-to="1" class="js_answer_page"><span class="js_num">2</span>/<span class="num">4</span></li>
+                        <li data-target="#carousel-answer" data-slide-to="2" class="js_answer_page"><span class="js_num">3</span>/<span class="num">4</span></li>
+                        <li data-target="#carousel-answer" data-slide-to="3" class="js_answer_page"><span class="js_num">4</span>/<span class="num">4</span></li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner carousel-banner" role="listbox">
+                        <div class="js_item item active">
+                            <div class="answer-wrap" >
+                                <div class="answer-title"><span class="answer-type-icon">单选题</span>以下哪一点不是K金的特点?(5分）</div>
+                                <div class="answer-option-wrap comafter">
+                                    <div class="answer-option">
+                                        <div class="flex-row">
+                                            <div class="answer-option-icon icon-answer-false"></div>
+                                            <div class="flex-data">含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高含金量高 </div>
+                                        </div>
+                                    </div>
+                                    <div class="answer-option">
+                                        <div class="flex-row">
+                                            <div class="answer-option-icon icon-answer-true"></div>
+                                            <div class="flex-data">颜色丰富 </div>
+                                        </div>
+                                    </div>
+                                    <div class="answer-option">
+                                        <div class="flex-row">
+                                            <div class="answer-option-icon selected">C</div>
+                                            <div class="flex-data">熔点低</div>
+                                        </div>
+                                    </div>
+                                    <div class="answer-option">
+                                        <div class="flex-row">
+                                            <div class="answer-option-icon icon-answer-false"></div>
+                                            <div class="answer-option-icon icon-answer-true"></div>
+                                            <div class="answer-option-icon">D</div>
+                                            <div class="flex-data">硬度高</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="answer-analysis comafter">
+                                    <div class="answer-analysis-title">
+                                        <img src="../retail/images/analysis_title.jpg" alt="">
+                                    </div>
+                                    <div class="answer-analysis-result col-xs-12 flex-row">
+                                        <div class="flex-data">正确答案<span class="answer-analysis-option">C</span></div>
+                                        <div>你的答案<span class="answer-analysis-option">B</span></div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        在这17种K金材料中，18K和14K是使用最多的它在各
+                                        国首饰业中都是主要首饰原料。为了丰富各种K金的
+                                        表现力国外在含量标准不变的情况下调节其它合金配
+                                        比系数，合成色彩各异的K金。据日本著名的首饰杂
+                                        志《宝石四季》报道，2013年黄金的配比有450种，
+                                        最常用的有20种，4K中有6种：红色、红黄色、深
+                                        黄色、淡黄色、暗黄色、绿黄色；18K中有5种：红
+                                        色、偏红色、黄色、淡黄色、暗黄色。
+                                        在这17种K金材料中，18K和14K是使用最多的它在各
+                                        国首饰业中都是主要首饰原料。为了丰富各种K金的
+                                        表现力国外在含量标准不变的情况下调节其它合金配
+                                        比系数，合成色彩各异的K金。据日本著名的首饰杂
+                                        志《宝石四季》报道，2013年黄金的配比有450种，
+                                        最常用的有20种，4K中有6种：红色、红黄色、深
+                                        黄色、淡黄色、暗黄色、绿黄色；18K中有5种：红
+                                        色、偏红色、黄色、淡黄色、暗黄色。
+                                    </div>
+                                    <div class="answer-look-people col-xs-12">
+                                        <p>答对人数：<span class="retail-color">10人</span></p>
+                                        <p>正确率：60%</p>
+                                        <p>答错人数：<span class="retail-color">10人</span></p>
+                                        <p>错误率：60%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="js_item item">
+                            <div class="answer-wrap" >
+                                <div class="answer-title"><span class="answer-type-icon">单选题</span>以下哪一点不是K金的特点?(5分）</div>
+                                <div class="answer-option">
+                                    <div class="flex-row">
+                                        <div class="answer-option-icon icon-answer-false"></div>
+                                        <div class="flex-data">含金量高 </div>
+                                    </div>
+                                </div>
+                                <div class="answer-option">
+                                    <div class="flex-row">
+                                        <div class="answer-option-icon icon-answer-true"></div>
+                                        <div class="flex-data">颜色丰富 </div>
+                                    </div>
+                                </div>
+                                <div class="answer-option">
+                                    <div class="flex-row">
+                                        <div class="answer-option-icon selected">C</div>
+                                        <div class="flex-data">熔点低</div>
+                                    </div>
+                                </div>
+                                <div class="answer-option">
+                                    <div class="flex-row">
+                                        <div class="answer-option-icon icon-answer-false"></div>
+                                        <div class="answer-option-icon icon-answer-true"></div>
+                                        <div class="answer-option-icon">D</div>
+                                        <div class="flex-data">硬度高</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="js_item item">
+                            <div class="answer-wrap" >
+                                <div class="answer-title"><span class="answer-type-icon">单选题</span>以下哪一点不是K金的特点?(5分）</div>
+                                <div class="answer-option">
+                                    <div class="flex-row">
+                                        <div class="answer-option-icon icon-answer-false"></div>
+                                        <div class="flex-data">含金量高 </div>
+                                    </div>
+                                </div>
+                                <div class="answer-option">
+                                    <div class="flex-row">
+                                        <div class="answer-option-icon icon-answer-true"></div>
+                                        <div class="flex-data">颜色丰富 </div>
+                                    </div>
+                                </div>
+                                <div class="answer-option">
+                                    <div class="flex-row">
+                                        <div class="answer-option-icon selected">C</div>
+                                        <div class="flex-data">熔点低</div>
+                                    </div>
+                                </div>
+                                <div class="answer-option">
+                                    <div class="flex-row">
+                                        <div class="answer-option-icon icon-answer-false"></div>
+                                        <div class="answer-option-icon icon-answer-true"></div>
+                                        <div class="answer-option-icon">D</div>
+                                        <div class="flex-data">硬度高</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="js_item item">
+                            <div class="answer-wrap" >
+                                <div class="answer-title"><span class="answer-type-icon">单选题</span>以下哪一点不是K金的特点?(5分）</div>
+                                <div class="answer-option">
+                                    <div class="flex-row">
+                                        <div class="answer-option-icon icon-answer-false"></div>
+                                        <div class="flex-data">含金量高 </div>
+                                    </div>
+                                </div>
+                                <div class="answer-option">
+                                    <div class="flex-row">
+                                        <div class="answer-option-icon icon-answer-true"></div>
+                                        <div class="flex-data">颜色丰富 </div>
+                                    </div>
+                                </div>
+                                <div class="answer-option">
+                                    <div class="flex-row">
+                                        <div class="answer-option-icon selected">C</div>
+                                        <div class="flex-data">熔点低</div>
+                                    </div>
+                                </div>
+                                <div class="answer-option">
+                                    <div class="flex-row">
+                                        <div class="answer-option-icon icon-answer-false"></div>
+                                        <div class="answer-option-icon icon-answer-true"></div>
+                                        <div class="answer-option-icon">D</div>
+                                        <div class="flex-data">硬度高</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="answer-sheet-bg"></div>
+            <div class="navbar-fixed-bottom answer-sheet-wrap flex-row">
+                <div class="answer-sheet flex-data">
+                    <div class="answer-sheet-icon" onclick="answerSheet()"></div>
+                </div>
+                <div class="answer-sheet-btn flex-row">
+                    <div class="answer-btn"  style="display: none">
+                        <a href="#carousel-answer" onclick="pageL_Btn()" class="js_lastPage answer-btn-href" data-slide="prev">
+                            上一题
+                        </a>
+                    </div>
+                    <div class="answer-btn">
+                        <a href="#carousel-answer" onclick="page_Btn()" class="js_nextPage answer-btn-href" data-slide="next">
+                            下一题
+                        </a>
+                    </div>
+                    <div class="answer-btn" style="display: none">
+                        <a href="javascript:;" class="answer-submit js_submitPage">
+                            提交
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="J_myAnswer_alert" style="display: block">
+            <div class="myAnswer-alert">
+                <span class="navbar-fixed-top myAnswer-alert-btn myAnswer-grade-btn">重新考试</span>
+                <div class="text-center answer-mygrade-wrap">
+                    <img src="../retail/images/answer_grade_bg.png" class="img-responsive" alt="">
+                    <div class="answer-mygrade-rate-grade flex-row">
+                        <div class="flex-data answer-mygrade-rate">
+                            <div>200</div>
+                            <div>总分</div>
+                        </div>
+                        <div class="answer-mygrade">
+                            88
+                        </div>
+                        <div class="flex-data answer-mygrade-rate">
+                            <div>88%</div>
+                            <div>正确率</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="myAnswer-alert-topic">
+                    <ul class="figure-list">
+                        <li class="comafter">
+                            <figure class="col-xs-2 padding-0px text-center">
+                                <span data-target="#carousel-answer" data-slide-to="0" class="js_myAnswer_item myAnswer-alert-topic-item done">1</span>
+                            </figure>
+                            <figure class="col-xs-2 padding-0px text-center">
+                                <span data-target="#carousel-answer" data-slide-to="1" class="js_myAnswer_item myAnswer-alert-topic-item false">2</span>
+                            </figure>
+                            <figure class="col-xs-2 padding-0px text-center">
+                                <span data-target="#carousel-answer" data-slide-to="2" class="js_myAnswer_item myAnswer-alert-topic-item false">3</span>
+                            </figure>
+                            <figure class="col-xs-2 padding-0px text-center">
+                                <span data-target="#carousel-answer" data-slide-to="3" class="js_myAnswer_item myAnswer-alert-topic-item false">4</span>
+                            </figure>
+                            <figure class="col-xs-2 padding-0px text-center">
+                                <span data-target="#carousel-answer" data-slide-to="4" class="js_myAnswer_item myAnswer-alert-topic-item done">5</span>
+                            </figure>
+                            <figure class="col-xs-2 padding-0px text-center">
+                                <span data-target="#carousel-answer" data-slide-to="0" class="js_myAnswer_item myAnswer-alert-topic-item done">6</span>
+                            </figure>
+                            <figure class="col-xs-2 padding-0px text-center">
+                                <span data-target="#carousel-answer" data-slide-to="0" class="js_myAnswer_item myAnswer-alert-topic-item done">7</span>
+                            </figure>
+                            <figure class="col-xs-2 padding-0px text-center">
+                                <span data-target="#carousel-answer" data-slide-to="0" class="js_myAnswer_item myAnswer-alert-topic-item done">1</span>
+                            </figure>
+                            <figure class="col-xs-2 padding-0px text-center">
+                                <span data-target="#carousel-answer" data-slide-to="0" class="js_myAnswer_item myAnswer-alert-topic-item done">1</span>
+                            </figure>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="com_black" class="js_com_black js_hide_com com_black" style="display:none;"></div>
+<div class="js_hide_com js_answer_comfirm comafter delete-address-alert flex-row" style="display: none">
+    <div class="delete-address-alert-info">
+        <div class="delay-goods-text">
+            <div class="size15"><b>您还剩60题未做，确认提交？</b></div>
+        </div>
+        <div class="flex-row">
+            <div class="flex-data delete-address-alert-btn delete-address-alert-cancel">提交</div>
+            <div class="flex-data delete-address-alert-btn delete-address-alert-sure"
+                 onclick="javascript:cancelAlert()">取消
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

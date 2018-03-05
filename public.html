@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>公共样式</title>
+    <style>
+        .assass-public-out,.assass-public-in{
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            border:1px solid #000;
+            position: absolute;
+            border-left:1px solid transparent;
+            border-right:1px solid #000;
+            border-bottom:1px solid #000;
+            border-top:1px solid transparent;
+            transform: rotate(-45deg);
+        }
+        .assass-public-out{
+            left: 10px;
+            top:0;
+        }
+        .assass-public-in{
+            left: 15px;
+            top:0;
+        }
+        .assass-public{
+            display: inline-block;
+            position: relative;
+
+        }
+    </style>
+</head>
+<body>
+<span class="assass-public">
+    <span class='assass-public-out'></span>
+    <span class='assass-public-in'></span>
+</span>
+
+</body>
+</html>

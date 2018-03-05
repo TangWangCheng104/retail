@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="exif.js" type="application/javascript"></script>
+    <script src="test.js" type="application/javascript"></script>
+</head>
+<style>
+    #photo {
+        width: 350px;
+        height: 250px;
+    }
+</style>
+<body>
+<input accept="image/*" id="file" type="file"/>
+<br/>
+<br/> 预览：
+<br/>
+<img id="photo" src=""/>
+<br/>
+<br/>
+<button id="drawBtn">draw on Canvas</button>
+<br/>
+<canvas id="canvas" width="350" height="250"></canvas>
+</body>
+</html>

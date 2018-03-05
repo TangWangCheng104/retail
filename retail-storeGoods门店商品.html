@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>门店商品</title>
+    <!-[if IE9]>
+    <script src="js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers{display:none!important;}</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <![endif]->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-waitingPay.css" rel="stylesheet" type="text/css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="js/messages.js"></script>
+    <script src="js/retail_cofirmBuying.js"></script>
+    <script>
+        $(function() {
+            $("#regist-form").validate();
+        });
+        var jsFunc = {
+            btnChange: function () {
+                $.ajax({
+                    type: "GET",
+                    url:   "",
+                    data: "",
+                    dataType: 'html',
+                    success: function (data) {
+                        $('#js_data').html("");
+                        $('#js_data').html('数据重新获取中...');
+                    }
+                });
+            }
+        };
+
+    </script>
+</head>
+<body>
+<div class="js_black_sort com_black" style="top:50px;display: none"></div>
+<div class="js_sort_alert retail-sort-alert" style="display: none">
+    <div class="retail-sort-alert-wrap">
+        <img class="sort_bg02" src="images/sort_bg02.png" alt="">
+        <div class="comafter retail-sort-alert-content">
+            <div class="col-xs-3 padding-0px retail-sort-alert-menu-left">
+                <div onclick="jsFunc.btnChange();" class="js_sort_item text-center retail-sort-alert-menu-left-item top">翡翠</div>
+                <div onclick="jsFunc.btnChange();" class="js_sort_item text-center retail-sort-alert-menu-left-item selected">翡翠</div>
+                <div onclick="jsFunc.btnChange();" class="js_sort_item text-center retail-sort-alert-menu-left-item bottom">翡翠</div>
+                <div onclick="jsFunc.btnChange();" class="js_sort_item text-center retail-sort-alert-menu-left-item">翡翠</div>
+            </div>
+            <div id="js_data" class="col-xs-9 retail-sort-alert-menu-right">
+                <div class="retail-sort-alert-menu-right-item">
+                    <div>
+                        <span class="retail-sort-alert-menu-right-item-title">原材料</span>
+                    </div>
+                    <div class="retail-sort-alert-menu-right-item-content">毛料<span>(63)</span></div>
+                    <div class="retail-sort-alert-menu-right-item-content">毛料</div>
+                    <div class="retail-sort-alert-menu-right-item-content">毛料</div>
+                </div>
+                <div class="retail-sort-alert-menu-right-item">
+                    <div>
+                        <span class="retail-sort-alert-menu-right-item-title">原材料</span>
+                    </div>
+                    <div class="retail-sort-alert-menu-right-item-content">毛料</div>
+                    <div class="retail-sort-alert-menu-right-item-content">毛料</div>
+                    <div class="retail-sort-alert-menu-right-item-content">毛料</div>
+                </div>
+                <div class="retail-sort-alert-menu-right-item">
+                    <div>
+                        <span class="retail-sort-alert-menu-right-item-title">原材料</span>
+                    </div>
+                    <div class="retail-sort-alert-menu-right-item-content">毛料</div>
+                    <div class="retail-sort-alert-menu-right-item-content">毛料</div>
+                    <div class="retail-sort-alert-menu-right-item-content">毛料</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="js_search_record retail-sort-alert retail-search-record" style="display: none">
+    <div class="retail-search-record-wrap">
+        <div class="retail-search-record-item">
+            <div>祖母绿宝石</div>
+            <i class="retail-search-record-item-icon"><img src="images/icon_close02.png" alt=""></i>
+        </div>
+        <div class="retail-search-record-item">
+            <div>祖母绿松石</div>
+            <i class="retail-search-record-item-icon"><img src="images/icon_close02.png" alt=""></i>
+        </div>
+        <div class="retail-search-record-item" style="border: 0">
+            <div>稀有宝石</div>
+            <i class="retail-search-record-item-icon"><img src="images/icon_close02.png" alt=""></i>
+        </div>
+    </div>
+</div>
+<div class="container-fluid small_screen">
+    <div class="row">
+        <div class="comafter retail-borwsingHistory">
+            <form class="comafter" action="javascript:return true;">
+                <div class="retail-borwsingHistory-search-wrap">
+                    <div class="js_search_wrap fl retail-borwsingHistory-search">
+                        <input class="js_search" type="search" placeholder="搜索商品名称或货号" autocomplete="off" value="">
+                        <i class="retail-borwsingHistory-search-icon">
+                            <img src="images/icon_search.png" alt="">
+                        </i>
+                        <i class="js_close_txt retail-borwsingHistory-search-close"><img src="images/icon_close.png" alt=""></i>
+                    </div>
+                    <i class="js_search_icon retail-borwsingHistory-search-sort"></i>
+                    <span class="js_sort-cancel retail-search-sort-cancel" style="display: none">取消</span>
+                </div>
+            </form>
+            <div class="col-xs-12 padding-0px retail-borwsingHistory-menu comafter">
+                <div class="js_menu text-center col-xs-3 retail-borwsingHistory-submenu first current">综合</div>
+                <div class="js_menu text-center col-xs-3 retail-borwsingHistory-submenu">库存</div>
+                <div class="js_menu text-center col-xs-3 retail-borwsingHistory-submenu">单价</div>
+                <div class="js_menu text-center col-xs-3 retail-borwsingHistory-submenu">筛选</div>
+            </div>
+            <div class="col-xs-12 padding-0px retail-com-model-goods-wrap">
+                <div class="col-xs-6 padding-0px retail-com-model-goods">
+                    <div class="retail-com-model">
+                        <div class="retail-com-model-img">
+                            <img src="images/test_img01.png" alt="">
+                            <span class="retail-off-price-icon">团购</span>
+                        </div>
+                        <div class="size12 retail-com-model-title">28K镀金几何珍珠开口戒Michi Liang</div>
+                        <div class="comafter retail-com-model-price">
+                            <div class="col-xs-6 padding-0px retail-goods-price-now">￥336.00</div>
+                            <div class="col-xs-6 padding-0px text-right retail-goods-price-past">￥386.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 padding-0px retail-com-model-goods">
+                    <div class="retail-com-model">
+                        <div class="retail-com-model-img">
+                            <img src="images/retail-goodsDetails-img004.png" alt="">
+                            <span class="retail-off-price-icon">秒杀</span>
+                        </div>
+                        <div class="size12 retail-com-model-title">28K镀金几何珍珠开口戒Michi Liang</div>
+                        <div class="comafter retail-com-model-price">
+                            <div class="col-xs-6 padding-0px retail-goods-price-now">￥336.00</div>
+                            <div class="col-xs-6 padding-0px text-right retail-goods-price-past">￥386.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 padding-0px retail-com-model-goods">
+                    <div class="retail-com-model">
+                        <div class="retail-com-model-img">
+                            <img src="images/retail-goodsDetails-img004.png" alt="">
+                        </div>
+                        <div class="size12 retail-com-model-title">28K镀金几何珍珠开口戒Michi Liang</div>
+                        <div class="comafter retail-com-model-price">
+                            <div class="col-xs-6 padding-0px retail-goods-price-now">￥336.00</div>
+                            <div class="col-xs-6 padding-0px text-right retail-goods-price-past">￥386.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 padding-0px retail-com-model-goods">
+                    <div class="retail-com-model">
+                        <div class="retail-com-model-img">
+                            <img src="images/test_img01.png" alt="">
+                        </div>
+                        <div class="size12 retail-com-model-title">28K镀金几</div>
+                        <div class="comafter retail-com-model-price">
+                            <div class="col-xs-6 padding-0px retail-goods-price-now">￥336.00</div>
+                            <div class="col-xs-6 padding-0px text-right retail-goods-price-past">￥386.00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--购买收藏弹窗-->
+<div class="js_collect_alert collect_alert">
+    <div class="text-center collect_alert_img">
+        <img src="images/redStar.png" alt="">
+    </div>
+    <p class="js_collect_text text-center">已取消收藏</p>
+</div>
+<!--购买收藏弹窗end-->
+<div id="com_black" class="js_com_black com_black" style="display: none"></div>
+<!--缺货，有货提醒我-->
+<div class="js_stockoutInform js_hide_com cancel-collect-warning" style="display: none">
+    <div class="text-center cancel-collect-warning-txt01"><b>请输入通知的手机号</b></div>
+    <div class="text-center col-xs-12 stockout-inform-input">
+        <form  id="regist-form" action="" method="post">
+            <div class="js_phone retail-comverify retail-register-phone">
+                <input type="text" name="phone" id="phone" class="retail-register-phone-input" placeholder="请输入手机号码" value="">
+            </div>
+        </form>
+    </div>
+    <div class="col-xs-12 padding-0px cancel-collect-warning-btn color-zby">
+        <div class="js_close col-xs-6 padding-0px text-center retail-btn first">取消</div>
+        <input type="submit" value="确定" class="js_sure col-xs-6 padding-0px text-center retail-btn">
+    </div>
+</div>
+<!--缺货，有货提醒我end-->
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>优惠券-达到今日限额</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/discount.css">
+    <script src="../js/zepto.js"></script>
+    <script src="../js/discount.js"></script>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .discount-wrap{
+            background: url('../images/discount_bg.png') no-repeat center center/cover;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="discount-wrap">
+        <div class="discount-top-wrap">
+            <div class="discount-shop-name">
+                <span class="discount-top-img" style="background: url('../images/retail-goodsDetails-img004.png') center center/cover"></span>
+                <span class="discount-top-name">传世金鱼珠宝店-田贝店</span>
+                <span class="discount-goto-store">前往商城</span>
+            </div>
+        </div>
+        <div>
+            <!--今天的券都领完了-->
+            <img class="discount-use-end" src="../images/discount_use_end.png" alt="" style="display:none;">
+            <!--所有的券都领完了-->
+            <img class="discount-use-end" src="../images/all_discount_use_end.png" alt="" style="display:none;">
+        </div>
+        <div class="discount-can-get">
+            <!--今天还有2张券可以领取-->
+            <span class=""><span class="kong-line"></span>您今天还可领<span class="discount-number">2</span>张<span class="kong-line"></span></span>
+        </div>
+
+        <div class="full-cut-coupons-wrap" style="display: none">
+            <div class="full-cut-coupons" >
+                <img class="full-cut-coupons-img" src="../images/full_cut_coupons.png" alt="">
+                <div class="full-cut-coupons-price">
+                    300000.000
+                </div>
+                <div class="full-cut-coupons-condition">
+                    满¥<span>300</span>可减
+                </div>
+                <!--立即使用-->
+                <a href="javascript:;" class="use-now">立即使用<img class="double-right-use-now" src="../images/right_assass.png" alt=""></a>
+            </div>
+        </div>
+        <!--优惠券抢光了，没有领到-->
+        <div class="full-cut-coupons-wrap" style="display: block">
+            <div class="full-cut-coupons" >
+                <img class="full-cut-coupons-img" src="../images/full_cut_coupons.png" alt="">
+                <div class="full-cut-coupons-price">
+                     3000000.99
+                </div>
+                <div class="full-cut-coupons-condition">
+                    满¥<span>300</span>可减
+                </div>
+                <!--领取更多优惠-->
+                <a href="javascript:;" class="use-now more-discount-text" style="display:none;">领取更多优惠<img class="double-right-use-now" src="../images/right_assass.png" alt=""></a>
+                <!--点击领取，买买买-->
+                <a href="javascript:;" class="use-now" style="display:block;">点击领取，买买买<img class="double-right-use-now" src="../images/right_assass.png" alt=""></a>
+            </div>
+        </div>
+        <!--优惠券过期-->
+        <div class="full-cut-coupons-wrap" style="display: block">
+            <div class="full-cut-coupons" >
+                <span class="discount-pass-text">您来晚了，该券已过期了哦～</span>
+                <img class="full-cut-coupons-img" src="../images/pass_data.png" alt="">
+            </div>
+        </div>
+        <!--优惠券下面部分-->
+        <div class="check-my-discount-wrap">
+            <div class="check-my-discount">查看我的优惠券 <img class="double-right-assass" src="../images/double_right_assass.png" alt=""></div>
+            <div class="discount-rules-wrap">
+                <span class="discount-rules">优惠细则</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+<script src="../js/jquery-1.10.2.min.js"></script>

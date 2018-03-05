@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var wait = 60;
+        function time(t) {
+            if (wait == 0) {
+                wait = 60;
+            } else {
+                wait--;
+                t.value = wait;
+                setTimeout(function () {
+                    time(t)
+                }, 1000)
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" onclick="time()" style="font-size: 50px" value="60">
+</body>
+</html>

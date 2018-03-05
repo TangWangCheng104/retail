@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name='apple-itunes-app' content='app-id=1035128844'>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>邀请供应商</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/app_product.css" rel="stylesheet" type="text/css">
+    <link href="css/app_downAlert.css" rel="stylesheet">
+    <link href="css/partner.css" rel="stylesheet">
+    <link href="css/store.css" rel="stylesheet">
+    <link href="css/procurer.css" rel="stylesheet">
+    <link href="css/suppliers.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-[if It IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/app_product.js"></script>-->
+    <script src="js/hammer.min.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script src="js/partner_alert.js"></script>
+    <script type="text/javascript" src="js/pinchzoom.js"></script>
+    <script src="js/loginVerify.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/suppliers.js"></script>
+    <style type="text/css">
+        /*放大图片样式*/
+        div.js_carousel,
+        div.js_carousel img{
+            width: 100%;
+            -webkit-user-drag: none;
+        }
+        /*放大图片样式end*/
+    </style>
+    <script>
+        $(function(){
+            //            手势放大图片
+            $('div.js_carousel').each(function () {
+                new RTP.PinchZoom($(this), {});
+            });
+            //            手势放大图片end
+            $(".js_SmallImg").click(function(){
+                $(".js_banerBigImg").show();
+                var n = $(this).attr("num");
+            });
+            // 经营品类选择
+            $(".js_type").on("click",function(){
+                $('html,body').addClass('ovfHiden');//使弹窗后网页恢复不可滚
+                $(".js_black_type").fadeIn();
+                $(".js_typeSelect_alert").animate({bottom: "0"});
+            });
+            $("img").on("load",function(){
+                for(var i = 0; i<3;i++){
+//                    setImgSize(i);
+                    var storeImgW = $(".js_storeImg").eq(i).find("img").width();
+                    var storeImgH = $(".js_storeImg").eq(i).find("img").height();
+                    if(storeImgW<storeImgH){
+                        $(".js_storeImg").eq(i).find("img").css({
+                            width:"100%",
+                            height:"auto"
+                        });
+                    }else {
+                        $(".js_storeImg").eq(i).find("img").css({
+                            width:"auto",
+                            height:"100%"
+                        });
+                    }
+                }
+                var storeW = $(".js_storeImg").width();
+                $(".js_storeImg").css({"width":storeW+"px"});
+                $(".js_storeImg").css({"height":storeW+"px"});
+                $(".js_storeImg img").css({
+                    "min-width":storeW+"px",
+                    "min-height":storeW+"px"
+                });
+
+            });
+            /*滚动轮滚动后定位*/
+//            var screenW = window.innerWidth;
+            var screenH = window.innerHeight;
+            var len = $(".js_banerBigImg img").length;
+            for(var j=0;j<len;j++){
+//                var imgW = $(".js_banerBigImg img").eq(j).width();
+                var imgH = $(".js_banerBigImg img").eq(j).height();
+                if(imgH>screenH){
+                    $(".js_banerBigImg img").eq(j).css({width:"auto",height:"100%"})
+                }else {
+                    $(".js_banerBigImg img").eq(j).css({width:"100%",height:"auto"})
+                }
+            }
+            //点击获取语音验证码
+            var voice_i = 60;
+            var timer ;
+            $('#procuer-get-voice').click(function(){
+
+                $('.procuer-get-code1').show();
+                clearInterval(timer);
+                timer = setInterval(function(){
+                    voice_i--;
+
+                    if(voice_i<=0){
+                        voice_i=60;
+                        clearInterval(timer)
+                    }
+                },1000);
+                if(voice_i>0&&voice_i<60){
+
+                    $(".js_collect_text").text("每60秒一次，请稍后再试");
+                    input_alert();
+                }
+
+            });
+            //点击获取验证码判断：手机号码格式是否正确/是否已申请过/是否是合伙人
+            $(".js_getVerify").click(function(){
+                if(!$(this).hasClass("disabled")){
+                    var v = $(".js_phone").val();
+                    if(!isphone3(v)){
+                        $(".js_collect_text").text("请输入正确的手机号码");
+                        input_alert();
+                    }else if(v == "15811714177"){   //已经申请过且申请未被同意
+                        input_alert();
+                        $(".js_collect_text").text("你已经申请过了，请等待审核");
+                    }else if(v == "15811714178"){   //手机号对应的最高身份是推广人或员工
+                        $(".js_com_black").show();
+                        $(".js_storeP_alert").show();
+                    }else {
+                        time(this);
+                        //点击获取验证码时语音显示出来
+                        $('.js_procuer_getCode').show()
+                        if(v == "15811714171"){    //该用户已经是该店的推广人或者普通用户
+                            $("#js_newUser").hide();
+                            $("#js_newUser").find(".js_input").attr("aria-invalid","false");
+                        }else if(v == "15811714172"){ //该账户未存在，没有注册过
+                            $("#js_newUser").show();
+                            $("#js_newUser").find(".js_input").attr("aria-invalid","true");
+                        }
+                    }
+                }
+            });
+            $(".js_submit").click(function(){//!reg.test($("#password").val())
+                if(!$(this).hasClass("disabled")){
+                    var reg = /^(?!^(\d+|[a-zA-Z]+)$)(?!.*[~@#]+.*).+$/;
+                    if($("#verify").val()!="920603") {  //判断验证码不正确时
+                        $(".js_collect_text").text("验证码过期或错误，请重新获取");
+                        input_alert();
+                    }else if(!reg.test($("#password").val()) && $(".js_newUser").css("display")!="none"){  //判断密码是否由英文，数字或 _ 至少两种组成
+                            $(".js_collect_text").text("密码必须由英文，数字或 _ 至少两种组成");
+                            input_alert(); //!reg.test($("#password").val())
+                    }else if($(".js_phone").val()=="15811714179"){      //该用户已经是该店的老板
+                        $(".js_comBlack").show();
+                        $(".js_storeSelect_alert").show();
+                    }
+                }
+            });
+            $(".js_storeSelect_sure").click(function(){   //选择店铺后点击确定
+                cancelAlert();
+                $(".js_com_black").show();
+                $(".js_storeW_alert").show();
+            });
+//            touch事件,消除一些浏览器的touch事件
+            /*var touch = true;
+            $(".js_type_data").on("touchstart",function(e){
+                touch = false;
+            })
+            $(".js_type_data").on("touchmove",function(e){
+                touch = false;
+            })
+            $(".js_type_data").on("touchend",function(){
+                touch = true;
+            })
+            $('.js_selectType_item').slideDown(function(){
+                alert(111)
+            })*/
+            //选择行业
+            /*if(touch){*/
+
+                $(".js_type_data").click(function(e){
+                    var myData = $(this).text().trim();
+                    cancelAlert_slide();
+                    $(".js_myType").text(myData);
+                    window.location.href="#J_type";
+                    $('html,body').removeClass('ovfHiden'); //使弹窗后网页恢复可滚
+                    e.stopPropagation();
+                    e.cancelBubble=true;
+                    e.preventDefault();
+                    e.returnValue=false;
+                });
+
+        });
+    </script>
+</head>
+<body>
+<div id="red" class="a"></div>
+<div class="container-fluid" style="padding-right: 23px">
+    <div class="procuer-icon01" style="background: url('images/test.png') center center/cover;"></div>
+    <div class="partner-title">可可香奈儿的奢侈品珠宝批发</div>
+    <!--店面信息已填写状态-->
+    <div style="display: block" class="partner-intro-three">
+        <div class="partner-intro suppliers-partner-intro">
+            <div class="partner-intro-img"><img src="images/partner_icon001.png" alt=""></div>
+            <div class="partner-intro-info">本店世界知名时尚珠宝品牌，细腻卓著的雕琢，独具匠心的设计，卓绝巧手打造的经典珍品。宝格丽世界知名时尚珠宝品牌，细腻卓著的雕琢，独具匠心的设计，卓绝巧手打造的经典珍品。宝格丽的卓绝巧手打造的经典珍品问。</div>
+        </div>
+        <div class="partner-intro">
+            <div class="partner-intro-img"><img src="images/partner_icon002.png" alt=""></div>
+            <div class="partner-intro-info">广东省深圳市罗湖区天北三路明阳街道民阳酒店法武班务63室。</div>
+        </div>
+        <div class="partner-intro" style="display:none;" >
+            <div class="partner-intro-img"></div>
+            <div class="partner-intro-info partner-storeImg-wrap " >
+                <div class="js_storeImg partner-storeImg first"><img class="js_SmallImg" num="0" src="images/myaccoutBg.png" alt=""></div>
+                <div class="js_storeImg partner-storeImg"><img class="js_SmallImg"  num="1" src="images/banner02.png" alt=""></div>
+                <div class="js_storeImg partner-storeImg"><img num="2" src="images/partner-imgempty.png" alt=""></div>
+            </div>
+        </div>
+        <div class="partner-intro">
+	    	<div class="partner-intro-img"><img src="images/phone_icon.png" alt=""></div>
+	    	<div class="partner-intro-info">门店号码<a class='partner-tellPhone-number' href='tel:13265565715'>13265565715</a></div>
+	    </div>
+    </div>
+    <!--店面信息已填写状态end-->
+    <!--店面信息未填写状态-->
+    <div style="display: none">
+        <div class="partner-intro suppliers-partner-intro">
+            <div class="partner-intro-img"><img src="images/partner_icon001.png" alt=""></div>
+            <div class="partner-intro-info" style="color: #d7d7d7">未填写</div>
+        </div>
+        <div class="partner-intro partner-intro-second">
+            <div class="partner-intro-img"><img src="images/partner_icon002.png" alt=""></div>
+            <div class="partner-intro-info" style="color: #d7d7d7">未填写</div>
+        </div>
+        <div class="partner-intro" style="display: none;">
+            <div class="partner-intro-img"></div>
+            <div class="partner-intro-info partner-storeImg-wrap">
+                <div><img src="images/partner-imgempty.png" alt=""></div>
+                <div class="partner-storeImg"><img src="images/partner-imgempty.png" alt=""></div>
+                <div class="partner-storeImg"><img src="images/partner-imgempty.png" alt=""></div>
+            </div>
+        </div>
+    </div>
+    <!--店面信息未填写状态end-->
+    <div class="partner-msgImg partner-msgImg1"><img class="img-responsive" src="images/procurer_please.png" alt=""></div>
+    <div class="partner-input-wrap">
+        <div class="flex-row partner-input-group">
+            <div class="partner-input-groupL suppliers-input-groupL">手机</div>
+            <div class="js_comverify flex-row partner-input-groupR partner-input-groupR1">
+                <div class="lqy-input-wrap">
+                    <input placeholder="输入手机号码" value="15811714172" onkeyup="javascript:phone_verify(this)" onblur="javascript:phone_verify(this)" aria-invalid="true" class="js_phone js_input" type="tel">
+                </div>
+                <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: block" src="images/partner_iconClose.png"  alt=""></div>
+            </div>
+        </div>
+        <div class="flex-row partner-input-group">
+            <div class="partner-input-groupL suppliers-input-groupL">验证码</div>
+            <div class="flex-row partner-input-groupR" style="border: none;padding: 0">
+                <div class="js_comverify flex-row" style="border: 1px solid #d7d7d7;border-radius: 5px;flex: 1;">
+                    <div class="lqy-input-wrap">
+                        <input onkeyup="javascript:verify_code01(this)" onpropertychange="javascript:verify_code01(this)" id="verify"  aria-invalid="true" placeholder="输入验证码" onblur="javascript:verify_code01(this)" class="js_input" type="tel">
+                    </div>
+                    <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: block" src="images/partner_iconClose.png"  alt=""></div>
+                </div>
+                <div class="flex-row partner-input-verify-btn"><span>|</span><input type="button" class="js_getVerify disabled suppliers-getcode" value="获取验证码"></div>
+                <!--<div class="flex-row partner-input-verify-btn"><span>|</span><input type="button" class="js_getVerify disabled" value="重新发送(23)"></div>-->
+            </div>
+        </div>
+        <div class="procuer-get-code js_procuer_getCode procuer-get-code2" style="display: none"><span class="procuer-not-have-code">收不到验证码?</span><span class="procuer-click-get-code">点击获取</span><span class="procuer-get-voice" id="procuer-get-voice">语音验证码</span></div>
+        <div class="procuer-get-code1 procuer-get-code3"><span>电话快来了，请留意来自</span><span class="procuer-phone">021-XXXX</span>的电话</div>
+        <div id="js_newUser" style="display: none">
+            <div class="text-center store-apply-title">同时填写以下资料可立即试用《OS渠道》</div>
+            <div class="flex-row partner-input-group">
+                <div class="partner-input-groupL">展厅名称</div>
+                <div class="js_comverify flex-row partner-input-groupR">
+                    <div class="lqy-input-wrap">
+                        <input onchange="javascript:storeName_verify(this)" id="name" aria-invalid="false" placeholder="不超过10个字，建议品牌名+分店名" onkeyup="javascript:storeName_verify(this)" class="js_input suppliers_js_input" type="text">
+                    </div>
+                    <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none" src="images/partner_iconClose.png"  alt=""></div>
+                </div>
+            </div>
+            <div class="flex-row partner-input-group">
+                <div class="partner-input-groupL">所在地区</div>
+                <div class="js_comverify flex-row partner-input-groupR">
+                    <div class="lqy-input-wrap">
+                        <input id="province" aria-invalid="false" placeholder="" class="js_input js_input1" type="text">
+                    </div>
+                    <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none" src="images/partner_iconClose.png"  alt=""></div>
+                   <!-- <select>
+                        <option>广东省</option>
+                        <option>湖南省</option>
+                        <option>广西省</option>
+                    </select>
+                    <select>
+                        <option>深圳市</option>
+                        <option>韶关市</option>
+                        <option>广州市</option>
+                    </select>
+                    <select>
+                        <option>定江县</option>
+                        <option>定江县</option>
+                        <option>定江县</option>
+                    </select>-->
+                </div>
+                <div class="store-input-text">省</div>
+                <div class="js_comverify flex-row partner-input-groupR suppliers-width">
+                    <div class="lqy-input-wrap">
+                        <input id="province1" aria-invalid="false" placeholder="" class="js_input" type="text">
+                    </div>
+                    <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none" src="images/partner_iconClose.png"  alt=""></div>
+                </div>
+                <div class="store-input-text">市</div>
+                <div class="js_comverify flex-row partner-input-groupR suppliers-width">
+                    <div class="lqy-input-wrap">
+                        <input id="city" aria-invalid="false" placeholder="" class="js_input" type="text">
+                    </div>
+                    <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none" src="images/partner_iconClose.png"  alt=""></div>
+                </div>
+                <div class="store-input-text">县区镇</div>
+            </div>
+            <div class="flex-row partner-input-group">
+                <div class="partner-input-groupL"></div>
+                <div class="js_comverify flex-row partner-input-groupR">
+                    <div class="lqy-input-wrap">
+                        <input id="county" aria-invalid="false" placeholder="输入具体到门牌号的地址" class="js_input" type="text">
+                    </div>
+                    <div class="partner-closeBtn"><img class="js_closeBtn img-responsive"  style="display: none" src="images/partner_iconClose.png"  alt=""></div>
+                </div>
+            </div>
+            <div id="J_type" class="js_type flex-row partner-input-group">
+                <div class="partner-input-groupL">经营品类</div>
+                <div class="js_comverify flex-row partner-input-groupR">
+                    <div class="js_myType lqy-input-wrap">
+                    </div>
+                    <div class="partner-closeBtn"><img class="img-responsive" src="images/store_jiantou.png"  alt=""></div>
+                </div>
+            </div>
+            <div class="flex-row partner-input-group">
+                <div class="partner-input-groupL">账户密码</div>
+                <div class="js_comverify flex-row partner-input-groupR">
+                    <div class="lqy-input-wrap">
+                        <input onchange="javascript:password_verify(this)" id="password" aria-invalid="false" placeholder="输入6~20位密码，用于APP登陆" onkeyup="javascript:password_verify(this)" class="js_input" type="text">
+                    </div>
+                    <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none" src="images/partner_iconClose.png"  alt=""></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center"><input class="js_submit partner-submitBtn disabled suppliers-top" type="button" value="确认合作"></div>
+        <!--<div class="text-center"><input class="js_submit partner-submitBtn" type="button" value="立即试用"></div>-->
+    </div>
+</div>
+<!--放大后的图片-->
+<div class="black js_banerBigImg" style="display:none;position: fixed;top: 0;z-index: 1040">
+    <div class="black-banner-wrap">
+        <div id="carousel-bigimg-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-bigimg-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-bigimg-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-bigimg-generic" data-slide-to="2"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner carousel-black" role="listbox">
+                <div class="item active">
+                    <img class="img-responsive" id="banner001" src="images/banner01.png" alt="">
+                </div>
+                <div class="item">
+                    <img id="banner002" src="images/partner-img001.png" alt="">
+                </div>
+                <div class="item">
+                    <img id="banner003"  src="images/test.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--放大后的图片end-->
+<div class="js_black_type hide_com_buy com_black" style="display: none" onclick="cancelAlert_slide()"></div>
+<!--这是遮罩层-->
+<div class="js_comBlack hide_com_buy com_black" style="display: none"></div>
+<!--这是采购商无权限弹出框 您不是展厅经理-->
+    <ul class="js_hide_com alert-centent" style="display:none;">
+        <li>您不是展厅经理，暂无权操作权限</li>
+        <li><a href="http://m.pg.yibaotong.top/" class="staff-btn" onclick="cancelAlert()">打开或下载APP</a></li>
+    </ul>
+<!--合作成功-->
+<div class="js_hide_com js_storeS_alert comafter delete-address-alert flex-row" style="display:none">
+    <div class="delete-address-alert-info">
+        <div class="staff-text">
+            <div class="store-staff-text">成功提交合作申请</div>
+            <div class="store-staff-text">请等待双方同意</div>
+        </div>
+        <!--该账户是新用户时-->
+        <a href="http://m.pg.yibaotong.top/" class="staff-btn" onclick="cancelAlert()">打开APP看看</a>
+    </div>
+</div>
+<!--这是营业厅选择-->
+
+<div class="js_hide_com js_storeP_alert comafter delete-address-alert flex-row" style="display: none">
+    <div class="delete-address-alert-info">
+        <div class="store-text store-text1">
+            <span class="suppliers-close"><img src="images/suppliers-wrong.png" /></span>
+            <div class="store-staff-text suppliers-choise">请选择您要与之合作的展厅</div>
+            <!--<div class="supplisers-already-one">已选1家</div>-->
+            <div class="supplisers-already-one">已选0家</div>
+            <ul class="suppliers-radio1 suppliers-radio2" id="suppliers-all-choice">
+                <li><span class="suppliers-radio suppliers-radio-bg1"></span><span>传世金鱼珠宝北京北厅</span></li>
+                <li><span class="suppliers-radio suppliers-radio-bg"></span><span>传世金鱼珠宝北京东厅</span></li>
+                <li><span class="suppliers-radio "></span><span>传世金鱼珠宝杭州南厅</span></li>
+                <li><span class="suppliers-radio "></span><span>传世金鱼珠宝杭州南厅</span></li>
+                <li><span class="suppliers-radio suppliers-radio-bg1"></span><span>传世金鱼珠宝杭州南厅</span></li>
+                <span class="suppliers-lessOne">至少选择一家展厅</span>
+            </ul>
+        </div>
+        <span href="javascript:;" class="staff-btn store-btn suppliers-sure" onclick="cancelAlert()">确定</span>
+        <span href="javascript:;" class="staff-btn store-btn suppliers-already" onclick="cancelAlert()" style="none">已全部合作无需操作</span>
+
+    </div>
+</div>
+<!--是推广员或员工时-->
+
+<div class="js_hide_com js_storeP_alert comafter delete-address-alert flex-row" style="display: none">
+    <div class="delete-address-alert-info">
+        <div class="store-text suppliers-store-text">
+            <div class="store-staff-text">您是推广人或员工，如需创建店铺，请先向门店申请解绑</div>
+        </div>
+        <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()">关闭</span>
+    </div>
+</div>
+<!--是推广员或员工时end-->
+<!--成功提交时下载APP提示-->
+<div class="js_hide_com js_storeS_alert comafter delete-address-alert flex-row" style="display:none">
+    <div class="delete-address-alert-info">
+        <div class="staff-text">
+            <div class="store-staff-text">成功提交！</div>
+            <div class="store-staff-text01">请下载APP登陆使用</div>
+            <div class="store-staff-text01">如已下载请直接登陆</div>
+        </div>
+        <!--该账户是新用户时-->
+        <a href="http://m.pg.yibaotong.top/" class="staff-btn" onclick="cancelAlert()">立即下载</a>
+    </div>
+</div>
+<!--成功提交时下载APP提示end-->
+<!--成功提交时下载APP提示-->
+<div class="js_hide_com js_storeW_alert comafter delete-address-alert flex-row" style="display:none">
+    <div class="delete-address-alert-info">
+        <div class="staff-text">
+            <div class="store-staff-text">成功提交合作申请</div>
+            <div class="store-staff-text">请等待对方同意</div>
+        </div>
+        <!--该账户是新用户时-->
+        <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()">关闭</span>
+    </div>
+</div>
+<!--成功提交时下载APP提示end-->
+<!--选择与之合作的商家-->
+<div class="js_hide_com js_storeSelect_alert comafter store-select-alert" style="display:none;">
+    <div class="store-select-alert-info">
+        <div class="store-select-alert-title">
+            <div>请选择要与之合作的商家</div>
+            <div class="store-select-alert-count">已选<span class="js_count_selected">0</span>家</div>
+            <img class="store-btn-close" src="images/store_close_btn.png" onclick="cancelAlert()" alt="">
+        </div>
+        <div class="store-select-alert-content">
+            <div class="js_store_item store-select-alert-item flex-row">
+                <div class="js_icon store-select-alert-item-icon disabled"></div>
+                <div class="flex-data">小骨银饰深圳分店</div>
+            </div>
+            <div class="js_store_item store-select-alert-item flex-row">
+                <div class="js_icon store-select-alert-item-icon selected"></div>
+                <div class="flex-data" >小骨银饰深圳分店</div>
+            </div>
+            <div class="js_store_item store-select-alert-item flex-row">
+                <div class="js_icon store-select-alert-item-icon"></div>
+                <div class="flex-data">小骨银饰深圳分店</div>
+            </div>
+            <div class="js_store_item store-select-alert-item flex-row">
+                <div class="js_icon store-select-alert-item-icon"></div>
+                <div class="flex-data">小骨银饰深圳分店</div>
+            </div>
+            <div class="js_store_item store-select-alert-item flex-row">
+                <div class="js_icon store-select-alert-item-icon"></div>
+                <div class="flex-data">小骨银饰深圳分店</div>
+            </div>
+            <div class="js_store_item store-select-alert-item flex-row">
+                <div class="js_icon store-select-alert-item-icon"></div>
+                <div class="flex-data">小骨银饰深圳分店</div>
+            </div>
+            <div class="js_store_item store-select-alert-item flex-row">
+                <div class="js_icon store-select-alert-item-icon"></div>
+                <div class="flex-data">小骨银饰深圳分店</div>
+            </div>
+            <div class="js_store_item store-select-alert-item flex-row">
+                <div class="js_icon store-select-alert-item-icon"></div>
+                <div class="flex-data">小骨银饰深圳分店</div>
+            </div>
+        </div>
+        <!--该账户是新用户时-->
+        <span href="javascript:;" class="js_storeSelect_sure store-btn-sure">确定</span>
+    </div>
+</div>
+<!--选择与之合作的商家end-->
+<!--加载中图片-->
+<div class="js_loading_alert text-center loading-alert" style="display:none;">
+    <!--<div class="text-center collect_alert_img">-->
+    <!--<img src="images/redStar.png" alt="">-->
+    <!--</div>-->
+    <div class="loading-img-wrap flex-column">
+        <img src="images/loading.gif" class="loading-img flex-data" alt="">
+    </div>
+</div>
+<!--加载中图片end-->
+<!--经营品类选择-->
+<div class="js_typeSelect_alert comafter type-select-alert" style="display:block;">
+    <div class="type-select-alert-info">
+        <div class="type-select-alert-btn flex-row">
+            <div class="js_lastPage">上一页</div>
+            <div class="flex-data"></div>
+            <div class="js_nextPage">下一页</div>
+        </div>
+        <div class="js_select_type type-select-alert-content">
+
+            <!--<div class="js_selectType_item typeSelect-content">
+                <div class="flex-row type-select-alert-item border-none">
+                    <div class="flex-data js_type_data">结婚</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">购物</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">宠物</div>
+                </div>
+                <div class="flex-row type-select-alert-item">
+                    <div class="flex-data js_type_data">结婚</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">购物</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">宠物</div>
+                </div>
+                <div class="flex-row type-select-alert-item">
+                    <div class="flex-data js_type_data">结婚</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">购物</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">宠物</div>
+                </div>
+                <div class="flex-row type-select-alert-item">
+                    <div class="flex-data js_type_data">结婚</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">购物</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">宠物</div>
+                </div>
+                <div class="flex-row type-select-alert-item">
+                    <div class="flex-data js_type_data">结婚</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">购物</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">宠物</div>
+                </div>
+                <div class="flex-row type-select-alert-item">
+                    <div class="flex-data js_type_data">结婚2</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">购物2</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">宠物2</div>
+                </div>
+                <div class="flex-row type-select-alert-item">
+                    <div class="flex-data js_type_data">结婚2</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">购物2</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">宠物2</div>
+                </div>
+                <div class="flex-row type-select-alert-item">
+                    <div class="flex-data js_type_data">结婚2</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">购物2</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">宠物2</div>
+                </div>
+                <div class="flex-row type-select-alert-item">
+                    <div class="flex-data js_type_data">结婚2</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">购物2</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">宠物2</div>
+                </div>
+                <div class="flex-row type-select-alert-item">
+                    <div class="flex-data js_type_data">结婚2</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">购物2</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">宠物2</div>
+                </div>
+                <div class="flex-row type-select-alert-item">
+                    <div class="flex-data js_type_data">结婚3</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">购物3</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">宠物3</div>
+                </div>
+                <div class="flex-row type-select-alert-item">
+                    <div class="flex-data js_type_data">结婚3</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">购物3</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">宠物3</div>
+                </div>
+                <div class="flex-row type-select-alert-item">
+                    <div class="flex-data js_type_data">结婚3</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">购物3</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">宠物3</div>
+                </div>
+                <div class="flex-row type-select-alert-item">
+                    <div class="flex-data js_type_data">结婚3</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">购物3</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">宠物3</div>
+                </div>
+                <div class="flex-row type-select-alert-item">
+                    <div class="flex-data js_type_data">结婚3</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">购物3</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">宠物3</div>
+                </div>
+                <div class="flex-row type-select-alert-item">
+                    <div class="flex-data js_type_data">结婚3</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">购物3</div>
+                    <div class="type-select-alert-item-icon"></div>
+                    <div class="flex-data js_type_data">宠物3</div>
+                </div>
+                </div>-->
+            <ul class="js_selectType_item typeSelect-content">
+                <li class="flex-row type-select-alert-item border-none">
+                    <span class="flex-data js_type_data">结婚</span>
+                    <span class="type-select-alert-item-icon"></span>
+                    <span class="flex-data js_type_data">购物</span>
+                    <span class="type-select-alert-item-icon"></span>
+                    <span class="flex-data js_type_data">宠物</span>
+                </li>
+                <li class="flex-row type-select-alert-item border-none">
+                    <span class="flex-data js_type_data">结婚</span>
+                    <span class="type-select-alert-item-icon"></span>
+                    <span class="flex-data js_type_data">购物</span>
+                    <span class="type-select-alert-item-icon"></span>
+                    <span class="flex-data js_type_data">宠物</span>
+                </li>
+                <li class="flex-row type-select-alert-item border-none">
+                    <span class="flex-data js_type_data">结婚</span>
+                    <span class="type-select-alert-item-icon"></span>
+                    <span class="flex-data js_type_data">购物</span>
+                    <span class="type-select-alert-item-icon"></span>
+                    <span class="flex-data js_type_data">宠物</span>
+                </li>
+                <li class="flex-row type-select-alert-item border-none">
+                    <span class="flex-data js_type_data">结婚</span>
+                    <span class="type-select-alert-item-icon"></span>
+                    <span class="flex-data js_type_data">购物</span>
+                    <span class="type-select-alert-item-icon"></span>
+                    <span class="flex-data js_type_data">宠物</span>
+                </li>
+                <li class="flex-row type-select-alert-item border-none">
+                    <span class="flex-data js_type_data">结婚</span>
+                    <span class="type-select-alert-item-icon"></span>
+                    <span class="flex-data js_type_data">购物</span>
+                    <span class="type-select-alert-item-icon"></span>
+                    <span class="flex-data js_type_data">宠物</span>
+                </li>
+                <li class="flex-row type-select-alert-item border-none">
+                    <span class="flex-data js_type_data">结婚</span>
+                    <span class="type-select-alert-item-icon"></span>
+                    <span class="flex-data js_type_data">购物</span>
+                    <span class="type-select-alert-item-icon"></span>
+                    <span class="flex-data js_type_data">宠物</span>
+                </li>
+                <li class="flex-row type-select-alert-item border-none">
+                    <span class="flex-data js_type_data">结婚</span>
+                    <span class="type-select-alert-item-icon"></span>
+                    <span class="flex-data js_type_data">购物</span>
+                    <span class="type-select-alert-item-icon"></span>
+                    <span class="flex-data js_type_data">宠物</span>
+                </li>
+                <li class="flex-row type-select-alert-item border-none">
+                    <span class="flex-data js_type_data">结婚</span>
+                    <span class="type-select-alert-item-icon"></span>
+                    <span class="flex-data js_type_data">购物</span>
+                    <span class="type-select-alert-item-icon"></span>
+                    <span class="flex-data js_type_data">宠物</span>
+                </li>
+
+
+            </ul>
+
+        </div>
+        <span href="javascript:;" class="type-btn-cancel" onclick="cancelAlert_slide();">取消</span>
+    </div>
+</div>
+<!--经营品类选择end-->
+<!--验证input弹窗-->
+<div class="js_collect_alert text-center input-alert" style="display:none;">
+    <!--<div class="text-center collect_alert_img">-->
+    <!--<img src="images/redStar.png" alt="">-->
+    <!--</div>-->
+    <span class="js_collect_text input-alert-text">请输入正确的手机号</span>
+</div>
+<!--验证input弹窗end-->
+</body>
+</html>

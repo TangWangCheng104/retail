@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>领取奖品</title>
+    <!-[if IE9]>
+    <script src="../js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers {
+            display: none !important;
+        }</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <![endif]->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-login-register.css" rel="stylesheet" type="text/css">
+    <link href="css/newYearCommon.css" rel="stylesheet" type="text/css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        //手机号码验证
+        function phone_verify(){
+            var len = $(".js_phone").val().length;
+            len = parseInt(len);
+            if (len != 11) {
+                $("#phone").parent().find(".error").text("手机号码必须为11位");
+            } else {
+                if ($(".js_phone").val() == "15811714177") {
+                    $(".js_phone").parent().find(".error").text("该号码已经领取");
+                }
+                else {
+                    $(".js_phone").parent().find(".error").text("");
+                }
+            }
+        }
+        $(function () {
+            var width = document.body.scrollWidth;
+            var height = (150/750)*width; //上传图片的高度
+            var height01 = (205/750)*width; //离上面的距离
+            width01 = height*2;  //上传图片的宽度
+            var left01 = (width - width01)/2;  //离左边的距离
+            $(".js_ruleAward").css({
+                "width":width01+"px",
+                "height": height+"px",
+                "top": height01+"px",
+                "left":left01+"px"
+            });
+            $('#js_input').on('change', function (e) {
+                var tar = this,
+                        files = tar.files,
+                        fNum = files.length,
+                        URL = window.URL || window.webkitURL;
+                if (!files[0])return;
+                for (var i = 0; i < fNum; i++) {
+                    if (files[i].type.search(/image/) >= 0) {
+                        var lqy = URL.createObjectURL(files[i]);
+                        var newImg = new Image();
+                        newImg.onload = function () {
+                            $(".this_img").remove();
+                            document.getElementById("icon_img").appendChild(newImg);
+                            $(this).addClass("this_img newYear-photo");
+                            $("#icon_img").find(".error").html('');
+                        };
+                        newImg.src = lqy;
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container-fluid padding-0px">
+    <div class="newYear-ruleAward">
+        <div class="newYear-ruleAward-img">
+            <img class="img-responsive" src="images/newYear-ruleAwardImg.png" alt="">
+            <img class="js_ruleAward newYear-ruleAwardImg01" src="images/newYear-ruleAwardImg01.png" alt="">
+        </div>
+        <div class="col-xs-12">
+            <div class="newYear-ruleAward-title">三叶草钥匙吊坠</div>
+            <div class="newYear-ruleAward-rule"><span>领取规则</span></div>
+            <div class="newYear-ruleAward-rule-wrap">
+                <ul>
+                    <li>1、实物礼品每人限领一份, 每天限领100份, 凭手机号到店领取;</li>
+                    <li>2、领取地址: 广东省深圳市罗湖区田贝三路明阳酒店9A88;</li>
+                    <li>3、虚拟抽奖券须到实体门店参与抽奖活动时使用；</li>
+                    <li>4、实物礼品与抽奖奖品以门店提供的实物为准；</li>
+                    <li>5、本活动的最终解释权归指定门店所有。</li>
+                </ul>
+            </div>
+            <!--输入手机号提取-->
+            <div style="display: none">
+                <div class="newYear-ruleAward-phone">
+                    手机号：
+                    <div class="retail-comverify newYear-ruleAward-phone-input">
+                        <input placeholder="输入手机号 立即开抢" type="text" name="phone" id="phone"
+                               onblur="phone_verify()" class="js_phone text-center" value="">
+                        <label class="error" for="phone"></label>
+                    </div>
+                </div>
+                <div class="text-center newYear-ruleAward-Btn"><a href="#">提交号码领取</a></div>
+                <div class="text-center newYear-ruleAward-Btn"><a href="#">我也要制作</a></div>
+            </div>
+            <!--门店信息-->
+            <div style="display: block">
+                <div class="newYear-ruleAward-msg-wrap">
+                    <div class="newYear-ruleAward-msg">手机号：15811714177</div>
+                    <div class="newYear-ruleAward-msg">门店电话: 0755-29366969</div>
+                    <div class="newYear-ruleAward-msg">门店名称: 本尼奥珠宝店</div>
+                </div>
+                <div class="text-center newYear-ruleAward-Btn"><a href="#">我也要制作</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

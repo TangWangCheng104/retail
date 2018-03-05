@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>登录</title>
+    <!-[if IE9]>
+    <script src="js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers{display:none!important;}</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <![endif]->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-login-register.css" rel="stylesheet" type="text/css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="application/javascript">
+        var urlPrefix = "http://" + window.location.host + "/h5/retail/";
+        $(function () {
+            $("#regist-form").submit(function () {
+                return false
+            });
+            $(".js_loginBtn").click(function(){
+                if(!$(this).hasClass("active")){
+                    var index = $(this).index();
+                    $(".js_loginChange").hide();
+                    $(".js_loginBtn").toggleClass("active");
+                    $(".js_loginChange").eq(index).show();
+                }
+            });
+            var init = setInterval(function () {
+                if ($("#btn").val() == "获取验证码") {
+                    $("#btn").css("color", "#ff865d");
+                } else {
+                    $("#btn").css("color", "#ccc");
+                }
+            }, 1000);
+            document.getElementById("btn").onclick = function () {
+                if ($("#phone").parent().find(".error").text() == "") {
+                    time(this);
+                }
+                if ($("#btn").val() == "获取验证码") {
+                    $("#btn").css("color", "#ff865d");
+                } else {
+                    $("#btn").css("color", "#ccc");
+                }
+            };
+        });
+        //验证码验证
+        function verify_code () {
+            var len = $("#verify").val().length;
+            len = parseInt(len);
+            if (len != 6) {
+                $("#verify").parent().find(".error").text("验证码不正确");
+            } else {
+                if ($("#verify").val() == "920603") {
+                    $("#verify").attr("aria-invalid", "false");
+                    $("#verify").parent().find(".error").text("");
+                } else {
+                    $("#verify").parent().find(".error").text("验证码不正确");
+                }
+            }
+            testbtn();
+        }
+        //密码验证
+        function password_verify () {
+            var len = $("#password").val().length;
+            var reg = /^(?!^(\d+|[a-zA-Z]+)$)(?!.*[~@#]+.*).+$/;
+            len = parseInt(len);
+            if (len < 6 || len > 20) {
+                $("#password").parent().find(".error").text("密码必须为6-20位");
+            } else {
+                if (!reg.test($("#password").val())) {
+                    $("#password").parent().find(".error").text("密码必须由英文，数字或 _ 至少两种组成");
+                } else {
+                    $("#password").attr("aria-invalid", "false");
+                    $("#password").parent().find(".error").text("");
+                }
+            }
+            testbtn();
+        }
+        //手机号码验证
+        function phone_verify(){
+            var len = $(".js_phone").val().length;
+            len = parseInt(len);
+            if (len != 11) {
+                $("#phone").parent().find(".error").text("手机号码必须为11位");
+            } else {
+                if ($(".js_phone").val() == "15811714177") {
+                    $(".js_phone").parent().find(".error").text("手机号码已注册");
+                }else {
+                    $(".js_phone").parent().find(".error").text("");
+                    $(".js_phone").attr("aria-invalid","false");
+                }
+            }
+            testbtn();
+        }
+        function testbtn(){
+            var $errormsg = 0;
+            var $input = $(".js_comverify").children("input");
+            for (var i = 0; i < $input.length; i++) {
+                if ($input.eq(i).attr("aria-invalid") == 'true') {
+                    $errormsg = 1;
+                    break;
+                }
+            }
+            if (!$errormsg) {
+                $(".js_register").removeClass("disabled");
+//                $(".js_password_alert").fadeIn(500);
+//                var t = setTimeout(function () {
+//                    $(".js_password_alert").fadeOut(800);
+//                }, 800);
+            } else {
+                $(".js_register").addClass("disabled");
+            }
+        }
+
+        var wait = 60;
+        function time(t) {
+            if (wait == 0) {
+                t.removeAttribute("disabled");
+                t.value = "获取验证码";
+                wait = 60;
+            } else {
+                t.setAttribute("disabled", true);
+                t.value = "重新获取(" + wait + ")";
+                wait--;
+                setTimeout(function () {
+                    time(t)
+                }, 1000)
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="container-fluid padding-0px">
+    <div class="retail-login-icon-name">
+        <div class="retail-login-icon">
+            <img src="images/retail_login-icon.png" alt="">
+        </div>
+        <div class="retail-login-name">
+            非凡珠宝
+        </div>
+    </div>
+    <div class="comafter login-password-verify-menu" style="display: block">
+        <div id="js_loginPwd" class="js_loginBtn col-xs-6 text-center padding-0px item active" style="border-right: 1px solid #d7d7d7">密码登录</div>
+        <div class="js_loginBtn col-xs-6 text-center padding-0px item">验证码登录</div>
+    </div>
+    <div class="retail-login-phone-pwd">
+            <form  id="regist-form" action="">
+                <div class="js_loginChange login-password-verify">
+                    <div class="retail-comverify retail-login-phone">
+                        <input type="text" name="phone" id="phone"  onkeyup="phone_verify()" onblur="phone_verify()" class="js_phone retail-login-phone-input" placeholder="输入手机号" value="">
+                        <label class="error" for="phone"></label>
+                    </div>
+                    <div class="retail-comverify retail-login-phone retail-login-password">
+                        <input type="password" name="password" id="password" onkeyup="password_verify()" onblur="password_verify()" class="retail-login-phone-input" placeholder="输入密码" value="">
+                        <label id="password-error" class="error" for="password"></label>
+                    </div>
+                    <div class="comafter retail-login-href-forgot">
+                        <a class="fl retail-login-href" style="display: block" href="retail-updatePWD.html">忘记密码？</a>
+                        <a class="fr retail-login-href text-right" style="display: block;color: #576b95" href="retail-register.html">注册</a>
+                    </div>
+                </div>
+                <div class="js_loginChange login-password-verify" style="display: none">
+                    <div class="retail-comverify retail-login-phone">
+                        <input type="text" name="phone" id="phone01" class="js_phone retail-login-phone-input" onkeyup="phone_verify()" onblur="phone_verify()" placeholder="输入手机号" value="">
+                        <label class="error" for="phone01"></label>
+                    </div>
+                    <div class="retail-comverify retail-login-phone retail-login-verify">
+                        <input type="text" name="verify" id="verify" class="retail-login-phone-input" onkeyup="verify_code()" onblur="verify_code()" placeholder="输入验证码" value="">
+                        <label id="verify-error" class="error" for="verify"></label>
+                        <input class="login-verify-btn text-right" type="button" id="btn" value="获取验证码"/>
+                    </div>
+                    <div class="comafter retail-login-href-forgot">
+                        <a class="fr retail-login-href text-right" style="display: block;color: #576b95" href="#">注册</a>
+                    </div>
+                </div>
+                <div class="retail-login-btn-login">
+                    <input type="submit" value="登录">
+                </div>
+                <div class="comafter">
+                    <img class="img-responsive" src="images/retail-login-third-party.png" alt="">
+                    <div class="col-xs-6 retail-login-weixin-weibo">
+                        <img src="images/retail-login-weixin.png" alt="">
+                    </div>
+                    <div class="col-xs-6 retail-login-weixin-weibo">
+                        <img src="images/retail-login-weibo.png" alt="">
+                    </div>
+                </div>
+            </form>
+        </div>
+</div>
+</body>
+</html>
+

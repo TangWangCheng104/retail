@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    <title>预约活动</title>
+    <!--css-->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link href="../css/retail-goodsDetails.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/booking_active.css">
+    <!--js-->
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/retail_cofirmBuying.js"></script>
+    <script src="../js/booking_acticities.js"></script>
+</head>
+<script>
+    $(function(){
+        bookingTimerSHBefore(10000,0);
+        bookingTimerSH(10000,0);
+    })
+</script>
+<body>
+    <div class="booking-wrap-shop-content">
+        <div class="booking-nav">
+            <div class="container">
+                <div id="main_ad" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#main_ad" data-slide-to="0" class="active"></li>
+                        <li data-target="#main_ad" data-slide-to="1"></li>
+                        <li data-target="#main_ad" data-slide-to="2"></li>
+                        <li data-target="#main_ad" data-slide-to="3"></li>
+                        <li data-target="#main_ad" data-slide-to="4"></li>
+                        <li data-target="#main_ad" data-slide-to="5"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <a href="booking_activities_index.html"><img src="../images/booking_activities_biggestImg.jpg" alt="..."></a>
+                        </div>
+                        <div class="item">
+                            <a href="booking_activities_index.html"><img src="../images/booking_activities_biggestImg.jpg" alt="..."></a>
+                        </div>
+                        <div class="item">
+                            <a href="booking_activities_index.html"><img src="../images/booking_activities_biggestImg.jpg" alt="..."></a>
+                        </div>
+                        <div class="item">
+                            <a href="booking_activities_index.html"><img src="../images/booking_activities_biggestImg.jpg" alt="..."></a>
+                        </div>
+                        <div class="item">
+                            <a href="booking_activities_index.html"><img src="../images/booking_activities_biggestImg.jpg" alt="..."></a>
+                        </div>
+                        <div class="item">
+                            <a href="booking_activities_index.html"><img src="../images/booking_activities_biggestImg.jpg" alt="..."></a>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <!--<a class="left carousel-control" href="#main_ad" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#main_ad" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>-->
+                </div>
+            </div>
+            <img class="booking_activities_logo" src="../images/booking_activities_logo.png" >
+            <!--<img class="booking_activities_biggestImg" src="../images/booking_activities_biggestImg.jpg" />-->
+        </div>
+        <div class="booking-title">
+            手把件吊坠挂坠新疆和田玉羊脂白玉平安牌和田玉吊坠男士女士平安无事牌白玉牌子
+        </div>
+        <!--价格显示-->
+        <div class="booking-price-show-wrap" style="display: block">
+            <div class="booking-price-show">￥12880.88</div>
+            <div class="booking-price-show-through">￥12880.88</div>
+        </div>
+        <div class="booking-person">
+            <div class="booking-person-content">已预约 958585 人</div>
+        </div>
+        <div class="booking-time">
+            <div class="booking-time-wrap">
+                <img class="booking_icon_clock" src="../images/booking_icon_clock.jpg" alt="">
+                <span class="booking-day">0</span><span class="booking-time1">天</span><span class="booking-hour">0</span><span class="booking-time1">时</span><span class="booking-mins">0</span><span class="booking-time1">分</span><span class="booking-seconds">0</span><span class="booking-time1">秒</span>
+            </div>
+        </div>
+        <!--修改预约-->
+        <div class="booking-bottom clearfix" style="display: block">
+            <div class="booking-bottom-left">
+                <div class="booking-bottom-lChildren">
+                    <img class="booking-auction-shangcheng" src="../images/auction_kefu.png" />
+                    <span class="booking-shangcheng">客服</span>
+                </div>
+                <div class="booking-bottom-lChildren">
+                    <img class="booking-auction-shangcheng" src="../images/auction_shangcheng.png" />
+                    <span class="booking-shangcheng">商城</span>
+                </div>
+                <div class="booking-bottom-lChildren">
+                    <img class="booking-auction-shangcheng" src="../images/store_mineicon.jpg" />
+                    <span class="booking-shangcheng">我的</span>
+                </div>
+            </div>
+            <div class="booking-bottom-right" style="display: block">
+                <span class="booking-bottom-right-status" style="display: none">
+                    名额已抢光
+                </span>
+                <span class="booking-bottom-right-status" style="display: none">
+                    预约已停止
+                </span>
+                <span class="booking-bottom-right-status booking-bottom-now" style="display: none">
+                    立即预约
+                </span>
+                 <span class="booking-bottom-right-status booking-bottom-now" style="display: block">
+                    修改预约
+                </span>
+            </div>
+        </div>
+
+        <!--&lt;!&ndash;这是有立即购买与购买按钮的&ndash;&gt;
+        <div class="booking-bottom clearfix" style="display: none">
+            <div class="booking-bottom-left booking-bottom-left-change">
+                <div class="booking-bottom-lChildren">
+                    <img class="booking-auction-shangcheng" src="../images/auction_kefu.png" />
+                    <span class="booking-shangcheng">客服</span>
+                </div>
+                <div class="booking-bottom-lChildren">
+                    <img class="booking-auction-shangcheng" src="../images/auction_shangcheng.png" />
+                    <span class="booking-shangcheng">商城</span>
+                </div>
+            </div>
+            <div class="booking-bottom-right booking-bottom-right-change" style="display: block">
+                <span class="booking-buy">
+                    购买
+                </span>
+                <span class="booking-bottom-now-change">
+                    立即预约
+                </span>
+            </div>
+        </div>-->
+        <!--商品简介-->
+        <div class="booking_shop_content-wrap">
+            <img class="booking_shop_content" src="../images/booking_shop_content.png" />
+        </div>
+        <div class="booking_shop_content-pwrap">
+            <p class="booking_shop_content-p">
+                简介：和田玉颜色为：白、糖白、青白、黄、糖、碧、青绿色青、翠青、青花。我们知道新疆和田玉在清代以前多以黄玉和白玉为主。其中黄玉非常的漂亮。其实不亚于羊脂玉，我们应该给以黄玉正身。
+            </p>
+        </div>
+        <div class="bookinng_content_img1-wrap">
+            <img class="bookinng_content_img1" src="../images/bookinng_content_img1.png" >
+            <span class="booking-active-content booking-active-content1"><span class="booking-juzhong booking-juzhong2"><p>门店</p>详情</span></span>
+        </div>
+        <!--商品详情-->
+        <div class="booking_shop_content-wrap booking_shop_detail-wrap">
+            <img class="booking_shop_content" src="../images/booking_shop_details.png" />
+        </div>
+        <div class="bookinng_content_img1-wrap">
+            <img class="bookinng_content_img1" src="../images/bookinng_content_img1.png" >
+        </div>
+        <div class="booking_white_line"></div>
+        <div class="bookinng_content_img1-wrap">
+            <img class="bookinng_content_img1" src="../images/bookinng_content_img1.png" >
+        </div>
+        <div class="booking_white_line"></div>
+        <div class="bookinng_content_img1-wrap">
+            <img class="bookinng_content_img1" src="../images/bookinng_content_img1.png" >
+        </div>
+        <!--推荐活动-->
+        <div class="booking_shop_content-wrap booking-tuijian-active">
+            <img class="booking_shop_content" src="../images/booking_tuijian_active.png" />
+        </div>
+        <div class="bookinng_content_img1-wrap">
+            <img class="bookinng_content_img1" src="../images/bookinng_content_img1.png" >
+            <span class="booking-active-content"><span class="booking-juzhong"><p>活动</p>详情</span></span>
+        </div>
+        <div class="booking_white_line2"></div>
+        <div class="bookinng_content_img1-wrap">
+            <img class="bookinng_content_img1" src="../images/bookinng_content_img1.png" >
+            <span class="booking-active-content booking-active-content1"><span class="booking-juzhong booking-juzhong2"><p>活动</p>详情</span></span>
+        </div>
+        <!--回到顶部-->
+        <div class="booking-back-to-top" style="display: none">
+            <img class="booking-back-to-img" src="../images/booking_back_to_top.png">
+        </div>
+        <!--底部 商品预约_不显示价格-->
+        <div class="booking-bottom clearfix" style="display: none">
+            <div class="booking-bottom-left">
+                <div class="booking-bottom-lChildren">
+                    <img class="booking-auction-shangcheng" src="../images/auction_kefu.png" />
+                    <span class="booking-shangcheng">客服</span>
+                </div>
+                <div class="booking-bottom-lChildren">
+                    <img class="booking-auction-shangcheng" src="../images/auction_shangcheng.png" />
+                    <span class="booking-shangcheng">商城</span>
+                </div>
+                <div class="booking-bottom-lChildren">
+                    <img class="booking-auction-shangcheng" src="../images/store_mineicon.jpg" />
+                    <span class="booking-shangcheng">我的</span>
+                </div>
+            </div>
+            <div class="booking-bottom-right" style="display: none">
+                <span class="booking-buy">
+                    购买
+                </span>
+                <span class="booking-bottom-now-change">
+                    立即预约
+                </span>
+            </div>
+            <!--名额已抢光-->
+            <div class="booking-bottom-right" style="display: none">
+                <span class="booking-buy">
+                    购买
+                </span>
+                <span class="booking-bottom-now-change booking-bottom-noname">
+                    名额已抢光
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+    <!--遮罩层以及分享给好友-->
+    <div class="booking-cover"></div>
+    <!--分享图片-->
+    <div class="booking-show-warp">
+        <img  class="booking-show" src="../images/booking_show.png" />
+    </div>
+    <!--遮罩层-->
+    <div id="com_black" class="js_com_black js_hide_com com_black" style="display:none;"></div>
+    <!--微信二维码弹出框-->
+    <div class="wx-code-wrap" id="wxCode" style="top: 73%">
+        <span class="wx-bg-opacity"></span>
+        公众号 <img class="wx-code" src="../images/wx_code.png" alt="">
+    </div>
+    <!--商家二维码弹出框-->
+    <div class="js_hide_com store_code_wrap js_code js_com_black" style="display: none">
+        <div class="store_code">
+            <img class="store_code_img" src="../images/store_code.jpg" />
+        </div>
+        <img class="img-responsive store_code_img1" src="../images/store-double.png" />
+        <div class="spell-join-code-wrap" style="top: 0;">
+            <div class="spell-join-code">
+                <span class="spell-code-p" style="display: none">按长键识别途中二维码</span>
+                <span class="spell-code-p">保存图片后至微信扫一扫</span><br />
+                <span>可进入微信公众号互动！</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

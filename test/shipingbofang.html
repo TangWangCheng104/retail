@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <title>iphone-inline-video demo with playsinline</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--<script src="js.js"></script>-->
+
+    <style type="text/css">
+        
+
+        video {
+
+            display: block;
+
+            background: black;
+            
+            width: 100%;
+
+            margin: auto;
+
+        }
+
+        
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+<div class="video-container js_hide_com js_videoDiv" >
+
+    <video id='J_myVideo' autoplay muted loop playsinline controls="controls" src="http://jq22com.qiniudn.com/jq22-sp.mp4"></video>
+
+    <button class='fullscreen'>Fullscreen</button>
+
+</div>
+
+
+
+
+
+<!--<script src="index.js"></script>-->
+
+</body>
+
+</html>
+<script>
+    var videos = document.querySelectorAll('#J_myVideo');
+
+    if (location.search === '?enabled=true') {
+
+        enableVideos(true);
+
+
+    } else {
+
+        enableVideos();
+
+    }
+
+
+    function enableButtons(video) {
+
+
+        var fullscreenButton = video.parentNode.querySelector('.fullscreen');
+
+
+        if (fullscreenButton) {
+
+            fullscreenButton.addEventListener('click', function () {
+
+                video.webkitEnterFullScreen();
+
+            });
+
+        }
+
+    }
+
+
+
+    // debug events
+
+    function debugEvents(video) {
+
+        [
+
+            'loadstart',
+
+            'progress',
+
+            'suspend',
+
+            'abort',
+
+            'error',
+
+            'emptied',
+
+            'stalled',
+
+            'loadedmetadata',
+
+            'loadeddata',
+
+            'canplay',
+
+            'canplaythrough',
+
+            'playing', // fake event
+
+            'waiting',
+
+            'seeking',
+
+            'seeked',
+
+            'ended',
+
+            // 'durationchange',
+
+            'timeupdate',
+
+            'play', // fake event
+
+            'pause', // fake event
+
+            // 'ratechange',
+
+            // 'resize',
+
+            // 'volumechange',
+
+            'webkitbeginfullscreen',
+
+            'webkitendfullscreen',
+
+        ].forEach(function (event) {
+
+            video.addEventListener(event, function () {
+
+                console.info('@', event);
+
+            });
+
+        });
+
+    }
+
+
+    function enableVideos(everywhere) {
+
+        for (var i = 0; i < videos.length; i++) {
+
+            window.enableInlineVideo(videos[i], {everywhere: everywhere});
+
+//          enableButtons(videos[i]);
+
+            debugEvents(videos[i]);
+
+        }
+
+    }
+</script>

@@ -1,0 +1,735 @@
+p{
+    margin: 0;
+}
+ul,ol{
+    margin: 0;
+}
+
+html{
+    font-size: 625%;
+}
+.treasure-alert1-img{
+    width: 1.21rem;
+    margin-top:.15rem;
+}
+.treasure-text{
+    padding-top:.25rem;
+    padding-bottom: .30rem;
+    color: #666;
+
+}
+.treasure-dont-text,.treasure-self-text{
+    font-size: 15px;
+    padding:0;
+    font-weight: bold;
+}
+.treasure-alert-width{
+    width: 72.6%;
+    padding-bottom: .25rem;
+}
+.treasure-mytreasure,.treasure-mysure{
+    width: 1.80rem;
+    height: .40rem;
+    border:1px solid #53CAC3;
+    position: relative;
+    left:50%;
+    margin-left: -.90rem;
+    border-radius: .25rem;
+    color: #53CAC3;
+    background: #fff;
+    line-height: .40rem;
+}
+.delete-address-alert-list{
+    margin-top:4%;
+}
+.tresure-only-sure{
+    margin-top: 0!important;
+}
+.tresure-alert-active{
+    background: #53CAC3;
+    color: #fff;
+}
+
+.treasure-mysure{
+    margin-top:.15rem ;
+}
+.delete-address-alert-treasure{
+    width: 100%;
+    text-align: center;
+    z-index: 1040;
+    position: fixed;
+    top: 23%;
+}
+.delete-address-alert{
+    position: fixed;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+.delete-address-alert-rule{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+.treasure-filling-in{
+    color: #fe4b4b;
+    font-size: .18rem;
+}
+.treasure_right{
+    position: absolute;
+    right: .40rem;
+    z-index: 1050;
+    top:.70rem;
+    width: 40%;
+}
+.treasure_right img{
+    width: 100%;
+}
+.suppliers-down{
+    width:100%;
+    height:.37rem;
+    background: #FE4B4B;
+    font-size: 13px;
+    color: #fff;
+    line-height: .37rem;
+    padding: 0 .12rem;
+}
+.suppliers-three{
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+}
+.suppliers-down img{
+    width: .09rem;
+    height: .09rem;
+}
+.suppliers-down-text{
+    margin-left: .05rem;
+}
+.sippliers-icon-background{
+    background: #fff;
+}
+.suppliers-icon-bigger{
+    width: .19rem;
+}
+.suppliers-now-buy{
+    font-size: 17px;
+}
+.js_hide_com{
+    z-index: 1050;
+}
+.mytreasure{
+    color: #fff;
+}
+.check-mytreasure{
+    color: #fff;
+    font-size: 12px;
+    border-bottom: 1px solid #fff;
+}
+.suppliers-two-buy{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    line-height: normal;
+    font-size: 12px;
+    padding-top: .06rem;
+}
+
+.suppliers-now-buychange{
+    font-size: 15px;
+}
+.suppliers-background-color{
+    background: #afadae;
+}
+.suppliers-rules{
+    padding:.17rem .17rem 0 .17rem;
+}
+.suppliers-title{
+    font-size: 16px;
+    font-weight: bold;
+}
+.suppliers-list{
+    font-size: 14px;
+    color: #666;
+    text-align: left;
+    line-height: .21rem;
+}
+.suppliers-last-ul{
+    margin-bottom: .12rem;
+}
+nav{
+    width: 100%;
+    height: .30rem;
+    line-height: .30rem;
+    padding:0 .10rem;
+    background: #ecfafd;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+.suppliers_treature_head{
+    position: relative;
+    width: 100%;
+}
+.suppliers_text{
+    width: .86rem;
+    font-size: 10px;
+    position: absolute;
+    top: 20%;
+    left: 11%;
+    z-index: 2;
+    color: #7d512b;
+}
+.suppliers-nav-color{
+    color: #e95953;
+    padding: .10rem;
+}
+.suppliers-nav-color1{
+    color: #e95953;
+}
+.suppliers_treature_top{
+    width: 100%;
+    /*height: 3.75rem*/
+}
+
+.suppliers_treature_description{
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+.suppliers_treature_description:first-child{
+    margin-top: .12rem;
+}
+.suppliers_treature_description:nth-child(2){
+    margin-top: .03rem;
+}
+.suppliers_treature_border{
+    height: .55rem;
+    box-sizing: border-box;
+    border:2px solid #e95953;
+    border-radius: .07rem;
+    padding: 0 .16rem;
+    margin: .19rem 6.6% 0;
+    width: 86.8%;
+}
+.suppliers_treature_border img{
+    width: .38rem;
+    height: .38rem;
+}
+.suppliers_treature_left{
+    float: left;
+}
+.suppliers_treature_left img,.suppliers_treature_right img{
+    border-radius: 50%;
+}
+.suppliers_treature_right{
+    float: right;
+}
+.suppliers_treature_number{
+    color: #fe4b4b;
+}
+/*.suppliers_treature_fight{
+    width: 100%;
+    display: inline-block;
+}*/
+
+.suppliers_treature_fight{
+    width: 1rem;
+    display: inline-block;
+    margin-top: 1px;
+    font-size: 12px;
+    position: relative;
+    top:.10rem;
+
+}
+.suppliers_treature_histreature{
+    display: block;
+    width: .6rem;
+    position: relative;
+}
+.suppliers_treature_less_right{
+    margin-left: .38rem;
+
+}
+.suppliers_treature_less{
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.suppliers_treature_fight_left{
+    text-align: left;
+}
+.suppliers_treature_fight_right{
+    text-align: right;
+}
+.suppliers_treature_get{
+    display: flex;
+    padding:.25rem 8% 0;
+    height: .60rem;
+}
+/*
+不知道错没错，备用
+.suppliers_treature_get{
+    display: flex;
+    padding:16px 8% 0;
+    height: 23px;
+}
+*/
+.suppliers_get_img3{
+    width: 100%;
+    height: 100%;
+
+}
+.suppliers_treature_get li{
+    flex:1;
+}
+/*两个按钮*/
+/*.suppliers_get_img1{
+    width: 46%;
+    float: left;
+}
+.suppliers_get_img2{
+    width: 46%;
+    float: right;
+}*/
+.suppliers_get_img2{
+    width: 100%;
+    float: right;
+}
+.su_cricle{
+    width: .16rem;
+    height: .18rem;
+    margin-right: .05rem;
+    position: relative;
+
+}
+.suppliers_setinterval{
+    width: 100%;
+    text-align: center;
+    margin-top: .23rem;
+    color: #d64725;
+}
+.suppliers_computer_head{
+    text-align: center;
+    margin-top: .70rem;
+}
+.suppliers_computer_head img{
+    width: .40rem;
+    height: .40rem;
+    border-radius: 50%;
+}
+.suppliers_user_head{
+    display: inline-block;
+    width: .40rem;
+    height: .40rem;
+    border-radius: 25px;
+}
+.suppliers_computer_yours,.suppliers_computer_rule{
+    text-align: center;
+    position: relative;
+}
+.suppliers_computer_yours{
+    margin-bottom: .25rem;
+}
+.suppliers_computer_yours img{
+    width: 2.60rem;
+    height: .48rem;
+}
+.suppliers_computer1_title{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: .14rem auto;
+    font-size: 13px;
+    color: #fff;
+}
+.suppliers_computer1_title2{
+    font-size: 15px;
+}
+.suppliers_number1{
+    color: #d64725;
+    font-weight: bold;
+    font-size: 17px;
+}
+.suppliers_username{
+    margin-right: .07rem;
+}
+.suppliers-descript{
+    color: #df9437;
+    font-size: 14px;
+    margin-left: .25rem;
+    line-height: .27rem;
+}
+.suppliers_checkmore{
+    width: .85rem;
+    height: .30rem;
+    display: inline-block;
+    line-height: .30rem;
+    border:1px solid #D64725;
+    color:#D64725 ;
+    font-size: 12px;
+    border-radius: 25px;
+    margin: .30rem 0 .20rem;
+}
+.suppliers_checkmore_father{
+    width: 100%;
+    text-align: center;
+}
+.suppliers_people_number{
+    display: inline-block;
+    height: .40rem;
+    width: 95.2%;
+    border-top: 1px solid #f6c565;
+    border-bottom: 1px solid #f6c565;
+    line-height: .40rem;
+    margin-left:4.8%;
+    color: #918c81;
+    font-size: 12px;
+    font-weight: 700;
+}
+.suppliers-double_window{
+    width: 100%;
+    height: .89rem;
+    position: absolute;
+    /*top:6.35rem;*/
+    left: 0;
+}
+.window_left{
+    height: 100%;
+    float: left;
+}
+.window_right{
+    height: 100%;
+    float: right;
+}
+
+.suppliers_people_number1,.suppliers_people_total{
+    color: #fd9352;
+ }
+.suppliers_computer_rule{
+    text-align: center;
+    margin-top: .50rem;
+    margin-bottom: .30rem;
+}
+.suppliers_computer_rule img{
+    width: 2.60rem;
+    height: .48rem;
+}
+.suppliers-descript-h{
+    margin-bottom: .17rem;
+}
+.suppliers-descript-last{
+    margin-bottom: 0;
+}
+.suppliers_top_center{
+    padding: .12rem 0;
+    font-size: 13px;
+    color: #333;
+    width: 100%;
+    height: 1.12rem;
+    background: #fffbf1;
+}
+.suppliers_bottom_img{
+    width: .94rem;
+    height:.90rem;
+    float: left;
+    margin-left: .27rem;
+    margin-right: .10rem;
+}
+.suppliers_right_first{
+    height: .34rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.suppliers_price{
+    font-size: 17px;
+    color: #D64725;
+    margin-right: .15rem;
+}
+.suppliers_price1{
+    font-size: 15px;
+    color: #D64725;
+}
+.suppliers_top2{
+    margin-top: .15rem;
+}
+footer{
+    width: 100%;
+    height: 1.70rem;
+    background: #ffeec9;
+    position: relative;
+}
+.footer_img{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 64%;
+    margin: 0 auto;
+}
+.suppliers_treature_lesstime{
+    width: 100%;
+}
+.suppliers_time_border{
+    display: inline-block;
+    width: 1.90rem;
+    height:.32rem;
+    border: 1px solid #4e4e4e;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    margin-left: -.95rem;
+    margin-top: .22rem;
+  /*  line-height: 32px;*/
+}
+.text_background{
+    display: inline-block;
+    width:.19rem;
+    height: .21rem;
+    text-align: center;
+    line-height: .21rem;
+    background:#4e4e4e ;
+    color: #fff;
+    margin-right:1px ;
+    position: relative;
+    top:.05rem;
+}
+.suppliers_time_double{
+    margin:0 5px;
+    width: .04rem;
+    height: .14rem;
+    position: relative;
+    top:.04rem;
+}
+.suppliers_figure{
+    width: 9.6%;
+    position: absolute;
+    top:18%;/*24%*/
+    left: 10%;
+    right: 0;
+    margin: auto;
+    -webkit-animation-name: skyset;
+    -webkit-animation-duration: 500ms;
+    -webkit-animation-iteration-count: infinite; /*无限循环*/
+    -webkit-animation-timing-function: linear;
+}
+.suppliers_treature_position{
+    position: relative;
+    background: #fff;
+}
+.suppliers_vs{
+    position: absolute;
+    text-align: center;
+    height: .60rem;
+    width: .60rem;
+    left: 0;
+    right: 0;
+    top:-.20rem;
+    margin: 0 auto;
+    border-radius: .50rem;
+    background: #ffeec9;
+    z-index: 2;
+}
+.suppliers_vs_images{
+    position: relative;
+    width: .30rem;
+    height: .48rem;
+    top:.06rem;
+}
+.pic_baozang_nor{
+    width: 32.5%;
+    position: absolute;
+    left: 0;
+    right: -.15rem;
+    top:.40rem;
+    bottom: 0;
+    margin: auto;
+}
+.suppliers_mywabao{
+    display: inline-block;
+    text-align: center;
+    height:.25rem;
+    font-size: 20px;
+    color: #fff;
+    position: absolute;
+    top: .29rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-shadow: 2px 2px 2px #7b322f;
+}
+.pic_chanzi_nor{
+    width: 13.67%;
+    position: absolute;
+    top: .32rem;
+    right: 0;
+    bottom: 0;
+    left: 4.5%;
+    margin: auto;
+}
+.pic_chanzi_nor1{
+    top: .10rem;
+    right: 0;
+    bottom: 0;
+    left: 4.5%;
+    margin: auto;
+}
+.suppliers_loading{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 70%;
+    height: 70%;
+    z-index:1040;
+    text-align: center;
+}
+.suppliers_loading img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 70%;
+    z-index:1040;
+}
+.suppliers_treature_imgps{
+    position: relative;
+}
+.suppliers-shopStore-img{
+    width: 100%;
+}
+.suppliers-other-acitve-wrap{
+    margin-bottom: .45rem;
+    margin-top: .5rem;
+}
+.suppliers-other-acitve{
+    width: 100%;
+}
+/*活动结束*/
+.suppliers-end-img{
+    width: 36%;
+}
+.suppliers-end p{
+    color: #999;
+    font-size: 14px;
+    margin-top: .1rem;
+}
+.suppliers_look_other{
+    width: 1.47rem;
+    height: .4rem;
+    font-size: 15px;
+    color: #53CAC3 ;
+    border: .01rem solid #53CAC3;
+    text-align: center;
+    line-height: .4rem;
+    border-radius: .02rem;
+    position: relative;
+    left:50%;
+    margin-left: -.73rem;
+    margin-top: .3rem;
+}
+.suppliers-end{
+    height: 2.36rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+.pic-minheight{
+    width:100%;
+    padding:0;
+    margin: 0;
+    background-color: #fff;
+}
+
+
+/*手指活动*/
+@keyframes skyset {
+    0%{
+        transform: translateY(0%);
+    }
+    100%{
+        transform: translateY(50%);
+    }
+}
+.suppliers_figure1{
+    width: 9.6%;
+    position: absolute;
+    top:18%;/*24%*/
+    left: 10%;
+    right: 0;
+    margin: auto;
+    -webkit-animation-name: skyset1;
+    -webkit-animation-duration: 500ms;
+    -webkit-animation-iteration-count: infinite; /*无限循环*/
+    -webkit-animation-timing-function: linear;
+}
+@keyframes skyset1 {
+    0%{
+        transform: translateY(-60%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+ @media screen and (min-width: 768px) and (max-width: 1024px){
+
+     .suppliers_mywabao{
+         top: auto;
+     }
+     footer{
+         height: 3.40rem;
+     }
+     .suppliers_treature_top{
+         height: auto;
+     }
+ }
+.suppliers_show{
+    width: 1.53rem;
+    position: fixed;
+    right: .4rem;
+    top:.4rem;
+}
+
+
+@media screen and (max-width: 374px){
+    .suppliers-list {
+        font-size: 10px;
+        line-height: .18rem;
+    }
+    .suppliers_treature_border{
+        padding :0 .10rem;
+        font-size: 10px;
+    }
+    .suppliers_text{
+        left: 9%;
+    }
+    .suppliers-down{
+        font-size: 12px;
+        padding:0;
+    }
+    .suppliers_mywabao{
+        top:.27rem;
+    }
+    .suppliers_treature_fight{
+        width: .8rem;
+    }
+    .suppliers_treature_less_right{
+        margin-left: .18rem;
+    }
+}

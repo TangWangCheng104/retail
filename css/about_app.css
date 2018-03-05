@@ -1,0 +1,69 @@
+
+/*＝＝＝＝＝＝＝＝＝全局样式开始＝＝＝＝＝＝＝＝*/
+*{
+	padding:0;
+	margin:0;
+}
+p{
+	margin: 0;
+}
+ul{
+	list-style:none;
+}
+a{
+	text-decoration:none;
+	color:#000000;
+}
+img{
+	border:none;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+	line-height: 1.4;
+}
+/*＝＝＝＝＝＝＝＝＝全局样式结束＝＝＝＝＝＝＝＝*/
+.about_tit{
+	text-align:center;
+	font-size:22px;
+	font-weight:bold;
+	padding-bottom:10px;
+}
+.about_tit02{
+	font-size:20px;
+}
+.cont_p{
+	text-align:justify;
+		
+}
+.cont_p h4{
+	text-align:center;
+	font-weight:bold;
+}
+.cont_p h5{
+	font-size:16px;
+	font-weight:bold;
+}
+.cont_p p{
+	text-indent:2em;
+}
+.cont_p p a{
+	color:blue;
+	text-decoration:underline;
+}
+.cont_p p span{
+	padding-right:10px;
+}
+.cont_p div{
+	margin-bottom: 10px;
+}
+.cont_p span {
+	padding-right: 8px;
+}
+p{
+	margin: 0;
+}
+b{
+	padding-right: 8px;
+}
+.com_title02{
+	font-size: 16px;
+}

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name='apple-itunes-app' content='app-id=1035128844'>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>小骨银饰</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/retailCommon.css" rel="stylesheet">
+    <link href="css/app_downAlert.css" rel="stylesheet">
+    <link href="http://192.168.1.127/html/pg_h5/css/im/mui.min.css" rel="stylesheet">
+    <link href="css/chat-msg.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="application/javascript">
+        var WebIM = {};
+        $(function(){
+        	var getStorage = localStorage.getItem("pageContent") ? JSON.parse( localStorage.getItem("pageContent") ) : []
+        	console.log()
+        	if( getStorage.length ){
+        		$('.container-fluid').html("");
+        		$('.container-fluid').html( getStorage );
+        	}
+        	
+            $("#msg-text").blur(function(){
+                $('#msg-text').getCursorPosition();
+                console.log(pos);
+            });
+            /*点击添加表情*/
+            $('.im-goodMsg-footer-session-face').on("click",".chat-content-face-big",function(){
+                var str = $('#msg-text').html();
+                $('#msg-text').html("")
+                var oimg = this.src
+                var imgContent = `${str} <a href= "javascript:insertIcon('[smile]')" > <img class="chat-content-face" src="${ oimg }" /> </a>`
+
+//              console.log( <a href = "insertIcon('[smile]')"><img border="0" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" /><a> )
+				//发送按钮的显示隐藏
+				sendMsgBtn();
+                $('#msg-text').append( imgContent );
+            })
+//            替换表情符
+            WebIM.Emoji = {
+                path: '/js/im/faces/',  /*表情包路径*/
+                map: {
+                    '[):]': 'ee_1.png',
+                    '[:D]': 'ee_2.png',
+                    '[;)]': 'ee_3.png',
+                    '[:-o]': 'ee_4.png',
+                    '[:p]': 'ee_5.png'
+                }
+            };
+            var content = '格拉斯发时发[):]送分发时发送分[):]发沙发沙发[:p]分发时发送分发沙';
+            for(var key in WebIM.Emoji.map){
+//                replaceAll(content, key,WebIM.Emoji.map[key]);
+                var img = '<img class="chat-content-face" src="http://192.168.1.127/html/h5//js/im/faces/#img#"/>';
+                img = img.replace("#img#",WebIM.Emoji.map[key]);
+                content = replaceAll(content, key,img);
+                console.log(content);
+            }
+//            console.log(key);
+//            var content = '格拉斯发时';
+            $(".js_mycon").html(content);
+
+        });
+        function insertIcon(iconCode) {
+			
+            var txtarea = document.inputform.message;
+            iconCode = ' ' + iconCode + ' ';
+            if (txtarea.createTextRange && txtarea.caretPos) {
+            var caretPos = txtarea.caretPos;
+            caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? iconCode + ' ' : iconCode;
+            txtarea.focus();
+            } else {
+            txtarea.value  += iconCode;
+            txtarea.focus();
+            }
+        }
+
+//    替换字符串
+function replaceAll(str, a, b) {
+    while (str.indexOf(a) != -1) {
+        str = str.replace(a, b)
+    }
+    return str;
+}
+/*建立localStorage*/
+function setStorage(){
+	var pageContent = JSON.stringify( $('.container-fluid').html() );
+	localStorage.setItem( "pageContent",pageContent )
+}
+//获取输入框光标的位置
+var pos = 0;
+(function ($, undefined) {
+    $.fn.getCursorPosition = function () {
+        var el = $(this).get(0);
+//        var pos = 0;
+        if ('selectionStart' in el) {
+            pos = el.selectionStart;
+        } else if ('selection' in document) {
+            el.focus();
+            var Sel = document.selection.createRange();
+            var SelLength = document.selection.createRange().text.length;
+            Sel.moveStart('character', -el.value.length);
+            pos = Sel.text.length - SelLength;
+            console.log(Sel)
+            console.log(pos)
+            console.log(SelLength)
+
+        }
+        return pos;
+    }
+})(jQuery);
+//获取输入框光标的位置  end
+        function session_Fun(obj,myshow){
+    var show = $(obj).attr("show");
+    /*if(show==0){
+        $(myshow).show().siblings('.js_siblings').hide();
+        $(obj).attr("show","1");
+    }else {
+        $(myshow).hide().siblings('.js_siblings').show();
+        $(obj).attr("show","0");
+    }*/
+    if( $(myshow).css('display') == "none" ){
+        $(myshow).show().siblings('.js_siblings').hide();
+        $('.js_Content').show();
+        /*让页面滑到最低端*/
+   		scrollBottom()
+    }else{
+        $('.js_siblings').hide();
+        $('.js_Content').hide();
+    }
+    
+//    document.getElementById("msg-text").focus();
+//    $('.bottom_fix').css('position','static');
+
+}
+/*表情框的消失与出现*/
+function hide(){
+	/*让页面滑到最低端*/
+   	scrollBottom()
+	$('.js_Content').hide();
+    $('.js_siblings').hide()
+};
+/*发送按钮的显示与隐藏*/
+function sendMsgBtn(t){
+//	console.log( $(t).html() == "")
+//	console.log( $(t).html() )
+	
+    if( $(t).html() == "" ){
+        $("#choiseImg").show()
+        $("#sendBtn").hide()
+    } else{
+    	$("#choiseImg").hide()
+        $("#sendBtn").show()
+    }
+    
+}; 
+/*点击发送触发这个方法*/   
+function sendMsg(t){
+    $("#choiseImg").show()
+    $("#sendBtn").hide()
+    var  str = $('#msg-text').html()
+    /*发送到页面的内容*/
+    var sendContent = `<div class="chat-sender comafter">
+        <div class="chat-avatar">
+             <img src="http://oss.pg.yibaotong.top/thumbnails/user/moremtouxiang1@3x.png">
+        </div>
+        <div class="chat-content">
+            <span>
+                <div>${ str }</div>
+            </span>
+            <div class="chat-triangle">
+            </div>
+        </div>
+    </div>`
+    $(".container-fluid").append( sendContent )
+    /*清空输入框*/
+    $('#msg-text').html("")
+    /*让页面显示最后一条信息*/
+   	scrollBottom()
+   	/*设置localStorage*/
+   	setStorage()
+}
+/*让页面显示最后一条信息*/
+function scrollBottom(){
+	var scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+    $(window).scrollTop( scrollHeight )
+}
+</script>
+</head>
+<body>
+<div class="container-fluid padding-0px">
+    <div class="text-center im-goodMsg-time">
+        <span>2017年1月14日 14:18</span>
+    </div>
+    <div class="im-goodMsg flex-row">
+        <div class="im-goodMsg-img flex-row">
+            <ul class="figure-list">
+                <li>
+                    <figure style="background-image: url('images/retail-goodsDetails-img003.png')">
+                        <a href="#"></a>
+                    </figure>
+                </li>
+            </ul>
+        </div>
+        <div class="flex-data im-goodMsg-text">
+            <div class="im-goodMsg-text-title">手把件吊坠挂坠新疆和田玉羊脂白玉平安吊坠男士女士平安无事牌白玉牌子手把件吊坠挂坠新疆和田玉羊脂白玉平安吊坠男士女士平安无事牌白玉牌子</div>
+            <div class="color-zby">￥<span class="im-goodMsg-text-price">12280.88</span></div>
+        </div>
+    </div>
+    <div class="chat-receiver comafter">
+        <div class="chat-avatar">
+            <img src="http://oss.pg.yibaotong.top/thumbnails/user/moremtouxiang1@3x.png">
+        </div>
+        <div class="chat-content">
+            <div class="chat-triangle"></div>
+            <span>
+                <div>欢迎光临传世金玉珠宝分店<img class="chat-content-face" src="http://192.168.1.127/html/pg_h5/js/im/faces/ee_1.png" alt=""><img class="chat-content-face" src="http://192.168.1.127/html/h5//js/im/faces/ee_1.png" alt=""></div>
+                <div>
+                    传世金玉深圳店是传世金玉品牌的深
+                    圳分店传世金玉品牌的创立宗旨是结
+                    合传统的中国文化和前沿的设计理念
+                    做最符合中国人审美的珠宝首饰本店
+                    有各种新式翡翠、宝石、钻石、黄金
+                    K金首饰不定时举办各活动周到服务sssssssssssssssssssssssssssssssssss ssss ssssss sssssssssssssssssssssssssssss
+                </div>
+                <!--&lt;!&ndash;<div class="js_mycon">25</div>&ndash;&gt;测试替换表情符-->
+                <div class="chat-content-address">地址：深圳市罗湖区田贝三路明阳酒店21号铺传世金玉大厦门市部特待组</div>
+                <div class="chat-content-phone">电话：<a class="chart-content-underline" href="#" style="color: #0f93ff;">15872342263</a></div>
+                <div class="chat-content-ercode-text" style="display:none;">如有任何疑问，欢迎加微信号垂询：(长按识别二维码）</div>
+                <div class="chat-content-ercode-text text-center"><div>关注微信公众号</div><div>更多活动，更多优惠！</div></div>
+                <div class="chat-content-ercode">
+                    <img class="img-responsive" src="images/im_ercode.png"  alt="">
+                </div>
+            </span>
+        </div>
+    </div>
+    <!-- 聊天记录时间 -->
+    <div class="text-center im-goodMsg-time im-goodMsg-kefu">
+        <span>2017年1月14日 14:18</span>
+    </div>
+    <!-- 聊天客服 -->
+    <div class="text-center im-goodMsg-time im-goodMsg-kefu">
+        <span>客服小王为您服务</span>
+    </div>
+    <!-- 聊天内容 -->
+    <div class="chat-receiver comafter">
+        <div class="chat-avatar">
+            <img src="http://oss.pg.yibaotong.top/thumbnails/user/moremtouxiang1@3x.png">
+        </div>
+        <div class="chat-content">
+            <div class="chat-triangle"></div>
+            <span>
+                <div>您好！请问有什么可以帮到您？<img class="chat-content-face" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></div>
+            </span>
+        </div>
+    </div>
+    <!-- 聊天记录时间 -->
+    <div class="text-center im-goodMsg-time im-goodMsg-kefu">
+        <span>昨天9:54</span>
+    </div>
+
+    <div class="chat-sender comafter">
+        <div class="chat-avatar">
+             <img src="http://oss.pg.yibaotong.top/thumbnails/user/moremtouxiang1@3x.png">
+        </div>
+        <div class="chat-content">
+            <span>
+                <div>您好！你们店在哪里？<img class="chat-content-face" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></div>
+            </span>
+            <div class="chat-triangle">
+            </div>
+        </div>
+    </div>
+    <!-- 聊天内容提示 -->
+    <div class="chat-receiver comafter">
+        <div class="chat-avatar">
+            <img src="http://oss.pg.yibaotong.top/thumbnails/user/moremtouxiang1@3x.png">
+        </div>
+        <div class="chat-content">
+            <div class="chat-triangle"></div>
+            <span>
+                <div>
+                    如您有如下问题，可直接点击查看解决方法：
+                </div>
+                <!-- 默认提示 -->
+                <div><a class="chart-content-underline padding-top-bottom16" href="#">1. 如何退款？</a></div>
+                <div><a class="chart-content-underline padding-top-bottom16" href="#">2. 怎样找到我们的店铺？</a></div>
+                <div><a class="chart-content-underline padding-top-bottom16" href="#">3. 付款之后怎样拿到货？</a></div>
+                <div>如仍未解决您的问题，烦请留言哦~</div>
+            </span>
+        </div>
+    </div>
+    <!-- 二维码 -->
+    <div class="chat-receiver comafter">
+        <div class="chat-avatar">
+            <img src="http://oss.pg.yibaotong.top/thumbnails/user/moremtouxiang1@3x.png">
+        </div>
+        <div class="chat-content">
+            <div class="chat-triangle"></div>
+            <span>
+                <div class="chat-content-ercode margin-top0">
+                    <img class="img-responsive" src="images/im_ercode.png"  alt="">
+                </div>
+            </span>
+        </div>
+    </div>
+    <!-- 店名 -->
+    <div class="chat-receiver comafter">
+        <div class="chat-avatar">
+            <img src="http://oss.pg.yibaotong.top/thumbnails/user/moremtouxiang1@3x.png">
+        </div>
+        <div class="chat-content">
+            <div class="chat-triangle"></div>
+            <span>
+                <div>传世金玉深圳珠宝分店<img class="chat-content-face" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></div>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="im-goodMsg-footer-session"></div>
+<div class="im-goodMsg-footer navbar-fixed-bottom">
+    <div class="im-goodMsg-footer-session flex-row" style="display: none">
+        <div class="im-goodMsg-footer-microphone">
+            <img class="img-responsive" src="images/icon_microphone.png" alt="">
+        </div>
+        <div class="flex-data im-goodMsg-footer-input flex-row">
+            <textarea type="text" class="input-text" val="么么哒"></textarea>
+        </div>
+        <div class="im-goodMsg-footer-microphone">
+            <img class="img-responsive" onclick="session_Fun(this,'.js_allFace')" show="0" src="images/icon_face.png" alt="">
+        </div>
+        <div class="im-goodMsg-footer-microphone">
+            <img class="img-responsive" src="images/im_icon_more.png" alt="">
+        </div>
+    </div>
+    <!--底部发送一栏-->
+    <!--<div class="im-goodMsg-footer navbar-fixed-bottom" style="display:block;">
+        <div class="im-goodMsg-footer-session flex-row">
+            <div class="flex-column im-goodMsg-footer-photo footer-left" style="">
+                <i id='msg-choose-img' class="mui-icon"></i>
+                <input id="sendImgInput" type="file" class="input-photo" accept="image/*" style="">
+            </div>
+            <div class="flex-data im-goodMsg-footer-input">
+                &lt;!&ndash;<div contenteditable="true" id='msg-text' type="text" class='input-text' style="overflow: auto"></div>&ndash;&gt;
+                &lt;!&ndash;<textarea id='msg-text' type="text" class='input-text'></textarea>&ndash;&gt;
+                <textarea id='msg-text' class='input-text' rows=1 cols=40 style='overflow:scroll;overflow-y:hidden;overflow-x:hidden'
+                onfocus="window.activeobj=this;this.clock=setInterval(function(){activeobj.style.height=activeobj.scrollHeight+'px';},200);" onblur="clearInterval(this.clock);"></textarea>
+            </div>
+            <div class="im-goodMsg-footer-microphone im-goodMsg-footer-face">
+                <img class="img-responsive" onclick="session_Fun(this,'.js_allFace')" show="0"
+                     src="images/icon_face.png" alt="">
+            </div>
+            <div class="im-goodMsg-footer-send" style="padding-right: 15px">
+                <span class="img-responsive" id='msg-send-text'>发送</span>
+            </div>
+        </div>
+        <div class="js_allFace im-goodMsg-footer-session-face" style="display: none;">
+        </div>
+    </div>-->
+    <!--底部发送一栏end-->
+    <!--底部发送一栏修改-->
+    <div class="im-goodMsg-footer navbar-fixed-bottom" style="display:block;">
+        <div class="im-goodMsg-footer-session flex-row" >
+            <div class="flex-column im-goodMsg-footer-photo footer-left" style="display: none;" >
+            <i id='msg-choose-img' class="mui-icon"></i>
+            <!--<input id="sendImgInput" type="file" class="input-photo" accept="image/*" style="">-->
+        </div>
+            <div class="flex-data im-goodMsg-footer-input">
+                <!--<div contenteditable="true" id='msg-text' type="text" class='input-text' style="overflow: auto"></div>-->
+                <!--<textarea id='msg-text' type="text" class='input-text'></textarea>-->
+                <!-- <textarea id='msg-text' class='input-text' rows=1 cols=40 style='overflow:scroll;overflow-y:hidden;overflow-x:hidden'
+                          onfocus="window.activeobj=this;this.clock=setInterval(function(){activeobj.style.height=activeobj.scrollHeight+'px';},100);" onblur="clearInterval(this.clock);"></textarea> -->
+        <div contenteditable=true id='msg-text' class='input-text' rows=1 cols=40 style='overflow:scroll;overflow-y:hidden;overflow-x:hidden' onblur="hide()" onfocus="hide(),sendMsgBtn(this)" onkeyup="sendMsgBtn(this)"></div>
+            </div>
+            <div class="im-goodMsg-footer-send" style="padding-right: 15px;box-sizing: border-box">
+                <img class="img-responsive" onclick="session_Fun(this,'.js_allFace')" show="0"
+                     src="images/chat_icon_smil.png" alt="">
+            </div>
+            <div class="im-goodMsg-footer-microphone im-goodMsg-footer-face">
+                <img class="chat-choise-img" id="choiseImg"  onclick="session_Fun(this,'.js_choiseMdieo')" src="images/chat_icon_add.png" alt="">
+                <span class="send-btn" id="sendBtn" style="display: none;" onclick="sendMsg()" >发送</span>
+                <!-- <input id="sendImgInput" type="file" class="input-picture" accept="image/*" style=""> -->
+            </div>
+           
+        </div>
+        <div class="js_allFace js_siblings im-goodMsg-footer-session-face" style="display: none;">
+            <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+            <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+            <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+            <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+            <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+            <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+            <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+            <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+            <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+            <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+        </div>
+        <div class="js_choiseMdieo js_siblings im-goodMsg-footer-session-face im-goodMsg-footer-session-medio" style="display: none;">
+            <div class="chat-content-medio-wrap">
+                <span class="chat-medio-border">
+                    <img class="chat-content-medio-big" src="images/chat_photos.png" alt="">
+                    <input type="file" class="input-picture" accept="image/*" style="">
+                </span>
+                <span class="chat-medio-border">
+                    <img class="chat-content-medio-big" src="images/chat_camera.png" alt="">
+                    <input type="file" class="input-picture" accept="camera/*" capture="camera" style="">
+                </span>
+                <span class="chat-medio-border" style="display: none">
+                    <img class="chat-content-medio-big" src="images/chat_code.png" alt="">
+                </span>
+                <span class="chat-medio-border" style="display: none">
+                    <img class="chat-content-medio-big" src="images/chat_index.png" alt="">
+                </span>
+            </div>
+            <div class="chat-content-medio-total">
+                <span class="chat-content-medio-title">相册</span>
+                <span class="chat-content-medio-title">照相机</span>
+                <span class="chat-content-medio-title" style="display: none">微信二维码</span>
+                <span class="chat-content-medio-title" style="display: none">门店主页</span>
+            </div>
+        </div>
+    </div>
+    <!--底部发送一栏修改end-->
+     
+</div>
+<!--底部撑起的模块-->
+<div>
+	<div class="js_allFace js_Content im-goodMsg-footer-session-face" style="display: none">
+        <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+        <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+        <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+        <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+        <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+        <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+        <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+        <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+        <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+        <span><img class="chat-content-face-big" src="http://192.168.1.127/html/pg_h5//js/im/faces/ee_1.png" alt=""></span>
+    </div> 
+    
+    <div class="js_allMore im-goodMsg-footer-session-more" style="display: block">
+    </div>
+</div>
+</body>
+</html>

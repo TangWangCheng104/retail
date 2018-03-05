@@ -1,0 +1,37 @@
+<!doctype html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>JS原生跨域</title>
+  </head>
+  
+  <script>
+  	onload= function(){
+  		var result;  // API结果
+		// 回调函数
+		var callbackFunction = function (data) {
+			result = data;
+			console.log( data );
+			
+			console.log( JSON.stringify( result ) );
+		}
+  	} 
+   
+	
+	
+  </script>
+  <body>
+    <div id="container" tabindex="0"></div>
+  </body>
+  
+  <script>
+	// 调用API
+	(function (){
+		var url = "http://tj.nineton.cn/Heart/index/future24h/?city=CHSH000000&language=zh-chs&key=36bdd59658111bc23ff2bf9aaf6e345c&callback=callbackFunction";
+		var script = document.createElement("script");
+		script.src = url;
+		document.getElementsByTagName('body')[0].appendChild(script);
+	})();
+  </script>
+</html>

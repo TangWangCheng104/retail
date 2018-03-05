@@ -1,0 +1,24 @@
+[
+  {
+    "id":"zishu",
+    "status":0,
+    "addLimit":100,
+    "addRecord":0,
+    "helpAddPrice":[],
+    "todayAddForself":0,
+    "jMaxAddPriceNum":15,
+    "jMinAddPriceNum":10
+  },
+  {
+    "id":"qiming",
+    "status":1,
+    "addPriceLimit":100,
+    "helpAddPrice":[
+      { "name":"zishu","addPrice":10,"addPriceTime":1513582779588 },
+      { "name":"wangwu","addPrice":20,"addPriceTime":1513582779588 },
+      { "name":"13265565715","addPrice":30,"addPriceTime":1513582779588 },
+      { "name":"13265565715","addPrice":20,"addPriceTime":1513582779588 }
+    ]
+
+  }
+]

@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    word-wrap: break-word;
+}
+*:not(input,textarea) {
+    -webkit-touch-callout: inherit;
+    -webkit-user-select: auto;
+}
+body {
+    width: 100%;
+    font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    -webkit-touch-callout: inherit ;
+    -webkit-user-select: auto ;
+    background-color: #fff;
+    word-wrap: break-word;
+}
+a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+}
+img{
+    border: none;
+}
+a:hover {
+    text-decoration: none;
+}
+a{
+    cursor: pointer;
+}
+button,input,select,textarea {
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+dt,dd {
+    display: inline-block;
+}
+textarea,input,button {
+    resize: none;
+    outline: none;
+}
+textarea {
+    resize: none;
+    -webkit-appearance: none;
+}
+ul,ol,li {
+    list-style: none;
+}
+em {
+    font-style: normal;
+}
+ul{
+    list-style: none;
+}
+img{
+    border: none;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.padding-0px{
+    padding: 0;
+}
+.flex-row{
+    /*display: box;              !* OLD - Android 4.4- *!*/
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    /* 09版 */
+    -webkit-box-orient: horizontal;
+    /* 12版 */
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    -o-flex-direction: row;
+    flex-direction: row;
+    /* 09版 */
+    -webkit-box-pack: center;
+    /* 12版 */
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+}
+.flex-column{
+    /*display: box;              !* OLD - Android 4.4- *!*/
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    /* 09版 */
+    -webkit-box-orient: horizontal;
+    /* 12版 */
+    -webkit-flex-direction:column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+    /* 09版 */
+    -webkit-box-pack: center;
+    /* 12版 */
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+}
+.align-items-start{
+    -webkit-align-items:flex-start;
+    -moz-align-items:flex-start;
+    -ms-align-items:flex-start;
+    -o-align-items:flex-start;
+    align-items:flex-start;
+}
+.flex-data{
+    -webkit-box-flex: 1;   /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1;     /* OLD - Firefox 19- */
+    -webkit-flex: 1;      /* Chrome */
+    -ms-flex: 1;         /* IE 10 */
+    flex: 1;              /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+.content:after,.comafter:after{
+    content: "\200B";
+    display: block;
+    height: 0;
+    clear: both;
+}
+.fadein{
+    animation: fadein 1s ;
+    -moz-animation: fadein 1s ;	/* Firefox */
+    -webkit-animation: fadein 1s;	/* Safari 和 Chrome */
+    -o-animation: fadein 1s;	/* Opera */
+}
+@keyframes fadein
+{
+    0% {opacity: 0}
+    50%{opacity: 0}
+    100% {opacity: 1}
+}
+
+@-moz-keyframes fadein /* Firefox */
+{
+    0% {opacity: 0}
+    50%{opacity: 0}
+    100% {opacity: 1}
+}
+@-webkit-keyframes fadein /* Safari 和 Chrome */
+{
+    0% {opacity: 0}
+    50%{opacity: 0}
+    100% {opacity: 1}
+}
+@-o-keyframes fadein /* Opera */
+{
+    0% {opacity: 0}
+    50%{opacity: 0}
+    100% {opacity: 1}
+}
+.clearfix:after{
+    content: '.';
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    clear: both;
+    display:block;
+}

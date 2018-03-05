@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>关闭订单</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/auction.css">
+</head>
+<body>
+    <div class="auction-status-wrap">
+        <div class="auction-left auction-left-close">
+            <span class="auction-left-line"></span>
+
+        </div>
+        <ul class="auction-right">
+            <li class="auction-right-active">
+                <div class="auction-finish-text auction-finish-text1">
+                    <span class="auction-big-circle-outer"></span>
+                    <span class="auction-step-noactive ">订单关闭</span>
+                </div>
+                <div class="auction-finish-text">
+                    <span class="auction-finish-date">2017-06-30</span>
+                    <span class="auction-finish-time">12:51:14</span>
+                </div>
+            </li>
+            <li>
+                <div class="auction-finish-text auction-finish-text1"><span class="auction-small-circle-outer auction-small-circle-outer-nowStatus" style=""></span><span class="auction-step-active">逾期未提货，罚没保证金</span></div>
+                <div class="auction-finish-text"><span class="auction-finish-date">2017-06-30</span> <span class="auction-finish-time">12:51:14</span></div>
+            </li>
+            <li>
+                <div class="auction-finish-text auction-finish-text1"><span class="auction-small-circle-outer" style=""></span><span class="auction-step-noactive ">商家通知提货</span></span> <span class="auction-finish-username"><span class="auction-username-touxiang" style="background: url('../images/auction_logo.png') no-repeat center center/cover" ></span><span class="auction-name-ellipsis">小骨小骨小骨小骨</span></span></div>
+                <div class="auction-finish-text"><span class="auction-finish-date">2017-06-30</span> <span class="auction-finish-time">12:51:14</span></div>
+            </li>
+            <li>
+                <div class="auction-finish-text auction-finish-text1"><span class="auction-small-circle-outer" style=""></span><span class="auction-step-noactive ">拍卖活动参与成功</span><span class="auction-step-noactive "></span></div>
+                <div class="auction-finish-text"><span class="auction-finish-date">2017-06-30</span> <span class="auction-finish-time">12:51:14</span></div>
+            </li>
+            <li>
+                <div class="auction-finish-text auction-finish-text1"><span class="auction-small-circle-outer" style=""></span><span class="auction-step-noactive ">报名拍卖活动</span></span></div>
+                <div class="auction-finish-text"><span class="auction-finish-date">2017-06-30</span> <span class="auction-finish-time">12:51:14</span></div>
+            </li>
+        </ul>
+
+    </div>
+</body>
+</html>
+<script src="../js/jquery-1.10.2.min.js"></script>
+<script>
+    /*左侧图片的位置*/
+    $(function(){
+        var ulHeight = $('.auction-right')[0].clientHeight;
+        $('.auction-left-line').css('height',ulHeight - 82)
+    })
+
+</script>

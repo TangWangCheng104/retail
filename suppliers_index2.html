@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>商品详情</title><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>挖宝活动</title>
+    <!-[if IE9]>
+    <script src="js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers{display:none!important;}</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a></div>
+    </noscript>
+    <![endif]->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-goodsDetails.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/suppliers.css">
+    <link href="css/treasure_index.css" rel="stylesheet">
+    <!--js引入-->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="js/messages.js"></script>
+    <!--轮播图滑动js引入-->
+    <script src="js/hammer.min.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script type="text/javascript" src="js/pinchzoom.js"></script>
+    <script src="js/app_product.js"></script>
+    <script src="js/goodDetail.js"></script>
+    <script src="js/retail_cofirmBuying.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/suppliers.js"></script>
+    <script src="js/suppliers-index.js"></script>
+    <script>
+        /*调用定时器函数*/
+        $(function(){
+            /*arr里面的是秒数*/
+            var arr = [10000];
+            for(var i = 0;i<$(".suppliers_setinterval").length;i++){
+                timerSH(arr[i],i);
+            }
+        })
+
+    </script>
+</head>
+<body style="background: #ffefcd">
+    <header>
+        <!--这是遮罩层-->
+        <!--挖宝活动的遮罩层-->
+        <div class="js_black_type hide_com_buy com_black" style="display: none" onclick="cancelAlert_slide()"></div>
+        <div class="js_comBlack hide_com_buy com_black" style="display: none"></div>
+        <!--这是采购商无权限弹出框 您不是展厅经理-->
+        <ul class="js_hide_com alert-centent" style="display:none;">
+            <li>您不是展厅经理，暂无权操作权限</li>
+            <li><a href="http://m.pg.yibaotong.top/" class="staff-btn" onclick="cancelAlert()">打开或下载APP</a></li>
+        </ul>
+
+        <!--是推广员或员工时-->
+
+        <div class="js_hide_com js_storeP_alert comafter delete-address-alert flex-row" style="display: none">
+            <div class="delete-address-alert-info">
+                <div class="store-text">
+                    <div class="store-staff-text">您是推广人或员工，如需创建店铺，请先向门店申请解绑</div>
+                </div>
+                <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()">关闭</span>
+            </div>
+        </div>
+        <!--我的挖宝弹出框-->
+        <div class="js_hide_com js_storeP_alert comafter delete-address-alert-treasure flex-row" style="display: none">
+            <div class="delete-address-alert-info treasure-alert-width">
+                <div class="">
+                    <img class="treasure-alert1-img" src="images/treasure_alert1.png" />
+                </div>
+
+                <div class="store-text treasure-text">
+                    <div class="store-staff-text treasure-dont-text">别眼馋了</div>
+                    <div class="store-staff-text treasure-self-text">这是别人的宝藏，想要自己去挖吧</div>
+                </div>
+                <div class="treasure-mytreasure tresure-alert-active">我的挖宝</div>
+                <a href="javascript:;" onclick="cancelAlert_slide()" ><div class="treasure-mysure">确定</div></a>
+                <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()" style="display: none">关闭</span>
+            </div>
+        </div>
+        <!--没有挖到宝贝弹出框-->
+        <div class="js_hide_com js_storeP_alert comafter delete-address-alert-treasure flex-row" style="display: none">
+            <div class="delete-address-alert-info treasure-alert-width">
+                <img class="treasure-alert1-img" src="images/treasure_alert2.png" />
+                <div class="store-text treasure-text">
+                    <div class="store-staff-text treasure-dont-text">尴了个尬</div>
+                    <div class="store-staff-text treasure-self-text">帮倒忙手一抖，倒填回去了<span class="treasure-filling-in">5</span>米!</div>
+                </div>
+                <div class="treasure-mytreasure tresure-alert-active">我的挖宝</div>
+                <a href="javascript:;" onclick="cancelAlert_slide()" ><div class="treasure-mysure">确定</div></a>
+                <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()" style="display: none">关闭</span>
+            </div>
+        </div>
+        <!--挖正数弹出框-->
+        <div class="js_hide_com js_storeP_alert comafter delete-address-alert-treasure flex-row" style="display: none">
+            <div class="delete-address-alert-info treasure-alert-width">
+                <img class="treasure-alert1-img" src="images/treasure_alert3.png" />
+                <div class="store-text treasure-text">
+                    <div class="store-staff-text treasure-dont-text">关键时刻显真情</div>
+                    <div class="store-staff-text treasure-self-text">感谢你勤勤恳恳，帮挖了<span class="treasure-filling-in">5</span>米!</div>
+                </div>
+                <div class="treasure-mytreasure tresure-alert-active ">我的挖宝</div>
+                <a href="javascript:;" onclick="cancelAlert_slide()" ><div class="treasure-mysure">确定</div></a>
+                <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()" style="display: none">关闭</span>
+            </div>
+        </div>
+        <!--负数弹出框-->
+        <div class="js_hide_com js_storeP_alert comafter delete-address-alert-treasure flex-row" style="display: none">
+            <div class="delete-address-alert-info treasure-alert-width">
+                <img class="treasure-alert1-img" src="images/treasure_alert2.png" />
+                <div class="store-text treasure-text">
+                    <div class="store-staff-text treasure-self-text">哎呀，手一抖倒填回去<span class="treasure-filling-in">5</span>米!</div>
+                </div>
+                <a href="javascript:;" onclick="cancelAlert_slide()" ><div class="treasure-mysure tresure-alert-active tresure-only-sure">确定</div></a>
+                <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()" style="display: none">关闭</span>
+            </div>
+        </div>
+        <!--一自己挖正数弹出框-->
+        <div class="js_hide_com js_storeP_alert comafter delete-address-alert-treasure flex-row" style="display: none">
+            <div class="delete-address-alert-info treasure-alert-width">
+                <img class="treasure-alert1-img" src="images/treasure_alert3.png" />
+                <div class="store-text treasure-text">
+                    <div class="store-staff-text treasure-self-text">哇塞，你一铲子下去挖了<span class="treasure-filling-in">5</span>米!</div>
+                </div>
+                <a href="javascript:;" onclick="cancelAlert_slide()" ><div class="treasure-mysure tresure-alert-active tresure-only-sure">确定</div></a>
+                <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()" style="display: none">关闭</span>
+            </div>
+        </div>
+        <!--一自己挖第二次弹出框-->
+        <div class="js_hide_com js_storeP_alert comafter delete-address-alert-treasure flex-row" style="display: none">
+            <div class="delete-address-alert-info treasure-alert-width">
+                <div class="">
+                    <img class="treasure-alert1-img" src="images/treasure_alert1.png" />
+                </div>
+
+                <div class="store-text treasure-text">
+                    <div class="store-staff-text treasure-dont-text">今天已经挖过了</div>
+                    <div class="store-staff-text treasure-self-text">等明天吧，或者找朋友帮忙！</div>
+                </div>
+                <a href="javascript:;"><div class="treasure-mytreasure tresure-alert-active">喊朋友帮挖</div></a>
+                <a href="javascript:;" onclick="cancelAlert_slide()" ><div class="treasure-mysure">确定</div></a>
+                <!--<span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()" style="display: none">确定</span>-->
+            </div>
+        </div>
+
+        <!--已帮好友挖-->
+        <div class="js_hide_com js_storeP_alert comafter delete-address-alert-treasure flex-row" style="display: none">
+            <div class="delete-address-alert-info treasure-alert-width">
+                <div class="">
+                    <img class="treasure-alert1-img" src="images/treasure_alert1.png" />
+                </div>
+
+                <div class="store-text treasure-text">
+                    <div class="store-staff-text treasure-dont-text">你真热心</div>
+                    <div class="store-staff-text treasure-self-text">不过只能帮好友挖一次哦</div>
+                </div>
+                <a href="javascript:;"><div class="treasure-mytreasure tresure-alert-active">我的挖宝</div></a>
+                <a href="javascript:;" onclick="cancelAlert_slide()" ><div class="treasure-mysure">确定</div></a>
+                <!--<span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()" style="display: none">确定</span>-->
+            </div>
+        </div>
+        <!--挖宝规则-->
+
+        <div class="js_hide_com js_storeP_alert comafter delete-address-alert flex-row " style="display: none;position: fixed">
+            <div class="delete-address-alert-info delete-address-alert-list">
+                <div class="store-text">
+                    <div class="store-staff-text">
+                        <ul class="suppliers-rules">
+                            <p class="suppliers-title">挖宝规则</p>
+                            <li>
+                                <p class="suppliers-list">
+                                    1. 店长开启砍价活动后，推广人可将
+                                    活动分享至各个平台（微信，朋友
+                                    圈等等）。
+                                </p>
+                            </li>
+                            <li>
+                                <p class="suppliers-list">
+                                    2. 用户通过推广人/好友分享的链接开
+                                    启挖宝活动。
+                                </p>
+                            </li>
+                            <li>
+                                <p class="suppliers-list">
+                                    3. 活动期间自己每天可挖宝一次，可
+                                    转发给朋友帮忙挖宝，每位朋友可
+                                    以帮挖一次。
+                                </p>
+                            </li>
+                            <li>
+                                <p class="suppliers-list">
+                                    4. 每次挖宝将会减少和宝藏的距离，
+                                    直至为零，则成功挖到宝藏。活动
+                                    结束时依旧没有挖到宝藏，则挖宝
+                                    失败。
+                                </p>
+                            </li>
+                            <li>
+                                <p class="suppliers-list">
+                                    5. 活动期间每人限开启一次挖宝活动。
+                                </p>
+                            </li>
+                            <li>
+                                <p class="suppliers-list">
+                                    6. 店长可在设置帮挖人数处设置至少
+                                    需多少人帮忙挖宝才可挖到宝藏。
+                                </p>
+                            </li>
+                        </ul>
+                        <ul class="suppliers-rules suppliers-last-ul">
+                            <p class="suppliers-title">退款须知</p>
+                            <li>
+                                <p class="suppliers-list">
+                                    1. 店长开启砍价活动后，推广人可将
+                                    活动分享至各个平台（微信，朋友
+                                    圈等等）。
+                                </p>
+                            </li>
+                            <li>
+                                <p class="suppliers-list">
+                                    2. 用户通过推广人/好友分享的链接开
+                                    启挖宝活动。
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()">关闭</span>
+            </div>
+        </div>
+        <!--挖宝活动的遮罩层结束-->
+        <!--这是没有网络时的加载图片-->
+        <div class="suppliers_loading" style="display: none"><img src=""> <img src="images/loading.gif" /></div>
+        <nav>
+            <span class="suppliers-nav">恭喜<span class="suppliers-nav-color">阿耿</span>成功挖到宝藏,获得惊喜<span class="suppliers-nav-color1">3折</span>！</span>
+        </nav>
+        <!--头图第一版-->
+        <div class="suppliers_treature_head" style="display: none">
+            <img class="suppliers_treature_top" src="images/suppliers_01.png" />
+            <div class="suppliers_text">
+                自古深情留不住
+                总是挖宝得人心
+            </div>
+            <img class="suppliers_figure" src="images/suppliers_figure.png">
+            <img class="pic_chanzi_nor" src="images/pic_chanzi_nor@3x.png" alt="">
+        </div>
+        <!--头图第二版-->
+        <div class="suppliers_treature_head" style="display: none">
+            <img class="suppliers_treature_top" src="images/suppliers_two.png" />
+            <img class="suppliers_figure1" src="images/suppliers_figure.png">
+        </div>
+        <!--头图第三版我的挖宝-->
+        <div class="suppliers_treature_head" style="display: block">
+            <img class="suppliers_treature_top" src="images/suppliers_four.png" />
+            <img class="suppliers_figure" src="images/suppliers_figure.png">
+            <img class="pic_baozang_nor" src="images/pic_baozang_nor@3x.png" />
+        </div>
+    </header>
+    <article>
+        <p class="suppliers_treature_description">「传世金玉珠宝店」</p>
+        <p class="suppliers_treature_description">感恩回馈，挖到宝藏获惊喜折扣</p>
+        <!--第二/第三张图-->
+        <div class="suppliers_treature_lesstime" style="display:block; ">
+            <div class="suppliers_time_border">
+                <span class="text_background">距</span><span class="text_background">离</span><span class="text_background">宝</span><span class="text_background">藏</span>
+                <img class="suppliers_time_double" src="images/suppliers_double_point.png" />
+                <span class="text_background">0</span><span class="text_background">0</span><span class="text_background">0</span><span class="text_background">米</span>
+            </div>
+        </div>
+        <!---->
+        <div class="suppliers_treature_get" style="display: block" >
+            <ul class="suppliers_treature_get suppliers_treature_imgps">
+                <!--最开始的一版本-->
+                <!--<li><img class="suppliers_get_img1" src="images/butt_wodewabao_nor@3x.png" /></li>-->
+                <li><img class="suppliers_get_img2" src="images/butt_anniu_nor@3x.png" /><span class="suppliers_mywabao">炫耀一下</span></li>
+            </ul>
+        </div>
+        <div class="suppliers-double_window">
+            <img class="window_left" src="images/window_left.png" />
+            <img class="window_right" src="images/window_right.png" />
+        </div>
+        <!--第一版挖到宝后帮哇-->
+        <div class="suppliers_treature_border suppliers_treature_position" style="display: none">
+            <div class="suppliers_vs"><img class="suppliers_vs_images" src="images/suppliers_vs.png" /></div>
+            <div class="suppliers_treature_left">
+                <img src="images/pic_tatouxiang_nor@3x.png">
+                <span class="suppliers_treature_fight">
+                    <span class="suppliers_treature_histreature">他的挖宝</span><span class="suppliers_treature_less"> 剩余<span class="suppliers_treature_number">80</span>米</span>
+                </span>
+            </div>
+            <div class="suppliers_treature_right">
+                <span class="suppliers_treature_fight">
+                    <span class="suppliers_treature_histreature">他的挖宝</span><span class="suppliers_treature_less"> 剩余<span class="suppliers_treature_number">80</span>米</span>
+                </span>
+                <img src="images/pic_tatouxiang_nor@3x.png">
+            </div>
+        </div>
+        <!--第一版挖宝-->
+        <ul class="suppliers_treature_get suppliers_treature_imgps" style="display: none">
+            <!--最开始的一版本-->
+            <!--<li><img class="suppliers_get_img1" src="images/butt_wodewabao_nor@3x.png" /></li>-->
+            <li><img class="suppliers_get_img2" src="images/butt_anniu_nor@3x.png" /><span class="suppliers_mywabao">我的挖宝</span></li>
+        </ul>
+        <ul class="suppliers_treature_get suppliers_treature_imgps" style="display: none">
+            <!--最开始的一版本-->
+            <!--<li><img class="suppliers_get_img1" src="images/butt_wodewabao_nor@3x.png" /></li>-->
+            <li><img class="suppliers_get_img2" src="images/butt_anniu_nor@3x.png" /><span class="suppliers_mywabao">叫朋友帮挖</span></li>
+        </ul>
+        <div class="suppliers_setinterval">
+            <img class="su_cricle" src="images/cricle.png" />
+            <span>活动剩余: <span class="suppliers_day">10</span> 天<span class="suppliers_hours"> 2</span> 小时 <span class="suppliers_min">30</span> 分<span class="suppliers_second"> 20 </span> 秒</span>
+        </div>
+        <div class="suppliers_computer_head">
+            <img src="images/pic_tatouxiang_nor@3x.png" />
+        </div>
+        <div class="suppliers_computer_yours" style="display: none">
+            <img src="images/pic_biaoqian_nor@3x.png" />
+            <span class="suppliers_computer1_title">他的挖宝小分队</span>
+        </div>
+        <!--第三版-->
+        <div class="suppliers_computer_yours">
+            <img src="images/pic_biaoqian_nor@3x.png" />
+            <span class="suppliers_computer1_title">我的挖宝小分队</span>
+        </div>
+        <div class="suppliers-descript">
+            <p><span class="suppliers_username">夏云天的小果子</span>辛勤劳作帮挖了<span class="suppliers_number1">1</span>米</p>
+            <p><span class="suppliers_username">夏云天的小果子</span>辛勤劳作帮挖了<span class="suppliers_number1">1</span>米</p>
+            <p><span class="suppliers_username">夏云天的小果子</span>辛勤劳作帮挖了<span class="suppliers_number1">1</span>米</p>
+            <p><span class="suppliers_username">夏云天的小果子</span>辛勤劳作帮挖了<span class="suppliers_number1">1</span>米</p>
+            <p><span class="suppliers_username">夏云天的小果子</span>辛勤劳作帮挖了<span class="suppliers_number1">1</span>米</p>
+        </div>
+        <div class="suppliers_checkmore_father">
+            <span class="suppliers_checkmore">查看更多</span>
+        </div>
+        <span class="suppliers_people_number">
+            该活动共有<span class="suppliers_people_number1">34</span>人开启了挖宝之旅，<span class="suppliers_people_total">5224</span>人参与帮助挖宝。
+        </span>
+        <div class="suppliers_computer_rule">
+            <img src="images/pic_biaoqian_nor@3x.png" />
+            <span class="suppliers_computer1_title suppliers_computer1_title1">活动规则</span>
+        </div>
+        <div class="suppliers-descript">
+            <p class="suppliers-descript-h"><span class="suppliers_username">1.点击铲子进行挖宝，活动期间自己每天可挖宝一次，
+  可找朋友帮忙挖宝，每位朋友可以帮你挖一次。</p>
+            <p class="suppliers-descript-h"><span class="suppliers_username">2.每次挖宝将会改变和宝藏的距离，到零时成功挖到
+   宝藏。活动结束时依旧没有挖到宝藏，则挖宝失败。</p>
+            <p class="suppliers-descript-h suppliers-descript-last"><span class="suppliers_username">3.挖到宝藏将会获得一个随机折扣，可优惠购买活动
+   商品，具体信息见下面奖品信息。</p>
+        </div>
+        <div class="suppliers_computer_rule">
+            <img src="images/pic_biaoqian_nor@3x.png" />
+            <span class="suppliers_computer1_title suppliers_computer1_title1">商品活动</span>
+        </div>
+        <div class="suppliers_top_center">
+            <div class="suppliers_bottom_img" style="background: url('images/suppliers_flower.png') no-repeat center center/cover"></div>
+            <div class="suppliers_bottom_right">
+                <p class="suppliers_right_first">转运珠手链吊坠LOVE转运珠黄金吊坠
+                    路路通手链黄金饰品</p>
+                <p class="suppliers_right_seconds"><span class="suppliers_price">¥1000</span>仅剩534件</p>
+                <p class="suppliers_right_last"><span class="suppliers_price1">*</span> 挖到宝藏，即可享<span class="suppliers_price1">3-5折</span>的优惠</p>
+            </div>
+        </div>
+        <div class="suppliers_top_center suppliers_top2">
+            <div class="suppliers_bottom_img" style="background: url('images/suppliers_flower.png') no-repeat center center/cover"></div>
+            <div class="suppliers_bottom_right">
+                <p class="suppliers_right_first">转运珠手链吊坠LOVE转运珠黄金吊坠
+                    路路通手链黄金饰品</p>
+                <p class="suppliers_right_seconds"><span class="suppliers_price">¥1000</span>仅剩534件</p>
+                <p class="suppliers_right_last"><span class="suppliers_price1">*</span> 挖到宝藏，即可享<span class="suppliers_price1">3折</span>的优惠</p>
+            </div>
+        </div>
+    </article>
+    <footer>
+        <img class="footer_img" src="images/pic_ditu_nor@3x.png" />
+    </footer>
+</body>
+</html>

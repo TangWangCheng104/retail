@@ -1,0 +1,20 @@
+{
+  "single": {
+    "actId": 3375,
+    "itemId": 1121,
+    "title": "标题3",
+    "itemPhoto": "https://oss.pg.yibaotong.top/thumbnails/item/2017822_offline/125685134100.jpg",
+    "timeLength": 123,
+    "startTime": 15100000,
+    "state": "NOT_START"
+  },
+  "auction": {
+    "depositAmount": "1.00",
+    "reservePrice": "100",
+    "startPrice": "12.00",
+    "stepPrice": "10",
+    "auctionTime": 100000,
+    "setReservePrice": false,
+    "setStartPrice": true
+  }
+}

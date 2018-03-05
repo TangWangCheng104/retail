@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>订单详情</title>
+    <!-[if IE9]>
+    <script src="js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers{display:none!important;}</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <![endif]->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-waitingPay.css" rel="stylesheet" type="text/css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="js/messages.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script src="js/app_product.js"></script>
+    <script src="js/retail_cofirmBuying.js"></script>
+    <script>
+        $(function(){
+            timer(6*10 - 1);
+            timerSH(2*24*60+2*60+30, 0);  //分钟
+            //延期收货弹窗点确认时
+            $(".js_delay_sure").click(function () {
+                $(".js_com_black").hide();
+                $(".js_hide_com").hide();
+//                $('html,body').removeClass('ovfHiden'); //使弹窗后网页恢复可滚
+                for (var i = 0; i < $(".js_delay_btn").length; i++) {
+                    if ($(".js_delay_btn").eq(i).attr("myclick") == "1" && !$(".js_delay_btn").eq(i).hasClass("disabled")) {
+                        $(".js_delay_btn").eq(i).addClass("disabled")
+                    }
+                }
+            });
+        });
+        //15分钟倒计时
+//        var intDiff = 60 * 15 - 1;//倒计时总秒数量
+        function timer(intDiff) {
+            intDiff = parseInt(intDiff);
+            var t1 = window.setInterval(function () {
+//                console.log(1);
+                var day = 0,
+                        hour = 0,
+                        minute = 0,
+                        ms = 0,
+                        second = 0;//时间默认值
+                if (intDiff > 0) {
+                    day = Math.floor(intDiff / (10 * 60 * 60 * 24));
+                    hour = Math.floor(intDiff / (60 * 60 * 10) - (day * 24));
+                    minute = Math.floor(intDiff / (60*10) - (day * 24 * 60) - (hour * 60));
+                    second = Math.floor(intDiff / 10 - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60));
+                    ms = Math.floor(intDiff - (day * 24 * 60 * 60*10) - (hour * 60 * 60*10) - (minute * 60*10)-(second * 10));
+                }
+                if (minute <= 9) minute = '0' + minute;
+                if (second <= 9) second = '0' + second;
+//                $('#day_show').html(day + "天");
+//                $('#hour_show').html('<s id="h"></s>' + hour + '时');
+//                $('#minute_show').html('<s></s>' + minute + '分');
+//                $('#second_show').html('<s></s>' + second + '秒');
+                $(".js_timer").find(".js_minute_show").html('<s></s>' + minute);
+                $(".js_timer").find(".js_second_show").html('<s></s>' + second);
+                $(".js_timer").find(".js_ms_show").html('<s></s>' + ms);
+                //倒计时结束后，订单失效
+                if (intDiff <= 0) {
+                    $("#topay").addClass("disabled");
+                    $("#js_paystatus").text("订单失效");
+                    $(".js_timer_text").text("支付超时");
+                    clearInterval(t1);
+                    $(".js_toPay").removeClass("bgcolor-zby");
+                }
+                intDiff--;
+            }, 100);
+        }
+        //延期收货确认弹窗
+        function delayAlert(obj){
+            $(".js_com_black").show();
+            $(".js_delay_alert").show();
+            $(obj).attr("myclick","1");
+            //$('html,body').addClass('ovfHiden');//使弹窗后网页恢复不可滚
+        }
+    </script>
+</head>
+<body>
+<div class="container-fluid small_screen">
+    <div class="row">
+        <div class="retail-waitingPay">
+            <div class="flow-unpaid">
+                <!--物流未付款-->
+                <!--<img class="img-responsive" src="images/flow-unpaid-express.png" alt="">-->
+                <!--物流通知提货-->
+                <!--<img class="img-responsive" src="images/flow-unpaid-express01.png" alt="">-->
+                <!--物流买家提货-->
+                <img class="img-responsive" src="images/flow-unpaid-express02.png" alt="">
+                <!--物流交易完成-->
+                <!--<img class="img-responsive" src="images/flow-unpaid-express03.png" alt="">-->
+            </div>
+            <!--2017-5-9收货地址-->
+            <div class="com-interval border-none"></div>
+            <div style="display: block;" class="luo-address comafter border-bottom">
+                <div class="col-xs-12">
+                    <div class="flex-row" style="align-items:center">
+                        <div class="luo-address-left luo-address-left01">
+                            <img src="images/icon_people01.png" alt="">
+                        </div>
+                        <div class="luo-address-center flex-data">
+                            <div class="flex-row">
+                                <div>配送方式：</div>
+                                <div class="flex-data text-right">到店自提</div>
+                            </div>
+                            <div class="flex-row luo-address-name">
+                                <div>收货人：小骨</div>
+                                <div class="flex-data text-right">15811412177</div>
+                            </div>
+                            <div class="luo-address-name">广东省深圳市罗湖区田贝三路32号明阳酒店9A88</div>
+                        </div>
+                        <!--<div class="luo-address-right">-->
+                        <!--<img src="images/icon_jiantouR.png" alt="">-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+            <!--2017-5-9收货地址end-->
+            <!--2017-5-9留言信息-->
+            <div class="luo-address luo-leaveWords-wrap flex-row border-bottom">
+                <div class="flex-row col-xs-12" style="align-items:center">
+                    <div class="luo-address-left luo-address-left01">
+                        <img src="images/icon_message.png" alt="">
+                    </div>
+                    <div class="luo-address-center flex-data">
+                        <div>买家留言</div>
+                        <div class="js_ratio flex-data luo-address-name">
+                            <div>活动期间客流量比较大，希望卖家赠送的小礼品不忘记了还有优惠券的派发，请卖家备注好！</div>
+                        </div>
+                    </div>
+                    <!--<div class="luo-address-right">-->
+                    <!--<img src="images/icon_jiantouR.png" alt="">-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <!--2017-5-9留言信息end-->
+            <div class="com-interval"></div>
+            <div class="comafter retail-waitingPay-order-detail">
+                <div class="col-xs-12 retail-waitingPay-order-num-status">
+                    <div class="col-xs-7 padding-0px coretail-waitingPay-order-num">
+                        订单号：<span>order_0603</span>
+                    </div>
+                    <div id="js_paystatus" class="col-xs-5 padding-0px text-right color-zby">
+                        等待买家付款
+                    </div>
+                </div>
+                <div class="col-xs-12 first retail-waitingPay-order-detail-img">
+                    <div class="col-xs-3 padding-0px">
+                        <img class="img-responsive" src="images/retail-goodsDetails-img004.png" alt="">
+                    </div>
+                    <div class="col-xs-9 retail-waitingPay-order-detail-txt padding-0px">
+                        <div class="retail-waitingPay-order-detail-title">转运珠手链吊坠LOVE转运珠黄金吊坠路路通手链黄金饰品转运珠手链吊坠LOVE转运珠黄金吊坠路路通手链黄金饰品</div>
+                        <div class="retail-waitingPay-order-detail-artnum">货号：<span>2336</span></div>
+                        <div class="retail-waitingPay-order-detail-num">数量：<span>2</span>件</div>
+                        <div class="retail-waitingPay-order-detail-price">
+                            <div class="col-xs-8 padding-0px coretail-waitingPay-order-num">
+                                订单总额：<span>￥2336</span>元
+                            </div>
+                            <div class="col-xs-4 pay-price-past padding-0px text-right">
+                                ￥3000
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 retail-com-list">
+                    <div class="col-xs-6 padding-0px">订单总额：</div>
+                    <div class="col-xs-6 padding-0px text-right">￥2336</div>
+                </div>
+                <div class="col-xs-12 retail-com-list border-none">
+                    <div class="col-xs-6 padding-0px">运费：</div>
+                    <div class="col-xs-6 padding-0px text-right">￥18</div>
+                </div>
+            </div>
+            <div class="com-interval border-none"></div>
+            <div class="retail-waitingPay-payment comafter">
+                <div class="col-xs-12 retail-com-list border-none">
+                    <div class="col-xs-6 padding-0px">支付方式：</div>
+                    <div class="col-xs-6 padding-0px text-right">微信支付</div>
+                </div>
+            </div>
+            <div class="com-interval border-none"></div>
+            <div class="retail-waitingPay-payment comafter">
+                <div class="col-xs-12 flex-row retail-com-list border-none">
+                    <div class="flex-data padding-0px">收货期限</div>
+                    <div class="padding-0px text-right">
+                        <div class="js_timerSh flex-row goods-time">
+                            <i><img class="img-responsive icon_clock" src="images/icon_clock.png" alt=""></i>
+                            <span class="js_timerSh_text flex-data">
+                                剩余
+                                <span class="js_day_show" day="2">2</span>天
+                                <span class="js_hour_show" hour="2">2</span>小时
+                                <span class="js_minute_show" minute="30">30</span>分
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="com-interval border-none"></div>
+            <div class="comafter retail-waitingPay-contact-name" style="display: none">
+                <div class="comafter retail-com-list retail-waitingPay-refund-callme">
+                    <div class="col-xs-6 padding-0px text-center retail-waitingPay-refund"></div>
+                    <div class="col-xs-6 padding-0px text-center retail-waitingPay-callme">联系我们</div>
+                </div>
+            </div>
+            <div class="comafter retail-waitingPay-contact-name">
+                <div class="comafter retail-com-list flex-row retail-waitingPay-refund-callme" style="position: relative">
+                    <div class="js_delay_more flex-data padding-0px text-center retail-waitingPay-refund">更多</div>
+                    <div class="js_delay_btn delay-btn01" myclick="0">
+                        <span class="more-btn-span"  onclick="javascript:delayAlert(this);">
+                            延期收货
+                        </span>
+                        <span class="delay-alert-icon01"></span>
+                        <!--<div class="delay-alert-icon">-->
+                            <!--<span></span>-->
+                        <!--</div>-->
+                    </div>
+                    <div class="flex-data padding-0px text-center retail-waitingPay-refund">确认收货</div>
+                    <div class="flex-data padding-0px text-center retail-waitingPay-refund">查看物流</div>
+                    <div class="flex-data padding-0px text-center retail-waitingPay-callme">联系我们</div>
+                </div>
+            </div>
+            <div class="lqy-qrcode-wrap">
+                <div class="lqy-qrcode-text">
+                    <div class="size16"><b>商家微信二维码</b></div>
+                    <div class="size12">长按识别二维码，添加微信好友</div>
+                </div>
+                <div class="lqy-qrcode-img"><img class="img-responsive" src="images/retail-waitingPay-qrcode.png" alt=""></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--延期收货弹窗-->
+<div id="com_black" class="js_com_black hide_com_buy com_black" style="display: none" onclick="cancelAlert()"></div>
+<div class="js_hide_com js_delay_alert comafter delete-address-alert flex-row" style="display: none">
+    <div class="delete-address-alert-info">
+        <div class="delay-goods-text">
+            <div class="size16"><b>确认延期收货？</b></div>
+            <div class="size12">每笔订单只能延期一次哦</div>
+        </div>
+        <div class="flex-row">
+            <div class="flex-data delete-address-alert-btn delete-address-alert-cancel"
+                 onclick="javascript:cancelAlert()">取消
+            </div>
+            <div class="flex-data delete-address-alert-btn delete-address-alert-sure js_delay_sure">确认</div>
+        </div>
+    </div>
+</div>
+<!--延期收货弹窗end-->
+</body>
+</html>

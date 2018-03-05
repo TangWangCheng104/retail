@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>多商品预约-未输入状态</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/auction.css">
+    <link rel="stylesheet" href="../css/booking_active.css">
+</head>
+<body>
+    <div class="booking-set-wrap">
+        <!--头部图片-->
+        <div class="booking-already-set-wrap">
+            <img class="booking-already-set-top" src="../images/booking_already_set_top.png" />
+        </div>
+        <!--已输入信息，为输入到期时间，未提交-->
+        <div class="booking-set-content " style="display: block">
+            <div class="booking-set-content-wrap">
+                <span class="booking-set-content-name ">姓名</span>
+                <input class="booking-set-inputContent" disabled="disabled" type="text" onblur="isName()" onkeyup="isName()" placeholder="请输入真实姓名" value="老顽童" style="border: none;outline: none">
+            </div>
+            <div class="booking-set-content-wrap">
+                <span class="booking-set-content-name ">手机</span>
+                <input class="booking-set-inputContent" disabled="disabled" placeholder="请输入手机号码" value="13265555715" type="tel" >
+            </div>
+            <div class="booking-set-content-wrap">
+                <span class="booking-set-content-name">到底日期</span>
+                <span class="booking-active-setTime-border">
+                    <input class="booking-active-setTime booking-active-year" flagbtn="true" onchange="isName(this)" onblur="isName(this)" onkeyup="isName(this)" type="text" value="2017" >
+                </span>
+                <span class="booking-time-box">年</span>
+                <span class="booking-active-setTime-border">
+                    <input  class="booking-active-setTime booking-active-month" flagbtn="true" onchange="isName(this)" onblur="isName(this)" onkeyup="isName(this)" type="text" value="7">
+                </span>
+                <span class="booking-time-box">月</span>
+                <span class="booking-active-setTime-border">
+                    <input  class="booking-active-setTime booking-active-day"  flagbtn="true" onchange="isName(this)" onblur="isName(this)" onkeyup="isName(this)" type="text" value="7">
+                </span>
+                <span class="booking-time-box">日</span>
+            </div>
+            <input type="button" class="booking-button-submit" disabled="disabled" value="提交" />
+        </div>
+        <!--已输入信息，为输入到期时间，未提交end-->
+        <!--已输入信息，为输入到期时间，未提交-->
+        <div class="booking-set-content booking-set-content-nopress" style="display: block">
+            <div class="booking-set-content-wrap">
+                <span class="booking-set-content-name">姓名</span>
+                <span class="booking-set-inputContent-border">
+                    <input class="booking-set-inputContent booking-set-isName booking-set-inputContent1" flag="true" flagBtn="true" type="text" onchange="isName(this)" onblur="isName(this)" onkeyup="isName(this)" placeholder="请输入真实姓名" value="老顽童" style="border: none;outline: none">
+                    <img class="booking_close_button" src="../images/booking_close_button.png" />
+                </span>
+            </div>
+            <div class="booking-set-content-wrap">
+                <span class="booking-set-content-name">手机</span>
+                <span class="booking-set-inputContent-border">
+                    <input class="booking-set-inputContent booking-set-isPhone booking-set-inputContent1" flag="true" flagBtn="true" onkeyup="isPhone()" onchange="isPhone()" onblur="isPhone()" placeholder="请输入手机号码" value="13265555715" type="tel" >
+                    <img class="booking_close_button" src="../images/booking_close_button.png" />
+                </span>
+            </div>
+            <div class="booking-set-content-wrap">
+                <span class="booking-set-content-name booking-set-content-code">验证码</span>
+                <span class="booking-set-inputContent-border booking-set-inputContent-code">
+                    <input class="booking-set-inputContent booking-set-isCode booking-set-inputContentCode" flagBtn="true" onkeyup="isCode()" onblur="isCode()" onchange="isCode()" placeholder="请输入验证码" value="123456" type="number" >
+                    <img class="booking_close_button" src="../images/booking_close_button.png" />
+                </span>
+                <span class="booking-getCode-left-border"></span><input type="button" class="booking_getCode" onclick="time(this)" value="获取验证码"><!--获取验证码<span class="booking-getCode-kong"></span></input>-->
+            </div>
+            <!--到店日期不可改-->
+            <div class="booking-arrive-time-wrap" style="display: none">
+                <span class="booking-set-content-name">到店日期</span><span class="booking-arrive-time">2017年7月7日</span>
+            </div>
+            <!--到店日期可改-->
+            <div class="booking-set-content-wrap" style="margin-top: 20px">
+                <span class="booking-set-content-name">到店日期</span>
+                <span class="booking-active-setTime-border">
+                    <input class="booking-active-setTime booking-active-year" flagbtn="true" onchange="isName(this)" onblur="isName(this)" onkeyup="isName(this)" type="text" value="2017"></span>
+                <span class="booking-time-box">年</span>
+                <span class="booking-active-setTime-border ">
+                    <input  class="booking-active-setTime booking-active-month" flagbtn="true" onchange="isName(this)" onblur="isName(this)" onkeyup="isName(this)" type="text" value="7"></span>
+                <span class="booking-time-box">月</span>
+                <span class="booking-active-setTime-border">
+                    <input  class="booking-active-setTime booking-active-day" flagbtn="true" onchange="isName(this)" onblur="isName(this)" onkeyup="isName(this)" type="text" value="7"></span>
+                <span class="booking-time-box">日</span>
+            </div>
+
+            <input type="button" class="booking-button-submit" disabled="disabled" onclick="bookingWrongAlert()" value="提交" />
+        </div>
+        <!--已输入信息，为输入到期时间，未提交end-->
+        <!--输入时间在今天之前弹出框-->
+        <div class="booking-set-beforeToday-wrap booking-set-get-dataNumber" style="display: none">
+            <span class="booking-set-beforeToday">不能选今天之前的日期</span>
+        </div>
+        <!--正确输入手机号码-->
+        <div class="booking-set-beforeToday-wrap booking-set-get-phoneNumber" style="display: none">
+            <span class="booking-set-beforeToday">正确输入手机号码</span>
+        </div>
+        <!--验证码过期-->
+        <div class="booking-set-beforeToday-wrap booking-set-get-code" style="display: none">
+            <span class="booking-set-beforeToday">验证码错误或过期，过期请重新获取</span>
+        </div>
+        <!--商家信息-->
+        <div class="booking_shopper_information-wrap">
+            <img class="booking_shopper_information" src="../images/booking_shopper_information.png" />
+        </div>
+        <p class="booking-set-bottom-content">可可香奈儿的奢侈品珠宝批发</p>
+        <p class="booking-set-bottom-content">广东省深圳市罗湖区天北三路明阳街道民阳酒店</p>
+        <p class="booking-set-bottom-content">法武班务63室</p>
+        <!--门店公众号二维码-->
+        <div class="retail-paySuccess-code" style="margin-top: 10px;padding-bottom: 15px">
+            <div class="retail-paySuccess-code-img">
+                <img class="img-responsive " src="../images/retail-waitingPay-qrcode.png" alt="">
+            </div>
+            <!--关注公众号-->
+            <div style="display: block">
+                <div class="text-center" style="display: none">门店微信公众号二维码</div>
+                <div class="text-center size12">长按识别二维码，关注公众号</div>
+                <!--交易完成状态-->
+                <div class="text-center size12" style="display: none">长按识别二维码，优惠资讯永不错过!</div>
+                <!--订单付款成功,等待卖家发货，等待买家付尾款状态-->
+                <div class="text-center size12" style="display: none">长按识别二维码，接收最新订单通知!</div>
+                <!--订单付款成功,等待活动结果状态-->
+                <div class="text-center size12" style="display: none">长按识别二维码，了解最新活动结果!</div>
+                <!--待付款、交易完成-->
+                <div class="text-center size12" style="display: none">长按识别二维码，接收最新优惠资讯!</div>
+                <!--退款等待审核状态-->
+                <div class="text-center size12" style="display: none">长按识别二维码，了解最新退款通知!</div>
+                <!--接收最新预约信息-->
+                <div class="text-center size12">接收最新预约信息！</div>
+            </div>
+            <!--添加门店微信-->
+            <div style="display: none">
+                <div class="text-center">商家微信二维码</div>
+                <div class="text-center size12">长按识别二维码，添加微信好友</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="../js/jquery-1.10.2.min.js"></script>
+<script src="../js/booking_acticities.js"></script>

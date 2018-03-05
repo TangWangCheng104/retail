@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name='apple-itunes-app' content='app-id=1035128844'>
+    <!--样式胡引入-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-goodsDetails.css" rel="stylesheet" type="text/css">
+    <link href="css/procurer.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/store-index.css">
+    <!--js的引入-->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script type="text/javascript" src="js/pinchzoom.js"></script>
+    <script type="text/javascript" src="js/retail_cofirmBuying.js"></script>
+    <script src="js/goodDetail.js"></script>
+    <script src="js/app_product.js"></script>
+    <title>商城首页</title>
+</head>
+<body>
+<script>
+    $(function(){
+        var arr = [100,200,300];
+        for(var i = 0;i<$(".js_timerSh").length;i++){
+            timerSH(arr[i],i);
+        }
+        $('.store-tap').on("click","li",function(){
+
+            var index = $(this).index(".store-tap li");
+            $('#store-tap li').eq(index).find("a").addClass("store-avtive").parent().siblings().find("a").removeClass("store-avtive");
+        });
+        /*var store_tap = document.getElementById("store-tap");
+        var store_tap_height = store_tap.offsetTop;
+        $(window).scroll(function(e){
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+            if(scrollTop>=store_tap_height){
+                $(store_tap).addClass("fixed");
+            }else {
+                $(store_tap).removeClass("fixed");
+            }
+
+        });*/
+        $('.store-top').click(function(){
+            $(".js_com_black").show();
+            $(".js_hide_com").show();
+        })
+
+        /*先给img外层一个高度，然后再在根据那个img高度最小定外层的高度*/
+        var imgHeight = parseInt($('.store-active1-lunbo').eq(0).height()) ;
+        setImgWidthHeight()
+//        $('.store-active1-lunbo').css("height",imgHeight)
+        /*$('.store-active1-lunbo').each(function () {
+            var imgWrapHeight = parseInt(getStyleAttr($(this).find('img')[0],"height"));
+            if( imgWrapHeight < imgHeight ){
+                imgHeight = imgWrapHeight
+            }
+            console.log(imgWrapHeight);
+            console.log(parseInt(getStyleAttr($(this).find('img')[0],"height")));
+            $(this).css("height",imgHeight)
+        })
+         for ( var i = 0; i< $('.store-active1-lunbo').length ; i++){
+         var imgWrapHeight = parseInt(getStyleAttr($('.store-active1-lunbo').eq(i).find('img')[0],"height"));
+         if( imgWrapHeight < imgHeight ){
+         imgHeight = imgWrapHeight
+         }
+         console.log(imgWrapHeight);
+         console.log(parseInt(getStyleAttr($(this).find('img')[0],"height")));
+         $(this).css("height",imgHeight)
+         }*/
+        $('.store-active1-lunbo').bind('slid.bs.carousel',function() {
+            setImgWidthHeight();
+        });
+//            var screenW = window.innerWidth;
+
+
+    })
+    function setImgWidthHeight() {
+
+        var len = $(".store-active1-lunbo img").length;
+        /*console.log(screenH);
+        console.log(len);*/
+        for(var j=0;j<len;j++){
+//                var imgW = $(".js_banerBigImg img").eq(j).width();
+            var imgH = $(".js_banerBigImg img").eq(j).height();
+            var imgW = $(".js_banerBigImg img").eq(j).width();
+            if(imgH>imgW){
+                $(".store-active1-lunbo img").eq(j).css({width:"auto",height:"100%"})
+            }else {
+                $(".store-active1-lunbo img").eq(j).css({width:"100%",height:"auto"})
+            }
+        }
+
+    }
+    /*获取元素高度和宽度的方法*/
+    function getStyleAttr(obj, attr) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(obj, null)[attr];
+        }
+        return obj.currentStyle[attr];
+    }
+</script>
+<div class="js_com_black hide_com_buy com_black" onclick="video.cancelAlert()" style="display: none"></div>
+
+<div class="js_hide_com store_code_wrap" style="display: none">
+    <div class="store_code">
+        <img class="store_code_img" src="images/store_code.jpg" />
+    </div>
+    <img class="img-responsive store_code_img1" src="images/store-double.png" />
+    <span class="store_code_p">长按识别二维码</span>
+</div>
+<div class="black" style="display: none">
+    <div class="black-banner-wrap">
+        <div id="carousel-bigimg-generic" class="carousel slide daifu-carousel" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators comafter">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active">1/<span class="num">3</span></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1">2/<span class="num">3</span></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2">3/<span class="num">3</span></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner carousel-black" role="listbox">
+                <div class="item active">
+                    <div class="js_carousel">
+                        <img class="img-responsive" id="banner001" src="images/banner01.png" alt="">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="js_carousel">
+                        <img id="banner002" src="images/banner02.png" alt="">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="js_carousel">
+                        <img id="banner003" src="images/banner01.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="store-wrap">
+
+    <ul class="store-tap fixed" id="store-tap">
+        <li><a href="javascript:;">首页</a></li>
+        <li><a href="javascript:;">商品</a></li>
+        <li><a href="javascript:;" class="store-avtive">活动</a></li>
+    </ul>
+    <!--<div class="store-content-img">-->
+        <!--<img src="images/content_img.jpg" alt="">-->
+    <!--</div>-->
+    <div class="store-active-wrap store-bottom-height">
+        <div class="store-one-active">
+            <div class="store-has-active1 " style="background: url('images/QQ截图20171024194317.png') center center/cover">
+                <!--<img class="store-hactive_img1" src="images/store_active1.jpg" />-->
+                <div class="store-setInterval">
+                    <div class="js_timerSh flex-row goods-time">
+                        <i><img class="img-responsive icon_clock" src="images/icon_clock.png" alt=""></i>
+                            <span class="js_timerSh_text flex-data">
+                                <img class="store_timeicon" src="images/store_timeicon.jpg">
+                                <span class="js_day_show" day="0">00</span>天
+                                <span class="js_hour_show" hour="0">00</span>小时
+                                <span class="js_minute_show" minute="30">00</span>分
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="store-explain">
+                <div class="store-active-togotherDiv">
+            <span class="store-active-togother">
+                联合活动
+            </span>
+                </div>
+                <!-- <p>
+                     佳品新成，造就与众不同的你，佳品新成，造
+                     就不一样的的的的的的的的的的
+                 </p>-->
+        <span class="store-active-articleDiv">
+            <span class="store-active-article">
+                佳品新成，造就与众不同的你，佳品新成，造
+                就不一样的的的的的的的的的的
+            </span>
+        </span>
+
+            </div>
+        </div>
+        <div class="store-one-active">
+            <div class="store-has-active1" style="background: url('images/store_active1.jpg') center center/cover">
+                <!--<img class="store-hactive_img1" src="images/store_active1.jpg" />-->
+                <div class="store-setInterval">
+                    <div class="js_timerSh flex-row goods-time">
+                        <i><img class="img-responsive icon_clock" src="images/icon_clock.png" alt=""></i>
+                    <span class="js_timerSh_text flex-data">
+                        <img class="store_timeicon" src="images/store_timeicon.jpg">
+                        <span class="js_day_show" day="0">2</span>天
+                        <span class="js_hour_show" hour="0">2</span>小时
+                        <span class="js_minute_show" minute="30">30</span>分
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <div class="store-explain">
+                <div class="store-active-togotherDiv">
+            <span class="store-active-togother">
+                联合活动
+            </span>
+                </div>
+                <!-- <p>
+                     佳品新成，造就与众不同的你，佳品新成，造
+                     就不一样的的的的的的的的的的
+                 </p>-->
+        <span class="store-active-articleDiv">
+            <span class="store-active-article">
+                佳品新成，造就与众不同的你，佳品新成，造
+                就不一样的的的的的的的的的的的的的的的的的的的的的的的的
+            </span>
+        </span>
+            </div>
+        </div>
+        <div class="store-one-active">
+            <div id="banner" class="store-banner store-has-active2" >
+                <div id="carousel-example-generic" class="carousel slide daifu-carousel store-change-img" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators comafter store-lunbo-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active">1/<span class="num">3</span></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1">2/<span class="num">3</span></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2">3/<span class="num">3</span></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner carousel-banner " role="listbox">
+                        <div class="store-setInterval" style="z-index: 1040;">
+                            <div class="js_timerSh flex-row goods-time">
+                                <i><img class="img-responsive icon_clock" src="images/icon_clock.png" alt=""></i>
+                            <span class="js_timerSh_text flex-data">
+                                <img class="store_timeicon" src="images/store_timeicon.jpg">
+                                <span class="js_day_show" day="0">2</span>天
+                                <span class="js_hour_show" hour="0">2</span>小时
+                                <span class="js_minute_show" minute="30">30</span>分
+                            </span>
+                            </div>
+                        </div>
+                        <div class="item store-item active store-active1-lunbo" >
+                            <a href="#" class="store-active1-lunboa">
+                                <img src="images/QQ截图20171024194317.png" />
+                            </a>
+                        </div>
+                        <div class="item store-item store-active1-lunbo">
+                            <a href="#" class="store-active1-lunboa">
+                                <img src="images/QQ截图20171024194317.png" />
+                            </a>
+                        </div>
+                        <div class="item store-item store-active1-lunbo">
+                            <a href="#" class="store-active1-lunboa">
+                                <img src="images/store_active1.jpg" />
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="store-explain">
+                <div class="store-active-togotherDiv">
+                <span class="store-active-togother">
+                    联合活动
+                </span>
+                </div>
+                <!-- <p>
+                     佳品新成，造就与众不同的你，佳品新成，造
+                     就不一样的的的的的的的的的的
+                 </p>-->
+            <span class="store-active-articleDiv">
+                <span class="store-active-article">
+                    佳品新成，造就与众不同的你，佳品新成，造
+                    就不一样的的的的的的的的的的
+                </span>
+            </span>
+
+            </div>
+        </div>
+        <div class="store_has_loading"><a class="store_has_loadinga" style="display: block">加载更多</a></div>
+    </div>
+
+
+    <div class="store-goods-list">
+        <ul class="store-bottom">
+            <li>
+                <a href="javascript:;" class="store-bottom-active">
+                    <img src="images/icon_shangcheng_xuanzhong_nor@3x.png" />
+                    <p>商城</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="images/icon_kefu_nor@3x.png" />
+                    <p>客服</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="images/icon_wode_nor@3x.png" />
+                    <p>我的</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

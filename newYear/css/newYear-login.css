@@ -1,0 +1,43 @@
+.newYear-login{
+    padding: 30px 0 60px;
+}
+.newYear-login-logo{
+    width: 100%;
+    text-align: center;
+}
+.newYear-login-logo img{
+    width:60px;
+    height: 60px;
+    margin: 0 auto;
+}
+.newYear-login-name{
+    font-size: 15px;
+    padding: 20px 0 23px;
+}
+.newYear-login-msg{
+    background: #f3f3f5;
+    padding: 8px 25px;
+    font-size: 12px;
+    display: inline-block;
+    color: #999999;
+}
+.newYear-login-phone-input{
+    background: #fff;
+}
+.newYear-phone-pwd{
+    padding: 40px 40px 0;
+}
+.newYear-login-btn{
+    margin-top: 90px;
+}
+.newYear-login-btn-warning{
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+.newYear-login-btn input{
+    border-radius: 5px;
+    background: #ef815c;
+}
+.newYear-login-btn{
+    padding: 0 7px;
+}

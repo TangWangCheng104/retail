@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>拍卖活动主页</title>
+    <!--拍卖 出价 弹出、拍卖 出价低于别人、拍卖 逾期未付款、拍卖 完整图、拍卖 未达拍卖底价、拍卖 已报名、拍卖 逾期未付款-->
+    <!-[if IE9]>
+    <script src="../js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers {
+            display: none !important;
+        }</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <![endif]->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/base.css" rel="stylesheet" type="text/css">
+    <link href="../css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="../css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="../css/retail-goodsDetails.css" rel="stylesheet" type="text/css">
+    <link href="../css/retail-kandan.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/auction.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="../js/messages.js"></script>
+    <script src="../js/hammer.min.js"></script>
+    <script src="../js/jquery.hammer.js"></script>
+    <!--<script src="../js/loginVerify.js"></script>-->
+    <script src="../js/app_product.js"></script>
+    <script src="../js/retail_cofirmBuying.js"></script>
+    <script src="../js/kandan.js"></script>
+    <script>
+        function buy_click() {
+            var s = $("#js_style").find(".selected");
+            var num = $("#js_num").find(".num");
+            var showmsg = s.text() + "," + num.val();
+        }
+
+
+        $(function () {
+//            auctionSBHightestPrice()
+            /*noGivePrice();*/
+            /*用json模拟数据库数据,拍卖页面*/
+            var url = "package.json";
+            $.get(url, function (data) {
+                console.log(data.auction)
+                var result = data.auction;
+                /*把获取到的时间戳转换成秒*/
+                var auctionTimeEnd = parseInt(result.auctionTime / 1000);
+
+//           拍卖活动结束的倒计时 ，auctionTimeEnd单位秒
+                var jiShu = 0;
+                if (jiShu < 1) {
+                    auctionTimerSHBefore(auctionTimeEnd, 1);
+                    jiShu++;
+                }
+                auctionTimerSH(auctionTimeEnd, 1);
+                /*加价的幅度*/
+                auctionAddPriceRange = result.stepPrice;
+                $(".auctionAddPrice").html(auctionAddPriceRange);
+
+                /*设置起拍价*/
+                var startPrice = result.startPrice;
+                $('.auctionStartPrice').html(startPrice);
+                /*出价*/
+                $('.auction-total-givePrice').html(parseInt($('#auctionNowPrice').html()) + parseInt(auctionAddPriceRange));
+                /*标题*/
+//            $('.retail-goodsDetails-title').html(data.single.title);
+                $('title').html(data.single.title);
+            })
+
+            /*点击遮罩层隐藏遮罩层上面的东西*/
+            $('#com_black,.auction-give-moneySuccess-wrap').click(function () {
+                /*$('.auction-give-moneySuccess-wrap').fadeOut(300);
+                $('#com_black').fadeOut(300);*/
+                auctionSBHightestPrice();
+            })
+            /*用json模拟数据库数据,出价部分*/
+            var urlGivePrice = 'tsconfig.json';
+            $.get(urlGivePrice, function (data) {
+                console.log(data.list);
+                var arrList = data.list;
+                for (var i = 0; i < 3; i++) {
+                    var date = new Date(arrList[i].gmtCreated);
+                    var dateYear = date.getFullYear();
+                    var dateMonth = date.getMonth();
+                    var dateDay = date.getDay();
+                    var dataHours = date.getHours();
+                    var dataMinutes = date.getMinutes();
+
+                    var divList = `<div class="author-kandan-friends-wrap">
+                    <div class="author-kandan-friends">
+                        <span class="author-touxiang" style="background: url(${(arrList[i].userIcon)}) center center/cover">
+                        </span>
+                        <span class="author-p-wrap">
+                            <div>${(arrList[i].userName.slice(0, 1))}<span>*</span><span>*</span>${(arrList[i].userName.slice(-1))}</div>
+                            <div class="author-p-price">￥<span class="auction-give-himselfPrice">${arrList[i].underPrice}</span></div>
+                        </span>
+                    </div>
+                    <!--<div class="flex-data text-right">650.25元</div>-->
+                    <div class="w40 text-right author-kandan-right">
+                        <span class="author-before">出局</span>
+                        <span class="set-interval"><span class="fullYear">${dateYear}</span>-<span class="Mounth">${dateMonth}</span>-<span class="day">${dateDay}</span><span class="hours">${dataHours}</span>:<span class="min">${dataMinutes}</span></span>
+                    </div>
+                </div>`
+                    $(divList).appendTo($('#auction-already-pass'))
+                }
+                /*改变领先图标*/
+                $('#auction-already-pass .author-before').eq(0).addClass('author-active');
+                $('#auction-already-pass .author-before').eq(0).html('领先');
+
+                sbGivePrice(sbCallBack);
+
+            })
+
+            /*执行完sbGivePrice后的回调函数*/
+            function sbCallBack(){
+                console.log(111)
+            }
+            /*封装一个函数，获取元素高度，宽度等*/
+
+            function getStyleAttr(obj, attr) {
+                if (window.getComputedStyle) {
+                    return window.getComputedStyle(obj, null)[attr];
+                }
+                return obj.currentStyle[attr];
+            }
+
+        })
+
+    </script>
+</head>
+<body>
+<div class="black">
+    <div class="black-banner-wrap">
+        <div id="carousel-bigimg-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators comafter">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active">1/<span class="num">3</span></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1">2/<span class="num">3</span></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2">3/<span class="num">3</span></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner carousel-black" role="listbox">
+                <div class="item active">
+                    <img class="img-responsive" id="banner001" src="../images/banner01.png" alt="">
+                </div>
+                <div class="item">
+                    <img id="banner002" src="../images/banner02.png" alt="">
+                </div>
+                <div class="item">
+                    <img id="banner003" src="../images/banner01.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid small_screen">
+    <div class="row">
+        <div class="retail-goodsDetails pingdan-goodsDetails">
+            <!--<i class="icon-pingdan-btn"><img class="img-responsive" src="images/icon_pingdan02.png" alt=""></i>-->
+            <div class="banner" id="banner">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <i class="icon_pingdan"><img class="img-responsive" src="../images/auction_logo.png" alt=""></i>
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators comafter">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active">1/<span
+                                class="num">3</span></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1">2/<span class="num">3</span></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2">3/<span class="num">3</span></li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner carousel-banner" role="listbox">
+                        <div class="item active">
+                            <img class="img-responsive" id="banner01" src="../images/banner01.png" alt="">
+                        </div>
+                        <div class="item">
+                            <img id="banner02" src="../images/banner02.png" alt="">
+                        </div>
+                        <div class="item">
+                            <img id="banner03" src="../images/banner01.png" alt="">
+                        </div>
+                    </div>
+                    <!--某人出价了-->
+                    <div class="js_Text_item auction-text-item" style="display: none">
+                        <span class="js_text_item kandan-friends-item kandan-item-opacity">
+                            <div class="flex-row">
+                                <i class="kandan-friends-item-icon flex-row"><img class="img-responsive auction-price-header" src="../images/icon_message.png" alt=""></i>
+                                <span class="js_kandan_username auction-price-username">11111aaaa</span>出价<span class="auction-give-price">900</span>元
+                            </div>
+                        </span>
+                    </div>
+                    <!--<div class="auction-give-price-wrap">
+                        <div></div>
+                        <img class="auction-give-header" src="../images/auction_passfailt.png" alt="">
+                        <span class="auction-give-price"><span class="auction-price-name">黄树根</span>出价<span class="auction-price-show">900</span>元</span>
+                    </div>-->
+                    <div class="kandan-friends">
+                        <div class="kangdan-goodsDetails-rule ">
+                            <div class="kangdan-goodsDetails-rule-background auction-timeout"></div>
+                            <!--开拍时间-->
+                            <div class="kangdan-goodsDetails-rule-info flex-row" style="display:none ">
+                                <div id="auction-timeStartWrap">
+                                    开拍时间：
+                                    <span id="auction-timeStart">
+                                        <span id="timeStartDay" class="js_day_show">3</span>天<span id="timeStartHouse" class="js_hour_show">00</span>小时
+                                        <span id="timeStartMin" class="js_minute_show">00</span>分<span id="timeStartSec" class="js_second_show">00</span>秒
+                                    </span>
+                                </div>
+                                <div class="kandan-rule flex-data text-right">
+                                    <div class="js_rule_btn">拍卖规则</div>
+                                </div>
+                            </div>
+                            <!--剩余时间-->
+                            <div class="kangdan-goodsDetails-rule-info flex-row" style="display: block">
+                                <div id="auction-lessTime">
+                                    剩余时间：
+                                    <span id="js_time">
+                                         <span id="lessTimeDay" class="js_day_show">3</span>天<span id="lessTimeHour" class="js_hour_show">00</span>小时
+                                        <span id="lessTimeMin" class="js_minute_show">00</span>分<span id="lessTimeSec" class="js_second_show">00</span>秒
+                                    </span>
+                                </div>
+                                <div class="kandan-rule flex-data text-right">
+                                    <div class="js_rule_btn">拍卖规则</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--这是有个天平的图-->
+            <div class="auction-addprice-img-wrap">
+                <!--当前价大于起拍价的秤砣图片-->
+                <img style="display: block" class="auction_content_img" src="../images/auction_content_img.png">
+                <!--当前价等于起拍价的秤砣图片-->
+                <img style="display: none" class="auction_content_img" src="../images/auction_content_img1.png">
+                <!--起拍价格字样-->
+                <span class="auction-start-price">
+                    <div>起拍价</div>
+                    <div>￥<span class="auctionStartPrice">600</span></div>
+                </span>
+                <!--当前价格字样-->
+                <span class="auction-now-price">
+                    <div>当前价</div>
+                    <div>￥<span>800</span></div>
+                </span>
+                <!--每次加价幅度-->
+                <div class="auction-addprice-once">
+                    每次加价￥<span class="auctionAddPrice">200</span>
+                </div>
+                <!--未到保留价时显示-->
+                <span class="auction-noarrive-price" style="display: none">未到保留价</span>
+                <!--已过保留底价时显示-->
+                <span class="auction-noarrive-price" style="display: block">已过保留价</span>
+                <!--图片定位-->
+                <!--未到保留价-->
+                <img style="display: none" class="auction-luo" id="auction-luo-underPrice" src="../images/auction-luo.png">
+                <!--已过保留价-->
+                <img style="display: block" class="auction-luo" id="auction-luo-passPrice" src="../images/auction-luo1.png">
+            </div>
+
+
+            <!--这一块是最开始的设计图里面的后面改了，可删除-->
+            <!--<div class="kandan-wrap auction-content clearfix">
+                <div class="col-xs-4 auction-content-img">
+                    <img class="auction-content-img1" src="../images/author_qi.png">
+                    <p class="auction-content-price">￥<span class="auction-content-money">600</span></p>
+                </div>
+                <div class="col-xs-4 auction-content-img">
+                    <img class="auction-content-img1" src="../images/author_dang.png">
+                    <p class="auction-content-price">￥<span class="auction-content-money">800</span></p>
+                </div>
+                <div class="col-xs-4 auction-content-img">
+                    <img class="auction-content-img1" src="../images/author_jia.png">
+                    <p class="auction-content-price">￥<span class="auction-content-money">1200</span></p>
+                </div>
+            </div>-->
+
+            <!--未过拍卖底价-->
+            <div class="auction-passfailt-wrap" style="display: block">
+                <div class="auction_passfailt auction_passfailt-bgWhite" id="auction-sale-result" style="display: block">
+                    <span class="auction_sale">
+                        拍卖结果
+                    </span>
+                </div>
+                <span id="auction-passfailt-img-noPrice">
+                    <img class="auction-passfailt-img" id="passfailt-useIcon" src="../images/auction_passfailt.png" >
+                </span>
+                <!--未达拍卖底价显示-->
+                <p class="auction-passfailt-p" id="auction-passfailt-noAdrive" style="display: none">未达拍卖底价，流拍了~</p>
+                <!--逾期未支付显示-->
+                <p class="auction-passfailt-p" id="auction-passfailt-noPayFor" style="display: none">逾期未支付，流拍了~</p>
+                <!--暂时没有出价显示-->
+                <p class="auction-passfailt-p" id="auction-passfailt-noGivePrice" style="display: block">暂时没有出价哦~</p>
+            </div>
+            <div class="auction-passfailt-wrap auction-passfailt-wrap2" style="display: block">
+                <span id="auction-sbGet-img-id" style="position: relative">
+                    <img class="auction-king" src="../images/auction_king.png">
+                    <img class="auction-passfailt-img" src="../images/auction_passfailt.png" >
+                </span>
+                <p class="auction-passfailt-p" id="passfailt-getIt" style="display: block">泰勒小姐拍中啦！</p>
+            </div>
+            <!--出价记录-->
+            <div class="auction_passfailt auction-add-givePrice" id="auction-sale-PriceRecord" style="display: block;">
+                <span class="auction_sale">
+                    出价记录
+                </span>
+            </div>
+            <!--未过拍卖底价end-->
+
+            <!--<div class="kandan-friends-wrap-titile auction-give-price flex-row">
+                <div class="flex-data">出价记录</div>
+                &lt;!&ndash;未过拍卖底价的&ndash;&gt;
+                <div class="w40 text-right" id="noArrive-price-closeIcon" style="display:none;"><img class="author_local" src="../images/author_local.png">未过拍卖底价</div>
+                &lt;!&ndash;已过拍卖底价的&ndash;&gt;
+                <div class="w40 text-right" id="noArrive-price-openIcon" style="display:block;"><img class="author_local" src="../images/auction_already_pass.png">已过拍卖底价</div>
+            </div>-->
+
+            <div class="kandan-friends-wrap">
+
+                <!--这是已过拍卖底价时-->
+                <div class="js_kdFriends_info kandan-friends-wrap-info author-wrap-user">
+                    <div id="auction-already-pass">
+                        <div class="author-kandan-friends-wrap">
+                            <div class="author-kandan-friends">
+                        <span class="author-touxiang">
+                            <img src="../images/author_touxiang.png">
+                        </span>
+                        <span class="author-p-wrap">
+                            <div>1<span>*</span><span>*</span>3</div>
+                            <div class="author-p-price">￥<span class="auction-give-himselfPrice">100</span></div>
+                        </span>
+                            </div>
+                            <!--<div class="flex-data text-right">650.25元</div>-->
+                            <div class="w40 text-right author-kandan-right">
+                                <span class="author-before">出局</span>
+                                <span class="set-interval"><span class="fullYear">2107</span>-<span class="Mounth">7</span>-<span class="day">20</span><span class="hours">5</span>:<span class="min">6</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--暂时没有出价-->
+                    <div class="auction-passfailt-wrap auction-passfailt-wrap2" style="display: block">
+                        <span id="auction-passfailt-img-id">
+                            <img class="auction-passfailt-img" src="../images/auction_passfailt.png" >
+                        </span>
+                        <p class="auction-passfailt-p" id="passfailt-no-givePrice" style="display: block">暂时没有出价哦~</p>
+                    </div>
+                    <!--拍中了-->
+
+                </div>
+            </div>
+            <!--商品简介-->
+            <div><img class="img-responsive" src="../images/img_storeIntro_kandan.png" alt=""></div>
+            <div class="comafter retail-goodsDetails-price-description pingdan-goodsDetails-price-description">
+                <h3 class="col-xs-12 retail-goodsDetails-title">手把件吊坠挂坠新疆和田玉羊脂白玉平安牌和田玉吊坠男士女士平安无事牌白玉牌子
+                    牌和田玉吊坠男士女士平安无事牌白玉牌子</h3>
+                <p class="col-xs-12 retail-goodsDetails-description">
+                    简介：和田玉颜色为：白、糖白、青白、黄、糖、碧、青、烟青、翠青、青花。我们知道新疆和田玉在清代以前多以黄玉、白玉为主。其中黄玉非常的漂亮。其实不亚于羊脂玉，我们应该给以黄玉正身。</p>
+            </div>
+            <div class="com-interval"></div>
+            <div class="retail-goodsDetails-stores-details">
+                <a href="#">
+                    <img class="img-responsive" src="../images/retail-goodsDetails-img001.png" alt="">
+                    <span>门店<br>详情</span>
+                </a>
+            </div>
+            <!--商品简介end-->
+
+            <!--商品详情-->
+            <img class="img-responsive" src="../images/retail-goodsDetails-icon03.png" alt="">
+            <div class="retail-goodsDetails-show-detail">
+                <img class="img-responsive" src="../images/retail-goodsDetails-img005.png" alt="">
+            </div>
+            <!--商品详情end-->
+        </div>
+    </div>
+</div>
+
+<div class="auction-loading" style="display: none"><img  src="../images/loading.gif"></div>
+<!--这是遮罩层-->
+<div id="com_black" onclick="auctionPrice()" class="js_com_black js_hide_com com_black" style="display:none"></div>
+<!--这个遮罩层不能被点击消失-->
+<div id="com_black1" class="js_hide_com com_black" style="display:none"></div>
+<!--出价成功，弹出出价成功框-->
+<div class="auction-give-moneySuccess-wrap" style="display:none;">
+    <img style="display: block" class="auction-give-money-success" src="../images/auction_give_money_success.png" >
+    <span class="auction-give-money-userName">谢老板¥<span class="auction-give-money-userNamePrice">1000</span></span>
+</div>
+
+<!--拍卖规则的弹窗-->
+<div class="js_pingdan_alert js_hide_com pingdan-rule-alert auction-alert-wrap1" style="display: block">
+    <div class="kandan-rule-alert auction-rulesAlert-warp">
+        <div class="text-center pingdan-rule-alert-title" style="color: #f5a828;">拍卖规则</div>
+        <div class="pingdan-rule-alert-item auction-rule-alert-item"><span class="auction-rule-alert-number">1.</span>未拍中拍品，保证金将原路退回；拍中拍品在商家通知提货之日起7天内支付货款，保证金将用于充抵等额货款，<span class="auction-rules-warn">逾期未支付，将罚没保证金。</span></div>
+        <div class="pingdan-rule-alert-item auction-rule-alert-item"><span class="auction-rule-alert-number">2.</span> <span class="auction-rules-warn">拍卖结束时拍卖最高价未过拍卖保留价，则拍卖流拍。</span></div>
+        <div class="pingdan-rule-alert-item auction-rule-alert-item"><span class="auction-rule-alert-number">3.</span> <span class="auction-rules-warn">拍卖商品不支持退款。</span></div>
+        <div class="pingdan-rule-alert-item auction-rule-alert-item"><span class="auction-rule-alert-number">4.</span> 拍卖商品默认到店提货。</div>
+    </div>
+    <div class="js_close kandan-rule-alert-btn color-zby auction-rules-close">关闭</div>
+</div>
+
+
+<!--这个是出价的弹出框-->
+<div id="confirmBuying" class="js_hide_com retail-confirmBuying animation">
+    <div class="comafter" style="position: relative;">
+        <div class="col-xs-12">
+            <div class="comafter retail-confirmBuying-style">
+                    <img class="auction_point1" style="width: 7px" src="../images/auction_point1.png">当前价：<span id="auctionNowPrice">600</span>
+            </div>
+            <div class="comafter retail-confirmBuying-num-buying">
+                <div class="comafter">
+                    <div id="js_num_buying" class="col-xs-6 padding-0px text-left retail-confirmBuying-num-buying-left">
+                        <img class="auction_point1" style="width: 7px" src="../images/auction_point.png">加&nbsp;&nbsp;&nbsp;&nbsp;价：<span class="auctionAddPrice">200</span>
+                    </div>
+                    <div class="col-xs-6 padding-0px text-right">
+                    <span id="js_num" class="retail-confirmBuying-num">
+                        <span onclick="auction_sub_click(auctionAddPriceRange)" class="sub">-</span>
+                        <input onkeyup="num_keyup()" type="text" class="num"  value="1" max="6666" style="opacity: 0;width:20px;">
+                        <span onclick="auction_add_click(auctionAddPriceRange)" class="add">+</span>
+                    </span>
+                    </div>
+                </div>
+                <div class="js_num-warn text-right retail-confirmBuying-num-warn" style="display: none">库存不足，这次就少买点吧!
+                </div>
+            </div>
+        </div>
+        <div onclick="auctionSBhasHightPrice();auctionSBHightestPrice()" class="retail-confirmBuying-buying text-center">
+            出价<span class="auction-total-givePrice">800</span>
+        </div>
+    </div>
+</div>
+
+<!--底部的定位-->
+<div id="auction-buttom-wrap" class="clearfix" style="display: block">
+    <div class="lqy-btnBuy-bottom auction-buttom auction-buttom-leftOdd">
+        <div class="lqy-btnBuy-myAccount">
+            <a href="#" class="a_block">
+                <img class="lqy-btnBuy-myAccount-img" src="../images/auction_kefu.png" alt="">
+                <div class="lqy-btnBuy-myAccount-text lqy-btnBuy-myAccount-text1">客服</div>
+            </a>
+        </div>
+        <div class="lqy-btnBuy-myAccount">
+            <a href="#" class="a_block">
+                <img class="lqy-btnBuy-myAccount-img" src="../images/auction_shangcheng.png" alt="">
+                <div class="lqy-btnBuy-myAccount-text lqy-btnBuy-myAccount-text1">商城</div>
+            </a>
+        </div>
+        <div class="lqy-btnBuy-myAccount">
+            <img class="lqy-btnBuy-myAccount-img" src="../images/auction_mine.png" alt="">
+            <div class="lqy-btnBuy-myAccount-text lqy-btnBuy-myAccount-text1">我的</div>
+        </div>
+
+
+        <!--主页显示的 完整图-->
+        <div id="js_buying" onclick="submitName()" class="text-center lqy-btnBuy-now kandan-buyBtn" style="display:none;">
+            <div class="js_buying_money">保证金：￥<span id="money-price">1280</span></div>
+            <span class="auction-bottom-color js-buying-name">报名</span>
+            <!--<a href="javascript:;" onclick="browserAlert();" class="auction-bottom-color js-buying-name">报名</a>-->
+        </div>
+        <!--未过拍卖底价或者拍卖活动结束显示-->
+        <div id="auction-end" class="text-center lqy-btnBuy-now kandan-buyBtn auction-end" style="display: none">
+            <span class="auction-bottom-color js-buying-name">拍卖已结束</span>
+        </div>
+        <!--逾期未付款-->
+        <div id="timeOut-noPay" class="text-center lqy-btnBuy-now kandan-buyBtn auction-end1" style="display: none">
+            <span class="auction-bottom-color js-buying-name">查看订单</span>
+        </div>
+
+        <!--已报名显示 出价-->
+        <div onclick="auctionPriceHide()" id="givePrice" class="text-center lqy-btnBuy-now kandan-buyBtn auction-end3" style="display: block">
+            <span class="js_buying_btn a_block js-buying-name">出价</span>
+        </div>
+        <!--暂时没有出价（报名成功后）-->
+        <div id="noGivePrice" class="text-center lqy-btnBuy-now kandan-buyBtn auction-end2" style="display: none">
+            <span class="auction-bottom-color js-buying-name">等待活动开启</span>
+        </div>
+    </div>
+    <script>
+
+    </script>
+</div>
+<!--有人出价比你高-->
+<!--这里有个方法 auctionSBhasHightPrice（），弹出有人出价比你高的提示框，然后过2秒消失-->
+<div class="auction-alert" style="display: none">很遗憾，有人出价比你高啦！</div>
+
+
+</body>
+</html>
+<!--&lt;!&ndash; jQuery (necessary for Bootstrap's JavaScript plugins) &ndash;&gt;
+<script src="../js/jquery-1.10.2.min.js"></script>
+&lt;!&ndash; Include all compiled plugins (below), or include individual files as needed &ndash;&gt;
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.validate.min.js" type="text/javascript"></script>
+<script src="../js/messages.js"></script>
+<script src="../js/hammer.min.js"></script>
+<script src="../js/jquery.hammer.js"></script>
+&lt;!&ndash;<script src="../js/loginVerify.js"></script>&ndash;&gt;
+<script src="../js/app_product.js"></script>
+<script src="../js/retail_cofirmBuying.js"></script>
+<script src="../js/kandan.js"></script>
+<script>
+    function buy_click() {
+        var s = $("#js_style").find(".selected");
+        var num = $("#js_num").find(".num");
+        var showmsg = s.text() + "," + num.val();
+    }
+
+
+    $(function () {
+
+        /*用json模拟数据库数据,拍卖页面*/
+        var url = "package.json";
+        $.get(url,function(data){
+            console.log(data.auction)
+            var result = data.auction;
+            /*把获取到的时间戳转换成秒*/
+            var auctionTimeEnd = parseInt(result.auctionTime/1000);
+
+//           拍卖活动结束的倒计时 ，auctionTimeEnd单位秒
+            var jiShu = 0;
+            if(jiShu < 1 ){
+                auctionTimerSHBefore(auctionTimeEnd, 0);
+                jiShu++;
+            }
+            auctionTimerSH(auctionTimeEnd, 0);
+            /*加价的幅度*/
+            auctionAddPriceRange = result.stepPrice;
+            $(".auctionAddPrice").html(auctionAddPriceRange);
+
+            /*设置起拍价*/
+            var startPrice = result.startPrice;
+            $('.auctionStartPrice').html(startPrice);
+            /*出价*/
+            $('.auction-total-givePrice').html(parseInt($('#auctionNowPrice').html()) + parseInt(auctionAddPriceRange));
+            /*标题*/
+//            $('.retail-goodsDetails-title').html(data.single.title);
+            $('title').html(data.single.title);
+        })
+
+        /*点击遮罩层隐藏遮罩层上面的东西*/
+        $('#com_black,.auction-give-moneySuccess-wrap').click(function(){
+            $('.auction-give-moneySuccess-wrap').fadeOut(300);
+            $('#com_black').fadeOut(300);
+        })
+        /*用json模拟数据库数据,出价部分*/
+        var urlGivePrice = 'tsconfig.json';
+        $.get(urlGivePrice,function(data){
+            console.log(data.list);
+            var arrList = data.list;
+            for(var i=0;i<arrList.length;i++){
+                var date = new Date(arrList[i].gmtCreated);
+                var dateYear = date.getFullYear();
+                var dateMonth = date.getMonth();
+                var dateDay = date.getDay();
+                var dataHours = date.getHours();
+                var dataMinutes = date.getMinutes();
+
+                var divList = `<div class="author-kandan-friends-wrap">
+                    <div class="author-kandan-friends">
+                        <span class="author-touxiang" style="background: url(${(arrList[i].userIcon)}) center center/cover">
+                        </span>
+                        <span class="author-p-wrap">
+                            <div>${(arrList[i].userName.slice(0,1))}<span>*</span><span>*</span>${(arrList[i].userName.slice(-1))}</div>
+                            <div class="author-p-price">￥<span class="auction-give-himselfPrice">${arrList[i].underPrice}</span></div>
+                        </span>
+                    </div>
+                    &lt;!&ndash;<div class="flex-data text-right">650.25元</div>&ndash;&gt;
+                    <div class="w40 text-right author-kandan-right">
+                        <span class="author-before">领先</span>
+                        <span class="set-interval"><span class="fullYear">${dateYear}</span>-<span class="Mounth">${dateMonth}</span>-<span class="day">${dateDay}</span><span class="hours">${dataHours}</span>:<span class="min">${dataMinutes}</span></span>
+                    </div>
+                </div>`
+                $(divList).appendTo($('#auction-already-pass'))
+            }
+        })
+
+        /*封装一个函数，获取元素高度，宽度等*/
+
+        function getStyleAttr(obj,attr){
+            if(window.getComputedStyle){
+                return window.getComputedStyle(obj,null)[attr];
+            }
+            return obj.currentStyle[attr];
+        }
+        /*拍卖成功的价格定位*/
+//        var top = getStyleAttr($(".auction-give-money-success")[0],"height")
+        var top =parseInt($(".auction-give-money-success").css("height"))
+        console.log(top);
+        $('.auction-give-money-userName').css("top",top *.64);
+        /*var userNameTop = $('.auction-give-money-userName')[0].offsetTop;
+        var top1 = $('.auction-give-moneySuccess-wrap')[0].offsetTop
+        console.log(userNameTop);
+        $('.auction-give-money-userName').css('top',userNameTop-top1)*/
+    });
+
+    /*拍卖活动点击出价,弹出加价框*/
+    function auctionPrice(){
+        $("#auction-buttom-wrap").fadeIn()
+    }
+    function auctionPriceHide(){
+        if($('#givePrice').css("display","block")){
+            $("#auction-buttom-wrap").fadeOut()
+            $('.auction-give-moneySuccess-wrap').fadeOut()
+        }
+    }
+
+</script>-->
+

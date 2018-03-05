@@ -1,0 +1,28 @@
+{
+  "list": [
+    {
+      "userId": 2016,
+      "userName": "18800003333",
+      "userIcon": "https://oss.pg.yibaotong.top/thumbnails/user/moremtouxiang1@3x.png",
+      "price": "15.00",
+      "underPrice": "600",
+      "gmtCreated": 1520643560000
+    },
+    {
+      "userId": 2015,
+      "userName": "科界",
+      "userIcon": "https://oss.pg.yibaotong.top/thumbnails/user/moremtouxiang1@3x.png",
+      "price": "16.00",
+      "underPrice": "600",
+      "gmtCreated": 1510643560000
+    },
+    {
+      "userId": 2014,
+      "userName": "18888888888",
+      "userIcon": "https://oss.pg.yibaotong.top/thumbnails/user/IMG_1483597128596.jpg",
+      "price": "15.00",
+      "underPrice": "600",
+      "gmtCreated": 1510643560000
+    }
+  ]
+}

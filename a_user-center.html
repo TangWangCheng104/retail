@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>我的账号</title>
+    <!-[if IE9]>
+    <script src="js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers {
+            display: none !important;
+        }</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <![endif]->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-waitingPay.css" rel="stylesheet" type="text/css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="js/messages.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script src="js/app_product.js"></script>
+    <script src="js/retail_cofirmBuying.js"></script>
+</head>
+<body>
+<div id="myDiv">
+
+</div>
+<div class="comafter retail-com-list navbar-fixed-bottom retail-myorder-order-account">
+    <img src="images/order_line.png" class="retail-myorder-order-line" alt="">
+    <a class="col-xs-6 padding-0px js_btn_order text-center retail-waitingPay-myorder" onclick="userCenter.myorder(this);"></a>
+    <a id="myAccount" class="col-xs-6 padding-0px js_btn_order text-center retail-waitingPay-myaccount" onclick="userCenter.myaccount(this);"></a>
+</div>
+<script type="application/javascript">
+    var urlPrefix = "http://" + window.location.host + "/h5/retail/";
+    $(function () {
+        userCenter.myaccount(document.getElementById('myAccount'));
+    });
+    var userCenter = {
+        myorder: function (obj) {
+            if($(obj).hasClass("selected")){
+                return;
+            }
+            $.ajax({
+                type: "GET",
+                url: urlPrefix + "a2.html",
+                data: "",
+                dataType: 'html',
+                success: function (data) {
+                    $('#myDiv').html("");
+                    $('#myDiv').html(data);
+                }
+            });
+            $(".js_btn_order").removeClass("selected");
+            $(obj).addClass("selected");
+        },
+        myaccount: function (obj) {
+            if($(obj).hasClass("selected")){
+                return;
+            }
+            $.ajax({
+                type: "GET",
+                url: urlPrefix + "a1.html",
+                data: "",
+                dataType: 'html',
+                success: function (data) {
+                    $('#myDiv').html("");
+                    $('#myDiv').html(data);
+                }
+            });
+            $(".js_btn_order").removeClass("selected");
+            $(obj).addClass("selected");
+        }
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>问卷编辑</title>
+    <link href="js/plugs/jquery-ui-1.10.3.custom/css/mycss/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <link href="css/design-survey.css" rel="stylesheet" type="text/css" />
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css" />
+    <link href="css/os-exam.css" rel="stylesheet"/>
+    <!--<script type="text/javascript" src="js/plugs/jquery-ui-1.10.3.custom/js/jquery-1.10.1.js"></script>-->
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/plugs/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>
+    <script type="text/javascript" src="js/dw/address.js"></script>
+    <script type="text/javascript" src="js/dw/dw-design-init.js"></script>
+    <script type="text/javascript" src="js/exam.js"></script>
+</head>
+<body>
+<div class="head_box">
+    <div class="head comafter">
+        <div class="os-createExam-logo logo fl">
+            <a id="toIndex_btn" style="cursor: pointer;">OS零售</a>
+        </div>
+        <div class="msg fr">
+            <a><img class="avatar" src="images/showLove-img002.png"></a>
+            <a class="nickname">王者动物园（旅游行业）</a><span class="fenge">|</span><a id="btn-logout" style="cursor: pointer;">退出</a>
+        </div>
+    </div>
+</div>
+<div class="os-createExam">
+    <div class="os-createExam-nav flex-row">
+        <a href="#" class="os-createExam-nav-icon"><img class="img-responsive" src="images/os_icon_return.jpg" alt=""></a>
+        <a href="#" class="os-createExam-nav-href">学习管理</a>
+        <span class="os-createExam-nav-href">／</span>
+        <a class="os-createExam-nav-href" href="#">培训试卷</a><span>／</span>创建试卷
+    </div>
+    <div class="os-createExam-tpye">
+        <span class="os-createExam-tpye-label">请选择试卷类型：</span>
+        <span class="js_os_tpyeBtn os-createExam-tpye-btn active">企业制度</span>
+        <span class="js_os_tpyeBtn os-createExam-tpye-btn">业务知识</span>
+        <span class="js_os_tpyeBtn os-createExam-tpye-btn">新增类型</span>
+        <input type="text" class="js_tpyeInput os-createExam-input" style="display: none">
+    </div>
+    <div class="os-createExam-title">
+        <!--<input id="dwSurveyName" class="os-createExam-title-input" type="text" placeholder="请输入试卷标题">-->
+        <div id="dwSurveyTitle">
+            <div id="dwSurveyName" class="editAble dwSvyName">请输入试卷标题</div>
+        </div>
+        <input type="hidden" name="svyNmSaveTag" value="1">
+        <div class="os-createExam-score"><span class="myspan">试卷总分：<span id="J_totalScore"></span>分</span><span class="myspan">题目数量：<span id="J_topicCount"></span>个</span></div>
+    </div>
+    <div class="os-createExam-content comafter">
+        <div class="os-createExam-topicSelect fl">
+            <div class="os-createExam-topicSelect-title">题型选择</div>
+            <div class="toolbars">
+                <ul class="dragQuUl">
+                    <li id="radioQuModel">
+                        <div class="dwToolbar_icon"><img class="icon_radio" src="images/os_icon_radio.jpg" alt="">单选题</div>
+                        <div class="dwQuTypeModel">
+                            <div class="surveyQuItemBody">
+                                <div class="initLine"></div>
+                                <div class="quInputCase" style="display: none;">
+                                    <!--数据区-->
+                                    <!--题目类型-->
+                                    <input type="hidden" name="quType" value="RADIO">
+                                    <!--题目id-->
+                                    <input type="hidden" name="quId" value="">
+                                    <!--排序id-->
+                                    <input type="hidden" name="orderById" value="0">
+                                    <!--是否有被修改-->
+                                    <input type="hidden" name="saveTag" value="0">
+                                    <!--以下就暂时不知道了，可否保留？-->
+                                    <input type="hidden" name="hoverTag" value="0">
+                                    <input type="hidden" name="isRequired" value="1">
+                                    <input type="hidden" name="hv" value="2">
+                                    <input type="hidden" name="randOrder" value="0">
+                                    <input type="hidden" name="cellCount" value="0">
+
+                                    <input type="hidden" name="contactsAttr" value="0">
+                                    <input type="hidden" name="contactsField" value="0">
+
+                                    <div class="quLogicInputCase">
+                                        <input type="hidden" name="quLogicItemNum" value="0">
+                                    </div>
+                                </div>
+                                <div class="surveyQuItem comafter">
+                                    <!--右边悬浮控件-->
+                                    <div class="surveyQuItemRightTools">
+                                        <ul class="surveyQuItemRightToolsUl">
+                                            <li class="questionUp ui-draggable"><div class="dwQuIcon"></div></li>
+                                            <li class="questionDown ui-draggable"><div class="dwQuIcon"></div></li>
+                                        </ul>
+                                    </div>
+                                    <div class="surveyQuItemContent">
+                                        <!--新增分数sweety-->
+                                        <div class="os-createExam-scoreSelect">
+                                            <ul class="js_scoreSelect comafter">
+                                                <li onclick="scoreClick(this)" score="1">1分</li>
+                                                <li onclick="scoreClick(this)" score="2">2分</li>
+                                                <li onclick="scoreClick(this)" score="4">4分</li>
+                                                <li onclick="scoreClick(this)" class="selected" score="5">5分</li>
+                                                <li onclick="scoreClick(this)" score="10">10分</li>
+                                                <li onclick="scoreClick(this)" class="js_scoreElse" score="5">其他
+                                                    <span class="js_scoreInput" style="display: none">
+                                                        <input maxlength="2" type="number" class="text-center os-createExam-scoreInput" onkeyup="score.elseScore(this)" onblur="score.elseScore(this)" >分
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!--新增分数sweety end-->
+                                        <div class="quCoTitle">
+                                            <span class="fl icon_option">单选</span>
+                                            <div class="quCoNum">1、</div>
+                                            <div class="editAble quCoTitleEdit">题目描述</div>
+                                            <input type="hidden" name="quTitleSaveTag" value="0">
+                                        </div>
+                                        <div class="quCoItem js_optionSelect">
+                                            <ul>
+                                                <li class="quCoItemUlLi ui-draggable">
+                                                    <i onclick="optionClick(this)" class="icon_radio_option fl"></i><label class="editAble quCoOptionEdit fl">选项1</label>
+                                                    <div class="quItemInputCase">
+                                                        <input type="hidden" name="quItemId" value="">
+                                                        <input type="hidden" name="quItemSaveTag" value="0">
+                                                        <input type="hidden" name="isNote" value="0">
+                                                        <input type="hidden" name="checkType" value="NO">
+                                                        <input type="hidden" name="isRequiredFill" value="0">
+                                                    </div>
+                                                </li>
+                                                <li class="quCoItemUlLi ui-draggable">
+                                                    <!--<input type="radio">-->
+                                                    <i  onclick="optionClick(this)" class="icon_radio_option fl"></i><label class="editAble quCoOptionEdit">选项2</label>
+                                                    <div class="quItemInputCase">
+                                                        <input type="hidden" name="quItemId" value="">
+                                                        <input type="hidden" name="quItemSaveTag" value="0">
+                                                        <input type="hidden" name="isNote" value="0">
+                                                        <input type="hidden" name="checkType" value="NO">
+                                                        <input type="hidden" name="isRequiredFill" value="0">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="quCoBottomTools">
+                                            <ul class="quCoBottomToolsUl comafter">
+                                                <li class="addOption ui-draggable" title="添加"><div class="dwQuIcon"></div></li>
+                                                <li class="fr">
+                                                    <div class="surveyQuItemLeftTools">
+                                                        <!--左边悬浮操作栏-->
+                                                        <ul class="surveyQuItemLeftToolsUl comafter">
+                                                            <li title="移动排序" class="fl dwQuMove ui-draggable"><div class="dwQuIcon"></div></li>
+                                                            <!--<li title="设置" class="dwQuSet ui-draggable"><div class="dwQuIcon"></div></li>-->
+                                                            <li title="复制" class="fl dwQuLogic ui-draggable"><div class="dwQuIcon"><div class="quLogicInfo"></div></div></li>
+                                                            <li title="删除" class="fl dwQuDelete ui-draggable"><div class="dwQuIcon"></div></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="os-topicAnalysis comafter">
+                                            <span class="fl">试题解析：</span>
+                                            <label class="fl editAble analysisEdit">(选填)</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="checkBoxQuModel">
+                        <div class="dwToolbar_icon"><img class="icon_radio" src="images/os_icon_checkbox.jpg" alt="">多选题</div>
+                        <div class="dwQuTypeModel">
+                            <div class="surveyQuItemBody">
+                                <div class="initLine"></div>
+                                <div class="quInputCase" style="display: none;">
+                                    <!--数据区-->
+                                    <!--题目类型-->
+                                    <input type="hidden" name="quType" value="CHECKBOX">
+                                    <!--题目id-->
+                                    <input type="hidden" name="quId" value="">
+                                    <!--排序id-->
+                                    <input type="hidden" name="orderById" value="0">
+                                    <!--是否有被修改-->
+                                    <input type="hidden" name="saveTag" value="0">
+                                    <!--以下就暂时不知道了，可否保留？-->
+                                    <input type="hidden" name="hoverTag" value="0">
+                                    <input type="hidden" name="isRequired" value="1">
+                                    <input type="hidden" name="hv" value="2">
+                                    <input type="hidden" name="randOrder" value="0">
+                                    <input type="hidden" name="cellCount" value="0">
+
+                                    <input type="hidden" name="contactsAttr" value="0">
+                                    <input type="hidden" name="contactsField" value="0">
+
+                                    <div class="quLogicInputCase">
+                                        <input type="hidden" name="quLogicItemNum" value="0">
+                                    </div>
+                                </div>
+                                <div class="surveyQuItem comafter">
+                                    <!--右边悬浮控件-->
+                                    <div class="surveyQuItemRightTools">
+                                        <ul class="surveyQuItemRightToolsUl">
+                                            <li class="questionUp ui-draggable"><div class="dwQuIcon"></div></li>
+                                            <li class="questionDown ui-draggable"><div class="dwQuIcon"></div></li>
+                                        </ul>
+                                    </div>
+                                    <div class="surveyQuItemContent">
+                                        <!--新增分数sweety-->
+                                        <div class="os-createExam-scoreSelect">
+                                            <ul class="js_scoreSelect comafter">
+                                                <li onclick="scoreClick(this)" score="1">1分</li>
+                                                <li onclick="scoreClick(this)" score="2">2分</li>
+                                                <li onclick="scoreClick(this)" score="4">4分</li>
+                                                <li onclick="scoreClick(this)" class="selected" score="5">5分</li>
+                                                <li onclick="scoreClick(this)" score="10">10分</li>
+                                                <li onclick="scoreClick(this)" class="js_scoreElse" score="5">其他
+                                                    <span class="js_scoreInput" style="display: none">
+                                                        <input maxlength="2" type="number" class="text-center os-createExam-scoreInput" onblur="score.elseScore(this)" >分
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!--新增分数sweety end-->
+                                        <div class="quCoTitle">
+                                            <span class="fl icon_option">多选</span>
+                                            <div class="quCoNum">1、</div>
+                                            <div class="editAble quCoTitleEdit">题目描述</div>
+                                            <input type="hidden" name="quTitleSaveTag" value="0">
+                                        </div>
+                                        <div class="quCoItem js_optionSelect">
+                                            <ul>
+                                                <li class="quCoItemUlLi ui-draggable">
+                                                    <i onclick="checkboxClick(this)" class="icon_radio_option fl"></i><label class="editAble quCoOptionEdit fl">选项1</label>
+                                                    <div class="quItemInputCase">
+                                                        <input type="hidden" name="quItemId" value="">
+                                                        <input type="hidden" name="quItemSaveTag" value="0">
+                                                        <input type="hidden" name="isNote" value="0">
+                                                        <input type="hidden" name="checkType" value="NO">
+                                                        <input type="hidden" name="isRequiredFill" value="0">
+                                                    </div>
+                                                </li>
+                                                <li class="quCoItemUlLi ui-draggable">
+                                                    <!--<input type="radio">-->
+                                                    <i  onclick="checkboxClick(this)" class="icon_radio_option fl"></i><label class="editAble quCoOptionEdit fl">选项2</label>
+                                                    <div class="quItemInputCase">
+                                                        <input type="hidden" name="quItemId" value="">
+                                                        <input type="hidden" name="quItemSaveTag" value="0">
+                                                        <input type="hidden" name="isNote" value="0">
+                                                        <input type="hidden" name="checkType" value="NO">
+                                                        <input type="hidden" name="isRequiredFill" value="0">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="quCoBottomTools">
+                                            <ul class="quCoBottomToolsUl comafter">
+                                                <li class="addOption ui-draggable" title="添加"><div class="dwQuIcon"></div></li>
+                                                <li class="fr">
+                                                    <div class="surveyQuItemLeftTools">
+                                                        <!--左边悬浮操作栏-->
+                                                        <ul class="surveyQuItemLeftToolsUl comafter">
+                                                            <li title="移动排序" class="fl dwQuMove ui-draggable"><div class="dwQuIcon"></div></li>
+                                                            <!--<li title="设置" class="dwQuSet ui-draggable"><div class="dwQuIcon"></div></li>-->
+                                                            <li title="复制" class="fl dwQuLogic ui-draggable"><div class="dwQuIcon"><div class="quLogicInfo"></div></div></li>
+                                                            <li title="删除" class="fl dwQuDelete ui-draggable"><div class="dwQuIcon"></div></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="os-topicAnalysis comafter">
+                                            <span class="fl">试题解析：</span>
+                                            <label class="fl editAble analysisEdit">(选填)</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="os-createExam-content-editTopic fl">
+            <!--试卷为空时-->
+            <div class="os-createExam-content-empty" style="display: none">点击左侧题型，添加题目到此空白区域</div>
+            <!--试卷为空时end-->
+            <div>
+                <div id="wrap">
+                    <input type="hidden" id="id" name="id" value="${survey.id }">
+                    <input type="hidden" id="ctx" value="${ctx }">
+                    <input type="hidden" id="surveyModel_hidden" value="${survey.surveyModel }">
+                    <div id="toolsPubBtn" >
+                        <div class="toolbars" style="padding:10px 15px 10px 0;">
+                            <ul>
+                                <li id="publishBtn" >
+                                    <div class="dwToolbar_icon"></div>
+                                </li>
+                                <li id="saveＭodelBtn" style="display: none;" class="saveＭodelBtn_li">
+                                    <div class="dwToolbar_icon"></div>
+                                </li>
+                                <li id="saveBtn" >
+                                    <div class="dwToolbar_icon"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div id="dw_body_left">
+                        <div class="dw_body_title" style="text-align: center;">设计目录</div>
+                        <div id="dwBodyLeftContent">
+                            <h2 class=""><a href="" class="ellipsis">欢迎页</a></h2>
+                            <div>
+                                <div><h2 class=""><a href="" class="ellipsis">问卷页</a></h2></div>
+                                <div style="padding-left: 5px;">
+                                    <h2 class=""><a href="" class="ellipsis">1、请问你的年级是？</a></h2>
+                                    <h2 class=""><a href="" class="ellipsis">2、请问你的年级是？</a></h2>
+                                    <h2 class=""><a href="" class="ellipsis">3、请问你的年级是？</a></h2>
+                                    <h2 class=""><a href="" class="ellipsis">4、请问你的年级是？</a></h2>
+                                    <h2 class=""><a href="" class="ellipsis">下一页</a></h2>
+                                    <h2 class=""><a href="" class="ellipsis">5、请问你的年级是？</a></h2>
+                                    <h2 class=""><a href="" class="ellipsis">6、请问你的年级是级是级是？</a></h2>
+                                </div>
+                            </div>
+                            <h2 class=""><a href="" class="ellipsis">结束页</a></h2>
+                        </div>
+                    </div>
+                    <div id="dw_body_right" style="display: none;"><div class="dw_body_title">题目推荐</div></div>
+                    <div id="">
+                        <div id="dwSurveyQuContent">
+                            <div class="js_errorShow js_hide_com os-createExam-errorShow">
+                                <span class="js_errorShow_text">第1题未填写题目描述</span>
+                                <!--  第2题选项内容为空-->
+                                <!--  第2题选未选择正确选项-->
+                                <i class="os-createExam-errorShow-icon" onclick="myAlert.cancelAlert()"></i>
+                            </div>
+                            <div class="js_contentEmpty os-createExam-content-empty">点击左侧题型，添加题目到此空白区域</div>
+                            <ul id="dwSurveyQuContentAppUl">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="dwCommonEditRoot"  >
+                    <div class="dwCommonEdit">
+                        <ul class="dwComEditMenuUl" >
+                            <li><a href="javascript:;" class="SeniorEdit"><i class="menu_edit2_icon"></i>高级编辑</a></li>
+                            <li class="option_Set_Li"><a href="javascript:;" class="option_Set"><i class="menu_edit4_icon"></i>选项设置</a></li>
+                            <!-- <li><a href="javascript:;" class="reference_Set" style="display: none;"><i class="menu_edit4_icon"></i>引用设置</a></li> -->
+                        </ul>
+                        <ul class="dwComEditOptionUl">
+                            <li class="dwOptionUp"><div class=dwQuIcon></div></li>
+                            <li class="dwOptionDown"><div class=dwQuIcon></div></li>
+                            <li class="dwOptionDel"><div class=dwQuIcon></div></li>
+                        </ul>
+                        <!--<div class="dwComEditMenuBtn"></div>-->
+                        <div id="dwComEditContent" contenteditable="true" placeholder=''>请问你的年级是？</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="navbar-fixed-bottom text-center os-createExam-footer">
+    <div class="js_collect_alert os-createExam-saveShow retail-btn" style="display: none">保存成功</div>
+    <div class="os-createExam-footer-content">
+        <span class="os-createExam-footer-btn" onclick="input_alert()">保存</span>
+        <span class="os-createExam-footer-btn send" onclick="myAlert.saveBtn()">保存并发送</span>
+    </div>
+</div>
+<!-- 各种模板 -->
+<!-- 单选选项模板 -->
+<div id="quRadioItem" class="modelHtml">
+    <i onclick="optionClick(this)" class="icon_radio_option fl"></i><label class="editAble quCoOptionEdit fl"></label>
+    <div class="quItemInputCase">
+        <input type="hidden" name="quItemId" value="">
+        <input type="hidden" name="quItemSaveTag" value="0">
+        <input type="hidden" name="isNote" value="0">
+        <input type="hidden" name="checkType" value="NO">
+        <input type="hidden" name="isRequiredFill" value="0">
+    </div>
+</div>
+<!-- 多选选项模板 -->
+<div id="quCheckboxItem" class="modelHtml">
+    <i onclick="checkboxClick(this)" class="icon_radio_option fl"></i><label class="editAble quCoOptionEdit fl"></label>
+    <div class="quItemInputCase">
+        <input type="hidden" name="quItemId" value="">
+        <input type="hidden" name="quItemSaveTag" value="0">
+        <input type="hidden" name="isNote" value="0">
+        <input type="hidden" name="checkType" value="NO">
+        <input type="hidden" name="isRequiredFill" value="0">
+    </div>
+</div>
+<div style="text-align: center;display: none">
+    <div class="dw_foot" style="padding-bottom: 30px;">
+        <div class="footer-copyright" style="color: gray;padding-top: 0;font-size: 16px;">
+
+        </div>
+    </div>
+</div>
+<!--删除弹窗-->
+<div id="com_black" class="js_com_black hide_com_buy com_black pc_comBlack" style="display: block" onclick="myAlert.cancelAlert()"></div>
+<div class="js_hide_com js_delItems_alert comafter delItems-alert flex-row" style="display: block">
+    <div class="delItems-alert-info">
+        <div class="delItems-alert-info-title">提示</div>
+        <i class="delItems-alert-info-close" onclick="myAlert.cancelAlert()"></i>
+        <div class="js_delItems_text delItems-alert-info-content">确定删除该题目？</div>
+        <div class="delItems-alert-info-action">
+            <span class="delItems-alert-info-btn retail-btn" onclick="myAlert.cancelAlert()">取消</span>
+            <span class="delItems-alert-info-btn retail-btn">确定</span>
+        </div>
+    </div>
+</div>
+<!--删除弹窗end-->
+<script type="text/javascript">
+    <!-- 初始化属性 -->
+    //alert("${survey.surveyDetail.effectiveIp}");
+    if("${survey.surveyDetail.effective}">1){
+        $("input[name='effective']").attr("checked",true);
+    }else{
+        $("input[name='effective']").attr("checked",false);
+    }
+
+    $("input[name='effectiveIp'][value='${survey.surveyDetail.effectiveIp}']").attr("checked",true);
+    $("input[name='rule'][value='${survey.surveyDetail.rule}']").attr("checked",true);
+    $("input[name='ruleCode']").val("${survey.surveyDetail.ruleCode}");
+    $("input[name='refresh'][value='${survey.surveyDetail.refresh}']").attr("checked",true);
+    $("input[name='mailOnly'][value='${survey.surveyDetail.mailOnly}']").attr("checked",true);
+    $("input[name='ynEndNum'][value='${survey.surveyDetail.ynEndNum}']").attr("checked",true);
+    $("input[name='endNum']").val("${survey.surveyDetail.endNum}");
+    $("input[name='ynEndTime'][value='${survey.surveyDetail.ynEndTime}']").attr("checked",true);
+    $("input[name='endTime']").val("${survey.surveyDetail.endTime}");
+    $("input[name='showShareSurvey'][value='${survey.surveyDetail.showShareSurvey}']").attr("checked",true);
+    $("input[name='showAnswerDa'][value='${survey.surveyDetail.showAnswerDa}']").attr("checked",true);
+</script>
+</body>

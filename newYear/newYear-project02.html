@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>方案二</title>
+    <!-[if IE9]>
+    <script src="js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers{display:none!important;}</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <![endif]->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-login-register.css" rel="stylesheet" type="text/css">
+    <link href="css/newYearCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/newYear-activityList.css" rel="stylesheet" type="text/css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/alert.js"></script>
+    <script>
+        //手机号码验证
+        function title_verify(){
+            var len = $(".js_title").val().length;
+            len = parseInt(len);
+            if (len > 2) {
+                $(".js_title").parent().find(".error").text("最多不超过20个汉字");
+            }
+        }
+    </script>
+    <script>
+        $(function(){
+            $('#js_input').on('change',function(e){
+                var tar = this,
+                        files = tar.files,
+                        fNum = files.length,
+                        URL = window.URL || window.webkitURL;
+                if(!files[0])return;
+                for(var i=0;i<fNum;i++){
+                    if(files[i].type.search(/image/)>=0){
+                        var lqy = URL.createObjectURL(files[i]);
+                        var newImg = new Image();
+                        newImg.onload = function(){
+                            $(".this_img").remove();
+                            document.getElementById("icon_img").appendChild(newImg);
+                            $(this).addClass("this_img newYear-project-img001");
+                            $("#icon_img").find(".error").html('');
+                        };
+                        newImg.src = lqy;
+                    }
+                }
+            });
+            $('#js_input02').on('change',function(e){
+                var tar = this,
+                        files = tar.files,
+                        fNum = files.length,
+                        URL = window.URL || window.webkitURL;
+                if(!files[0])return;
+                for(var i=0;i<fNum;i++){
+                    if(files[i].type.search(/image/)>=0){
+                        var lqy = URL.createObjectURL(files[i]);
+                        var newImg = new Image();
+                        newImg.onload = function(){
+                            $(".this_img02").remove();
+                            document.getElementById("icon_img02").appendChild(newImg);
+                            $(this).addClass("this_img02 newYear-project-img001");
+                            $("#icon_img02").find(".error").html('');
+                        };
+                        newImg.src = lqy;
+                    }
+                }
+            });
+        });
+        function UpladFile() {
+            var fileObj = document.getElementById("file01").files[0]; // 获取文件对象
+            var FileController = "";                    // 接收上传文件的后台地址
+            // FormData 对象
+            var form = new FormData();
+            form.append("author", "sweety");                        // 可以增加表单数据
+            form.append("file", fileObj);                           // 文件对象
+            // XMLHttpRequest 对象
+            var xhr = new XMLHttpRequest();
+            xhr.open("post", FileController, true);
+            xhr.onload = function () {
+                alert("上传完成!");
+            };
+            xhr.send(form);
+        }
+    </script>
+</head>
+<body>
+<div class="container-fluid padding-0px" >
+    <div class="newYear-project">
+        <div class="col-xs-12 newYear-activityList-title">设置实物奖品</div>
+        <div class="comafter col-xs-12">
+            <div class="newYear-project-title">实物奖品标题<span class="newYear-project-title02">翡翠吊坠缅甸原石辟邪开光貔貅吊坠天然玉石</span></div>
+            <div class="newYear-project-title newYear-project-title-img">
+                实物奖品图片
+                <span class="newYear-project-title-warning">请注意图片长宽比例1:1</span>
+            </div>
+            <div id="icon_img" class="js_iconImg newYear-project-img-wrap">
+                <img class="this_img newYear-project-img001" src="images/retail_logo.png" alt="">
+                <label  class="error"></label>
+            </div>
+            <div class="retail-comverify">
+                <div class="newYear-project-rule">每天本市前100名用户免费获得实物奖品</div>
+                <label  class="error error02">已有52人领取实物奖品 ，请在通讯录-客户中查找</label>
+            </div>
+        </div>
+        <div class="col-xs-12 newYear-activityList-title">设置抽奖券奖品</div>
+        <div class="comafter col-xs-12">
+            <div class="newYear-project-title">抽奖券奖品标题<span class="newYear-project-title02">翡翠吊坠</span></div>
+            <div class="newYear-project-title newYear-project-title-img">抽奖券奖品图片<span class="newYear-project-title-warning">请注意图片长宽比例1:1</span></div>
+            <div id="icon_img02" class="js_iconImg newYear-project-img-wrap">
+                <img class="this_img newYear-project-img001" src="images/retail_logo.png" alt=""><label  class="error"></label>
+            </div>
+        </div>
+        <div class="retail-comverify">
+            <div class="newYear-project-warning newYear-project-warning-text" style="padding-bottom: 35px">超过以上数量或外市用户免费获得抽奖券奖品，活动结束为止</div>
+            <label  class="error error02" style="left: 15px;bottom: 8px">已有52人领取实物奖品 ，请在通讯录-客户中查找</label>
+        </div>
+        <div class="newYear-project-warning-wrap">
+            <div class="newYear-project-warning text-center">获奖用户将到店领取奖品</div>
+            <div class="newYear-project-warning text-center">参与活动的所有用户将统计在通讯录的客户列表中</div>
+        </div>
+    </div>
+    <div id="js_unoverBtn" class="navbar-fixed-bottom newYear-activityList-btn01">
+        <a onclick="alertFunc()" href="javascript:;" class="col-xs-6 combtn">结束活动</a>
+        <a href="javascript:;" class="col-xs-6 combtn newbtn">查看活动图片</a>
+    </div>
+    <!--活动已结束-->
+    <div id="js_overBtn" class="navbar-fixed-bottom" style="display: none">
+        <div class="newYear-project-bigBtn disabled text-center">活动已结束</div>
+    </div>
+</div>
+<div id="com_black" onclick="cancelAlert()" class="js_com_black com_black" style="display: none"></div>
+<div class="js_sureAlert js_hide_com sure-alert" style="display: none">
+    <div class="text-center sure-alert-text">
+        <div class="sure-alert-text01">是否确定结束?</div>
+        <div class="sure-alert-text02">确定后新用户不能领取</div>
+    </div>
+    <div class="sure-alert-btn">
+        <div onclick="cancelAlert()" class="col-xs-6 text-center color-zby sure-alert-btn-cancel">取消</div>
+        <div class="js_sureBtn col-xs-6 text-center color-zby sure-alert-btn-yes">确定</div>
+    </div>
+</div>
+</body>
+</html>
+

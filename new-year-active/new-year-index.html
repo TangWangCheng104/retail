@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>新年活动主页</title>
+    <!-[if IE9]>
+    <script src="../js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers{display:none!important;}</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a></div>
+    </noscript>
+    <![endif]->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/newYear.css">
+    <script src="../js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oaudio = document.createElement("audio");
+            var onav = document.getElementsByClassName('new-index-nav')[0];
+            var newOpenMusic = document.getElementsByClassName('new-open-music')[0];
+            var newCloseMusic = document.getElementsByClassName('new-close-music')[0];
+
+            oaudio.setAttribute("autoplay","autoplay") ;
+            oaudio.setAttribute("loop","loop") ;
+            /*根据时间不同播放不同的音乐*/
+            var passDate = 1619957568466;
+            var nowDate = (new Date()).getTime(); 
+           	if ( passDate < nowDate ){
+           		var musicName = "goddessMusic.mp3"
+           	}else{
+            	var musicName = "gongxifacai.mp3"
+           	}
+            oaudio.setAttribute("src","../medio/"+musicName) ;
+            oaudio.id = "audioGxfc";
+            onav.appendChild( oaudio );
+			
+            newCloseMusic.onmousedown = function a() {
+                oaudio.play();
+                newOpenMusic.style.display = "block"
+                newCloseMusic.style.display = "none"
+            };
+            newOpenMusic.onclick = function () {
+                oaudio.pause();
+                newCloseMusic.style.display = "block"
+                newOpenMusic.style.display = "none"
+            };
+            /*兼容ios*/
+            function wxAutoPlayAudio(){
+                wx.config({
+                    debug:false,
+                    appId:'',
+                    timestamp:1,
+                    nonceStr:'',
+                    signature:'',
+                    jsApiList:''
+                })
+                wx.ready(function(){
+                    oaudio.play();
+                })
+            }
+            wxAutoPlayAudio();
+        }
+
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="new-index-nav font-size0">
+            <!--音乐开关和音乐-->
+            <img class="new-open-music" src="../images/new_year_openMusic.png" alt="">
+            <img class="new-close-music" style="display:none;" src="../images/new_year_closeMusic.png" alt="">
+            <!--头部图-->
+            <img class="new-year-banner-img" src="../images/new_year_banner.png" alt="">
+            <!--店铺名字和图-->
+            <div class="new-shop-name-img-warp font-size0 new-shop-name-warp-change" style="display: none;">
+                <img class="new-year-shopName-img" src="../images/new_year_shopname_activetime.png" alt="">
+                <span class="new-year-shopName-change">我的店铺</span>
+            </div>
+        </nav>
+    </header>
+    <article class="font-size0">
+        <!--<a href="javascript:;">
+            <img class="new-year-shopName-img" src="../images/new_year_active_index_02.png" alt="">
+        </a>-->
+        <div class="new-year-shopName-img-wrap">
+            <!--已经售完的图-->
+            <img class="new-year-sale-all" src="../images/new_year_sale_all.png" alt="">
+            <!--商品详情图-->
+            <a href="javascript:;">
+                <img class="new-year-shopName-img" src="../images/new_year_active_index_03.png" alt="">
+            </a>
+        </div>
+        <div class="new-year-shopName-img-wrap">
+            <!--已经售完的图-->
+            <img class="new-year-sale-all" src="../images/new_year_sale_all.png" alt="">
+            <!--商品详情图-->
+            <a href="javascript:;">
+                <img class="new-year-shopName-img" src="../images/new_year_active_index_04.png" alt="">
+            </a>
+        </div>
+        <div class="new-year-shopName-img-wrap">
+            <!--已经售完的图-->
+            <img class="new-year-sale-all" src="../images/new_year_sale_all.png" alt="">
+            <!--商品详情图-->
+            <a href="javascript:;">
+                <img class="new-year-shopName-img" src="../images/new_year_active_index_05.png" alt="">
+            </a>
+        </div>
+        <!--拼单聚福气-->
+        <a href="javascript:;">
+            <img class="new-year-shopName-img" src="../images/new_year_active_index_07.png" alt="">
+        </a>
+        <div class="new-year-shopName-img-wrap">
+            <!--已经售完的图-->
+            <img class="new-year-sale-all new-sale-all-pingdan" src="../images/new_year_sale_all.png" alt="">
+            <!--商品详情图-->
+            <a href="javascript:;">
+                <img class="new-year-shopName-img" src="../images/new_year_active_index_08.png" alt="">
+            </a>
+        </div>
+        <div class="new-year-shopName-img-wrap">
+            <!--已经售完的图-->
+            <img class="new-year-sale-all new-sale-all-pingdan" src="../images/new_year_sale_all.png" alt="">
+            <!--商品详情图-->
+            <a href="javascript:;">
+                <img class="new-year-shopName-img" src="../images/new_year_active_index_09.png" alt="">
+            </a>
+        </div>
+        <div class="new-year-shopName-img-wrap">
+            <!--已经售完的图-->
+            <img class="new-year-sale-all new-sale-all-pingdan" src="../images/new_year_sale_all.png" alt="">
+            <!--商品详情图-->
+            <a href="javascript:;">
+                <img class="new-year-shopName-img" src="../images/new_year_active_index_10.png" alt="">
+            </a>
+        </div>
+        <div class="new-year-shopName-img-wrap">
+            <!--已经售完的图-->
+            <img class="new-year-sale-all new-sale-all-pingdan" src="../images/new_year_sale_all.png" alt="">
+            <!--商品详情图-->
+            <a href="javascript:;">
+                <img class="new-year-shopName-img" src="../images/new_year_active_index_11.png" alt="">
+            </a>
+        </div>
+        <!--秒杀活动-->
+        <a href="javascript:;">
+            <img class="new-year-shopName-img" src="../images/new_year_active_index_12.png" alt="">
+        </a>
+        <!--四张图的形式-->
+        <!--<div class="new-year-second-kill-wrap">
+            <div class="new-year-second-kill-shop-wrap">
+                <div class="new-second-kill-shop-change">
+                    <a href="#"><img class="new-second-kill-shop-img" src="../images/new_year_together.png" alt=""></a>
+                    &lt;!&ndash;已经售完的图&ndash;&gt;
+                    <img class="new-year-sale-all-change" src="../images/new_year_sale_all.png" alt="">
+                </div>
+                <div class="new-second-kill-shop-change">
+                    <a href="#"><img class="new-second-kill-shop-img" src="../images/new_year_together.png" alt=""></a>
+                    &lt;!&ndash;已经售完的图&ndash;&gt;
+                    <img class="new-year-sale-all-change" src="../images/new_year_sale_all.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="new-year-second-kill-wrap">
+            <div class="new-year-second-kill-shop-wrap">
+                <div class="new-second-kill-shop-change">
+                    <a href="#"><img class="new-second-kill-shop-img" src="../images/new_year_together.png" alt=""></a>
+                    &lt;!&ndash;已经售完的图&ndash;&gt;
+                    <img class="new-year-sale-all-change" src="../images/new_year_sale_all.png" alt="">
+                </div>
+                <div class="new-second-kill-shop-change">
+                    <a href="#"><img class="new-second-kill-shop-img" src="../images/new_year_together.png" alt=""></a>
+                    &lt;!&ndash;已经售完的图&ndash;&gt;
+                    <img class="new-year-sale-all-change" src="../images/new_year_sale_all.png" alt="">
+                </div>
+            </div>
+        </div>-->
+        <!--一张图的形式-->
+        <div class="new-second-kill-four-wrap">
+            <a class="new-second-kill-four-a" href="#">
+                <img class="new-second-kill-four-img" src="../images/new_year_active_index_13.png" alt="">
+                <!--已售完-->
+                <img class="new-year-sale-all-change1" src="../images/new_year_sale_all.png" alt="">
+                <img class="new-year-sale-all-change2" src="../images/new_year_sale_all.png" alt="">
+                <img class="new-year-sale-all-change3" src="../images/new_year_sale_all.png" alt="">
+                <img class="new-year-sale-all-change4" src="../images/new_year_sale_all.png" alt="">
+            </a>
+        </div>
+    </article>
+    <footer class="font-size0">
+        <img class="new-year-footer-wenli" src='../images/new_year_footer_wenli.png' alt="">
+    </footer>
+</body>
+</html>

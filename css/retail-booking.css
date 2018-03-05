@@ -1,0 +1,77 @@
+.figure-list{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.figure-list:after{
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+.figure-list li{
+    list-style: none;
+    float: left;
+    width: 100%;
+    margin: 0 2% 2% 0;
+}
+.figure-list figure{
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding-bottom: 100%; /* 关键就在这里 */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.figure-list figure a{
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+}
+.retail-goodsDetails-description{
+    margin-top: 10px;
+}
+
+.booking-wrap{
+    background: #fff;
+    padding:85px 12px 25px;
+}
+
+.daifu-goodsDetails-time-icon{
+    margin-bottom: 2px;
+}
+.daifu-goodsDetails-time-icon img{
+    width: 17px;
+}
+.daifu-goodsDetails-time{
+    padding-bottom: 17px;
+    font-size: 13px;
+    color: #999;
+}
+.daifu-goodsDetails-time .num{
+    width: 20px;
+    height: 17px;
+    line-height: 16px;
+    border-radius: 2px;
+    background: #bfbfbf;
+    color: #fff;
+    display: inline-block;
+    margin: 0 2px;
+}
+.lqy-btnBuy-now01 {
+    width:28%;background: #fe939d;
+    line-height: 50px;
+    color: #fff;
+}
+.lqy-btnBuy-now01.disabled {
+    background: #dfdfdf;
+}
+

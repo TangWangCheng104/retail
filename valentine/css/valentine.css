@@ -1,0 +1,22 @@
+.small_screen{
+    background: #fff;
+}
+.valentine{
+    padding-bottom: 20px;
+}
+.valentine-wrap{
+    position: relative;
+}
+.valentine-btn{
+    position: absolute;
+    bottom: 0;
+    display: inline-block;
+    background: #f86a99;
+    padding: 3px 11px;
+    color: #fff;
+    margin: 22px 0;
+    left: 52.1%;
+}
+.valentine-btn-left{
+    left: 20.6%;
+}

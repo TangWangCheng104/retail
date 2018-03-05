@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name='apple-itunes-app' content='app-id=1035128844'>
+    <!--样式胡引入-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/discount-scroll.css">
+    <link rel="stylesheet" href="../css/store-index.css">
+    <link rel="stylesheet" href="../css/discount.css">
+    <link rel="stylesheet" href="../css/memberSystem.css">
+    <!--js的引入-->
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/discount.js"></script>
+    <script src="../js/member.js"></script>
+    <title>会员体系-我的优惠券</title>
+    <style>
+        html{
+            font-size: 625%;
+            background: #f5f5f5;
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            font-size: 14px;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script>
+        $(function(){
+            $('.store-tap').on("click","li",function(){
+                var index = $(this).index(".store-tap li");
+                $('#store-tap li').eq(index).find("a").addClass("store-avtive").parent().siblings().find("a").removeClass("store-avtive");
+            });
+        })
+    </script>
+</head>
+<body>
+<ul class="store-tap" id="store-tap">
+    <li><a href="javascript:;">未使用(<span>3</span>)</a></li>
+    <li><a href="javascript:;" class="store-avtive">使用记录(<span>3</span>)</a></li>
+    <li><a href="javascript:;">已过期(<span>3</span>)</a></li>
+</ul>
+<div class="store-wrap discount-shoper-wrap discount-my-discount-wrap" id="wrapper">
+    <div class="member-discount-warn js_member_close">您有&nbsp;<i class="member-discount-number">3</i>&nbsp;张优惠卷快过期，请尽快使用或转增<span class="member-close" onclick="memberCloseSelf()">×</span></div>
+    <div class="has-discount discount-my-discount" style="display: block">
+    <!--已经使用了的优惠券-->
+        <div class="my-discount-wrapper" style="display:block;">
+            <ul>
+                <li>
+                    <div class="discount-used-wrap member-used-wrap" style="display:block;">
+                        <div class="dicount-kong-line1"></div>
+                        <div class="has-discount-left">
+                            <div class="not-get">
+                                <!--这是红色背景-->
+                                <img style="display: none" class="discount-not-get" src="../images/discount_no_get1.png" alt="">
+                                <!--这是橙色背景-->
+                                <img style="display: block" class="discount-not-get" src="../images/member_discount.png" alt="">
+                                <!--这是灰色背景-->
+                                <img style="display: none" class="discount-not-get" src="../images/discount_already_pass1.png" alt="">
+                                <span class="discount-money-wrap">
+                                    <span class="discount-money">￥</span>
+                                    <span class="discount-price">900000</span>
+                                </span>
+                                <span class="full-money-reduce">可增值10元</span>
+                            </div>
+                            <div class="has-discount-right">
+                                <!--这是满减券的指定商品可用-->
+                                <div class="discount-name" style="display: none"><span class="full-reduce add-cash">增值现金券</span><span class="use-range">指定商品可用</span></div>
+                                <!--这是慢减券的全部商品可用-->
+                                <div class="discount-name" style="display: block"><span class="full-reduce">增值现金券</span><span class="use-range">指定商品可用</span></div>
+                                <!--这里是时间-->
+                                <div class="discount-effect discount-effect-position">
+                                    <span>2017.9.30</span><span class="discount-time-min">15:21</span>至<span>2017.7.30</span><span class="discount-time-min">17:31</span>
+                                    <!--这里是小箭头-->
+                                    <img class="discount-right discount-right-position" src="../images/discount_right.png" alt="">
+                                </div>
+                                <!--这个是已使用，已过期那些的背景图-->
+                                <!--已使用-->
+                                <img style="display: none" class="already-pass already-use-list" src="../images/already_use.png" alt="">
+                                <!--已经过期-->
+                                <img style="display: block" class="already-pass already-use-list" src="../images/already_pass2.png" alt="">
+                                <!--这是商品条图片-->
+                                <div class="check-discount-wrap">
+                                    <a class="check-discount" href="javascript:;"><img class="shape-code" src="../images/shape_code.png" alt=""></a>
+                                </div>
+                                <!--这是快到期-->
+                                <img style="display: none" class="already-pass no-effective" src="../images/arrive_time_su.png" alt="">
+                                <!--这是未生效-->
+                                <img style="display: block" class="already-pass no-effective" src="../images/no_effective.png" alt="">
+                            </div>
+                        </div>
+                        <!--这是有人赠送和放大编号，转赠好友，立即使用的部分-->
+                        <div class="mystery-friend-send-wrap discount-name-header">
+                            <div class="discount-top-send-right discount-sb-name">
+                                <div class="discount-languges discount-send-name-wrap">
+                                    <span>
+                                        <span>
+                                            <img class="discount-top-img discount-sb-send" src="../images/retail-goodsDetails-img004.png" />
+                                            <span class="discount-send-name">浪子书浪子书</span><span class="discount-send-text">赠送</span>
+                                        </span>
+                                    </span>
+                                    <span class="discount-bigger-right">
+                                        <span class="discount-bigger" onclick="bigger()">放大编号</span>
+                                        <span class="discount-bigger">转赠好友</span>
+                                        <span class="discount-bigger">立即使用</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="discount-used-wrap member-used-wrap" style="display:block;">
+                        <div class="dicount-kong-line1"></div>
+                        <div class="has-discount-left">
+                            <div class="not-get">
+                                <!--这是红色背景-->
+                                <img style="display: none" class="discount-not-get" src="../images/discount_no_get1.png" alt="">
+                                <!--这是橙色背景-->
+                                <img style="display: block" class="discount-not-get" src="../images/member_discount.png" alt="">
+                                <!--这是灰色背景-->
+                                <img style="display: none" class="discount-not-get" src="../images/discount_already_pass1.png" alt="">
+                                <span class="discount-money-wrap">
+                                    <span class="discount-money">￥</span>
+                                    <span class="discount-price">900000</span>
+                                </span>
+                                <span class="full-money-reduce">可增值10元</span>
+                            </div>
+                            <div class="has-discount-right">
+                                <!--这是满减券的指定商品可用-->
+                                <div class="discount-name" style="display: none"><span class="full-reduce add-cash">增值现金券</span><span class="use-range">指定商品可用</span></div>
+                                <!--这是慢减券的全部商品可用-->
+                                <div class="discount-name" style="display: block"><span class="full-reduce">增值现金券</span><span class="use-range">指定商品可用</span></div>
+                                <!--这里是时间-->
+                                <div class="discount-effect discount-effect-position">
+                                    <span>2017.9.30</span><span class="discount-time-min">15:21</span>至<span>2017.7.30</span><span class="discount-time-min">17:31</span>
+                                    <!--这里是小箭头-->
+                                    <img class="discount-right discount-right-position" src="../images/discount_right.png" alt="">
+                                </div>
+                                <!--这个是已使用，已过期那些的背景图-->
+                                <!--已使用-->
+                                <img style="display: none" class="already-pass already-use-list" src="../images/already_use.png" alt="">
+                                <!--已经过期-->
+                                <img style="display: block" class="already-pass already-use-list" src="../images/already_pass2.png" alt="">
+                                <!--这是商品条图片-->
+                                <div class="check-discount-wrap">
+                                    <a class="check-discount" href="javascript:;"><img class="shape-code" src="../images/shape_code.png" alt=""></a>
+                                </div>
+                                <!--这是快到期-->
+                                <img style="display: none" class="already-pass no-effective" src="../images/arrive_time_su.png" alt="">
+                                <!--这是未生效-->
+                                <img style="display: block" class="already-pass no-effective" src="../images/no_effective.png" alt="">
+                            </div>
+                        </div>
+                        <!--这是有人赠送和放大编号，转赠好友，立即使用的部分-->
+                        <div class="mystery-friend-send-wrap discount-name-header">
+                            <div class="discount-top-send-right discount-sb-name">
+                                <div class="discount-languges discount-send-name-wrap">
+                                    <span>
+                                        <span>
+                                            <img class="discount-top-img discount-sb-send" src="../images/retail-goodsDetails-img004.png" />
+                                            <span class="discount-send-name">浪子书浪子书</span><span class="discount-send-text">赠送</span>
+                                        </span>
+                                    </span>
+                                    <span class="discount-bigger-right">
+                                        <span class="discount-bigger" onclick="bigger()">放大编号</span>
+                                        <span class="discount-bigger">转赠好友</span>
+                                        <span class="discount-bigger">立即使用</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--遮罩层-->
+<div id="com_black" class="js_com_black js-show js-hide-refund com_black refund-com-black" onclick="jsHide()" style="display:none"></div>
+<!--分享给好友-->
+<img class="discount-share js-hide-refund" onclick="jsHide()" style="display: none" src="../images/discount_share.png" alt="">
+<!--弹出框-->
+<div class="discount-bigger-wrap js-show js-hide-refund" style="display: none" onclick="jsHide()">
+    <div class="discount-touxiang-wrap">
+        <img class="discount-touxiang" src="../images/author_touxiang.png" alt="">
+        <img class="discount-alert-shape-code" src="../images/shape_code.png" alt="">
+        <span class="shape-code-number">1234&nbsp;&nbsp;1234&nbsp;&nbsp;1234&nbsp;&nbsp;1234&nbsp;&nbsp;12</span>
+        <span class="use-show">使用时向服务员出示此会员卡</span>
+    </div>
+</div>
+</body>
+</html>

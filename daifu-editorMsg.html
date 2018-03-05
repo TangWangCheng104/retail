@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>手把件吊坠挂坠新疆和田玉羊脂白玉平安牌和田玉吊坠男士女士平安无事牌白玉牌子牌和田玉吊坠男士女士平安无事牌白玉牌子</title>
+    <!-[if IE9]>
+    <script src="js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers {
+            display: none !important;
+        }</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <![endif]->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-goodsDetails.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-daifu.css" rel="stylesheet" type="text/css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="js/messages.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script src="js/loginVerify.js"></script>
+    <script type="text/javascript" src="js/pinchzoom.js"></script>
+    <script src="js/app_product.js"></script>
+    <script src="js/retail_cofirmBuying.js"></script>
+    <script src="js/daifu.js"></script>
+    <script>
+        $(function(){
+           $(".js_mywords_item").click(function(){
+               if(!$(this).hasClass("disabled")){
+                   $(".js_mywords_item").removeClass("active");
+                   $(this).addClass("active");
+                   var msg = $(this).attr("myval");
+//               $(".js_mywords_msg").texmsg)
+                   $(".js_mywords_msg").val(msg);
+               }
+           })
+        });
+    </script>
+</head>
+<body style="background: #fff;">
+<div class="container-fluid small_screen">
+    <div class="row">
+        <div class="daifu-editorMsg">
+            <div class="text-center flex-row daifu-editorMsg-img" style="">
+                <ul class="figure-list">
+                    <li>
+                        <figure style="background-image:url(images/retail-goodsDetails-img001.png)">
+                            <a href="#"></a>
+                        </figure>
+                    </li>
+                </ul>
+                <!--<img class="img-responsive" style="min-height:80vw" src="images/retail-goodsDetails-img001.png" alt="">-->
+            </div>
+            <div class="daifu-editorMsg-content">
+                <div class="daifu-editorMsg-name-price flex-row">
+                    <div>发起人：蓝蓝哟</div>
+                    <div class="flex-data text-right">代付金额：￥3000</div>
+                </div>
+                <div class="daifu-editorMsg-mywords">
+                    <span class="js_mywords_item active daifu-editorMsg-mywords-btn" myval="宝宝">江湖告急</span>
+                    <span class="js_mywords_item daifu-editorMsg-mywords-btn disabled" myval="你去哪里了">甜蜜撒娇</span>
+                    <span class="js_mywords_item daifu-editorMsg-mywords-btn" myval="去哪里了">亲情永恒</span>
+                    <span class="js_mywords_item daifu-editorMsg-mywords-btn" myval="我的宝宝">威逼利诱</span>
+                    <div class="daifu-editorMsg-mywords-content" style="">
+                        <textarea name="mywords" class="js_mywords_msg mytext" id="" cols="30" rows="10">我很喜欢这个商品，麻烦帮我代付一下啦，非常感谢，么么哒！很喜欢这个商品，麻烦帮我代付一下啦麻烦帮我代付一下啦
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+            <div onclick="javascript:noEditor();" class="navbar-fixed-bottom bgcolor-zby text-center daifu-editorMsg-btn">发给TA</div>
+        </div>
+    </div>
+</div>
+<!--提示分享到朋友圈-->
+<div id="com_black" class="js_com_black js_hide_com com_black" style="display:none"></div>
+<div class="js_hide_com js_daifu_share kandan-alert-share" style="display: none">
+    <img class="img-responsive" src="images/daifu_alert_show.png" alt="">
+</div>
+<!--提示分享到朋友圈end-->
+</body>
+</html>

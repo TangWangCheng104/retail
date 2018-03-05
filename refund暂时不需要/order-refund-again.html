@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>退款</title>
+    <!--这是订单详情 无优惠（老板／店长／有权限员工）、无优惠推广人、无优惠消费者、订单详情 有优惠（老板／店长／有权限员工）、订单详情 有优惠（推广人）、订单详情 有优惠（消费者）-->
+    <!-[if IE9]>
+    <script src="../js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers{display:none!important;}</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a></div>
+    </noscript>
+    <![endif]->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/reset.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/refund.css">
+</head>
+<body>
+    <nav>
+        <div class="refund-nav-top col-xs-6">
+            <img class="refund-computer-header" src="../images/retail-goodsDetails-img004.png" />
+            <span class="refund-computer-name">人人一宝通科技有限公司</span>
+        </div>
+        <div class="refund-nav-top-right col-xs-6">
+            <span class="refund-time">11月12日15:30</span>
+            <span class="refund-waiting-pay">等待买家提货</span>
+        </div>
+    </nav>
+    <action>
+        <article>
+            <div class="article">
+                <div class="refund-shop-images-wrap col-xs-6">
+                    <div class="refund-shop-images" style="background: url('../images/retail-goodsDetails-img004.png') center center/cover">
+                        <span class="refund-share-money">分成<span>20%</span></span>
+                    </div>
+                </div>
+                <div class="refund-order-text-wrap col-xs-6">
+                    <span class="refund-order-text">订单详情<span class="refund-assass"></span></span>
+                </div>
+            </div>
+            <ul class="refund-shop-list-wrap refund-again-wrap">
+                <li class="refund-shop-list">
+                    <div class="col-xs-6">
+                        订单金额：<span class="order-money">￥13566</span>
+                    </div>
+                    <div class="col-xs-6 refund-shop-right">
+                        已付：<span class="order-money">￥13566</span>
+                    </div>
+                </li>
+                <li class="refund-shop-list refund-shop-chang">
+                    <div class="col-xs-6"></div>
+                    <div class="col-xs-6 already-refund">
+                        已经金额：<span class="order-money">￥13566</span>
+                    </div>
+                </li>
+            </ul>
+            <div class="col-xs-12 refund-record">申请记录</div>
+            <div class="refund-status-wrap clearfix">
+                <div class="refund-status-left col-xs-1">
+                    <span class="refund-status-line"></span>
+
+                </div>
+                <ul class="refund-status-right col-xs-11">
+                    <li class=" refund-status-li refund-status-right-acitve ">
+                        <p class="refund-reason-result"><img class="refund-big-point" src="../images/refund_big_point.png" alt="">审核结果：拒绝申请</p>
+                        <p>审核说明：请确认是否是我们的责任？不要发生出现背锅的情况，尽量避免这种情况的发生，需谨慎。</p>
+                        <p>审核人：杨总  2017-07-04 08:09</p>
+                    </li>
+                    <li class=" refund-status-li ">
+                        <p class="refund-reason-result"><span class="refund-small-point" style="background: url('../images/status_pic_small.png') center center/cover"></span>审核结果：拒绝申请</p>
+                        <p>审核说明：请确认是否是我们的责任？不要发生出现背锅的情况，尽量避免这种情况的发生，需谨慎。</p>
+                        <p>审核人：杨总  2017-07-04 08:09</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="refund-apply-again">
+                再次申请
+            </div>
+        </article>
+    </action>
+<!--金额为空的时候的弹款框-->
+<span class="refund-money-null">金额不能为空，请填写</span>
+</body>
+</html>
+<script src="../js/jquery-1.10.2.min.js"></script>
+<script>
+    $(function(){
+        var listTop = parseInt($('.refund-reason-result').eq(-1)[0].offsetTop);
+        console.log(listTop);
+        $('.refund-status-line').height(listTop);
+        $('.refund-small-point').css("top",listTop+7)
+    })
+</script>

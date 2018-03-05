@@ -1,0 +1,94 @@
+html,body{
+    width:100%;
+    height: 100%;
+}
+.procuer-icon01{
+    width: 92px;
+    height: 92px;
+    position: relative;
+    left: 50%;
+    margin-left: -46px;
+    margin-top:24px;
+    border-radius: 50%;
+    margin-bottom: 26px;
+    background: url('../images/test.png') center center/cover;
+    background-size: cover;
+}
+.procuer-get-code,.procuer-get-code1{
+    color: #999999;
+    font-size: 12px;
+    padding-left:67px ;
+}
+.procuer-get-code2,.procuer-get-code3{
+    padding-left:67px ;
+}
+.procuer-get-codestaff{
+    padding-left:50px ;
+}
+.procuer-get-code{
+    padding-top: 20px;
+}
+.procuer-get-code1{
+    padding-top: 10px;
+    display: none;
+}
+.procuer-not-have-code{
+    padding-right: 7px;
+}
+.procuer-click-get-code{
+    padding-right:7px;
+}
+.procuer-get-voice{
+    color: #0f93ff;
+}
+.procuer-phone{
+    color:#333333 ;
+}
+.store-apply-title{
+    color: #53CAC3;
+    font-size: 13px;
+}
+.partner-submitBtn{
+    background-color: #53cac3;
+}
+.store-apply-title{
+    padding-top:41px ;
+}
+.store-apply-title{
+    padding-left: 32px;
+}
+/*弹出遮罩层*/
+
+.alert-centent{
+    width: 272px;
+    height: 105px;
+    background: #fff;
+    position: fixed;
+    z-index: 1040;
+    top: 0;
+    right: 0;
+    bottom:0;
+    left: 0;
+    margin: auto;
+    border-radius: 10px;
+}
+.alert-centent li{
+    height: 52px;
+    line-height:52px;
+    text-align: center;
+    color: #76c7c2;
+}
+.alert-centent li:first-child{
+    border-bottom: 1px solid #e1e1e1;
+    color: #333333;
+}
+.alert-centent .staff-btn{
+    padding:0;
+}
+.store-staff-succes{
+    font-weight: normal;
+}
+/*邀请采购商 分享遮罩层*/
+
+
+

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>秒杀活动</title>
+    <!-[if IE9]>
+    <script src="../js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers {
+            display: none !important;
+        }</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <![endif]->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/second_kill.css">
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/retail_cofirmBuying.js"></script>
+
+</head>
+<script>
+
+    $(function(){
+        /*这里只有年月日小时*/
+        /*倒计时开始前*/
+        function secondeBeforeSH(intDiff, i) {
+            var year = 0,
+                    day = 0,
+                    hour = 0,
+                    minute = 0;
+            seconds = 0;
+            if (intDiff > 0) {
+                year = Math.floor(intDiff/( 60 * 60 * 24 * 365 )) +1970;
+                day = Math.floor(intDiff / (60 * 60 * 24));
+                hour = Math.floor(intDiff / (60 * 60) - (day * 24));
+                minute = Math.floor(intDiff/60 - (day * 24 * 60) - (hour * 60));
+                //seconds = Math.floor(intDiff - (day * 24 * 60) - (hour * 60)- (minute * 60) );
+                //seconds = Math.floor(intDiff%(24*60*60*day))
+                seconds = Math.floor(intDiff%60)
+            }
+            if (hour <= 9) hour = '0' + hour;
+            if (minute <= 9) minute = '0' + minute;
+            if (seconds <= 9) seconds = '0' + seconds;
+            //$('#'+ day_show).html(day + "天");
+            //$('#'+ hour_show).html('<s id="h"></s>' + hour + '时');
+            $(".second-less-time").eq(i).find(".second-more-year").text(day);
+            $(".second-less-time").eq(i).find(".second-more-month").text(day);
+            $(".second-less-time").eq(i).find(".second-more-day").text(hour);
+            $(".second-less-time").eq(i).find(".second-more-hours").text(minute);
+            //$(".second-less-time").eq(i).find(".second-sec").text(seconds);
+            intDiff--;
+            if(intDiff==0){
+                console.log("时间结束");
+            }
+        }
+        /*这里只有天时分秒*/
+        /*秒杀的倒计时*/
+        function secondeTimerSH(intDiff, i) {
+            intDiff--;
+            var t0 = window.setInterval(function () {
+                var day = 0,
+                        hour = 0,
+                        minute = 0;
+                seconds = 0;
+                if (intDiff > 0) {
+                    day = Math.floor(intDiff / (60 * 60 * 24));
+                    hour = Math.floor(intDiff / (60 * 60) - (day * 24));
+                    minute = Math.floor(intDiff/60 - (day * 24 * 60) - (hour * 60));
+                    //seconds = Math.floor(intDiff - (day * 24 * 60) - (hour * 60)- (minute * 60) );
+                    //seconds = Math.floor(intDiff%(24*60*60*day))
+                    seconds = Math.floor(intDiff%60)
+                }
+                if (hour <= 9) hour = '0' + hour;
+                if (minute <= 9) minute = '0' + minute;
+                if (seconds <= 9) seconds = '0' + seconds;
+                //$('#'+ day_show).html(day + "天");
+                //$('#'+ hour_show).html('<s id="h"></s>' + hour + '时');
+                $(".second-less-time").eq(i).find(".second-day").text(day);
+                $(".second-less-time").eq(i).find(".second-hour").text(hour);
+                $(".second-less-time").eq(i).find(".second-min").text(minute);
+                $(".second-less-time").eq(i).find(".second-sec").text(seconds);
+                intDiff--;
+                if(intDiff==0){
+                    console.log("时间结束");
+                }
+            }, 1000);
+        }
+        secondeBeforeSH(100000,0)
+        secondeTimerSH(100000,0);
+        //点击购买会出现选择款式，数量的弹窗
+        $(".js_com_black").click(function () {
+            $(".js_com_black").fadeOut();
+            $(".js_hide_com").fadeOut();
+            $("#confirmBuying").animate({bottom: "-700px"});
+        });
+
+        //选择款式和数量
+        $(".js_buying_btn").click(function (e) {
+            $(".js_com_black").fadeIn();
+            $("#confirmBuying").show();
+            $("#confirmBuying").animate({bottom: "0px"});
+        });
+    })
+</script>
+<body>
+    <div class="second-kill-index-wrap">
+        <!--头部-->
+        <header>
+          <!--这个头部图，可能有可没有-->
+            <img style="display: none" class="second-kill-top" src="../images/second_kill_top.png">
+            <nav>
+                <!--当没有顶部图片时显示-->
+                <img class="second-kill-nav second-kill-noTop" style="display:block;" src="../images/icon_wuhaibao_nor.png" />
+                <!--当有顶部图片时显示-->
+                <img class="second-kill-nav" style="display:none;" src="../images/second_kill_nav.png">
+                <div class="second-less-time-wrap" style="display:none;">
+                    <div class="second-less-text">距活动开始还剩</div>
+                    <div class="second-less-time">
+                        <span class="time-style second-day">12</span>
+                        <span class="second-day-text">天</span>
+                        <span class="time-style second-hour">12</span>
+                        <span class="second-day-text">小时</span>
+                        <span class="time-style second-min">12</span>
+                        <span class="second-day-text">分钟</span>
+                        <span class="time-style second-sec">12</span>
+                        <span class="second-day-text">秒</span>
+                    </div>
+                </div>
+                <div class="second-less-time-wrap second-less-time-center">
+                    <div class="second-less-text">活动已结束</div>
+                </div>
+            </nav>
+        </header>
+        <action>
+            <article>
+                <h3 class="second-title">
+                    手把件吊坠挂坠新疆和田玉羊脂白玉平安牌和田玉吊坠男士女士平安无事牌白玉牌子
+                </h3>
+                <p class="second-description">
+                    我们知道和田玉颜色为：白、糖白、青白、黄、糖、青绿色、碧、翠青。
+                    <span class="kong-div"></span>
+                </p>
+
+                <div class="second-time-more">
+                    <img class="second-kill-time" src="../images/second_kill_time.png" />
+                    <span class="second-more-time-wrap">
+                      <!--<span class="second-more-year">2017</span>-<span class="second-more-month">7</span>-<span class="second-more-day">10</span> <span class="second-more-hours">20:00</span>-->
+                        <span class="second-more-time">2017-07-10 20:00</span>
+                        <span class="second-center">至</span>
+                        <!--<span class="second-more-year">2017</span>-<span class="second-more-month">7</span>-<span class="second-more-day">10</span> <span class="second-more-hours">20:00</span>-->
+                        <span class="second-more-time">2017-07-10 20:00</span>
+                    </span>
+                </div>
+                <div class="second-kong"></div>
+                <a href="javascript:;">
+                    <div class="second-left-right">
+                        <img class="second-left" src="../images/second_shop_img.png">
+                        <div class="second-right">
+                            <div class="second-shop-name">
+                                Frivole指间戒，黄K金, 钻石Frivole指间戒，黄K金, 钻石Frivole指间戒，黄K金, 钻石Frivole指间戒，黄K金, 钻石Frivole指间戒，黄K金, 钻石
+                            </div>
+                            <div class="second-shop-price-wrap">
+                                ¥<span class="second-shop-price">26000</span><span class="second-shop-old-price">¥3800</span>
+                            </div>
+                            <div class="second-shop-less">
+                                * 抢光啦！
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="second-kong-white"></div>
+                <a href="javascript:;">
+                    <div class="second-left-right">
+                        <img class="second-left" src="../images/second_shop_img.png">
+                        </img>
+                        <div class="second-right">
+                            <div class="second-shop-name">
+                                Frivole指间戒，黄K金, 钻石
+                            </div>
+                            <div class="second-shop-price-wrap">
+                                ¥<span class="second-shop-price">26000</span><span class="second-shop-old-price">¥3800</span>
+                            </div>
+                            <div class="second-shop-less">
+                                * <span class="second-only-less">仅剩：<span class="lessNum">10</span>件</span>
+                                <span  class="second-only-less second-only-less-right">每人限购：<span class="buyNum">1</span>件</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="second-kong-white"></div>
+                <a href="javascript:;">
+                    <div class="second-left-right">
+                        <img class="second-left" src="../images/second_shop_img.png">
+                        <div class="second-right">
+                            <div class="second-shop-name">
+                                Frivole指间戒，黄K金, 钻石
+                            </div>
+                            <div class="second-shop-price-wrap">
+                                ¥<span class="second-shop-price">26000</span><span class="second-shop-old-price">¥3800</span>
+                            </div>
+                            <div class="second-shop-less">
+                                * <span class="second-only-less">仅剩：<span class="lessNum">10</span>件</span>
+                                <!--<span  class="second-only-less second-only-less-right">每人限购：<span class="buyNum">1</span>件</span>-->
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="second-kong-white"></div>
+            </article>
+        </action>
+        <footer></footer>
+    </div>
+    <!--遮罩层以及分享给好友-->
+    <div class="booking-cover js_com_black" style="display: block"></div>
+    <!--商家二维码弹出框-->
+    <div class="js_hide_com store_code_wrap js_code js_com_black" style="display: block">
+        <div class="store_code">
+            <img class="store_code_img" src="../images/store_code.jpg" />
+        </div>
+        <img class="img-responsive store_code_img1" src="../images/store-double.png" />
+        <div class="spell-join-code-wrap">
+            <div class="spell-join-code">
+                <span class="spell-code-p" style="display: none">按长键识别途中二维码</span>
+                <span class="spell-code-p">保存图片后至微信扫一扫</span><br />
+                <span>可进入微信公众号互动！</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

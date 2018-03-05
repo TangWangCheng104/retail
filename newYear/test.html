@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../js/html2canvas.js"></script>
+    <script>
+        $(function(){
+            $(document).ready( function(){
+//                $(".js_share").on("click", function(event) {
+//                    event.preventDefault();
+//                    html2canvas(document.body, {
+//                        allowTaint: true,
+//                        taintTest: false,
+//                        onrendered: function(canvas) {
+//                            canvas.id = "mycanvas";
+//                            //document.body.appendChild(canvas);
+//                            //生成base64图片数据
+//                            var dataUrl = canvas.toDataURL();
+//                            var newImg = document.createElement("img");
+//                            newImg.src =  dataUrl;
+//                            document.body.appendChild(newImg);
+//                        }
+//                    });
+//                });
+//                $(".js_share").trigger("click");
+                html2canvas(document.body, {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //document.body.appendChild(canvas);
+                            //生成base64图片数据
+                            var dataUrl = canvas.toDataURL();
+                            var newImg = document.createElement("img");
+                            newImg.src =  dataUrl;
+                            $(".js_share").html('');
+                            $(".js_share").html(newImg);
+                            $(".js_warning").html("请长按上面图片保存图片");
+                        }
+                });
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="js_share newYear-img-share">
+        <img src="../images/retail-goodsDetails-img004.png" style="width: 100%" alt="">
+        <img src="../images/storeIndex_img02.png" alt="" style="width: 100%;position: absolute;top: 500px;left: 10px">
+        <img src="../images/retail-waitingPay-qrcode.png" alt="" style="width: 50%;position: absolute;top: 400px;right: 10px">
+        <img src="images/model001.png" alt="" style="width: 50%;position: absolute;top: 400px;right: 10px">
+    </div>
+    <div class="js_warning" style="position: absolute;bottom: 50px;width:100%;font-size: 50px;text-align: center;"></div>
+</body>
+</html>

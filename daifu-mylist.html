@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>我的活动</title>
+    <!-[if IE9]>
+    <script src="js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers {
+            display: none !important;
+        }</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <![endif]->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/app_downAlert.css" rel="stylesheet" type="text/css">
+    <link href="css/retailCommon.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-goodsDetails.css" rel="stylesheet" type="text/css">
+    <link href="css/retail-daifu.css" rel="stylesheet" type="text/css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="js/messages.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script src="js/loginVerify.js"></script>
+    <script type="text/javascript" src="js/pinchzoom.js"></script>
+    <script src="js/app_product.js"></script>
+    <script src="js/retail_cofirmBuying.js"></script>
+    <script src="js/daifu.js"></script>
+    <script>
+        $(function(){
+           $(".js_mywords_item").click(function(){
+               var msg = $(this).attr("myval");
+//               $(".js_mywords_msg").texmsg)
+               $(".js_mywords_msg").val(msg);
+           });
+            // 30s后出现对话：有什么可以帮您的 2017/6/27
+            var sgh = setTimeout(function(){
+                //js_serviceIcon js_help_alert
+                $(".js_help_alert").show();
+                $(".js_serviceIcon").attr({"src":"images/icon_service_blue.png"});
+            },30000);
+            // 30s后出现对话：有什么可以帮您的end 2017/6/27
+            //代付活动时间倒计时，1为倒计，0只显示时间，但不倒计
+            timer02(3600 * 24 * 3,1);
+            $(".js_daifu_item").click(function(){
+                var text = $(this).text();
+                select_Fun('.js_daifu_item',this);
+//                $(".js_com_black").fadeOut();
+//                $(".js_daifu_navbar").animate({top:"-800px"});
+                $(".js_com_black").hide();
+                $(".js_daifu_navbar").hide();
+                $(".js_daifu_menu").removeClass("active");
+                $(".js_daifu_menu").find(".mytext").text(text);
+            });
+            $(".js_daifu_menu").click(function(){
+//                document.getElementById("input").focus();
+                if($(this).hasClass("active")){
+                    $(".js_com_black").hide();
+                    $(".js_daifu_navbar").hide();
+                    $(".js_daifu_menu").removeClass("active");
+                }else {
+                    $(".js_com_black").show();
+                    $(".js_daifu_navbar").show();
+                    $(".js_daifu_menu").addClass("active");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="com_black" class="js_com_black hide_com_buy com_black" style="z-index: 1020;display: none"></div>
+<div class="container-fluid small_screen">
+    <div class="row">
+        <div class="daifu-mylist">
+            <div class="navbar-fixed-top" style="background: #fff;">
+                <a class="daifu-mylist-title flex-row">
+                    <div class="flex-data">已生成订单的活动商品请至<b>“我的订单”</b>中查看</div>
+                    <div class="daifu-mylist-title-icon"><img src="images/jiantou_R999.png" alt=""></div>
+                </a>
+                <div class="js_daifu_menu daifu-mylist-menu text-center">
+                    <span class="mytext">全部活动</span>
+                    <span class="daifu-mylist-menu-btn-icon"></span>
+                </div>
+                <div class="js_daifu_navbar daifu-mylist-navbar" style="display: none">
+                    <div class="js_daifu_item daifu-mylist-item active">全部活动</div>
+                    <div class="js_daifu_item daifu-mylist-item">砍价活动</div>
+                    <div class="js_daifu_item daifu-mylist-item">代付活动</div>
+                    <div class="js_daifu_item daifu-mylist-item">拼单活动</div>
+                </div>
+            </div>
+            <!--暂无数据-->
+            <div style="display: none"><img class="img-responsive" src="images/daifu-mylist-none.png" alt=""></div>
+            <!--暂无数据end-->
+            <div class="daifu-mylist-content">
+                <div class="daifu-mylist-content-item flex-row">
+                    <div class="daifu-mylist-content-item-img">
+                        <ul class="figure-list">
+                            <li>
+                                <figure style="background-image:url(images/retail-goodsDetails-img001.png)">
+                                    <a href="#"></a>
+                                </figure>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex-data daifu-mylist-content-item-right text-right">
+                        <div class="color-zby">正在进行中...</div>
+                        <div class="flex-row daifu-mylist-content-item-right01">
+                            <div class="flex-data">活动详情</div>
+                            <div class="daifu-mylist-title-icon"><img src="images/jiantou_R999.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="daifu-mylist-content-item flex-row">
+                    <div class="daifu-mylist-content-item-img">
+                        <ul class="figure-list">
+                            <li>
+                                <figure style="background-image:url(images/retail-goodsDetails-img001.png)">
+                                    <a href="#"></a>
+                                </figure>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex-data daifu-mylist-content-item-right text-right">
+                        <div class="color-zby">正在进行中...</div>
+                        <div class="flex-row daifu-mylist-content-item-right01">
+                            <div class="flex-data">活动详情</div>
+                            <div class="daifu-mylist-title-icon"><img src="images/jiantou_R999.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="daifu-mylist-content-item flex-row">
+                    <div class="daifu-mylist-content-item-img">
+                        <ul class="figure-list">
+                            <li>
+                                <figure style="background-image:url(images/retail-goodsDetails-img001.png)">
+                                    <a href="#"></a>
+                                </figure>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex-data daifu-mylist-content-item-right text-right">
+                        <div class="color-zby">正在进行中...</div>
+                        <div class="flex-row daifu-mylist-content-item-right01">
+                            <div class="flex-data">活动详情</div>
+                            <div class="daifu-mylist-title-icon"><img src="images/jiantou_R999.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="daifu-mylist-content-item border-none flex-row">
+                    <div class="daifu-mylist-content-item-img">
+                        <ul class="figure-list">
+                            <li>
+                                <figure style="background-image:url(images/retail-goodsDetails-img001.png)">
+                                    <a href="#"></a>
+                                </figure>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex-data daifu-mylist-content-item-right text-right">
+                        <div>活动已结束</div>
+                        <div class="flex-row daifu-mylist-content-item-right01">
+                            <div class="flex-data">活动详情</div>
+                            <div class="daifu-mylist-title-icon"><img src="images/jiantou_R999.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

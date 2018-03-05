@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name='apple-itunes-app' content='app-id=1035128844'>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>温情七月，惊喜活动（活动标题）</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/app_product.css" rel="stylesheet" type="text/css">
+    <link href="css/app_downAlert.css" rel="stylesheet">
+    <link href="css/date.css" rel="stylesheet" type="text/css"/>
+    <link href="css/partner.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-[if It IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/date.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/app_product.js"></script>-->
+    <script src="js/hammer.min.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script src="js/partner_alert.js"></script>
+    <script type="text/javascript" src="js/pinchzoom.js"></script>
+    <script src="js/loginVerify.js"></script>
+    <script src="js/store.js"></script>
+    <style type="text/css">
+        /*放大图片样式*/
+        div.js_carousel,
+        div.js_carousel img {
+            width: 100%;
+            -webkit-user-drag: none;
+        }
+
+    </style>
+    <script>
+        $(function () {
+            // 选择日期
+            $('.js_selectTime').date({beginyear: 2017, endyear: 2019});
+            // 选择日期 end
+
+            //            手势放大图片
+            $('div.js_carousel').each(function () {
+                new RTP.PinchZoom($(this), {});
+            });
+            //            手势放大图片end
+            $(".js_SmallImg").click(function () {
+                $(".js_banerBigImg").show();
+                var n = $(this).attr("num");
+            });
+            // 经营品类选择
+            $(".js_type").on("click", function () {
+                $('html,body').addClass('ovfHiden');//使弹窗后网页恢复不可滚
+                $(".js_black_type").fadeIn();
+                $(".js_typeSelect_alert").animate({bottom: "0"});
+            });
+            //点击获取验证码判断：手机号码格式是否正确/是否已申请过/是否是合伙人
+            $(".js_getVerify").click(function () {
+                if (!$(this).hasClass("disabled")) {
+                    var v = $(".js_phone").val();
+                    if (!isphone3(v)) {
+                        $(".js_collect_text").text("请输入正确的手机号码");
+                        input_alert();
+                    } else if (v == "15811714177") {   //已经申请过且申请未被同意
+                        input_alert();
+                        $(".js_collect_text").text("你已经申请过了，请等待审核");
+                    } else if (v == "15811714178") {   //手机号对应的最高身份是推广人或员工
+                        $(".js_com_black").show();
+                        $(".js_storeP_alert").show();
+                    } else {
+                        time(this);
+                        if (v == "15811714171") {    //该用户已经是该店的推广人或者普通用户
+                            $("#js_newUser").hide();
+                            $("#js_newUser").find(".js_input").attr("aria-invalid", "false");
+                        } else if (v == "15811714172") { //该账户未存在，没有注册过
+                            $("#js_newUser").show();
+                            $("#js_newUser").find(".js_input").attr("aria-invalid", "true");
+                        }
+                    }
+                }
+            });
+            $(".js_submit").click(function () {//!reg.test($("#password").val())
+                if (!$(this).hasClass("disabled")) {
+                    var reg = /^(?!^(\d+|[a-zA-Z]+)$)(?!.*[~@#]+.*).+$/;
+                    if ($("#verify").val() != "920603") {  //判断验证码不正确时
+                        $(".js_collect_text").text("验证码过期或错误，请重新获取");
+                        input_alert();
+                    } else if (!reg.test($("#password").val()) && $(".js_newUser").css("display") != "none") {  //判断密码是否由英文，数字或 _ 至少两种组成
+                        $(".js_collect_text").text("密码必须由英文，数字或 _ 至少两种组成");
+                        input_alert(); //!reg.test($("#password").val())
+                    } else if ($(".js_phone").val() == "15811714179") {      //该用户已经是该店的老板
+                        $(".js_comBlack").show();
+                        $(".js_storeSelect_alert").show();
+                    }
+                }
+            });
+            $(".js_storeSelect_sure").click(function () {   //选择店铺后点击确定
+                cancelAlert();
+                $(".js_com_black").show();
+                $(".js_storeW_alert").show();
+            });
+            //选择行业
+            $(".js_type_data").click(function (e) {
+                var myData = $(this).text().trim();
+                cancelAlert_slide();
+                $(".js_myType").text(myData);
+                window.location.href = "#J_type";
+                $('html,body').removeClass('ovfHiden'); //使弹窗后网页恢复可滚
+                e.stopPropagation();
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container-fluid" style="padding-right: 23px">
+    <div class="booking-activity-icon">
+        <img class="img-responsive" src="images/banner01.png" alt="">
+    </div>
+    <div class="partner-title">可可香奈儿的奢侈品珠宝批发</div>
+    <!--店面信息已填写状态-->
+    <div style="display: block">
+        <div class="partner-intro">
+            <div class="partner-intro-img"><img src="images/partner_icon002.png" alt=""></div>
+            <div class="partner-intro-info">广东省深圳市罗湖区天北三路明阳街道民阳酒店法武班务63室。</div>
+        </div>
+    </div>
+    <!--店面信息已填写状态end-->
+    <!--店面信息未填写状态-->
+    <div style="display: none">
+        <div class="partner-intro">
+            <div class="partner-intro-img"><img src="images/partner_icon001.png" alt=""></div>
+            <div class="partner-intro-info" style="color: #d7d7d7">未填写</div>
+        </div>
+        <div class="partner-intro">
+            <div class="partner-intro-img"><img src="images/partner_icon002.png" alt=""></div>
+            <div class="partner-intro-info" style="color: #d7d7d7">未填写</div>
+        </div>
+        <div class="partner-intro">
+            <div class="partner-intro-img"></div>
+            <div class="partner-intro-info partner-storeImg-wrap">
+                <div><img src="images/partner-imgempty.png" alt=""></div>
+                <div class="partner-storeImg"><img src="images/partner-imgempty.png" alt=""></div>
+                <div class="partner-storeImg"><img src="images/partner-imgempty.png" alt=""></div>
+            </div>
+        </div>
+    </div>
+    <!--店面信息未填写状态end-->
+    <div class="partner-msgImg" style="padding: 0"><img class="img-responsive" src="images/bookingAct_icon001.jpg"
+                                                        alt=""></div>
+    <div class="partner-input-wrap booking-activity-msg">
+        <div class="flex-row partner-input-group">
+            <div class="partner-input-groupL">姓名</div>
+            <div class="js_comverify flex-row partner-input-groupR">
+                <div class="lqy-input-wrap">
+                    <input placeholder="输入真实姓名" aria-invalid="true" class="js_input"
+                           onkeyup="javascript:name_verify(this)" onblur="javascript:name_verify(this)" type="text">
+                </div>
+                <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none"
+                                                   src="images/partner_iconClose.png" alt=""></div>
+            </div>
+        </div>
+        <div class="flex-row partner-input-group">
+            <div class="partner-input-groupL">手机</div>
+            <div class="js_comverify flex-row partner-input-groupR">
+                <div class="lqy-input-wrap">
+                    <input placeholder="输入手机号码" onkeyup="javascript:phone_verify(this)"
+                           onblur="javascript:phone_verify(this)" aria-invalid="true" class="js_phone js_input"
+                           type="tel">
+                </div>
+                <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none"
+                                                   src="images/partner_iconClose.png" alt=""></div>
+            </div>
+        </div>
+        <div class="flex-row partner-input-group">
+            <div class="partner-input-groupL">验证码</div>
+            <div class="flex-row partner-input-groupR" style="border: none;padding: 0">
+                <div class="js_comverify flex-row" style="border: 1px solid #d7d7d7;border-radius: 5px;flex: 1;">
+                    <div class="lqy-input-wrap">
+                        <input onkeyup="javascript:verify_code01(this)"
+                               onpropertychange="javascript:verify_code01(this)" id="verify" aria-invalid="true"
+                               placeholder="输入验证码" onblur="javascript:verify_code01(this)" class="js_input" type="tel">
+                    </div>
+                    <div class="partner-closeBtn"><img class="js_closeBtn img-responsive" style="display: none"
+                                                       src="images/partner_iconClose.png" alt=""></div>
+                </div>
+                <div class="flex-row partner-input-verify-btn"><span>|</span><input type="button"
+                                                                                    class="js_getVerify disabled"
+                                                                                    value="获取验证码"></div>
+                <!--<div class="flex-row partner-input-verify-btn"><span>|</span><input type="button" class="js_getVerify disabled" value="重新发送(23)"></div>-->
+            </div>
+        </div>
+        <div id="datePlugin"></div>
+        <div class="flex-row partner-input-group">
+            <div class="partner-input-groupL" style="width: 65px">到店日期</div>
+            <div class="js_comverify flex-row partner-input-groupR">
+                <div class="lqy-input-wrap">
+                    <input aria-invalid="false" value="2017" class="js_selectTime text-center" type="tel">
+                </div>
+            </div>
+            <span class="bookingAct-year">年</span>
+            <div class="js_comverify flex-row partner-input-groupR">
+                <div class="lqy-input-wrap">
+                    <input aria-invalid="false" value="10" class="js_selectTime text-center" type="tel">
+                </div>
+            </div>
+            <span class="bookingAct-year">月</span>
+            <div class="js_comverify flex-row partner-input-groupR">
+                <div class="lqy-input-wrap">
+                    <input aria-invalid="false" value="16" class="js_selectTime text-center" type="tel">
+                </div>
+            </div>
+            <span class="bookingAct-year">日</span>
+        </div>
+        <div class="text-center"><input class="js_submit partner-submitBtn disabled" type="button" value="提交"></div>
+        <!--<div class="text-center"><input class="js_submit partner-submitBtn" type="button" value="立即试用"></div>-->
+    </div>
+</div>
+<!--放大后的图片-->
+<div class="black js_banerBigImg" style="display:none;position: fixed;top: 0;z-index: 1040">
+    <div class="black-banner-wrap">
+        <div id="carousel-bigimg-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-bigimg-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-bigimg-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-bigimg-generic" data-slide-to="2"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner carousel-black" role="listbox">
+                <div class="item active">
+                    <img class="img-responsive" id="banner001" src="images/banner01.png" alt="">
+                </div>
+                <div class="item">
+                    <img id="banner002" src="images/partner-img001.png" alt="">
+                </div>
+                <div class="item">
+                    <img id="banner003" src="images/test.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--放大后的图片end-->
+<div id="com_black" class="js_com_black hide_com_buy com_black" style="display: none" onclick="cancelAlert()"></div>
+<div class="js_black_type hide_com_buy com_black" style="display: none" onclick="cancelAlert_slide()"></div>
+<div class="js_comBlack hide_com_buy com_black" style="display: none"></div>
+<!--是推广员或员工时-->
+<div class="js_hide_com js_storeP_alert comafter delete-address-alert flex-row" style="display: none">
+    <div class="delete-address-alert-info">
+        <div class="store-text">
+            <div class="store-staff-text">您是推广人或员工，如需创建店铺，请先向门店申请解绑</div>
+        </div>
+        <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()">关闭</span>
+    </div>
+</div>
+<!--是推广员或员工时end-->
+<!--成功提交时下载APP提示-->
+<div class="js_hide_com js_storeS_alert comafter delete-address-alert flex-row" style="display:none">
+    <div class="delete-address-alert-info">
+        <div class="staff-text">
+            <div class="store-staff-text">成功提交！</div>
+            <div class="store-staff-text01">请下载APP登陆使用</div>
+            <div class="store-staff-text01">如已下载请直接登陆</div>
+        </div>
+        <!--该账户是新用户时-->
+        <a href="http://m.pg.yibaotong.top/" class="staff-btn" onclick="cancelAlert()">下载App</a>
+    </div>
+</div>
+<!--成功提交时下载APP提示end-->
+<!--成功提交时下载APP提示-->
+<div class="js_hide_com js_storeW_alert comafter delete-address-alert flex-row" style="display:none">
+    <div class="delete-address-alert-info">
+        <div class="staff-text">
+            <div class="store-staff-text">成功提交合作申请</div>
+            <div class="store-staff-text">请等待对方同意</div>
+        </div>
+        <!--该账户是新用户时-->
+        <span href="javascript:;" class="staff-btn store-btn" onclick="cancelAlert()">关闭</span>
+    </div>
+</div>
+<!--成功提交时下载APP提示end-->
+<!--加载中图片-->
+<div class="js_loading_alert text-center loading-alert" style="display:none;">
+    <!--<div class="text-center collect_alert_img">-->
+    <!--<img src="images/redStar.png" alt="">-->
+    <!--</div>-->
+    <div class="loading-img-wrap flex-column">
+        <img src="images/loading.gif" class="loading-img flex-data" alt="">
+    </div>
+</div>
+<!--加载中图片end-->
+<!--验证input弹窗-->
+<div class="js_collect_alert text-center input-alert" style="display:none;">
+    <!--<div class="text-center collect_alert_img">-->
+    <!--<img src="images/redStar.png" alt="">-->
+    <!--</div>-->
+    <span class="js_collect_text input-alert-text">请输入正确的手机号</span>
+</div>
+<!--验证input弹窗end-->
+</body>
+</html>

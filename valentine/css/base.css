@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+*:not(input,textarea) {
+    -webkit-touch-callout: inherit;
+    -webkit-user-select: auto;
+}
+body {
+    width: 100%;
+    font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    -webkit-touch-callout: inherit ;
+    -webkit-user-select: auto ;
+    background-color: #fff;
+}
+a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img{
+    border: none;
+}
+a:hover {
+    text-decoration: none;
+}
+button,input,select,textarea {
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+dt,dd {
+    display: inline-block;
+}
+textarea,input {
+    resize: none;
+    outline: none;
+}
+textarea {
+    resize: none;
+    -webkit-appearance: none;
+}
+ul,ol,li {
+    list-style: none;
+}
+em {
+    font-style: normal;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-size: 16px;
+    font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+}
+.fl{
+    float: left;
+}
+ul{
+    list-style: none;
+}
+img{
+    border: none;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.content:after,.comafter:after{
+    content: "\200B";
+    display: block;
+    height: 0;
+    clear: both;
+}
+.fadein{
+    animation: fadein 1s ;
+    -moz-animation: fadein 1s ;	/* Firefox */
+    -webkit-animation: fadein 1s;	/* Safari 和 Chrome */
+    -o-animation: fadein 1s;	/* Opera */
+}
+@keyframes fadein
+{
+    0% {opacity: 0}
+    50%{opacity: 0}
+    100% {opacity: 1}
+}
+
+@-moz-keyframes fadein /* Firefox */
+{
+    0% {opacity: 0}
+    50%{opacity: 0}
+    100% {opacity: 1}
+}
+@-webkit-keyframes fadein /* Safari 和 Chrome */
+{
+    0% {opacity: 0}
+    50%{opacity: 0}
+    100% {opacity: 1}
+}
+@-o-keyframes fadein /* Opera */
+{
+    0% {opacity: 0}
+    50%{opacity: 0}
+    100% {opacity: 1}
+}

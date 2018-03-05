@@ -1,0 +1,252 @@
+/*编辑收货地址*/
+.retail-distribution-express{
+    padding-bottom: 45px;
+}
+.retail-addAddress-img{
+    width: 23%;
+    margin: 0 auto;
+    padding: 45% 0 28px;
+}
+.retail-addAddress-btn{
+    height: 50px;
+    line-height: 50px;
+}
+.retail-newAddress-alert{
+    /*padding-top: 15px;*/
+    height: auto;
+}
+.retail-newAddress-alert-info{
+    border-radius: 10px;
+}
+.retail-addAddress-item{
+    /*padding: 0 0 0  15px;*/
+    background: #fff;
+    margin-bottom: 10px;
+}
+.retail-addAddress-item.last{
+    border-bottom: 1px solid #d7d7d7;
+}
+.retail-addAddress-username{
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px 0 12px 15px;
+}
+.retail-addAddress-address{
+    font-size: 14px;
+    color: #222;
+    padding: 0 0 15px 15px;
+}
+.retail-addAddress-way{
+    padding: 12px 15px;
+    font-size: 13px;
+    color: #999;
+    border-top: 1px solid #d7d7d7;
+}
+.icon_address_edit{
+    padding-right: 6px;
+    padding-bottom: 3px;
+}
+.icon_address_edit img{
+    height: 15px;
+}
+.retail-address-delete{
+    /*padding-right: 15px;*/
+}
+.retail-address-delete.myhide{
+    opacity: 0;
+}
+.retail-address-edit{
+    padding-right: 17px;
+    padding-left: 20px;
+}
+.icon_addressSet{
+    width: 13px;
+    height: 13px;
+    background: url("../images/icon_address_none.png") no-repeat;
+    background-size: 100% 100%;
+    /*margin-bottom:2px;*/
+    margin-right: 12px;
+}
+.icon_addressSet.active{
+    background: url("../images/icon_address_selected.png") no-repeat;
+    background-size: 100% 100%;
+}
+.icon_addressSet01{
+    width: 13px;
+    height: 13px;
+    background: url("../images/icon_fangTick.png") no-repeat;
+    background-size: 100% 100%;
+    /*margin-bottom:2px;*/
+    margin-right: 12px;
+}
+.icon_addressSet01.active{
+    background: url("../images/icon_fangTick_selected.png") no-repeat;
+    background-size: 100% 100%;
+}
+.partner-input-groupR input{
+    padding-left: 10px;
+}
+.luo-address-textarea{
+    padding: 9px 0 4px 10px;
+    line-height: 16px;
+}
+/*编辑收货地址end*/
+/*选择配送方式*/
+.retail-distribution-menu{
+    margin-top: 10px;
+    background: #fff;
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 1px solid #d7d7d7;
+    border-top: 1px solid #d7d7d7;
+}
+.retail-distribution-btn{
+    height: 30px;
+    line-height: 30px;
+    color: #666;
+    font-weight: bold;
+}
+.retail-distribution-storeBtn{
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border: 1px solid #666;
+    border-right: none;
+}
+.retail-distribution-expressBtn{
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px solid #666;
+    border-left: none;
+}
+.retail-distribution-expressBtn.disabled{
+    background: #fff;
+    border: 1px solid #d7d7d7;
+    color: #d7d7d7;
+}
+.retail-distribution-btn.active{
+    background: #fe4b4b;
+    color: #fff;
+    border: 1px solid #fe4b4b;
+}
+
+
+.retail-addAddress-title{
+    height: 30px;
+    line-height:30px;
+    font-size: 12px;
+    padding: 0 15px;
+    color: #666;
+}
+.retail-addAddress-username01 .partner-input-groupR{
+    border: none;
+}
+.retail-addAddress-username01 .partner-input-groupR input{
+    padding-left: 15px;
+    border-radius: 0px;
+    line-height: 30px;
+    height: 30px;
+    margin: 10px 0;
+}
+.retail-addAddress-username01 .phone-input{
+    border-left: 1px solid #d7d7d7;
+}
+.retail-address-save.disabled{
+    color: #d7d7d7;
+    background: none;
+}
+.icon_address_save{
+    width: 13px;
+    height: 15px;
+    background: url(../images/icon_save_selected.png) no-repeat;
+    background-size: 100% 100%;
+    /* margin-bottom: 2px; */
+    margin-right: 6px;
+}
+.retail-address-save.disabled .icon_address_save{
+    background: url(../images/icon_save.png) no-repeat;
+    background-size: 100% 100%;
+}
+.retail-addAddress-myaddress{
+    border-top:1px solid #d7d7d7;
+    padding-left: 15px;
+}
+.retail-distribution-tick{
+    width: 70px;
+    text-align: right;
+}
+.icon_tick{
+    margin: 0 15px 0 37px;
+    display: inline-block;
+}
+.icon_tick_use{
+    margin: 0 15px 0 10px;
+}
+.icon_tick_use img{
+    width: 45px;
+    height: 20px;
+}
+.icon_tick img{
+    width: 18px;
+    height: 14px;
+}
+.retail-addAddress-username .address-name-label{
+    word-break: break-all;
+    line-height: 20px;
+}
+.white-space1{
+    white-space: nowrap;
+    max-width: 165px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.t-ture-phonenumber{
+    background: #000;
+    opacity: 0.5;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1050;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+}
+/*选择配送方式end*/
+.send-way-noadress{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 86px;
+    height:  86px;
+    max-height: 300px;
+}
+.send-way-noadress img{
+    width: 100%;
+
+}
+.noadress-nowrap{
+    text-align: center;
+    color: #a1a1a1;
+    font-size: 16px;
+    position: absolute;
+    top: 220px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 100px;
+}
+.t-change-css{
+    padding-right: 0;
+}
+.t-change-css1{
+    padding-left: 17px;
+}
