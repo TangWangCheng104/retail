@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://D:/svn/6、web页面/盘古pc/pg_pc" />
+    <content url="file://E:/os-conputer" />
+    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$/node_modules" />
+    <content url="file://$MODULE_DIR$/../../public-platform">
+      <excludeFolder url="file://$MODULE_DIR$/../../public-platform/node_modules" />
+    </content>
+    <content url="file://F:/program1">
+      <excludeFolder url="file://F:/program1/myapp/node_modules" />
+      <excludeFolder url="file://F:/program1/project2/node_modules" />
+    </content>
+    <content url="file://F:/test">
+      <excludeFolder url="file://F:/test/testgulp/node_modules" />
+    </content>
+    <content url="file://F:/v-retail" />
+    <content url="file://F:/v-retail/node_modules" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

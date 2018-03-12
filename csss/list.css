@@ -233,8 +233,36 @@ img {
   align-items: center;
   -webkit-align-items: center; }
 
-.displayFlex {
+.displayFlex, .list, .list-span {
   display: flex;
   display: -webkit-flex; }
 
-/*# sourceMappingURL=base.css.map */
+.displayFlex, .list, .list-span {
+  display: flex;
+  display: -webkit-flex; }
+
+.list-wrap {
+  width: 92%;
+  color: #666666;
+  -webkit-box-sizing: border-content;
+  box-sizing: border-content; }
+
+.list .list-left {
+  margin-right: 0.1rem;
+  margin-left: 4%; }
+
+.list .list-left img {
+  width: 1.3rem; }
+
+.list-right {
+  flex: 1;
+  margin-right: 4%; }
+
+.list-span {
+  align-items: center; }
+
+.list-title {
+  font-size: 14px;
+  color: #222; }
+
+/*# sourceMappingURL=list.css.map */

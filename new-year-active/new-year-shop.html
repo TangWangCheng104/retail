@@ -78,7 +78,11 @@
            $('.new-year-nav-top').css({ "height":oheight })
            /*获取旺旺节banner图到顶部的距离，大于第一屏幕就隐藏，向上滑动就显示*/
 			newYearBanner( oheight );
-			console.log( $('.new-year-nav-top').css("height") );
+//			console.log( $('.new-year-nav-top').length );
+			if( $('.new-year-nav-top').length > 0 ){
+				$('.kandan-create-active-btn').css("top","12%");
+			}
+			
         });
     </script>
 </head>
@@ -114,10 +118,12 @@
     </div>
 </div>
 <!--新年活动banner图-->
-<div class="new-year-nav-top" style="display: none;"></div>
-<div class="new-year-nav-wrap" style="display: none;">
-    <img class="new-year-nav" src="../images/new_year_nav.png" alt="">
-    <a href="javascript:;"><img class="new-year-go-now" src="../images/new_year_now_go.png" alt=""></span></a>
+<div class="new-year-nav-top"></div>
+<div class="new-year-nav-wrap">
+    <img class="new-year-nav" src="../images/girls_day.png" alt="">
+    <!--新年活动的立即前往-->
+    <!--<a href="javascript:;"><img class="new-year-go-now" src="../images/new_year_now_go.png" alt=""></span></a>-->
+	<a href="javascript:;" class="grils-day-go-now"></a>
 </div>
 <!--新年活动banner图end-->
 <div class="container-fluid small_screen">
@@ -498,5 +504,9 @@
     <!--关闭蒙版的×按钮-->
     <img class="icon-white-cuo" onclick="closeCode()" src="../images/icon_white_cuo.png" alt="">
 </div>
+<!--制作活动-->
+<a href="javascript:;" class="kandan-create-active-btn">
+    <img class="make-img" src="../images/make_img.png" alt="">
+</a>
 </body>
 </html>

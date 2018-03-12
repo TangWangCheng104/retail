@@ -123,3 +123,8 @@ function closeCode(){
     $('.new-year-code').fadeOut(300)
     $("#com_black").fadeOut(300)
 }
+/*选择款式弹出框中，切换商品图的大小*/
+function tapImgFn(){
+   	$('.black-back-groud-board,.retail-bigImg').toggle();
+}
+

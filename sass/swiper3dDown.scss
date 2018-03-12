@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+
+.wrap {
+    width: 100%;
+    
+}
+
+.slide {
+    height: 500px;
+    position: relative;
+}
+
+.slide li {
+    position: absolute;
+    left: 200px;
+    top: 0;
+}
+
+.slide li img {
+    width: 100%;
+}
+
+.arrow {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    z-index: 1000;
+    width: 100%;
+}
+
+.prev, .next {
+    width: 76px;
+    height: 112px;
+    position: absolute;
+    z-index: 99;
+}
+
+.prev {
+    left: 0;
+    background: url(../images/prev.png) no-repeat;
+}
+
+.next {
+    right: 0;
+    background-image: url(../images/next.png);
+}

@@ -1,0 +1,52 @@
+@charset "UTF-8";
+.swiper3dWrap {
+    width: 100%;
+}
+
+.swiper3dSlide {
+    height: 500px;
+    position: relative;
+}
+
+.swiper3dSlide li {
+    position: absolute;
+    left: 20px;
+    top: 0;
+}
+
+.swiper3dSlide li img {
+    width: 100%;
+}
+
+.swiper3dArrow {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    z-index: 1000;
+    width: 100%;
+}
+
+.prev, .next {
+    width: 76px;
+    height: 112px;
+    position: absolute;
+    z-index: 99;
+}
+
+.prev {
+    left: 0;
+    background: url(../images/prev.png) no-repeat;
+}
+
+.next {
+    right: 0;
+    background-image: url(../images/next.png);
+}
+
+
+
+
+
+
+
+

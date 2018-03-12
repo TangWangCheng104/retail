@@ -66,6 +66,9 @@
             var showmsg = s.text() + "," + num.val();
             lazyContainer('.black-banner-wrap');
         }
+        function tapImgFn(){
+		   	$('.black-back-groud-board,.retail-bigImg').toggle();
+		}
         $(function () {
 
             /*懒加载*/
@@ -375,6 +378,7 @@
             邀请好友帮你砍价吧！
         </span>
     </div>
+
     <!--商家二维码弹出框-->
     <div class="js_hide_com store_code_wrap js_code js_com_black" style="display: none">
         <div class="store_code">
@@ -1034,13 +1038,14 @@
         </div>
     </div>
 </div>
+
 <!--购买选择款式和数量弹窗-->
 <div id="confirmBuying" class="js_hide_com retail-confirmBuying animation">
     <div class="comafter" style="position: relative">
         <div class="col-xs-12">
             <div class="comafter retail-confirmBuying-img-price">
                 <div class="col-xs-4 retail-confirmBuying-img">
-                    <img class="img-responsive lazy" data-original="../images/retail-goodsDetails-img004.png" alt="">
+                    <img class="img-responsive lazy" onclick="tapImgFn()" data-original="../images/retail-goodsDetails-img004.png" alt="">
                 </div>
                 <div class="col-xs-8 retail-confirmBuying-price">
                     <span id="js_price" class="retail-confirmBuying-price-num">￥2388</span>
@@ -1081,6 +1086,10 @@
     </div>
 </div>
 <!--购买选择款式和数量弹窗end-->
+<!--全黑的蒙版-->
+<div class="black-back-groud-board" onclick="tapImgFn()" style="display: none;"></div>
+<!--图片变大-->
+<img class="retail-bigImg img-responsive lazy" style="display: none;" onclick="tapImgFn()" data-original="../images/retail-goodsDetails-img004.png" alt="">
 <script>
     var i = 0;
     var t = setInterval(function(){
