@@ -1,0 +1,70 @@
+@import "base";
+.ranking-list{
+    @extend.displayFlex;
+    justify-content: space-between;
+    padding: 0 .15rem;
+    height: .65rem;
+}
+.ranking-list-msg{
+    @extend.flexCenter;
+}
+.ranking-list-wrap{
+    letter-spacing: .015rem;
+}
+.ranking-cricle-wrap{
+    position: relative;
+    display: inline-block;
+    width: .4rem;
+    height: .2rem;
+    text-align: center;
+}
+.ranking-cricle{
+    display: inline-block;
+    height: .2rem;
+}
+.ranking-numb{
+    color: #ffc892;
+    font-size: 12px;
+    @extend.positionAbCenter;
+    text-align: center;
+    display: table-cell;
+    top: .03rem;
+    white-space: nowrap;
+}
+.ranking_user_touxiang{
+    width: .6rem;
+    height: .6rem;
+    margin-left: .05rem;
+    border: 1px solid #afafaf;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+.ranking-username{
+    color: #333;
+}
+.ranking-user-photo{
+    width: .45rem;
+    height: .45rem;
+    margin-right: 9px;
+    border-radius: 25px;
+}
+.ranking-userheader{
+    margin: 0 .12rem 0 .06rem;
+    border: none;
+}
+.ranking-teamer-img{
+    border-color: #fe6c64;
+    padding: 2px;
+}
+.ranking-get-discount{
+    font-size: 12px;
+    color: #ff8383;
+    @extend.flexCenter;
+}
+.ranking-self{
+    color: #7a77ff;
+}
+.ranking-friends{
+    color:#f4cf6f;
+}
+

@@ -1,0 +1,396 @@
+@import "base";
+@import "list";
+html{
+    font-size:625% ;
+}
+body{
+    font-size: 14px;
+}
+.u-kanjia-header{
+    position: relative;
+}
+.U-kanjia-banner,.ukan-shop-name-img{
+    width: 100%;
+}
+.ukanjia-avtive-rule{
+    width: .5rem;
+    position: absolute;
+    right: 5%;
+    top: 0;
+}
+.ukan-less-time-wrap{
+    margin: 0 2%;
+    background: #f9dde0;
+    height: .44rem;
+    font-weight: bold;
+    @extend.displayFlex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: .05rem;
+    border-top-right-radius: .05rem;
+
+}
+.u-kanjia-session{
+    border-radius:.05rem ;
+    color: #e83581;
+    font-size:14px ;
+}
+.ukan-text{
+    padding-top: .2rem;
+    line-height: .3rem;
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding-left: 20%;
+    padding-right: 20%;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.ukan-time-box{
+    width: .22rem;
+    height: .22rem;
+    line-height: .22rem;
+    display: inline-block;
+    background: #fff;
+    border-radius: .04rem;
+    border: 1px solid #ffb4d4;
+    text-align: center;
+}
+.ukan-person-number{
+    background: #feeef0;
+    color: #6f364e;
+    font-size: 17px;
+    font-weight: bold;
+    border-bottom-left-radius: .05rem;
+    border-bottom-right-radius: .05rem;
+    margin: 0 2%;
+    box-shadow: 0 -7px 40px 10px #f3dce5;
+}
+.ukan-record{
+    height: .45rem;
+    font-weight: normal;
+    font-size: 14px;
+    @extend.displayFlex;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: .3rem;
+}
+.ukan-record-number{
+    position: relative;
+    margin: 0 .05rem;
+    padding: 0 .01rem;
+    @extend.displayFlex;
+    align-items: center;
+}
+.colore83581{
+    color: #e83581;
+    font-weight: bold;
+}
+.ukan-bgcolor{
+    background: #f6cfd4;
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: .05rem;
+    left: 0;
+    top: 17%;
+    bottom: 0;
+    margin: auto 0;
+    z-index: 1;
+
+}
+.ukan-recrod-content{
+    position: relative;
+    z-index: 10;
+}
+.ukanjia-mykandan{
+    width: .55rem;
+    height: .55rem;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: .15rem;
+}
+.ukan-shop-name-wrap{
+    position: relative;
+}
+.ukan-shop-name{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 40%;
+    font-size: 15px;
+    color: #ea7c98;
+}
+.ukan-box-top-shadow{
+    width: 84%;
+    margin: .04rem 8% 0 8%;
+    box-shadow: 0 -10px 50px 22px #f7d2dd;
+}
+.margin-top30{
+    margin-top:.3rem;
+}
+.ukan-list-wrap{
+    background: #fff;
+    width: 96%;
+    margin: 0 2%;
+    box-shadow: 0 5px 20px #f3dce5;
+}
+//@for $i from 1 through 20{
+//  .ukan-list-wrap .ukan-list:nth-child(#{$i}){
+//      z-index: 20 - $i;
+//  }
+//}
+.ukan-list{
+    margin: 0 2%;
+    background: #fff;
+//  box-shadow: 0 0 100px 5px #f3dce5;
+    padding-top: .45rem;
+    padding-bottom: .45rem;
+    position: relative;
+    color: #411628;
+}
+.ukan-list-wrap .ukan-list:first-child{
+    border-top-left-radius: .1rem;
+    border-top-right-radius: .1rem;
+}
+.ukan-list-wrap .ukan-list:last-child{
+    border-bottom-left-radius: .1rem;
+    border-bottom-right-radius: .1rem;
+    
+}
+.ukan-list-wrap .ukan-list:last-child .ukan-gradient-line{
+    display: none;
+}
+.right-triangle{
+    width: 0;
+    height: 0;
+    display: inline-block;
+    border-top:4px solid #fff ;
+    border-bottom:4px solid transparent ;
+    border-left:4px solid #fff ;
+    border-right:4px solid transparent ;
+    transform: rotate(135deg);
+}
+.ukan-list-title{
+    width: 100%;
+    font-size: 16px;
+    color: #411628;
+    font-weight: bold;
+}
+.ukan-gradient-line{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.ukan-kanjia-now-btn{
+    background: #e83581;
+    border-radius: .05rem;
+    padding: .02rem .1rem;
+    color: #fff;
+    box-shadow: 0px 10px 10px #f5cbe5;
+    display: inline-block;
+    font-size: 13px;
+    margin-top: .05rem;
+}
+.list-right .ukan-list-span:nth-child(2){
+    display: inline-block;
+    padding-top: .15rem;
+    text-decoration: line-through;
+    
+}
+.ukan-now-price{
+    font-size:20px ;
+    color: #e83581;
+}
+.ukan-price-wrap{
+    font-size: 14px;
+    color: #411628;
+    font-weight: bold;
+}
+.ukan-now-number{
+    font-size:12px ;
+    font-weight: normal;
+}
+.ukan-love-icon{
+    width: .6rem;
+    position: absolute;
+    right: -.6rem;
+    top: -.4rem;
+}
+.list .ukan-list-left{
+    margin-left: 6%;
+    position: relative;
+}
+.list .ukan-list-change-right{
+    margin-right:6% ;
+    margin-left: 0;
+}
+.ukan-list-change-right .ukan-love-icon-wrap{
+    right: -.5rem;
+    text-align: center;
+    
+}
+.list .ukan-list-change-left{
+    margin-left:6% ;
+    margin-right: 0;
+}
+//.ukan-discount{
+//  position: absolute;
+//  top: ;
+//}
+.ukan-discount{
+    position: absolute;
+    top: -.25rem;
+    z-index: 10px;
+    right: -.6rem;
+    color: #fff;
+    font-size: 20px;
+    text-shadow: 0 0 10px #e83581;
+    width: 100%;
+    text-align: center;
+    padding-right: .05rem;
+}
+.ukan-pike-up-wrap{
+    width: 1.25rem;
+}
+.ukan-pike-up{
+    width:1.25rem;
+}
+.ukan-store-recommend-wrap{
+    margin-top: .3rem;
+}
+.ukan-store-recommend-title{
+    width: 96%;
+    height: .66rem;
+    margin: 0 2%;
+    border-radius:.05rem ;
+    box-shadow: 0 0 5px 5px #e7d7e0;
+    border: .08rem solid #f8d7e1;
+    @extend.flexCenter;
+    @include border-box(border-box);
+    font-weight: bold;
+}
+
+.ukan-store-recommend-text{
+    position: relative;
+    @extend.displayFlex;
+    padding: .04rem .35rem;
+    border-radius: 25px;
+    background: #fdf5fc;//
+    color: #d653a6;
+    font-size: .2rem;
+    align-items: center;
+    justify-content: center;
+}
+.ukan-hudie-right,.ukan-hudie-left{
+    width: .35rem;
+    position: absolute;
+    right: -.09rem;
+    top: 56%;
+    transform: translateY(-50%);
+
+}
+.ukan-hudie-left{
+    left: -.09rem;
+}
+.ukan-recommend-content{
+    width: 96%;
+    height: 1.9rem;
+    border-radius: .1rem;
+    box-shadow: 0 .04rem .1rem .05rem #f4e3eb;
+    margin: .12rem 2%;
+    overflow: hidden;
+}
+.ukan-recommend-img{
+    width: 100%;
+}
+.ukan-active-end-img{
+    width: 30%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top:.35rem;
+}
+.ukan-acitve-end-text{
+    color: #d1d1d1;
+    font-size: 14px;
+    display: inline-block;
+    width: 100%;
+    padding-top: .15rem;
+    padding-bottom: .1rem;
+    text-align: center;
+}
+.usename-style{
+    width: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: .1rem;
+}
+.U-kanjia {
+    @import "alert";
+    .alert-content{
+        background: #ffe8ee;
+        box-shadow: 0 0 3px 2px #faced9 inset;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .alert-close-btn{
+        background: #ffe8e3;
+        color: #ea7c98;
+        font-size:17px ;
+    }
+    .alert-title{
+        font-size:16px ;
+        color: #333;
+        font-weight: bold;
+        background:#ffe8ee ;
+        width: 98%;
+        margin-left:1% ;
+        margin-top: .1rem;
+        float: left;
+    }
+    .alert-title:first-child{
+        border-radius: 10px;
+    }
+    
+    .alert-wrap{
+        border: .02rem solid #ffe8e3;
+    }
+    .alert-list{
+        color: #666666;
+        font-size: 14px;
+    }
+    .ukanjia-rule-img{
+        position: absolute;
+        width: 110%;
+        bottom: -3%;
+        left:-5%;
+        z-index: 1050;
+    }
+    
+}
+@import 'marquee';
+.u-kanjia-header{
+    .marquee-items{
+       height: .3rem;
+       overflow: hidden;
+       @extend.displayFlex;
+       align-items: center; 
+       top: .16rem;
+       left: .1rem;
+       position: absolute;
+    }
+    .marquee-userHeader{
+        height: .2rem;
+        width: .2rem;
+        border-radius: 50%;
+    }
+    .marquee-item{
+        background: rgba(0,0,0,.7);
+        color: #fff;
+    }
+}

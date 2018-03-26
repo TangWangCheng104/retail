@@ -1,0 +1,592 @@
+.kandan-friends{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: left;
+}
+.kandan-friends-items{
+    padding: 0 10px;
+    height: 62px;
+    overflow: hidden;
+    display: inline-block;
+}
+.kandan-friends-item{
+    width: inherit;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 11px;
+    border-radius: 20px;
+    color: #666;
+    margin-bottom: 6px;
+    background: #f1cc78;
+    opacity: 0.65;
+    padding-right:15px;
+    padding-left: 2px;
+}
+.kandan-friends-item-icon{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.kangdan-goodsDetails-rule{
+    width: 100%;
+    font-size: 11px;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+}
+.kangdan-goodsDetails-rule-background{
+    width: 100%;
+    font-size: 11px;
+    height: 30px;
+    line-height: 30px;
+    background: #ff6464;
+    opacity: 0.6;
+}
+.kangdan-goodsDetails-rule-info{
+    width: 100%;
+    font-size: 11px;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    bottom: 30px;
+    padding: 0 10px;
+}
+.slide .carousel-indicators {
+    bottom: 36px;
+}
+.kandan-rule{
+    text-decoration: underline;
+}
+.kandan-buyBtn{
+    line-height: inherit;
+}
+.kandan-wrap-img{
+    width: 290px;
+    height: 37px;
+    line-height: 37px;
+    padding-left: 35px;
+    background: url("../images/kandan-img001.png") no-repeat;
+    background-size: 290px 37px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ae8f30;
+}
+.kandan-wrap{
+    background: #fff;
+    padding:5px 10px;
+    position: relative;
+}
+.kandan-wrap-icon-name{
+   font-size: 9px;
+    width: 37px;
+    text-align: center;
+}
+.kandan-wrap-icon-name .name{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.kandan-wrap-icon{
+    width: 34px;
+    height: 34px;
+    border-radius: 17px;
+    overflow: hidden;
+}
+.kandan-wrap-icon img{
+    min-width: 34px;
+    min-height: 34px;
+}
+.kandan-wrap-unit{
+    color: #ff6454;
+}
+.kandan-wrap-price-wrap{
+    font-size: 14px;
+    font-weight: 600;
+    /*padding-top: 12px;*/
+}
+.kandan-wrap-price-past{
+    font-size: 13px;
+    font-weight: normal;
+}
+.kandan-wrap-price-low{
+    font-size: 18px;
+}
+.kandan-wrap-progress{
+    padding: 5px 0 10px;
+    position: relative;
+    font-size: 12px;
+    color: #666;
+}
+.kandan-wrap-progress .progress{
+    margin: 0 5px 5px;
+    border-radius: 12px;
+    border: 2px solid #fe4b4b;
+    height: 24px;
+    background: #ffecec;
+}
+.kandan-wrap-progress .progress-bar-danger{
+    border-bottom-left-radius: 7px;
+    border-top-left-radius: 7px;
+     -webkit-box-shadow: none;
+     box-shadow: none;
+}
+.kandan-wrap-progress .progress-bar-striped,.kandan-wrap-progress .progress-striped .progress-bar {
+    -webkit-background-size: 40px 40px;
+    background-size: 40px 40px;
+}
+.kandan-wrap-btns{
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    padding-top: 8px;
+}
+.kandan-wrap-btns a:focus,.kandan-wrap-btns a:hover,.kandan-wrap-btns a:active {
+    background: #ff906b;
+    color: #fff;
+    border: #ff906b solid 2px;
+}
+.kandan-wrap-btn{
+    width: 150px;
+    height: 38px;
+    line-height: 34px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    background:#60c067;
+    border: #60c067 solid 2px;
+    border-radius: 5px;
+}
+.kandan-wrap-btn.disabled{
+    color: #fff;
+    background: #d7d7d7;
+    border: #d7d7d7 solid 2px;
+}
+.kandan-wrap-btn.continue{
+    color: #fe4b4b;
+    background: #fff;
+    border: #fe4b4b solid 2px;
+}
+.kandan-wrap-mybtn{
+    background: #ff906b;
+    color: #fff;
+    border: #ff906b solid 2px;
+}
+.kandan-wrap-mybtn:link,.kandan-wrap-mybtn:active,.kandan-wrap-mybtn:visited,.kandan-wrap-mybtn:focus{
+    background: #ff906b;
+    color: #fff;
+    border: #ff906b solid 2px;
+}
+.kandan-wrap-btns.disabled a:focus,.kandan-wrap-btns.disabled a:hover,.kandan-wrap-btns.disabled a:active {
+    color: #fff;
+    background: #d7d7d7;
+    border: #d7d7d7 solid 2px;
+}
+.kandan-progress-icon{
+    position: absolute;
+    z-index: 1030;
+    left:0;
+    top: 0;
+    text-align: right;
+    margin-left: 0;
+}
+.kandan-progress-icon img{
+    width: 27px;
+
+}
+.progress-bar-danger {
+    background-color: #ff5f5f;
+}
+.progress-bar-striped, .progress-striped .progress-bar {
+    background-image: -webkit-linear-gradient(130deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-image: -o-linear-gradient(130deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-image: linear-gradient(130deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    -webkit-background-size: 40px 40px;
+    background-size: 40px 40px;
+}
+.kandan-friends-wrap-titile{
+    width: 100%;
+    height: 30px;
+    background: #ffc764;
+    border-top:1px solid #d7d7d7;
+    border-bottom:1px solid #d7d7d7;
+    padding: 0 30px;
+    justify-content:space-between;
+    color: #fff;
+    font-size: 13px;
+}
+.kandan-friends-wrap-body {
+    background: #fff;
+    color:#666;
+    border:none;
+}
+.kandan-friends-wrap-titile .w40{
+    width: 40%;
+}
+.kandan-friends-wrap-btn{
+    padding: 10px 0 18px;
+    background: #fff;
+    font-size: 12px;
+}
+.kandan-friends-wrap-btn .mybtn{
+    color: #576894;
+}
+.kandan-friends-wrap-btn img{
+    width: 11px;
+    position: relative;
+    top:-1px;
+    padding: 8px 0;
+}
+.kandan-friends-wrap-btn .first{
+    border-right: 1px solid #d7d7d7;
+}
+.kandan-friends-wrap-info{
+    padding-top: 8px;
+    background: #fff;
+}
+.kandan-friends-wrap-count{
+    background: #fff;
+    padding: 15px 10px;
+    font-size: 12px;
+    color: #666666;
+    border-top:1px solid #d7d7d7 ;
+}
+.kandan-rule-alert{
+    max-height: 360px;
+    overflow: scroll;
+}
+.kandan-rule-alert-btn{
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    border-top: 1px solid #d7d7d7;
+    margin-top: 10px;
+    font-size: 17px;
+    color:#fe4b4b;
+}
+.kandan-wrap-gzIcon{
+    width: 121px;
+    position: absolute;
+    top: 0;
+    left: 35%;
+    z-index: 1030;
+}
+@media (max-width: 365px) {
+    .kandan-wrap-btn{
+        width: 140px;
+    }
+    .lqy-btnBuy-myAccount{
+        width: 50px;
+    }
+    .kandan-rule-alert {
+        max-height: 300px;
+    }
+}
+/*不能再砍单了弹窗*/
+.kandan-alert-wrap{
+    width: 70%;
+    position: fixed;
+    top: 100px;
+    z-index: 1040;
+    margin: 0 15%;
+}
+.kandan-alert-close{
+    justify-content: flex-end;
+}
+.kandan-alert-close img{
+    width: 44px;
+}
+.kandan-alert{
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+}
+.kandan-alert-img01{
+    text-align: center;
+    padding: 35px 0 25px;
+}
+.kandan-alert-img01 img{
+    width: 90px;
+}
+.kandan-alert-text{
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: #666;
+    padding-bottom: 26px;
+}
+.kandan-alert-btn{
+    width: 100%;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    border-top: 1px solid #d7d7d7;
+    text-align: center;
+    font-weight: bold;
+    color: #fe4b4b;
+}
+.kandan-alert-btn:focus, .kandan-alert-btn:hover, .kandan-alert-btn:active{
+    color: #fe4b4b;
+}
+.kandan-alert-text01{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #666;
+    padding-bottom: 40px;
+}
+/*不能再砍单了弹窗end*/
+.kandan-wrap-btn-other{
+    color: #222;
+    font-size: 14px;
+    text-decoration: underline;
+    padding-right: 30px;
+}
+a.kandan-wrap-btn-other:active,a.kandan-wrap-btn-other:visited,a.kandan-wrap-btn-other:hover,a.kandan-wrap-btn-other:focus{
+    color: #222;
+    text-decoration: underline;
+}
+.kandan-buyBtn:active,.kandan-buyBtn:visited,.kandan-buyBtn:hover,.kandan-buyBtn:focus{
+    color: #fff;
+    text-decoration: none;
+}
+.kandan-alert-share{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1040;
+}
+.kandan-alert-share-img01{
+    text-align: center;
+    margin-bottom: 42px;
+}
+.kandan-alert-share-img01 img{
+    width: 200px;
+}
+.kandan-alert-goods{
+    top: 0;
+    color: #666;
+}
+.kandan-alert-goods-text{
+    font-size: 15px;
+    font-weight: bold;
+    color: #666;
+    padding-top: 25px;
+}
+.kandan-alert-goods-icon{
+    padding-top: 10px;
+}
+.kandan-alert-goods-icon img{
+    width: 57px;
+}
+.kandan-alert-goods-img{
+    width: 175px;
+    height:175px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+}
+.kandan-alert-goods-img img{
+    min-width: 175px;
+    min-height:175px;
+}
+.kandan-alert-goods-price{
+    width: 175px;
+    margin: 0 auto;
+    padding: 5px 0;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 20px;
+}
+.kandan-alert-goods-price .pay-price-past{
+    font-size: 14px;
+}
+.kandan-alert-goods-btn{
+    width: 100%;
+    padding: 15px 0 20px;
+}
+.kandan-alert-goods-btn a{
+    display: inline-block;
+    width: 175px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+}
+/*我的砍价列表*/
+.kandan-myList-item{
+    padding: 10px 12px 15px;
+    background: #fff;
+    margin-bottom: 10px;
+}
+.kandan-myList-item-left{
+    width: 92px;
+    margin-right: 10px;
+}
+.kandan-myList-item-left-img{
+    width: 92px;
+    height: 92px;
+    overflow: hidden;
+}
+.kandan-myList-item-left-img img{
+    min-width: 92px;
+    min-height: 92px;
+}
+.kandan-myList-item-left-time{
+    font-size: 11px;
+}
+.kandan-myList-item-right-price{
+    font-size: 13px;
+    margin-top: 5px;
+}
+.kandan-myList-item-right-Btn{
+   justify-content: flex-end;
+}
+.kandan-myList-item-right-Btn a{
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    height: 28px;
+    line-height: 26px;
+    border: 1px solid #222;
+    border-radius:5px;
+    margin-left: 15px;
+    font-size: 14px;
+    color: #222;
+}
+.kandan-myList-item-right-Btn .kandan-myList-item-right-btnBuy{
+    border: 1px solid #d7d7d7;
+    color: #fff;
+}
+.kandan-myList-item .retail-goodsDetails-title{
+    margin-top: 0;
+    font-size: 13px;
+}
+.kandan-myList-item01{
+    -webkit-box-pack: start;
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    -ms-align-items: flex-start;
+    -o-align-items: flex-start;
+    align-items: flex-start;
+}
+.kandan-myList-item .kandan-wrap-progress .progress{
+    margin: 0 ;
+}
+.kandan-myList-item .kandan-wrap-progress{
+    padding: 8px 0 10px;
+}
+.kandan-myList-items-time-text{
+    width: 101px;
+    text-align: center;
+    padding-right: 10px;
+}
+.kandan-myList-items-time-text{
+    font-size: 11px;
+}
+.kandan-myList-item-left-time{
+    margin-bottom: 5px;
+    height: 16px;
+    letter-spacing: -0.5px;
+}
+.kandan-myList-item-time-price{
+    font-size: 12px;
+}
+.kandan-myList-item-time-price .curPrice{
+    font-size: 15px;
+}
+.kandan-goodsAlert-slide{
+    height:312px;
+    padding-top: 28px;
+}
+.kandan-goodsAlert-slide .carousel-indicators{
+    top: 0;
+    padding-top: 10px;
+    height: 18px;
+}
+.kandan-goodsAlert-slide .carousel-indicators li{
+    background-color: rgba(153,153,153,1);
+    width: 7px;
+    height: 7px;
+}
+.kandan-goodsAlert-slide .carousel-indicators .active{
+    width: 7px;
+    height: 7px;
+}
+/*我的砍价列表end*/
+@media (max-width: 365px) {
+    .kandan-alert-goods-img {
+        width: 155px;
+        height: 155px;
+    }
+    .kandan-alert-goods-text {
+        padding-top: 15px;
+    }
+    .kandan-alert-close img {
+        width: 34px;
+    }
+    .kandan-alert-goods-btn {
+        padding: 10px 0 15px;
+    }
+    .kandan-goodsAlert-slide {
+        height: 280px;
+        padding-top: 28px;
+    }
+    .kandan-wrap{
+        padding:5px 10px;
+    }
+    .kandan-wrap-progress .progress{
+        margin: 0 5px 5px;
+        height: 18px;
+    }
+    .kandan-wrap-btns {
+        padding-top: 8px;
+    }
+    .kandan-wrap-price-wrap {
+        padding-top: 6px;
+    }
+    .kandan-wrap-progress {
+        padding: 5px 0 5px;
+        position: relative;
+        font-size: 12px;
+        color: #666;
+    }
+    .kandan-wrap-gzIcon {
+        top: 0;
+        left: 30%;
+    }
+    .kandan-wrap-img{
+        width: 250px;
+        height: 32px;
+        line-height: 32px;
+        padding-left: 25px;
+        background: url(../images/kandan-img001.png) no-repeat;
+        background-size: 250px 32px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .kandan-wrap-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 17px;
+        overflow: hidden;
+    }
+}
+.kandan-alert-toPay{
+    color: #fe4b4b;
+    border-left: 1px solid #d7d7d7;
+}
+.kandan-alert-noPay{
+    text-align: center;
+    padding: 40px 0 30px;
+    font-weight: bold;
+}
+.pingdan-rule-alert-item {
+    color: #222;
+    text-align: left;
+}

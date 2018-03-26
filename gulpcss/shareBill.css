@@ -1,0 +1,36 @@
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+    width: 100%;
+}
+html{
+    font-size: 625%;
+}
+body{
+    font-size: 14px;
+}
+.img-responsive{
+    width: 100%;
+}
+.share-bill-top-wrap{
+    position: relative;
+}
+.share-top-pindan{
+    position: absolute;
+    height: .72rem;
+    width: .72rem;
+    top: 0;
+    left: 0;
+}
+.share-top-pindan img{
+    height: .72rem;
+    width: .72rem;
+}
+
+
+
+/*放大图片样式*/
+div.js_carousel,
+div.js_carousel img{
+    width: 100%;
+    -webkit-user-drag: none;
+}
+/*放大图片样式end*/

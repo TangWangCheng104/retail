@@ -1,0 +1,183 @@
+body{
+    font-size: 14px;
+}
+.retail-storeIndex-icon{
+    width: 85px;
+    height: 85px;
+    border-radius: 50px;
+    margin: 20px auto;
+    background-position: center center;
+    background-size: cover;
+}
+.retail-storeIndex-icon img{
+    border-radius: 50px;
+}
+.retail-storeIndex-common{
+    color: #666;
+    background: #ededee;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 15px;
+}
+.retail-storeIndex-radius-top{
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+}
+.retail-storeIndex-radius-bottom{
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px;
+    margin-bottom: 15px;
+}
+.retail-storeIndex-line{
+    width: 100%;
+    height: 1px;
+    background: #fff;
+}
+.retail-storeIndex-bg{
+    position: absolute;
+    top: -35px;
+    left: -35px;
+    right: -35px;
+    bottom: -35px;
+    height: 700px;
+    margin: 0 auto;
+}
+.retail-storeIndex-intro{
+    position: relative;
+    margin-bottom: 15px;
+}
+.retail-storeIndex-introBg{
+    width: 100%;
+    z-index: 9;
+    height:300px;
+    position:absolute;
+    top:0;
+    background: rgba(233,233,233,0.4);
+    border-radius: 5px;
+    min-height:45px;
+}
+.retail-storeIndex-intro-content{
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    padding:0 13px;
+    box-shadow: 1px 1px 1px #e1e1e1;
+    opacity: .8;
+}
+.retail-storeIndex-intro-title{
+    font-weight: 600;
+    margin-top: 15px;
+}
+.retail-storeIndex-intro-text{
+    font-size: 13px;
+    color: #666;
+}
+.retail-storeIndex-intro-img{
+    padding: 10px 0 12px 0;
+}
+.retail-storeIndex-img1,.retail-storeIndex-img2{
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+}
+.retail-storeIndex-img2{
+    margin: 0 9px;
+}
+.retail-storeIndex-phone{
+    position: relative;
+}
+.retail-storeIndex-intro-address{
+    line-height: 25px;
+    -webkit-box-pack:start;
+    -webkit-align-items:flex-start;
+    -moz-align-items: flex-start;
+    -ms-align-items: flex-start;
+    -o-align-items: flex-start;
+    align-items: flex-start;
+}
+.retail-storeIndex-intro-address b{
+    padding-right: 10px;
+    font-size: 15px;
+    width: 40px;
+    display: inline-block;
+}
+.retail-storeIndex-intro-address .line{
+    text-decoration: underline;
+}
+.retail-storeIndex-phone-content{
+    padding: 10px 10px;
+}
+.retail-storeIndex-goods{
+    margin-bottom: 40px;
+}
+.retail-storeIndex-goods-wrap{
+    width: 30%;
+    display: inline-block;
+    padding-right: 15px;
+    padding-top: 13px;
+    position: relative;
+    color: #222;
+}
+.retail-storeIndex-goods-content{
+    width: 100%;
+    padding: 0 10px;
+}
+.retail-storeIndex-goods-wrap img{
+    width: 100%;
+    height: 88px;
+}
+.retail-storeIndex-goods-more{
+    width: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 50px 15px;
+}
+.retail-storeIndex-price-now{
+    font-size: 13px;
+}
+.retail-storeIndex-goods-more-href{
+    display: block;
+}
+.retail-storeIndex-goods-icon{
+    width: 37px;
+    top: 17px;
+    left: 3px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 11px;
+    background: #e6754f;
+}
+/*进入商城的按钮*/
+.coming-center{
+    position: relative;
+    /*margin-top: ;*/
+    margin-top: 68px;
+}
+.store-coming:active,.store-coming:link,.store-coming:visited,.store-coming:hover{
+    color: #fff;
+}
+.store-coming{
+    display: inline-block;
+    height: 44px;
+    background: #fe4b4b;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 44px;
+    border-radius:2px;
+    color: #fff;
+    margin-top:53px ;
+    margin-bottom: 45px;
+    /*margin-left:4% ;*/
+}
+
+@media (max-width: 360px) {
+    .retail-storeIndex-intro-img img{
+        height: 80px;
+    }
+    .retail-storeIndex-goods-wrap img {
+        width: 100%;
+        height: 70px;
+    }
+}

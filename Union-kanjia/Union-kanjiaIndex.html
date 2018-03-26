@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>联合砍价首页</title>
+    <!-[if IE9]>
+    <script src="../js/html5.js" type="text/javascript"></script>
+    <![endif]->
+    <!-[if IE8]>
+    <noscript>
+        <style>.html5-wrappers {
+            display: none !important;
+        }</style>
+        <div class="ie-noscript-warning">您的浏览器禁用了脚本，请<a href="">查看这里</a>来启用脚本!或者<a href="/?noscript=1">继续访问</a>.
+        </div>
+    </noscript>
+    <![endif]->
+    <!--<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">-->
+    <link href="../css/base.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/union-kanjia.css" />
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/goodDetail.js"></script>
+    <script src="../js/retail_cofirmBuying.js"></script>
+    <script src="../js/kandan.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			marquee.marquee(2000);
+			//砍单剩余时间
+			timer01(10000);
+		})	
+	</script>    
+</head> 
+<body>
+	<div class="U-kanjia">
+		<!--头部图片-->
+		<header class="u-kanjia-header">
+			<img class="U-kanjia-banner" src="../images/U_kanjia_banner.png" alt="" />
+			<!--砍价规则图片，点击调用rule，弹出规则弹框-->
+			<img class="ukanjia-avtive-rule" onclick="Rule('kanjiaRule')" src="../images/ukanjia_avtive_rule.png" alt="" />
+        	<!--marquee-->
+	        <div class="marquee-wrap">
+	            <div id="demo" class="marquee-items">
+	                <div id="demo1">
+	                    <div class="js_text_item_parent">
+	                        <span class="js_text_item marquee-item">
+	                            <div class="flex-row">
+	                                <i class="marquee-item-icon flex-row"><img class="img-responsive marquee-userHeader" src="../images/icon_message.png" alt=""></i>
+	                                <span class="js_kandan_username usename-style">罗勇</span>刚刚砍了一下
+	                            </div>
+	                        </span>
+	                    </div>
+	                     <div class="js_text_item_parent">
+	                        <span class="js_text_item marquee-item">
+	                            <div class="flex-row">
+	                                <i class="marquee-item-icon flex-row"><img class="img-responsive marquee-userHeader" src="../images/icon_message.png" alt=""></i>
+	                                <span class="js_kandan_username usename-style">罗勇罗勇</span>刚刚砍了一下
+	                            </div>
+	                        </span>
+	                    </div>
+	                     <div class="js_text_item_parent">
+	                        <span class="js_text_item marquee-item">
+	                            <div class="flex-row">
+	                                <i class="marquee-item-icon flex-row"><img class="img-responsive marquee-userHeader" src="../images/icon_message.png" alt=""></i>
+	                                <span class="js_kandan_username usename-style">罗勇罗勇罗勇</span>刚刚砍了一下
+	                            </div>
+	                        </span>
+	                    </div>
+	                    
+	                </div>
+	                <div id="demo2"></div>
+	            </div>
+	        </div>
+	        <!--marquee end-->
+		</header>
+		<!--当活动结束了，article和header隐藏section显示-->
+		<section>
+			<img class="ukan-active-end-img" src="../images/ukan_active_end.png" alt="" />
+			<span class="ukan-acitve-end-text">活动结束啦，看看其他活动吧～</span>
+		</section>
+		
+		<!--浏览人数、活动剩余时间等-->
+		<session class="u-kanjia-session">
+			<div class="ukan-less-time-wrap">
+				距离活动结束还剩：
+				<!--倒计时-->
+				<span class="list-span" id="js_timer">
+					<span class="js_day_show ukan-time-box padding-5px">00</span>天<span class="js_hour_show ukan-time-box padding-5px">00</span>:<span class="js_minute_show ukan-time-box padding-5px">00</span>:<span class="js_second_show ukan-time-box padding-5px">00</span>
+				</span>
+			</div>
+			<div class="ukan-person-number">
+				<div class="ukan-text">
+					<div>
+						<div class="ukan-shop-decription">周生生黄金珠宝一元轻松砍回家门店一年回馈</div>
+					</div>
+				</div>
+				<div class="ukan-record">
+					<span class="ukan-record-number" style="display: none;"><span class="ukan-bgcolor"></span><span class="ukan-recrod-content">已有<span class="colore83581">3000</span>人砍价</span></span>
+					<span class="ukan-record-number" style="display: none;"><span class="ukan-bgcolor"></span><span class="ukan-recrod-content"><span class="colore83581">6500</span>人帮砍 </span></span>
+					<span class="ukan-record-number" style="display: none;"><span class="ukan-bgcolor"></span><span class="ukan-recrod-content"><span class="colore83581">13000</span>人浏览 </span></span>
+					<!--关注-->
+					<span class="ukan-record-number"><span class="ukan-bgcolor"></span><span class="ukan-recrod-content">已有<span class="colore83581">3000</span>人关注</span></span>
+					
+				</div>
+			</div>
+		</session>
+		<!--浏览人数、活动剩余时间等end-->
+		<article>
+			<div class="ukan-shop-name-wrap ">
+				<img class="ukan-shop-name-img" src="../images/ukan_shop_name.png" alt="" />
+				<span class="ukan-shop-name">这是中华老字号</span>
+			</div>
+			<!--投影部分-->
+			<div class="ukan-box-top-shadow">
+			</div>
+			<ul class="list-wrap ukan-list-wrap">
+				<li class="list ukan-list">
+					<span class="list-left ukan-list-left">
+						<img src="../images/retail-goodsDetails-img004.png" alt="" />
+						<span class="ukan-love-icon-wrap">
+							<img class="ukan-love-icon" src="../images/love_icon.png" alt="" />
+							<span class="ukan-discount">8折</span>
+						</span>
+					</span>
+					<span class="list-right">
+						<span class="list-title ukan-list-title">活色生香女神钻石大特价系列，拼单可享受折上折优惠</span>
+						<span class="list-span ukan-list-span"><i>原价：￥8800</i></span>
+						<span class="list-span ukan-price-wrap"><span class="ukan-now-price">1666</span>元<span class="ukan-now-number">(已有10人参与)</span></span>
+						<!--马上砍价-->
+						<span class="list-span ukan-kanjia-now-btn">马上砍价<span class="right-triangle"></span></span>
+						
+						
+					</span>
+					<img class="ukan-gradient-line" src="../images/gradient_line.png" alt="" />
+				</li>
+				<li class="list ukan-list">
+					<span class="list-right ukan-list-change-left">
+						<span class="list-title ukan-list-title">活色生香女神钻石大特价系列，拼单可享受折上折优惠</span>
+						<span class="list-span ukan-list-span"><i>原价：￥8800</i></span>
+						<span class="list-span ukan-price-wrap"><span class="ukan-now-price">1666</span>元<span class="ukan-now-number">(已有10人参与)</span></span>
+						<span class="list-span ukan-pike-up-wrap"><img class="ukan-pike-up" src="../images/ukan_pike_up.png" alt="" /></span>
+					</span>
+					<span class="list-left ukan-list-left ukan-list-change-right">
+						<img src="../images/retail-goodsDetails-img004.png" alt="" />
+						<span class="ukan-love-icon-wrap">
+							<img class="ukan-love-icon" src="../images/love_icon.png" alt="" />
+							<span class="ukan-discount">8折</span>
+						</span>
+					</span>
+					<img class="ukan-gradient-line" src="../images/gradient_line.png" alt="" />
+				</li>
+				<li class="list ukan-list">
+					<span class="list-left ukan-list-left">
+						<img src="../images/retail-goodsDetails-img004.png" alt="" />
+						<span class="ukan-love-icon-wrap">
+							<img class="ukan-love-icon" src="../images/love_icon.png" alt="" />
+							<span class="ukan-discount">8折</span>
+						</span>
+					</span>
+					<span class="list-right">
+						<span class="list-title ukan-list-title">活色生香女神钻石大特价系列，拼单可享受折上折优惠</span>
+						<span class="list-span ukan-list-span"><i>原价：￥8800</i></span>
+						<span class="list-span ukan-price-wrap"><span class="ukan-now-price">1666</span>元<span class="ukan-now-number">(已有10人参与)</span></span>
+						<!--先睹为快-->
+						<span class="list-span ukan-kanjia-now-btn">先睹为快<span class="right-triangle"></span></span>
+					</span>
+					<img class="ukan-gradient-line" src="../images/gradient_line.png" alt="" />
+				</li>
+			</ul>
+			<!--店名-->
+			<div class="ukan-shop-name-wrap margin-top30">
+				<img class="ukan-shop-name-img" src="../images/ukan_shop_name.png" alt="" />
+				<span class="ukan-shop-name">这是中华老字号</span>
+			</div>
+			<!--投影部分-->
+			<div class="ukan-box-top-shadow">
+				
+			</div>
+			<ul class="list-wrap ukan-list-wrap">
+				<li class="list ukan-list">
+					<span class="list-left ukan-list-left">
+						<img src="../images/retail-goodsDetails-img004.png" alt="" />
+						<span class="ukan-love-icon-wrap">
+							<img class="ukan-love-icon" src="../images/love_icon.png" alt="" />
+							<span class="ukan-discount">8折</span>
+						</span>
+					</span>
+					<span class="list-right">
+						<span class="list-title ukan-list-title">活色生香女神钻石大特价系列，拼单可享受折上折优惠</span>
+						<span class="list-span ukan-list-span"><i>原价：￥8800</i></span>
+						<span class="list-span ukan-price-wrap"><span class="ukan-now-price">1666</span>元<span class="ukan-now-number">(已有10人参与)</span></span>
+						<!--马上砍价-->
+						<span class="list-span ukan-kanjia-now-btn">马上砍价<span class="right-triangle"></span></span>
+						
+						
+					</span>
+					<img class="ukan-gradient-line" src="../images/gradient_line.png" alt="" />
+				</li>
+				<li class="list ukan-list">
+					<span class="list-right ukan-list-change-left">
+						<span class="list-title ukan-list-title">活色生香女神钻石大特价系列，拼单可享受折上折优惠</span>
+						<span class="list-span ukan-list-span"><i>原价：￥8800</i></span>
+						<span class="list-span ukan-price-wrap"><span class="ukan-now-price">1666</span>元<span class="ukan-now-number">(已有10人参与)</span></span>
+						<span class="list-span ukan-pike-up-wrap"><img class="ukan-pike-up" src="../images/ukan_pike_up.png" alt="" /></span>
+					</span>
+					<span class="list-left ukan-list-left ukan-list-change-right">
+						<img src="../images/retail-goodsDetails-img004.png" alt="" />
+						<span class="ukan-love-icon-wrap">
+							<img class="ukan-love-icon" src="../images/love_icon.png" alt="" />
+							<span class="ukan-discount">8折</span>
+						</span>
+					</span>
+					<img class="ukan-gradient-line" src="../images/gradient_line.png" alt="" />
+				</li>
+				<li class="list ukan-list">
+					<span class="list-left ukan-list-left">
+						<img src="../images/retail-goodsDetails-img004.png" alt="" />
+						<span class="ukan-love-icon-wrap">
+							<img class="ukan-love-icon" src="../images/love_icon.png" alt="" />
+							<span class="ukan-discount">8折</span>
+						</span>
+					</span>
+					<span class="list-right">
+						<span class="list-title ukan-list-title">活色生香女神钻石大特价系列，拼单可享受折上折优惠</span>
+						<span class="list-span ukan-list-span"><i>原价：￥8800</i></span>
+						<span class="list-span ukan-price-wrap"><span class="ukan-now-price">1666</span>元<span class="ukan-now-number">(已有10人参与)</span></span>
+						<!--先睹为快-->
+						<span class="list-span ukan-kanjia-now-btn">先睹为快<span class="right-triangle"></span></span>
+					</span>
+					<img class="ukan-gradient-line" src="../images/gradient_line.png" alt="" />
+				</li>
+			</ul>
+		</article>
+		
+		<footer>
+			<!--门店推荐-->
+			<div class="ukan-store-recommend-wrap">
+				<div class="ukan-store-recommend-title">
+					<span class="ukan-store-recommend-text">
+						<span class="ukan-store-recommend-title1">精选门店推荐</span>
+						<img class="ukan-hudie-left" src="../images/ukan_hudie_left.png" alt="" />
+						<img class="ukan-hudie-right" src="../images/ukan_hudie.png" alt="" />
+					</span>
+				</div>
+				<!--门店推荐的图片-->
+				<div class="ukan-recommend-content">
+					<img class="ukan-recommend-img" src="../images/U_kanjia_banner.png" alt="" />
+				</div>
+				<div class="ukan-recommend-content">
+					<img class="ukan-recommend-img" src="../images/U_kanjia_banner.png" alt="" />
+				</div>
+			</div>
+		</footer>
+		<img class="ukanjia-mykandan" src="../images/ukanjia_mykandan.png" alt="" />
+		<!--砍价规则的弹出框-->
+		<div id="kanjiaRule" class="js_hide_com alert-wrap" style="display: block;">
+            <ul class="alert-content">
+            	<li class="alert-title">
+            		砍价规则
+            	</li>
+            	<li class="alert-list">
+            		<p>1. 店长开启砍价活动后，推广人可将活动分享至各个平台（微信，朋友圈等等）。</p>
+            	</li>
+            	<li class="alert-list">
+            		<p>2. 用户通过推广人/好友分享的链接发起砍价活动。</p>
+            	</li>
+            	<li class="alert-list">
+            		<p>3. 用户在砍价过程中，可以随时购买。</p>
+            	</li>
+            	<li class="alert-list">
+            		<p>4. 当用户砍到最底价时，不能再继续砍价。</p>
+            	</li>
+            	<li class="alert-list">
+            		<p>5. 如果设置了砍价库存，则先买先得</p>
+            	</li>
+            	<li class="alert-list">
+            		<p>6. 好友每次砍价的幅度，店长可在“设置砍价”部分设置；</p>
+            	</li>
+            	
+            	<li class="alert-title">
+            		退款须知
+            	</li>
+            	<li class="alert-list">
+            		<p>1. 用户发起退款，店长确认退款，款项将直接按原路返回至用户账户中。</p>
+            	</li>
+            	<li class="alert-list">
+            		<p>2. 用户收到货品七天后，不可再发起退款。</p>
+            	</li>
+            </ul>
+            <img class="ukanjia-rule-img" src="../images/kanjiaRule.png" alt="" />
+            <div class="js_close alert-close-btn">关闭</div>
+        </div>
+		
+        <!--半透明遮罩层,可点击-->
+		<div id="com_black" class="js_com_black js_hide_com com_black" style="display:none;"></div>
+	</div>
+</body>
+</html>

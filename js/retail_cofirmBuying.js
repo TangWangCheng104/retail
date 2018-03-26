@@ -185,6 +185,7 @@ function delay_more(obj){
 }
 var m;
 function style_select(obj, max, price,warnMsg) {
+	console.log(111)
 	if(max <= 0){
 		return;
 	}
@@ -643,6 +644,7 @@ function first_Phone() {
 function cancel_phoneAlert() {
     $('body').removeClass('body-position-fixed');
     $('.js_comBlack').hide();
+    $('.js_hide_com').hide();
     $('.js_phoneVerify_alert').hide();
 }
 /*拼单接龙*/

@@ -93,6 +93,16 @@ var video = {
         $(".js_hide_com").hide();
         $('html,body').removeClass('ovfHiden'); //使弹窗后网页恢复可滚
     },
+    closeVideo1:function(){
+        $(".js_com_black").hide();
+        $(".js_videoDiv").hide();
+        $(".js_hide_com").hide();
+        $("#J_myVideo")[0].pause();//动态播放、暂停视频
+        $('html,body').removeClass('ovfHiden'); //使弹窗后网页恢复可滚
+        window.history.back();
+        // var a = 1 ;
+        // notFullScreen()
+    },
     closeVideo:function(){
         $(".js_com_black").hide();
         $(".js_videoDiv").hide();
@@ -104,6 +114,14 @@ var video = {
     }
 
 };
+/*弹出框和蒙版的弹出方法*/
+function spellRules(t){
+	$(t).fadeIn(300);
+    $('#pingdanRule').fadeIn(300);
+    $('#com_black').fadeIn(300);
+    $('#pingdanRule').parent().fadeIn(300);
+    $('body,html').addClass("ovfHiden")
+}
 /*让手机点击后退之后还是原来的地址*/
 function pushHistory() {
     
@@ -127,4 +145,43 @@ function closeCode(){
 function tapImgFn(){
    	$('.black-back-groud-board,.retail-bigImg').toggle();
 }
+//滚动上下轮播的方法
+var marquee = {
+	
+	marquee(speed){
+		var i = 0;
+	    var t = setInterval(function(){
+	        var m = $(".js_text_item").eq(0).parent().html();
+	        var d = '<div class="js_text_item_parent">'+ m + ' </div>';
+	        $(".js_text_item").eq(0).animate({
+	            "opacity":"0",
+	//            "width":"0",
+	            "height":"0",
+	            "padding":"0"
+	        },'1000',function(){
+	            $(".js_text_item_parent").eq(0).remove();
+	        });
+	        $("#demo1").append(d);
+	        i++;
+	        if(i==4){
+	            i=0
+	        }
+	    },speed);
+	}
+}
+//遮罩层
+var oAlret = {
+	//遮罩层的显示与隐藏切换
+	tapImgFn(){
+	   	$('.black-back-groud-board').toggle();
+	}
+}
+var obj = "three-page-swiper"
+//非bootrap的轮播图
+var jqSwiper = {
+	swiper (obj){
+		
+	}
+}
+
 

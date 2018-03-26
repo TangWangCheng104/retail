@@ -1,0 +1,342 @@
+body{
+    background: #f5f5f5;
+}
+.groupCard {
+    padding-top: 15px;
+}
+.comPos {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.groupCard-iconClose {
+    width: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1040;
+}
+.groupCard-title01{
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.groupCard-nickName01{
+    color: #9f4646;
+    padding:0 8px;
+}
+.groupCard-invite{
+    color: #666;
+    font-size: 14px;
+    line-height: 25px;
+    padding-bottom: 15px;
+}
+.groupName{
+    color: #9f4646;
+    font-weight: bold;
+}
+.groupCard-intro{
+    color: #666;
+    font-size: 14px;
+    line-height: 25px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+}
+.groupCard-intro-look{
+    font-size: 12px;
+    color: #ffac69;
+    text-decoration: underline;
+    padding: 10px 0 20px;
+}
+.groupCard-inputMsg{
+    padding: 10px 0;
+}
+.lqy-input-wrap{
+    width: 100%;
+    flex: 1;
+}
+/*input区样式开始*/
+.groupCard-userName-alert-input {
+    padding: 0 20px;
+    font-size: 14px;
+}
+.partner-input-group{
+    height: 45px;
+    line-height: 45px;
+    margin-top: 15px;
+}
+.partner-input-groupL{
+    width: 50px;
+    font-size: 14px;
+}
+.partner-input-groupR{
+    flex: 1;
+    border: 1px solid #d7d7d7;
+    border-radius: 5px;
+}
+.partner-input-groupR input{
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    line-height: 43px;
+    font-size: 14px;
+    padding-left: 5px;
+    background: none;
+}
+.partner-input-groupR .disabled{
+    background: none;
+}
+.partner-closeBtn{
+    width: 14px;
+    height: 14px;
+    margin: 13px 25px 13px;
+}
+.partner-input-verify-btn{
+    color: #3b67a4;
+    width: 110px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+}
+.partner-input-verify-btn span{
+    padding-left: 12px;
+    color: #d7d7d7;
+}
+.partner-input-verify-btn .disabled {
+    color: #cbcaca;
+}
+.partner-submitBtn{
+    width: 100%;
+    display: inline-block;
+    height: 45px;
+    line-height: 45px;
+    background: #ff6666;
+    color: #fff;
+    border-radius: 5px;
+    margin:50px 0 20px;
+    border: none;
+}
+.partner-submitBtn.disabled{
+    background: #d7d7d7;
+}
+@media (max-width: 365px) {
+    .partner-closeBtn{
+        margin: 10px 8px;
+    }
+    .partner-input-verify-btn{
+        margin-left: 5px;
+        width: 100px;
+    }
+    .partner-input-verify-btn span{
+        padding-left: 5px;
+    }
+    .partner-title {
+        padding: 10px 0 0;
+    }
+    .partner-intro {
+        padding-top: 3px;
+    }
+    .partner-msgImg {
+        margin: 10px auto;
+    }
+    .partner-submitBtn {
+        margin-top: 25px;
+    }
+    .partner-input-group{
+        height: 35px;
+        line-height: 35px;
+        margin-top: 10px;
+    }
+    .partner-input-groupR input{
+        line-height: 35px;
+    }
+    .partner-submitBtn{
+        height: 40px;
+        line-height: 40px;
+    }
+    .groupCard-intro-look {
+        padding: 10px 0 10px;
+    }
+}
+@media (min-width: 400px){
+    .partner-input-group{
+        margin-top: 15px;
+    }
+    .partner-submitBtn {
+        margin-top: 100px;
+    }
+}
+/*input区样式end*/
+/*弹窗样式开始*/
+.groupCard-alertVerify {
+    width: 86%;
+    margin: 0 7%;
+    border-radius: 10px;
+    background: #fff;
+    position: fixed;
+    top: 15rem;
+    z-index: 1040;
+}
+.groupCard-alertVerify-info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /*height: 235px;*/
+}
+.groupCard-intro-alert{
+    top:7rem;
+    height:400px;
+    overflow: inherit;
+}
+.groupCard-intro-alert-info{
+    color: #666666;
+    font-weight: 600;
+    line-height: 25px;
+    padding-top: 8px;
+    flex: 1;
+    height: 340px;
+    overflow: scroll;
+    font-size: 13px;
+    padding-bottom: 30px;
+}
+@keyframes myfirst
+{
+    0%   {transform:translateY(0);}
+    50%  {transform:translateY(-8px);}
+    100% {transform:translateY(0);}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+    0%   {transform:translateY(0);}
+    50%  {transform:translateY(-8px);}
+    100% {transform:translateY(0);}
+}
+
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+    0%   {transform:translateY(0);}
+    50%  {transform:translateY(-8px);}
+    100% {transform:translateY(0);}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+    0%   {transform:translateY(0);}
+    50%  {transform:translateY(-8px);}
+    100% {transform:translateY(0);}
+}
+.groupCard-down-img{
+    width: 22px;
+    padding-top: 10px;
+    animation:myfirst 1s linear infinite alternate;
+    /* Firefox: */
+    -moz-animation:myfirst 1s linear infinite alternate;
+    /* Safari and Chrome: */
+    -webkit-animation:myfirst 1s linear infinite alternate;
+    /* Opera: */
+    -o-animation:myfirst 1s linear infinite alternate;
+}
+.groupCard-userName-alert-title{
+    width: 100%;
+    display: block;
+    position: absolute;
+    top:6%;
+    color: #ff7968;
+    font-size: 15px;
+    font-weight: bold;
+}
+.groupCard-userName-alert-input{
+    padding: 0 20px;
+    font-size: 14px;
+}
+.partner-input-groupL01{
+    width: 60px;
+    color: #ffac69;
+}
+.partner-input-group01{
+    flex: 1;
+    margin-top: 30px;
+}
+.partner-input-groupR01{
+    flex: 1;
+    width: 100%;
+    border-bottom: 1px solid #ffac69;
+}
+.partner-input-groupR01 input{
+    width: 100%;
+    border: none;
+    padding-bottom: 8px;
+    padding-left: 10px;
+}
+.groupCard-userName-alert{
+    width: 80%;
+    /*height: 235px;*/
+    margin: 0 10%;
+    border-radius: 10px;
+    background: #fff;
+    position: fixed;
+    top: 12rem;
+    z-index: 1040;
+}
+
+.userName-submitBtn{
+    width: 100%;
+    display: inline-block;
+    height: 45px;
+    line-height: 45px;
+    background: #ff7968;
+    color: #fff;
+    border-radius: 0 0 5px 5px;
+    border: none;
+    margin-top: 30px;
+}
+.userName-submitBtn.disabled {
+    background: #d7d7d7;
+}
+.partner-input-group01 .partner-closeBtn{
+    margin: 7px;
+}
+@media (max-width: 365px) {
+    .groupCard-intro-alert{
+        top:5rem;
+        height:350px;
+    }
+    .groupCard-intro-alert-info{
+        height: 300px;
+    }
+    .groupCard-userName-alert{
+        width: 86%;
+        /*height: 200px;*/
+        margin: 0 7%;
+        border-radius: 10px;
+        background: #fff;
+        top: 13rem;
+        z-index: 1040;
+    }
+    .input-focus{
+        position: absolute;
+        top: 0;
+    }
+}
+@media (min-width:400px) {
+    .groupCard-intro-alert{
+        top:10rem;
+        height:450px;
+    }
+    .input-focus{
+        position: absolute;
+        top: 0;
+    }
+    .groupCard-intro-alert-info {
+        height: 390px;;
+    }
+}
+.input-focus{
+    position: absolute;
+    top: 0;
+}
+/*弹窗样式end*/

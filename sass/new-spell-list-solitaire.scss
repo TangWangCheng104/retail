@@ -1,5 +1,6 @@
 //引入base.css
 @import "base";
+
 //本页面默认字体大小
 $fontSize14px : 14px;
 //默认字体颜色
@@ -151,21 +152,25 @@ body{
     float: none;
     display: flex;
     top: 20px;
+    padding-bottom: .05rem;
+    justify-content: space-around;
 }
 .spell-pass-price-wrap{
     position: relative;
     float: left;
     flex: 1;
+    max-width: 30%;
 }
 $imgWidth : 690px / 8;
 .spell-step-price{
     color: #fff;
     position: absolute;
-    top:-2px;
+    top:15%;
     left: 0;
     right: 0;
     bottom: 0;
-    margin:.2rem auto 0;
+    margin: auto;
+//  margin:.2rem auto 0;
     z-index:2;
     text-align: center;
     /*text-shadow: 1px 1px 5px #fecc68;*/
@@ -183,19 +188,17 @@ $imgWidth : 690px / 8;
 }
 .spell-pass-price-wrap-active{
     position: relative;
-    top:-15px;
+    top:-6px;
 }
 .spell-step-price-now{
     text-shadow: 1px 1px 5px #ff7872;
-    top:-5px;
+    top:10%;
     color: #fff;
 }
 .spell-pass-price-wrap-active .spell-step-price-now{
     padding-top:0;
 }
-.spell-price-active{
-    width: 100px;
-}
+
 .spell-pass-price{
 //  width: $imgWidth;
     width: 100%;
@@ -435,9 +438,10 @@ $imgWidth : 690px / 8;
     padding: 0 .15rem;
     @extend.displayFlex;
     align-items: center;
-    border-top: 1px solid #f5f5f5;
+    border-top: 1px solid #e1e1e1;
     height: .37rem;
 }
+
 .spell-go-spell{
     display: inline-block;
     height: 30px;
@@ -492,6 +496,7 @@ $imgWidth : 690px / 8;
 }
 .spell-person-wrap{
     font-size: 14px;
+    text-align: center;
 }
 .spell-person-wrap-alert{
     padding:0 10px;
@@ -591,9 +596,18 @@ $imgWidth : 690px / 8;
     line-height: normal;
 
 }
+.list-title{
+    width: 100%;
+    overflow: hidden;             
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
 .spell-share-buttom{
     flex:1;
     padding-top:0;
+    width: 100%;
     line-height: 50px;
     background: #E95953;
 }
@@ -631,12 +645,12 @@ $imgWidth : 690px / 8;
 .newsp-progress-bar-wrap{
     position: relative;
 }
-.spell-price-active{
-    width: $imgWidth * 5 / 4;
-}
+//.spell-price-active{
+//  width: $imgWidth * 5 / 4;
+//}
 .spell-pass-price-wrap-active{
     position: relative;
-    top:-15px;
+    top:-6px;
 }
 //.spell-bgcl{
 //  background: #fff;
@@ -663,9 +677,9 @@ $imgWidth : 690px / 8;
     position: relative;
     left: -15px;
 }
-.retail-confirmBuying .spell-step-price{
-    margin-top: 19%;
-}
+//.retail-confirmBuying .spell-step-price{
+//  margin-top: 19%;
+//}
 .retail-confirmBuying .newsp-change-mode{
     display: none;
     
@@ -678,19 +692,33 @@ $imgWidth : 690px / 8;
     padding-top: .2rem;
 }
 //----------------3d轮播图
-
+//@import "carrousel";
 .newsp-swiper-wrap,.newsp-bigSwiper-wrap{
     background: #fff7f7;
     width: 100%;
 //  overflow:hidden;
     position: relative;
 }
+.newsp-bigSwiper-wrap{
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+}
 .newsp-swiper{
-    padding: 70px 15px 100px;
+    margin: 0 15px;
+    padding: 70px 0 100px;
     position: relative;
-    height: 500px;
+    height: 300px;
     overflow-x: hidden;
     overflow-y:auto ;
+}
+.videoIcon{
+    width: .24rem;
+    height: .24rem;
+    position: absolute;
+    left: 64%;
+    bottom: 11%;
+    z-index: 1040;
 }
 .swiper-list{
     float: left;
@@ -703,14 +731,19 @@ $imgWidth : 690px / 8;
 }
 .swiper-img{
     width: 100%;
-    background: #ccc;
+    background: #fff;
 }
+
 .swiper-list3d{
     position: absolute;
     left: 0;
 //  top: ;
     transition: all .5s;
 
+}
+.retail-confirmBuying-style-type span.selected{
+    background: #fe4b4b;
+    color: #fff;
 }
 .active3d{
     transition: all .5s;
@@ -721,7 +754,6 @@ $imgWidth : 690px / 8;
 .bigActive3d{
     transition: all .5s;
     position: relative;
-    transform: auto;
     z-index: 1050;
 }
 .Swiper3d-cricle-list{
@@ -736,6 +768,13 @@ $imgWidth : 690px / 8;
 .Swiper3d-cricle-ul{
     float: left;
 }
+//.bigSwiper3d-cricle-ul{
+//  position: fixed;
+//  
+//}
+//.bigSwiper3d-cricle-ul .Swiper3d-cricle-list{
+//  float: left;
+//}
 .Swiper3d-cricle-list-wrap{
     display: inline-block;
     position: absolute;
@@ -743,6 +782,12 @@ $imgWidth : 690px / 8;
     transform: translateX(-50%);
     bottom: .5rem;
     margin: auto;
+    
+}
+.bigSwiper3d-cricle-list-wrap{
+    position: fixed;
+    bottom: -30%;
+    z-index: 1050;
 }
 .cricleActive3d{
     width: .12rem;
@@ -765,7 +810,7 @@ $imgWidth : 690px / 8;
     height: 55px;
     position: fixed;
     right: 11px;
-    top:50%;
+    top:14%;
     border-radius: 50%;
     padding-top: 12px;
     z-index: 1040;
@@ -830,17 +875,29 @@ $imgWidth : 690px / 8;
 }
 .newsp-pingdan-rule-alert{
     width: 80%;
-    margin: 15% 10%;
+    margin: 0 10%;
+    transform: translateY(-50%);
     display: inline-block;
     position: fixed;
     background: #fff;
-    top: 0;
+    top: 50%;
     left: 0;
     z-index: 1050;
     border-radius: 5px;
     padding-top: 10px;
-    max-height: 70%;
+//  max-height: 70%;
     overflow-y: auto;
+    max-height: 70%;
+}
+.colorfff{
+    color: #fff;
+}
+.spell-share-together{
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 1050;
 }
 .newsp-join-name{
     height: .5rem;
@@ -852,8 +909,6 @@ $imgWidth : 690px / 8;
     margin-bottom: .2rem;
 }  
 .newsp-shop-style span{
-    background: #fe4b4b;
-    color: #fff;
     border-radius: 25px;
 }
 .newsp-shop-style .disabled{
@@ -870,11 +925,20 @@ $imgWidth : 690px / 8;
 .colorfe6057{
     color:#fe6057 ;
 }
+.newsp-joinSuccess{
+    @extend.displayFlex;
+    justify-content: center;
+    align-items: center;
+    height: .4rem;
+}
 .spell-everybody-price-active{
     margin-top:10px;
     font-size: 17px;
 }
-
+.newsp-rule-decrition{
+    width: 92%;
+    margin: .2rem 4%;
+}
 
 //我的拼单页面
 .newsp-my-spell{
@@ -900,6 +964,9 @@ $imgWidth : 690px / 8;
     }
     .list-left{
         position: relative;
+    }
+    .list-left img{
+        height: 1.3rem;
     }
     .new-spell-word{
         display: inline-block;
@@ -934,8 +1001,13 @@ $imgWidth : 690px / 8;
         color: $Color;
     }
 }
-
-
+.newsp-btnBuy-myAccount-wrap{
+    width: 48%;
+    display: flex;
+}
+.newsp-btnBuy-myAccount-wrap .lqy-btnBuy-myAccount{
+    flex: 1;
+}
 @media screen and ( max-width: 330px ){
     .spell_user_touxiang{
         width: 60px;
@@ -945,4 +1017,134 @@ $imgWidth : 690px / 8;
         box-sizing: border-box;
         border-radius: 50%;
     }
+    .spell-step-price{
+        top: 12%;
+    }
+}
+.spell-close-icon{
+    width: 25px;
+    position: absolute;
+    right: -11px;
+    top:-13px;
+}
+.spell-join-sb{
+    color: #333;
+    border-bottom: 1px solid #d7d7d7;
+}
+.spell-information-center{
+    text-align: center;
+    font-size: 17px;
+    color: #333;
+    border-top:none;
+}
+.spell-information-joinIn{
+    border: none;
+}
+.spell-information-photo{
+    display: flex;
+    float: left;
+    padding:16px 15px 10px 15px;
+    border: none;
+    text-align: center;
+    width: 100%;
+}
+.spell-information-photo1{
+    flex: 1;
+    text-align: center;
+}
+.spell-user-photo-border{
+    border:1px solid #d7d7d7;
+    border-radius: 25px;
+}
+.spell-person-gtFive{
+    height: 45px;
+    line-height: 45px;
+}
+.personNum{
+    padding: 0 5px;
+}
+.spel-joinIn{
+    margin-left: 10%;
+    margin-bottom: 20px;
+    line-height: 40px;
+    width: 80%;
+    height: 40px;
+}
+.less-time{
+    color: #999;
+}
+/*贴心小贴士*/
+.tiexin-line{
+    position:fixed;
+    top:0;
+    bottom:0;
+    margin:auto 0;
+    width:100%;
+    height:0;
+    text-align:center;
+    z-index:1050;
+}
+.tiexin-card-wrap{
+    position:relative;
+    left:50%;
+    transform:translate(-50%,-50%) ;
+    width:80%;
+    background:#fff;
+    border-radius:5px;
+    display:table;
+
+}
+.tiexin-card-text{
+    width:100%;
+    height:50px;
+    text-align:center;
+    font-size:16px;
+    font-weight:bold;
+    line-height:50px;
+    border-bottom:1px solid #d7d7d7;
+}
+.tiexin-sure-buy{
+    height:100px;
+    text-align: center;
+    line-height:100px;
+    font-size:14px;
+}
+.tiexin-choise{
+    height:50px;
+    line-height:50px;
+    text-align:center;
+    display:flex;
+    border-top:1px solid #d7d7d7;
+}
+.tiexin-sure,.tiexin-cancle{
+    flex:1;
+    color:#53cac3;
+    font-size:14px;
+}
+.tiexin-sure {
+    border-right:1px solid #d7d7d7;
+}
+.tiexin-sure a{
+    color:#666;
+}
+/*贴心小贴士end*/
+.prompt-spell{
+    font-size: 13px;
+    color: #ea6a5e;
+    text-align: center;
+    margin-top: 20px;
+}
+.spell-rules-wrap{
+    margin-top: 56px;
+}
+.com_black{
+    width: 100%;
+    height:1000px;
+    position: fixed;
+    top:0;
+    left: 0;
+    bottom: 0;
+    z-index: 1040;
+    background-color:#000;
+    background-color: rgba(0,0,0,0.5);
 }

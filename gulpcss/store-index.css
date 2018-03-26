@@ -1,0 +1,470 @@
+/*这是商城的css样式*/
+body{
+    width: 100%;
+}
+
+.store-wrap{
+    background: #f5f5f5;
+    height: 100%;
+}
+.store-tap{
+    background: #fff;
+    width: 100%;
+    height:40px;
+    display: flex;
+    line-height: 40px;
+    text-align: center;
+    margin-bottom:0!important;
+    border-bottom:1px solid #e1e1e1;
+}
+.store-kong{
+    width: 100%;
+    height:40px;
+    display: none;
+}
+.store-tap.fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1030;
+}
+.store-tap li{
+    flex: 1;
+    color: #333;
+    font-size: 15px;
+
+}
+.store-tap li a{
+    color: #333;
+    display: inline-block;
+    height: 40px;
+
+}
+.store-tap li .store-avtive{
+    border-bottom: 2px solid #FE4B4B;
+    color: #FE4B4B;
+}
+.store-nav{
+    height: 44px;
+    background: #f5f5f5;
+    line-height: 44px;
+    display: flex;
+    width: 100%;
+    border:1px solid red;
+    position: relative;
+}
+.store-search{
+    color: #000;
+    flex: 1;
+    position: relative;
+}
+.store-search img{
+    position: absolute;
+    right:18px;
+    top:0;
+    bottom:0;
+    margin: auto 0;
+    width: 13px;
+    height: 13px;
+}
+.store-header-img{
+    width: 100%;
+    height:188px;
+    overflow: hidden;
+}
+.store-header-img img{
+    height: 100%;
+}
+.search-input{
+    border:none;
+    outline: none;
+    height: 28px;
+    width: 100%;
+}
+.store-classfiy img{
+    width: 16px;
+    height:13px;
+    margin-left:17px ;
+}
+.store-top{
+    height: 50px;
+    line-height: 50px;
+    background: white;
+    margin-bottom:10px ;
+    border-top:1px solid #e1e1e1;
+}
+.store-nav-text{
+    font-size: 15px;
+    color: #666;
+    padding-left:12px ;
+}
+.store-right-arrows{
+    border-right:solid 1px #aaaaaa;
+    border-bottom:solid 1px #aaaaaa;
+    display: inline-block;
+    transform: rotate(-45deg);
+    width: 6px;
+    height:6px;
+    color: #000;
+    margin-right:12px ;
+}
+.store-content-img{
+    width: 100%;
+    height: 140px;
+    box-sizing: border-box;
+    background: #fff;
+}
+.store-content-img1{
+    padding: 0 10px 10px 10px;
+    width: 100%;
+    box-sizing: border-box;
+    background: #F5F5F5;
+    margin-bottom: 50px;
+}
+.store-content-li{
+    width: 100%;
+    height: 170px;
+    text-align: center;
+    overflow: hidden;
+}
+.store-text-new{
+    display: inline-block;
+    color: #fff;
+    height: 15px;
+    width: 28px;
+    border-radius: 2px;
+    font-size: 11px;
+    background: #FE4B4B;
+    text-align: center;
+    line-height: 15px;
+}
+.store-content-img1 img{
+    height: 174px;
+}
+
+.store-text-hot{
+    width: 100%;
+    text-align: center;
+    height: 30px;
+    position: relative;
+}
+.store-text-hot img{
+    height: 12px;
+    width: 95px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom:0 ;
+    right:0;
+    margin: auto;
+
+}
+.store-content-img1 li{
+    width: 49%;
+    overflow: hidden;
+    margin-top:8px ;
+    float: left;
+    background: #fff;
+}
+.store-content-img1 li:first-child,.store-content-img1 li:nth-child(2){
+    margin-top:0px ;
+}
+.store-content-img1 li:nth-child(2n-1){
+    margin-right: 2%;
+}
+.store-content-img1 li img{
+    height: 174px;
+}
+.store-width{
+    width: 174px;
+}
+.store-text{
+    margin: 6px 8px 7px 8px;
+    display: block;
+    color: #666;
+    font-size: 12px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.store-bottom{
+    background: #fff;
+    width: 100%;
+    height:50px;
+    display: flex;
+    text-align: center;
+    margin-bottom:0!important;
+    z-index: 1060;
+    box-shadow: 0px -2px 2px #e1e1e1;
+}
+.store-bottom li{
+    flex:1;
+}
+.store-bottom p{
+    margin: 6px 0 2px 0;
+    font-size:10px;
+    color: #999999;
+}
+.store-bottom img{
+    margin-top: 6px;
+    height: 20px;
+    width: 20px;
+}
+.store-change-img{
+    padding: 10px;
+    background: #fff;
+}
+.store-change-img .item{
+    width: 100%;
+}
+.store-banner{
+
+}
+.store-bottom-active{
+    color: #000;
+}
+.store-bottom{
+    position: fixed;
+    bottom: 0;
+}
+/*这是遮罩层的css*/
+.com_black{
+    width: 100%;
+    height:800px;
+    position: fixed;
+    top:0;
+    bottom: 0;
+    z-index: 1040;
+    background-color:#000\9;
+    background-color: rgba(0,0,0,0.5);
+}
+/*弹出二维码*/
+.store_code_wrap{
+    width: 72%;
+    text-align: center;
+    position: fixed;
+    z-index: 1040;
+    margin: 120px 14%;
+}
+.store_code{
+    background: #fff;
+    padding: 38px 16%;
+    text-align: center;
+    border-radius:5px 5px 0 0 ;
+}
+.store_code_img{
+    width: 84%;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+.store_code_p{
+    display: block;
+    padding: 15px 0 25px 0;
+    font-size: 16px;
+    z-index: 1040;
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+}
+/*没有活动*/
+.store_no_avtive{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    padding-top:50%;
+}
+.store_no_shop1{
+    height: auto;
+    padding-top: 170px;
+    height: 91%;
+}
+.col-xs-12.retail-borwsingHistory-menu.comafter{
+    border-bottom: 1px solid #f5f5f5;
+}
+.store_noActive_img{
+    width: 100px;
+    height: 100px;
+}
+.store_noAvtive_content{
+    text-align: center;
+    display: block;
+}
+.store_noAvtive_text{
+    font-size: 14px;
+    color: #999;
+    display: block;
+    padding-top:10px;
+}
+.store_history_img{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom:80px;
+    right:25px;
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 2px 2px 2px #D0CCCD;
+    z-index: 1030;
+}
+.store_history_img img{
+    width: 50px;
+}
+.store-has-active1{
+    width: 100%;
+    height: 375px;
+    overflow: hidden;
+    position: relative;
+}
+.store-has-active2{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.store-hactive_img1{
+    width: 100%;
+}
+
+/*有活动商品详情页面*/
+.store-setInterval{
+    width: 150px;
+    height:35px;
+    line-height: 35px;
+    background: #fe4b4b;
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    top:15px;
+    left: 0;
+    border-radius:0 25px 25px 0 ;
+}
+.store-explain{
+    height: 60px;
+    width: 100%;
+    padding:0 12px;
+    display: flex;
+    background: #fff;
+    margin-bottom: 10px;
+/*    justify-content:center;*/
+}
+.store-active-togother{
+    display: inline-block;
+    border:1px solid #FE4B4B;
+    font-size: 14px;
+    color: #FE4B4B;
+    text-align: center;
+    height: 20px;
+    width: 61px;
+    line-height: 20px;
+    border-radius: 2px;
+    float: left;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    margin: auto 0;
+}
+
+.store-active-togotherDiv{
+    width: 61px;
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    flex:2;
+}
+.store-active-articleDiv{
+    height: 60px;
+    flex:8;
+    display: flex;
+    align-items:center;
+}
+.store-active-article{
+    position: relative;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.store_timeicon{
+    width: 12px;
+    height:12px;
+    position: relative;
+    top:-1px;
+}
+.js_timerSh_text{
+    font-size: 14px;
+}
+.store-bottom-height{
+    margin-bottom: 60px;
+}
+.store-active-wrap{
+    margin-top:40px;
+}
+.store_has_loading{
+    text-align: center;
+}
+.store_has_loadinga{
+    color: #000;
+}
+.store-active1-lunbo{
+    height: 375px;
+    width: 100%;
+    overflow: hidden;
+}
+.store-item img{
+    position: relative;
+    width: auto;
+    top:-2px;
+}
+.store-lunbo-indicators{
+    bottom:0!important;
+}
+.store-active1-lunboa {
+    width:100%;
+    display: inline-block;
+}
+.store-active1-lunboa img{
+    width: 100%;
+}
+.daifu-carousel.carousel-indicators{
+    bottom:0;
+}
+.store_lubotu{
+    width: 100%;
+    height: 100%;
+}
+.discount-myaccount-username{
+    font-size: 16px;
+}
+.discount-com-interval{
+    height:33px;
+    line-height: 33px;
+    padding-left:10px;
+    box-sizing: border-box;
+    color: #d7d7d7;
+}
+.discount-myaccount-msg{
+    border-left: none;
+    font-size: 10px;
+    color: #999;
+}
+.discount-myaccount-record{
+    color: #FE4B4B;
+    font-size: 18px;
+}
+.discount-myaccount-msg-common1,.discount-myaccount-msg-common{
+    border-right: 1px solid #d7d7d7;
+}
+.retail-myaccount-msg .discount-myaccount-msg-common1:last-child{
+    border-right: none;
+}
+.retail-myaccount-msg .discount-myaccount-msg-common:last-child{
+    border-right: none;
+}
+.discount-myaccount-msg-common{
+    border-bottom: 1px solid #d7d7d7;
+}
+
+/*.store-goods-list{
+    margin-bottom: 50px;
+}*/

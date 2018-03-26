@@ -69,20 +69,8 @@
         }
 
         $('#videoBtn').click(function(){
-//      	alert(1)
             video.play()
         });
-        
-//      alert("hashchange")
-		if( navigator.userAgent.indexOf('QQBrowser') > 0 ){
-			var ua = navigator.userAgent.toLowerCase();
-			var isWeixin = ( ua.indexOf('micromessenger') != -1 );
-			
-			if( !isWeixin ){
-				pushHistory();
-				pushHistory();
-				
-				alert( window.history.length )
         window.addEventListener("popstate", function(e) {
 //      	video.closeVideo()
 //      	alert(2)
@@ -91,20 +79,30 @@
 //		    	window.location.reload()
 //				
 //			}
-			alert("qq")
             if (bool) {
-                video.closeVideo()
+                video.pause()
             }
         });
-//				window.attachEvent("popstate", function(){
-//					alert("qq")
-//					video.closeVideo()
-//					if (bool) {
-//		                video.closeVideo()
-//		            }
-//				});
-			}
-		}
+////      alert("hashchange")
+//		if( navigator.userAgent.indexOf('QQBrowser') > 0 ){
+//			var ua = navigator.userAgent.toLowerCase();
+//			var isWeixin = ( ua.indexOf('micromessenger') != -1 );
+//			
+//			if( !isWeixin ){
+//				pushHistory();
+//				pushHistory();
+//				
+//				alert( window.history.length )
+//      
+////				window.attachEvent("popstate", function(){
+////					alert("qq")
+////					video.closeVideo()
+////					if (bool) {
+////		                video.closeVideo()
+////		            }
+////				});
+//			}
+//		}
 
 		
 //      window.addEventListener("popstate", function(e) {

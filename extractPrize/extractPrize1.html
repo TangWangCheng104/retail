@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>抽奖活动</title>
+		<link rel="stylesheet" type="text/css" href="../css/extractPirze1.css"/>
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/retail_cofirmBuying.js"></script>
+	</head>
+	<body>
+		<div class="prize-body">
+			<header class="prize-header">
+				<nav>
+					<div class="header-three-nav">
+						<span class="header-three-left"><img class="prize-back-home" src="../images/back_home.png" alt="" />返回主活动</span>
+						<span class="header-three-center">店铺名称</span>
+						<span class="header-three-right">公众号</span>
+					</div>
+				</nav>
+				<ul class="prize-shop-list-wrap">
+					<li class="prize-shop-list">
+						<img class="prize-shop-list-img" src="../images/shop_img.jpg" alt="" />
+						<span class="prize-discount-msg">6折</span>
+						<span class="prize-get-finished">已领完</span>
+					</li>
+					<li class="prize-shop-list">
+						<img class="prize-shop-list-img" src="../images/shop_img.jpg" alt="" />
+						<span class="prize-discount-msg">6折</span>
+						<span class="prize-get-finished">已领完</span>
+					</li>
+					<li class="prize-shop-list">
+						<img class="prize-shop-list-img" src="../images/shop_img.jpg" alt="" />
+						<span class="prize-discount-msg">6折</span>
+						<span class="prize-get-finished">已领完</span>
+					</li>
+					<li class="prize-shop-list">
+						<img class="prize-shop-list-img" src="../images/shop_img.jpg" alt="" />
+						<span class="prize-discount-msg">6折</span>
+						<span class="prize-get-finished">已领完</span>
+					</li>
+					<li class="prize-shop-list">
+						<img class="prize-shop-list-img" src="../images/shop_img.jpg" alt="" />
+						<span class="prize-discount-msg">6折</span>
+						<span class="prize-get-finished">已领完</span>
+					</li>
+				</ul>
+			</header>
+			<article>
+				<div class="prize-step">
+					<div class="prize-now-step-wrap">
+						<div class="prize-now-get-step">三等奖品</div>
+					</div>
+				</div>
+				<div class="prize-siblings-step">
+					<span>
+			            <span class="assass-public double-left-assass">
+			                <span class='assass-public-out assass-public-out-up'></span>
+			                <span class='assass-public-in assass-public-in-up'></span>
+			            </span>
+			          	 四等奖
+					</span>
+					<span>
+						二等奖
+						<span class="assass-public double-right-assass">
+			                <span class='assass-public-out assass-public-out-up'></span>
+			                <span class='assass-public-in assass-public-in-up'></span>
+			            </span>
+					</span>
+				</div>
+				<!--转盘-->
+				<div class="prize-turntable">
+					<img class="prize-active-data" src="../images/prize_cricle.png" alt="" />
+					<div class="prize-less-time-btn-wrap">
+						<div id="js_timer" class="prize-less-time-btn">
+			                <span class="js_day_show">00</span>天<span class="js_hour_show padding-5px">00</span>:<span class="js_minute_show padding-5px">00</span>:<span class="js_second_show padding-5px">00</span>
+						</div>
+		            </div>
+		            <!--marquee-->
+			        <div class="marquee-wrap">
+			            <div id="demo" class="marquee-items">
+			                <div id="demo1">
+			                    <div class="js_Text_item">
+			                        <span class="js_text_item marquee-item">
+			                            <div class="flex-row">
+			                                <i class="marquee-item-icon flex-row"><img class="img-responsive" src="../images/icon_message.png" alt=""></i>
+			                                <span class="js_kandan_username">罗勇</span>刚刚砍了一下
+			                            </div>
+			                        </span>
+			                    </div>
+			                    <div class="js_Text_item">
+			                        <span class="js_text_item marquee-item">
+			                            <div class="flex-row">
+			                                <i class="marquee-item-icon flex-row"><img class="img-responsive" src="../images/icon_message.png" alt=""></i>
+			                                <span class="js_kandan_username">罗勇</span>刚刚砍了一下
+			                            </div>
+			                        </span>
+			                    </div>
+			                    <div class="js_Text_item">
+			                        <span class="js_text_item marquee-item">
+			                            <div class="flex-row">
+			                                <i class="marquee-item-icon flex-row"><img class="img-responsive" src="../images/icon_message.png" alt=""></i>
+			                                <span class="js_kandan_username">罗勇</span>刚刚砍了一下
+			                            </div>
+			                        </span>
+			                    </div>
+			                    
+			                </div>
+			                <div id="demo2"></div>
+			            </div>
+			        </div>
+			        <!--marquee end-->
+				</div>
+				<!--差一位好友的按钮-->
+				<div class="prize-less-number-btn">
+					还差<span class='prize-less-number'>1</span>位好友开奖
+				</div>
+				<!--开团步骤-->
+				<div class="prize-start-step">
+					开新奖团>好友凑团>开奖>中奖领赏>下个奖等
+				</div>
+				<!--活动数据-->
+				<div class="prize-active-content">
+					<img class="prize-active-data" src="../images/prize_active_data.png" alt="" />
+					<div class="prize-data-content-wrap">
+						<div class="prize-data-content">
+							<span class="prize-team-number">开团数量</span>
+							<span class="prize-team-number-text">13246人</span>
+						</div>
+						<div class="prize-data-content">
+							<span class="prize-team-number prize-join-number">参与人数</span>
+							<span class="prize-team-number-text">13246人</span>
+						</div>
+						<div class="prize-data-content">
+							<span class="prize-team-number prize-browser-number">浏览人数</span>
+							<span class="prize-team-number-text">13246人</span>
+						</div>
+					</div>
+					<!--活动规则-->
+					<img class="prize-active-data prize-active-rule-img" src="../images/prize_active_rule.png" alt="" />
+					<div class="prize-rule">
+						<div class="prize-rule-step-wrap">
+							<div class="prize-rule-step">
+								<span>开团</span><span class="right-triangle"></span>
+								<span>邀请朋友</span><span class="right-triangle"></span>
+								<span>凑奖开团</span><span class="right-triangle"></span>
+								<span>开心团</span>
+							</div>
+							<p>1.每个奖等，每人可开一次团（未中奖可重新开团）。</p>
+							<p>2.奖团开奖后，若奖等为多个奖品，请中奖者及时选择奖品。先到先选，否则系统默认帮中奖者选余下的奖品</p>
+							<p>3.未中奖者可选择一件参与奖，先到先得</p>
+							<p>4.团长中奖后可向更好奖等发起组团抽奖。</p>
+							<span></span>
+						</div>
+					</div>
+				</div>
+				<!--活动数据end-->
+				<!--活动排行-->
+				<div class="prize-resort-bord-wrap">
+					<img class="prize-active-data" src="../images/prize_active_resort.png" alt="" />
+					<div class="prize-resort-bord">
+						<ul class="prize-resort-step-list">
+							<li class="price-resort-step price-active">四等奖</li>
+							<li class="price-resort-step">三等奖</li>
+							<li class="price-resort-step">二等奖</li>
+							<li class="price-resort-step">一等奖</li>
+						</ul>
+						<!--排行榜内容-->
+						<ul class="ranking-list-wrap">
+							<li class="ranking-list"> 
+								<span class="ranking-list-msg">
+									<span class="ranking-cricle-wrap">
+										<img class="ranking-cricle" src="../images/prize_no1.png" alt="" />
+										<!--<span class="ranking-numb">1</span>-->
+									</span>
+									<img class="ranking_user_touxiang ranking-user-photo ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+									<span class="ranking-username">杨过是杨过是</span>
+								</span>
+								<span class="ranking-get-discount">已开奖</span>
+							</li>
+							<li class="ranking-list"> 
+								<span class="ranking-list-msg">
+									<span class="ranking-cricle-wrap">
+										<img class="ranking-cricle" src="../images/prize_no2.png" alt="" />
+										<!--<span class="ranking-numb">1</span>-->
+									</span>
+									<img class="ranking_user_touxiang ranking-user-photo ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+									<span class="ranking-username">杨过是杨过是杨过是<span class='ranking-self'>(我)</span></span>
+								</span>
+								<span class="ranking-get-discount">已开奖</span>
+							</li>
+							<li class="ranking-list"> 
+								<span class="ranking-list-msg">
+									<span class="ranking-cricle-wrap">
+										<!--<img class="ranking-cricle" src="../images/prize_no1.png" alt="" />-->
+										<span class="ranking-numb">未开奖</span>
+									</span>
+									<img class="ranking_user_touxiang ranking-user-photo ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+									<span class="ranking-username">杨过是<span class='ranking-self'>(我)</span></span>
+								</span>
+								<span class="ranking-get-discount">还差1人</span>
+							</li>
+							<li class="ranking-list"> 
+								<span class="ranking-list-msg">
+									<span class="ranking-cricle-wrap">
+										<!--<img class="ranking-cricle" src="../images/newsp_cricle.png" alt="" />-->
+										<span class="ranking-numb">1</span>
+									</span>
+									<img class="ranking_user_touxiang ranking-user-photo ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+									<span class="ranking-username">杨过是<span class='ranking-friends'>(好友)</span></span>
+								</span>
+								<span class="ranking-get-discount">免单</span>
+							</li>
+							<li class="prize-show-all">
+								全部展开>
+							</li>
+						</ul>
+					</div>
+				</div>
+				
+				<!--活动排行end-->
+				<!--门店信息-->
+				<div class="prize-shop-msg-wrap-wrap">
+					<img class="prize-active-data" src="../images/prize_shop_msg.png" alt="" />
+					<div class="prize-shop-msg-wrap">
+						<img class="prize-active-data" src="../images/shop_img.jpg" alt="" />
+						<div class="prize-shop-msg">
+							<p><img class="prize-location" src="../images/prize_icon_location.png" alt="" />广东省深圳市罗湖区田北三路名扬酒店</p>
+							<p><a class="prize-location-href" href="tel:0755-1112-125" class=""><img class="prize-location" src="../images/prize_icon_phone.png" alt="" />0755—35621233</a></p>
+						</div>
+					</div>
+				</div>
+				<!--门店信息end-->
+				<!--门店商城-->
+				<div class="prize-shop-msg-wrap-wrap">
+					<img class="prize-active-data" src="../images/prize_store_shop.png" alt="" />
+					<div class="prize-shop-msg-wrap">
+						<div class="backgroundfff">
+							<ul class="prize-shop-shop-list-warp">
+								<li class="prize-shop-shop-list">
+									<img class="prize-active-data prize-store-shop-img" src="../images/shop_img.jpg" alt="" />
+									<span class="prize-store-shop-price"><span class="prize-shop-now-price">￥12345</span>￥11465</span>
+								</li>
+								<li class="prize-shop-shop-list">
+									<img class="prize-active-data" src="../images/shop_img.jpg" alt="" />
+									<span class="prize-store-shop-price"><span class="prize-shop-now-price">￥12345</span>￥11465</span>
+								</li>
+								<li class="prize-shop-shop-list">
+									<img class="prize-active-data" src="../images/shop_img.jpg" alt="" />
+									<span class="prize-store-shop-price"><span class="prize-shop-now-price">￥12345</span>￥11465</span>
+								</li><li class="prize-shop-shop-list">
+									<img class="prize-active-data" src="../images/shop_img.jpg" alt="" />
+									<span class="prize-store-shop-price"><span class="prize-shop-now-price">￥12345</span>￥11465</span>
+								</li>
+								
+							</ul>
+							<div class="prize-check-more">
+								查看更多>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--门店商城end-->
+				<!--推荐活动-->
+				<div class="prize-shop-msg-wrap-wrap">
+					<img class="prize-active-data" src="../images/prize_shop_msg.png" alt="" />
+					<div class="prize-shop-msg-wrap prize-commond-active-img-wrap">
+						<img class="prize-active-data" style="padding-bottom: 10px;" src="../images/shop_img.jpg" alt="" />
+						<img class="prize-active-data" src="../images/shop_img.jpg" alt="" />
+					</div>
+				</div>
+				<!--推荐活动end-->
+			</article>
+			<footer>
+				<div class="prize-footer">
+					<span class="prize-os">本页面由“OS零售”提供技术支持</span>
+					<span>联系我们 ></span>
+				</div>
+			</footer>
+		</div>
+		<!--弹框部分-->
+		<!--半透明遮罩层,可点击-->
+		<div id="com_black" class="js_com_black js_hide_com com_black" style="display:block;"></div>
+		<!--悬浮的我的奖品-->
+		<div class="myprize-icon-wrap">
+			<span class="myprize-numb">1</span>
+			<img class="myprize-icon" src="../images/myprize_icon.png" alt="" />
+		</div>
+		<!--悬浮的我的奖品end-->
+		<!--没中奖弹框-->
+		<div class="prize-not-get-prize js_hide_com" style="display: block;">
+			<div id="notGetPrize" class="alert-wrap" >
+	            <div class="prize-not-get-wrap">
+	            	<span class="prize-not-get-box">
+	            		<img class="prize-not-get-prize" src="../images/prize_not_get_prize.png" alt="" />
+	            	</span>
+	            </div>
+	            <div class="prize-not-get-text">
+	            	哎！差一点就中奖了还有机会再发起奖团
+	            </div>
+	            <div class="prize-not-alert-wrap">
+	            	<img class="prize-not-prize-alert" src="../images/prize_not_prize_alert.png" alt="" />
+	            	<img class="prize-not-prize-userheader" src="../images/pindan_useheader.png" alt="" />
+	            	<span class="prize-get-step">马格瑞姆中得三等奖</span>
+	            </div>
+	        </div>
+		</div>
+		<!--没中奖弹框end-->
+		<!--被抢光了的弹框-->
+		<div class="prize-not-get-prize js_hide_com" style="display: none;">
+			<div id="notHasShop" class="alert-wrap" >
+	            <div class="prize-not-get-wrap prize-no-shop-img">
+	            	<img class="prize-close-btn js_close" src="../images/icon_right_close.png" alt="" />
+	            	<span class="prize-not-get-box">
+	            		<img class="prize-not-get-prize" src="../images/prize_not_get_prize.png" alt="" />
+	            	</span>
+	            </div>
+	            <div class="prize-no-shop-text">
+	            	不好意思，您选的奖品被领光了再看看其他的吧
+	            </div>
+	        </div>
+		</div>
+		<!--被抢光了的弹框end-->
+		<!--我的参与名单弹框-->
+		<div class="prize-my-join-alert" style="display: none;">
+			<div id="notGetPrize" class="js_hide_com alert-wrap" >
+	            <div>
+	            	<span class="prize-alert-top1"><span class="prize-alert-top2"><span class="prize-alert-top3"></span></span></span>
+		           	<ul class="ranking-list-wrap">
+		           		<li class="prize-alert-box-shadow"></li>
+		           		<li class="alert-title">
+		            		参与记录
+		            	</li>
+		            	<li class="prize-join-step">
+		            		二等奖A2团
+		            	</li>
+						<li class="ranking-list">
+							<span class="price-userheader-wrap">
+								<span class="price-teamer" >团长</span>
+								<img class="ranking_user_touxiang ranking-user-photo ranking-userheader ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+							</span>
+							<span class="ranking-list-msg">
+								<span class="ranking-cricle-wrap">
+									<!--<img class="ranking-cricle" src="../images/newsp_cricle.png" alt="" />-->
+									<span class="ranking-numb">徐蜚声</span>
+								</span>
+							</span>
+							<span class="ranking-username">6月3日12:32参加</span>
+							<span class="ranking-get-discount prize-get-discount">未中奖</span>
+						</li>
+						<li class="ranking-list">
+							<span class="price-userheader-wrap">
+								<span class="price-teamer" >团长</span>
+								<img class="ranking_user_touxiang ranking-user-photo ranking-userheader ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+							</span>
+							<span class="ranking-list-msg">
+								<span class="ranking-cricle-wrap">
+									<!--<img class="ranking-cricle" src="../images/newsp_cricle.png" alt="" />-->
+									<span class="ranking-numb">徐蜚声</span>
+								</span>
+							</span>
+							<span class="ranking-username">6月3日12:32参加</span>
+							<span class="ranking-get-discount prize-get-discount">未中奖</span>
+						</li>
+						<li class="ranking-list">
+							<span class="price-userheader-wrap">
+								<span class="price-teamer" style="display: none;">团长</span>
+								<img class="ranking_user_touxiang ranking-user-photo ranking-userheader ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+							</span>
+							<span class="ranking-list-msg">
+								<span class="ranking-cricle-wrap">
+									<!--<img class="ranking-cricle" src="../images/newsp_cricle.png" alt="" />-->
+									<span class="ranking-numb">徐蜚声</span>
+								</span>
+							</span>
+							<span class="ranking-username">6月3日12:32参加</span>
+							<span class="ranking-get-discount prize-get-discount">未中奖</span>
+						</li>
+						<li class="prize-join-step">
+		            		二等奖A2团
+		            	</li>
+		            	<li class="ranking-list">
+							<span class="price-userheader-wrap">
+								<span class="price-teamer">团长</span>
+								<img class="ranking_user_touxiang ranking-user-photo ranking-userheader ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+							</span>
+							<span class="ranking-list-msg">
+								<span class="ranking-cricle-wrap">
+									<!--<img class="ranking-cricle" src="../images/newsp_cricle.png" alt="" />-->
+									<span class="ranking-numb">徐蜚声</span>
+								</span>
+							</span>
+							<span class="ranking-username">6月3日12:32参加</span>
+							<span class="ranking-get-discount">中奖</span>
+						</li>
+						<li class="ranking-list">
+							<span class="price-userheader-wrap">
+								<span class="price-teamer" style="display: none;">团长</span>
+								<img class="ranking_user_touxiang ranking-user-photo ranking-userheader ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+							</span>
+							<span class="ranking-list-msg">
+								<span class="ranking-cricle-wrap">
+									<!--<img class="ranking-cricle" src="../images/newsp_cricle.png" alt="" />-->
+									<span class="ranking-numb">徐蜚声</span>
+								</span>
+							</span>
+							<span class="ranking-username">6月3日12:32参加</span>
+							<span class="ranking-get-discount prize-get-discount">未中奖</span>
+						</li>
+					</ul>
+				</div>
+	        </div>
+		</div>
+		<!--我的参与名单弹框end-->
+		<!--排行榜查看更多弹框-->
+		<div class="prize-check-more-alert js_hide_com" style="display: none;">
+			<div id="checkMore" class="alert-wrap" >
+				<div class="prize-step-resore-wrap">
+					<img class="prize-step-resore" src="../images/prize_step_resort.png" alt="" />
+					<span class="prize-step-resore-title">三等奖排行榜</span>
+				</div>
+	            <ul class="ranking-list-wrap" >
+					<li class="ranking-list"> 
+						<span class="ranking-list-msg">
+							<span class="ranking-cricle-wrap">
+								<img class="ranking-cricle" src="../images/prize_no1.png" alt="" />
+								<!--<span class="ranking-numb">1</span>-->
+							</span>
+							<img class="ranking_user_touxiang ranking-user-photo ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+							<span class="ranking-username">杨过是</span>
+						</span>
+						<span class="ranking-get-discount">已开奖</span>
+					</li><li class="ranking-list"> 
+						<span class="ranking-list-msg">
+							<span class="ranking-cricle-wrap">
+								<img class="ranking-cricle" src="../images/prize_no1.png" alt="" />
+								<!--<span class="ranking-numb">1</span>-->
+							</span>
+							<img class="ranking_user_touxiang ranking-user-photo ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+							<span class="ranking-username">杨过是</span>
+						</span>
+						<span class="ranking-get-discount">已开奖</span>
+					</li><li class="ranking-list"> 
+						<span class="ranking-list-msg">
+							<span class="ranking-cricle-wrap">
+								<img class="ranking-cricle" src="../images/prize_no1.png" alt="" />
+								<!--<span class="ranking-numb">1</span>-->
+							</span>
+							<img class="ranking_user_touxiang ranking-user-photo ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+							<span class="ranking-username">杨过是</span>
+						</span>
+						<span class="ranking-get-discount">已开奖</span>
+					</li><li class="ranking-list"> 
+						<span class="ranking-list-msg">
+							<span class="ranking-cricle-wrap">
+								<img class="ranking-cricle" src="../images/prize_no1.png" alt="" />
+								<!--<span class="ranking-numb">1</span>-->
+							</span>
+							<img class="ranking_user_touxiang ranking-user-photo ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+							<span class="ranking-username">杨过是</span>
+						</span>
+						<span class="ranking-get-discount">已开奖</span>
+					</li><li class="ranking-list"> 
+						<span class="ranking-list-msg">
+							<span class="ranking-cricle-wrap">
+								<img class="ranking-cricle" src="../images/prize_no1.png" alt="" />
+								<!--<span class="ranking-numb">1</span>-->
+							</span>
+							<img class="ranking_user_touxiang ranking-user-photo ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+							<span class="ranking-username">杨过是</span>
+						</span>
+						<span class="ranking-get-discount">已开奖</span>
+					</li><li class="ranking-list"> 
+						<span class="ranking-list-msg">
+							<span class="ranking-cricle-wrap">
+								<img class="ranking-cricle" src="../images/prize_no1.png" alt="" />
+								<!--<span class="ranking-numb">1</span>-->
+							</span>
+							<img class="ranking_user_touxiang ranking-user-photo ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+							<span class="ranking-username">杨过是</span>
+						</span>
+						<span class="ranking-get-discount">已开奖</span>
+					</li><li class="ranking-list"> 
+						<span class="ranking-list-msg">
+							<span class="ranking-cricle-wrap">
+								<img class="ranking-cricle" src="../images/prize_no1.png" alt="" />
+								<!--<span class="ranking-numb">1</span>-->
+							</span>
+							<img class="ranking_user_touxiang ranking-user-photo ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+							<span class="ranking-username">杨过是</span>
+						</span>
+						<span class="ranking-get-discount">已开奖</span>
+					</li><li class="ranking-list"> 
+						<span class="ranking-list-msg">
+							<span class="ranking-cricle-wrap">
+								<img class="ranking-cricle" src="../images/prize_no1.png" alt="" />
+								<!--<span class="ranking-numb">1</span>-->
+							</span>
+							<img class="ranking_user_touxiang ranking-user-photo ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+							<span class="ranking-username">杨过是</span>
+						</span>
+						<span class="ranking-get-discount">已开奖</span>
+					</li>
+					<li class="ranking-list"> 
+						<span class="ranking-list-msg">
+							<span class="ranking-cricle-wrap">
+								<img class="ranking-cricle" src="../images/prize_no2.png" alt="" />
+								<!--<span class="ranking-numb">1</span>-->
+							</span>
+							<img class="ranking_user_touxiang ranking-user-photo ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+							<span class="ranking-username">杨过是<span class='ranking-self' style="display: none">(我)</span></span>
+						</span>
+						<span class="ranking-get-discount">已开奖</span>
+					</li>
+					<li class="ranking-list"> 
+						<span class="ranking-list-msg">
+							<span class="ranking-cricle-wrap">
+								<!--<img class="ranking-cricle" src="../images/prize_no1.png" alt="" />-->
+								<span class="ranking-numb">3</span>
+							</span>
+							<img class="ranking_user_touxiang ranking-user-photo ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+							<span class="ranking-username">杨过是<span class='ranking-self' style="display: none">(我)</span></span>
+						</span>
+						<span class="ranking-get-discount">已开奖</span>
+					</li>
+					<li class="ranking-list"> 
+						<span class="ranking-list-msg">
+							<span class="ranking-cricle-wrap">
+								<!--<img class="ranking-cricle" src="../images/newsp_cricle.png" alt="" />-->
+								<span class="ranking-numb">4</span>
+							</span>
+							<img class="ranking_user_touxiang ranking-user-photo ranking-teamer-img" src="../images/author_touxiang.png" alt="" />
+							<span class="ranking-username">杨过是<span class='ranking-friends' style="display: none">(好友)</span></span>
+						</span>
+						<span class="ranking-get-discount">已开奖</span>
+					</li>
+				</ul>
+	        </div>
+		</div>
+		<!--排行榜查看更多弹框end-->
+		<!--开奖啦的弹框-->
+		<div class="prize-start-prize-wrap js_hide_com" style="display: none;">
+			<div class="prize-start-prize">
+				<div class="prize-start-box">
+					<div class="prize-start-top"></div>
+					<span class="prize-start-cricle"></span>
+					<img class="prize-active-data prize-start-top-img" src="../images/prize_star_prize.png"/>
+					<div class="prize-start-prize-content">
+						<img class="prize-start-prize-img" src="../images/prize_not_get_prize.png" alt="" />	
+						<p>很遗憾，三等奖被 摩尔嫩考拉 抽走了还有机会再发起奖团</p>
+						<div class="prize-start-btn-wrap">
+							<img class="prize-start-new-btn" src="../images/prize-start-new-btn.png" alt="" />
+							<span class="prize-start-text">开启新奖团</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--开奖啦的弹框end-->
+		<!--弹框部分end-->
+	</body>
+</html>
+<script>
+    var i = 0;
+    var t = setInterval(function(){
+        var m = $(".js_text_item").eq(0).parent().html();
+        var d = '<div class="js_Text_item">'+ m + ' </div>';
+        $(".js_text_item").eq(0).animate({
+            "opacity":"0",
+//            "width":"0",
+            "height":"0",
+            "padding":"0"
+        },'1000',function(){
+            $(".js_Text_item").eq(0).remove();
+        });
+        $("#demo1").append(d);
+        i++;
+        if(i==4){
+            i=0
+        }
+    },200000);
+</script>

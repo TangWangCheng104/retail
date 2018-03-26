@@ -1,0 +1,146 @@
+.suppliers-partner-intro{
+    padding-top:17px;
+}
+.partner-intro-second{
+    padding-top: 33px;
+    padding-bottom:45px;
+}
+.partner-intro-three{
+
+    padding-bottom:45px;
+}
+.partner-msgImg1{
+    margin-bottom:30px ;
+    margin-top:0;
+}
+.suppliers-input-groupL{
+    color: #222;
+    font-size: 13px;
+}
+
+.partner-input-groupR1{
+    border:1px solid #E1E1E1 ;
+}
+
+.suppliers-getcode{
+    font-size: 15px;
+
+}
+.js_selectType_item.typeSelect-content{
+    z-index: 1060;
+}
+/*placeholder的颜色*/
+
+/*.suppliers_js_input::-webkit-input-placeholder,.suppliers_js_input:-moz-placeholder,.suppliers_js_input::-moz-placeholder,.suppliers_js_input:-ms-input-placeholder  { !* WebKit browsers*!
+　　width:110px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    color: #000;
+}*/
+.suppliers_js_input::-webkit-input-placeholder { /* WebKit browsers */
+    font-size: 12px;
+}
+.suppliers_js_input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-size: 12px;
+
+}
+.suppliers_js_input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-size: 12px;
+}
+.suppliers_js_input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-size: 12px;
+}
+.suppliers-width{
+    width: 65px;
+}
+.suppliers-top{
+    margin-top: 50px;
+}
+.suppliers-alert{
+    position: fixed;
+    z-index: 1040;
+    width: 245px;
+    height: 367px;
+    background: #fff;
+    top:0;
+}
+.supplisers-already-one{
+    font-size: 12px;
+    color: #dedede;
+}
+.suppliers-radio li input{
+    background: #fff;
+    border:1px solid #e1e1e1;
+    
+}
+.suppliers-radio{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 25px;
+    position: relative;
+    top:4px;
+    margin-right:11px ;
+}
+.suppliers-radio1 li {
+    height:37px;
+    text-align: center;
+    line-height: 37px;
+    font-size: 16px;
+}
+.suppliers-radio2{
+    margin-bottom:0 ;
+}
+.suppliers-choise{
+    font-weight: normal;
+    color: #666666;
+}
+.suppliers-radio-bg{
+    background: url('../images/suppliers-icon.jpg') no-repeat center center/cover;
+}
+.suppliers-radio-bg1{
+    background: url('../images/suppliers_icon1.jpg') no-repeat center center/cover;
+}
+.delete-address-alert{
+ top:25%
+}
+.suppliers-sure{
+    font-size:15px;
+    color:#53CAC3;
+}
+.suppliers-lessOne{
+    font-size: 11px;
+    color: #ff4242;
+}
+.suppliers-lessOne{
+    position: relative;
+    left:-17px;
+}
+.suppliers-close img{
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    position: absolute;
+    right:-8px;
+    top:-8px;
+    background: #fff;
+    font-size: 20px;
+
+}
+.store-text1{
+    position: relative;
+}
+.suppliers-already{
+    color: #999;
+    font-size: 15px;
+}
+.suppliers-down-text{
+    color: #fff;
+}
+.check-mytreasure{
+    border-bottom: 1px solid #fff;
+}

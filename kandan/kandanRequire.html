@@ -24,13 +24,12 @@
     <link href="../css/retail-kandan.css" rel="stylesheet" type="text/css">
     <link href="../css/kandan.css" rel="stylesheet" type="text/css">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script type="text/javascript" data-main='../js/kandanRequireTest.js' src="../js/require.js"></script>
-    <!--<script src="../js/jquery-1.10.2.min.js"></script>-->
+    <!--<script type="text/javascript" data-main='../js/kandanRequireTest.js' src="../js/require.js"></script>-->
+    <script src="../js/jquery-1.10.2.min.js"></script>
     <!--懒加载-->
-    <!--<script src="../js/jquery.
-    	.js"></script>-->
+    <script src="../js/jquery.lazyload.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!--<script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.validate.min.js" type="text/javascript"></script>
     <script src="../js/messages.js"></script>
     <script src="../js/hammer.min.js"></script>
@@ -38,7 +37,7 @@
     <script src="../js/loginVerify.js"></script>
     <script src="../js/app_product.js"></script>
     <script src="../js/retail_cofirmBuying.js"></script>
-    <script src="../js/kandan.js"></script>-->
+    <script src="../js/kandan.js"></script>
     <style type="text/css">
         .bounce-discounts-icon{
             width: 12%;
@@ -81,23 +80,23 @@
             </div>
             <div class="lqy-btnBuy-myAccount">
                 <a href="#" class="a_block">
-                    <img class="js_serviceIcon lqy-btnBuy-myAccount-img suppliers-icon-bigger kandan-bottom-icon-change lazy" data-original="../images/icon_kefu01_nor@3x.png" alt="">
+                    <img class="js_serviceIcon lqy-btnBuy-myAccount-img suppliers-icon-bigger kandan-bottom-icon-change lazy" src="../images/icon_kefu01_nor@3x.png" alt="">
                     <div class="lqy-btnBuy-myAccount-text">客服</div>
                 </a>
             </div>
             <div class="lqy-btnBuy-myAccount">
                 <a href="#" class="a_block">
-                    <img class="lqy-btnBuy-myAccount-img suppliers-icon-bigger kandan-bottom-icon-change lazy" data-original="../images/icon_shangcheng01_nor@3x.png" alt="">
-                    <div class="lqy-btnBuy-myAccount-text">商城 <img class="bounce-discounts-icon lazy" data-original="../images/icon_discounts.png" alt=""></div>
+                    <img class="lqy-btnBuy-myAccount-img suppliers-icon-bigger kandan-bottom-icon-change lazy" src="../images/icon_shangcheng01_nor@3x.png" alt="">
+                    <div class="lqy-btnBuy-myAccount-text">商城 <img class="bounce-discounts-icon lazy" src="../images/icon_discounts.png" alt=""></div>
                 </a>
             </div>
             <div class="lqy-btnBuy-myAccount">
-                <img class="lqy-btnBuy-myAccount-img suppliers-icon-bigger kandan-bottom-icon-change lazy" data-original="../images/icon_shoucang_nor@3x.png" alt="">
+                <img class="lqy-btnBuy-myAccount-img suppliers-icon-bigger kandan-bottom-icon-change lazy" src="../images/icon_shoucang_nor@3x.png" alt="">
                 <div class="lqy-btnBuy-myAccount-text">收藏</div>
             </div>
             <div class="lqy-btnBuy-myAccount kandan-myAccount-btn sippliers-icon-background">
                 <a href="#" class="a_block">
-                    <img class="lqy-btnBuy-myAccount-img suppliers-icon-bigger kandan-bottom-icon-change lazy" data-original="../images/icon_wode01_nor@3x.png" alt="">
+                    <img class="lqy-btnBuy-myAccount-img suppliers-icon-bigger kandan-bottom-icon-change lazy" src="../images/icon_wode01_nor@3x.png" alt="">
                     <div class="lqy-btnBuy-myAccount-text ">我的</div>
                 </a>
             </div>
@@ -129,12 +128,12 @@
     </div>
     <!--制作活动-->
     <a href="javascript:;" class="kandan-create-active-btn">
-        <img class="make-img lazy" data-original="../images/make_img.png" alt="">
+        <img class="make-img lazy" src="../images/make_img.png" alt="">
     </a>
     <!--遮罩层-->
     <div id="com_black" class="js_com_black js_hide_com com_black" style="display:none"></div>
     <!--分享给好友，找好友帮忙-->
-    <img style="display: none" class="kandan-share js_hide_com js_com_black" id="kandanShareImg lazy" data-original="../images/suppliers_help.png" alt="">
+    <img style="display: none" class="kandan-share js_hide_com js_com_black" id="kandanShareImg lazy" src="../images/suppliers_help.png" alt="">
     <!--消费者和推广员砍价规则弹窗-->
     <div class="js_pingdan_alert js_hide_com pingdan-rule-alert" id="kandanRuleAlert" style="display: none">
         <div class="kandan-rule-alert">
@@ -153,7 +152,7 @@
     <!--购买收藏弹窗-->
     <div class="js_collect_alert collect_alert">
         <div class="text-center collect_alert_img">
-            <img class="lazy" data-original="../images/redStar.png" alt="">
+            <img class="lazy" src="../images/redStar.png" alt="">
         </div>
         <p class="js_collect_text text-center">收藏成功</p>
     </div>
@@ -162,11 +161,11 @@
     <div class="js_comBlack hide_com_buy com_black" style="display: none"></div>
     <div class="js_hide_com js_kandan_alert01 kandan-alert-wrap" id="cantHelpKandan" style="display: none">
         <div class="flex-row kandan-alert-close">
-            <img class="lazy" onclick="cancelAlert()" data-original="../images/kandan_close.png" alt="">
+            <img class="lazy" onclick="cancelAlert()" src="../images/kandan_close.png" alt="">
         </div>
         <div class="kandan-alert">
-            <!--<div class="kandan-alert-img01"><img data-original="../images/kandan_alert001.png" alt=""></div>-->
-            <div class="kandan-alert-img01"><img class="lazy" data-original="../images/kandan_alert002.png" alt=""></div>
+            <!--<div class="kandan-alert-img01"><img src="../images/kandan_alert001.png" alt=""></div>-->
+            <div class="kandan-alert-img01"><img class="lazy" src="../images/kandan_alert002.png" alt=""></div>
             <div class="kandan-alert-text kandan-alert-text-change">
                 活动中每人只能帮砍<span class="kandan-time">3</span>次！
                 <div class="kandan-already-help">“您之前已经帮砍<span class="kandan-time">3</span>次了哦！”</div>
@@ -177,11 +176,11 @@
     <!--该商品已被抢光-->
     <div id="shopNum0" class="js_hide_com js_kandan_alert01 kandan-alert-wrap kandan-alert-wrap-position" style="display: none">
         <div class="flex-row kandan-alert-close">
-            <img onclick="cancelAlert()" class="pindan-no-shop lazy" data-original="../images/pindan_no_shop.png" alt="">
+            <img onclick="cancelAlert()" class="pindan-no-shop lazy" src="../images/pindan_no_shop.png" alt="">
         </div>
         <div class="kandan-alert">
-            <!--<div class="kandan-alert-img01"><img data-original="../images/kandan_alert001.png" alt=""></div>-->
-            <div class="kandan-alert-img01"><img class="lazy" data-original="../images/kandan_alert002.png" alt=""></div>
+            <!--<div class="kandan-alert-img01"><img src="../images/kandan_alert001.png" alt=""></div>-->
+            <div class="kandan-alert-img01"><img class="lazy" src="../images/kandan_alert002.png" alt=""></div>
             <div class="kandan-alert-text kandan-alert-text-change">
                 该商品已被抢光!
             </div>
@@ -194,10 +193,10 @@
     <!--成功砍掉金额-->
     <div class="js_hide_com js_kandan_alert02 kandan-alert-wrap" style="display: none">
         <div class="flex-row kandan-alert-close">
-            <img onclick="cancelAlert()" class="lazy" data-original="../images/kandan_close.png" alt="">
+            <img onclick="cancelAlert()" class="lazy" src="../images/kandan_close.png" alt="">
         </div>
         <div class="kandan-alert">
-            <div class="kandan-alert-img01"><img class="lazy" data-original="../images/kandan_alert002.png" alt=""></div>
+            <div class="kandan-alert-img01"><img class="lazy" src="../images/kandan_alert002.png" alt=""></div>
             <div class="kandan-alert-text">成功砍掉<span class="color-zby">32</span>元！</div>
             <a class="kandan-alert-btn" href="#">我的砍价</a>
             <a class="kandan-alert-btn" href="#">我要参加</a>
@@ -207,7 +206,7 @@
     <!--有该砍价未支付订单-->
     <div class="js_hide_com js_kandan_toPay kandan-alert-wrap" style="display: none">
         <div class="flex-row kandan-alert-close">
-            <img onclick="cancelAlert()" class="lazy" data-original="../images/kandan_close.png" alt="">
+            <img onclick="cancelAlert()" class="lazy" src="../images/kandan_close.png" alt="">
         </div>
         <div class="kandan-alert">
             <div class="kandan-alert-noPay">
@@ -242,7 +241,7 @@
     <!--微信二维码-->
     <div class="wx-code-wrap" id="wxCode">
         <span class="wx-bg-opacity"></span>
-        公众号 <img class="wx-code lazy" data-original="../images/wx_code.png" alt="">
+        公众号 <img class="wx-code lazy" src="../images/wx_code.png" alt="">
     </div>
     <!--限购toast弹出框-->
     <div class="toast-wrap" id="toastWrap" style="display:none;">
@@ -261,9 +260,9 @@
     <!--商家二维码弹出框-->
     <div class="js_hide_com store_code_wrap js_code js_com_black" style="display: none">
         <div class="store_code">
-            <img class="store_code_img lazy" data-original="../images/store_code.jpg" />
+            <img class="store_code_img lazy" src="../images/store_code.jpg" />
         </div>
-        <img class="img-responsive store_code_img1 lazy" data-original="../images/store-double.png" />
+        <img class="img-responsive store_code_img1 lazy" src="../images/store-double.png" />
         <div class="spell-join-code-wrap">
             <div class="spell-join-code">
                 <span class="spell-code-p" style="display: none">按长键识别途中二维码</span>
@@ -282,7 +281,7 @@
     </div>
     <!--回到顶部-->
     <div class="booking-back-to-top" style="display: none">
-        <img class="booking-back-to-img lazy" data-original="../images/booking_back_to_top.png">
+        <img class="booking-back-to-img lazy" src="../images/booking_back_to_top.png">
     </div>
 </div>
 
@@ -300,13 +299,13 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner carousel-black" id="bigSlideShow" role="listbox">
                     <div class="item active">
-                        <img class="img-responsive swiperlazy" id="banner001" data-src="../images/banner01.png" alt="">
+                        <img class="img-responsive swiperlazy" id="banner001" src="../images/banner01.png" alt="">
                     </div>
                     <div class="item">
-                        <img id="banner002" class="swiperlazy" data-src="../images/banner02.png" alt="">
+                        <img id="banner002" class="swiperlazy" src="../images/banner02.png" alt="">
                     </div>
                     <div class="item">
-                        <img id="banner003" class="swiperlazy" data-src="../images/banner01.png" alt="">
+                        <img id="banner003" class="swiperlazy" src="../images/banner01.png" alt="">
                     </div>
                 </div>
             </div>
@@ -328,13 +327,13 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner carousel-banner" role="listbox" id="slideShow">
                             <div class="item active">
-                                <img class="img-responsive swiperlazy" id="banner01" data-src="../images/banner01.png" alt="">
+                                <img class="img-responsive swiperlazy" id="banner01" src="../images/banner01.png" alt="">
                             </div>
                             <div class="item">
-                                <img id="banner02" class="swiperlazy" data-src="../images/banner02.png" alt="">
+                                <img id="banner02" class="swiperlazy" src="../images/banner02.png" alt="">
                             </div>
                             <div class="item">
-                                <img id="banner03" class="swiperlazy" data-src="../images/banner01.png" alt="">
+                                <img id="banner03" class="swiperlazy" src="../images/banner01.png" alt="">
                             </div>
                         </div>
                         <!--帮我砍单的人-->
@@ -419,16 +418,16 @@
                     </div>
                     <div class="col-md-12 pindan-content-position">
                         <!--到底价了-->
-                        <img style="display: none" class="kandan-wrap-gzIcon kandan-wrap-bgImg-active lazy" data-original="../images/kandan_iconLowest.png" alt="">
+                        <img style="display: none" class="kandan-wrap-gzIcon kandan-wrap-bgImg-active lazy" src="../images/kandan_iconLowest.png" alt="">
                         <!--砍价成功-->
-                        <img style="display: block" class="kandan-wrap-gzIcon kandan-wrap-bgImg-active lazy" data-original="../images/kandan_success_change1.png" alt="">
+                        <img style="display: block" class="kandan-wrap-gzIcon kandan-wrap-bgImg-active lazy" src="../images/kandan_success_change1.png" alt="">
                         <!--购买成功-->
-                        <img style="display: none" class="kandan-wrap-gzIcon kandan-wrap-bgImg-active lazy" data-original="../images/kandan_iconSuccess.png" alt="">
+                        <img style="display: none" class="kandan-wrap-gzIcon kandan-wrap-bgImg-active lazy" src="../images/kandan_iconSuccess.png" alt="">
 
                         <div class="icon-jidutiao" style="background:url('../images/pindan_bg_color.png')">
                             <span class="pindan-user-header-wrap"> <!--kandan-progress-icon1-->
                                 <div class="kandan-now-price" id="kandanNowPriceWrap"><span class="kandan-now-price-content" id="kandanNowPrice">当前价 <span class="price-font-size">￥0</span></span> <span class="red-down-assass"></span></div>
-                                <img class="pindan-user-header lazy" data-original="../images/retail-goodsDetails-img003.png" alt="">
+                                <img class="pindan-user-header lazy" src="../images/retail-goodsDetails-img003.png" alt="">
                                 <div class="kandan-username" id="kandanUsername">罗勇罗勇罗勇</div>
                             </span>
                         </div>
@@ -490,32 +489,32 @@
                     </div>
                     <!--砍价规则-->
                     <div class="kanjia-rule-wrap">
-                        <span class="kanjia-rule" id="kanjiaRule" onclick="Rule()">砍价规则 <img class="double-right-assass lazy" data-original="../images/kandan_double_right_assass.png" alt=""></span>
+                        <span class="kanjia-rule" id="kanjiaRule" onclick="Rule()">砍价规则 <img class="double-right-assass lazy" src="../images/kandan_double_right_assass.png" alt=""></span>
                     </div>
                 </div>
                 <!--荣誉榜，进阶榜-->
                 <div class="kandan-list-wrap">
                     <!--显示进阶榜内容-->
                     <div class="into-honor-list" id="kandianAdvance" style="display:none ;">
-                        <img class="kandan-into-list lazy" onclick="tapAdvance()" data-original="../images/kandan_into_list.png" alt="">
-                        <img class="honor-list lazy" onclick="tapHonor()" data-original="../images/kandan_honor_list.png" alt="">
+                        <img class="kandan-into-list lazy" onclick="tapAdvance()" src="../images/kandan_into_list.png" alt="">
+                        <img class="honor-list lazy" onclick="tapHonor()" src="../images/kandan_honor_list.png" alt="">
                     </div>
                     <!--显示荣誉榜内容-->
                     <div class="into-honor-list" id="intoHonor" style="display: block;" >
-                        <img class="kandan-into-list kandian-advance lazy"onclick="tapAdvance()" data-original="../images/kandian_advancing.png" alt="">
-                        <img class="honor-list honor-list-change lazy"onclick="tapHonor()" data-original="../images/kandan_honor.png" alt="">
+                        <img class="kandan-into-list kandian-advance lazy"onclick="tapAdvance()" src="../images/kandian_advancing.png" alt="">
+                        <img class="honor-list honor-list-change lazy"onclick="tapHonor()" src="../images/kandan_honor.png" alt="">
                     </div>
                     <!--暂无进阶-->
                     <ul class="kandan-list" style="display:none;">
                         <div class="kandan-list-noPerson-wrap">
-                            <img class="kandan-list-noPerson lazy" data-original="../images/auction_passfailt.png" alt="">
+                            <img class="kandan-list-noPerson lazy" src="../images/auction_passfailt.png" alt="">
                             <p>暂无进阶，是因为在等你分享进阶～</p>
                         </div>
                     </ul>
                     <!--暂无荣誉榜-->
                     <ul class="kandan-list" style="display:none;">
                         <div class="kandan-list-noPerson-wrap">
-                            <img class="kandan-list-noPerson lazy" data-original="../images/auction_passfailt.png" alt="">
+                            <img class="kandan-list-noPerson lazy" src="../images/auction_passfailt.png" alt="">
                             <p>榜单空空，因为希望你可以成为第一个~</p>
                         </div>
                     </ul>
@@ -524,11 +523,11 @@
                         <li class="kandan-list-sort">
                             <span class="kandan-sort-img-wrap">
                                 <span class="kandan-sort-img">
-                                <img class="kandan-nb1 lazy" data-original="../images/kandan_nb1.png" alt="">
+                                <img class="kandan-nb1 lazy" src="../images/kandan_nb1.png" alt="">
                                     <!--<span class="kandan-number">1</span>-->
                                 </span>
                             </span>
-                            <span class="shop-img-wrap"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                            <span class="shop-img-wrap"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                             <span class="kandan-username-sort">
                                 <span class="kandan-username-ellepsis">我的名字</span>
                             </span>
@@ -539,11 +538,11 @@
                         <li class="kandan-list-sort">
                             <span class="kandan-sort-img-wrap">
                                 <span class="kandan-sort-img">
-                                <img class="kandan-nb1 lazy" data-original="../images/kandan_nb1.png" alt="">
+                                <img class="kandan-nb1 lazy" src="../images/kandan_nb1.png" alt="">
                                     <!--<span class="kandan-number">1</span>-->
                                 </span>
                             </span>
-                            <span class="shop-img-wrap"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                            <span class="shop-img-wrap"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                             <span class="kandan-username-sort">
                                 <span class="kandan-username-ellepsis">myName</span>
                             </span>
@@ -554,11 +553,11 @@
                         <li class="kandan-list-sort">
                             <span class="kandan-sort-img-wrap">
                                 <span class="kandan-sort-img">
-                                <img class="kandan-nb1 lazy" data-original="../images/kandan_nb2.png" alt="">
+                                <img class="kandan-nb1 lazy" src="../images/kandan_nb2.png" alt="">
                                     <!--<span class="kandan-number">1</span>-->
                                 </span>
                             </span>
-                            <span class="shop-img-wrap"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                            <span class="shop-img-wrap"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                             <span class="kandan-username-sort">
                                 <span class="kandan-username-ellepsis">myName</span>
                             </span>
@@ -569,11 +568,11 @@
                         <li class="kandan-list-sort">
                             <span class="kandan-sort-img-wrap">
                                 <span class="kandan-sort-img">
-                                <img class="kandan-nb1 lazy" data-original="../images/kandan_nb3.png" alt="">
+                                <img class="kandan-nb1 lazy" src="../images/kandan_nb3.png" alt="">
                                     <!--<span class="kandan-number">1</span>-->
                                 </span>
                             </span>
-                            <span class="shop-img-wrap"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                            <span class="shop-img-wrap"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                             <span class="kandan-username-sort">
                                 <span class="kandan-username-ellepsis">myName</span>
                             </span>
@@ -584,11 +583,11 @@
                         <!--<li v-for="(item,index) in useLength" v-if="index > 3" class="kandan-list-sort">
                             <span class="kandan-sort-img-wrap">
                                 <span class="kandan-sort-img">
-                                <img class="kandan-nb1" :data-original=item.rankingImg alt="">
+                                <img class="kandan-nb1" :src=item.rankingImg alt="">
                                     <span class="kandan-number">{{index}}</span>
                                 </span>
                             </span>
-                            <span class="shop-img-wrap"><img class="shop-img" :data-original="item.userImg" alt=""></span>
+                            <span class="shop-img-wrap"><img class="shop-img" :src="item.userImg" alt=""></span>
                             <span class="kandan-username-sort">
                                 <span class="kandan-username-ellepsis">{{item.userSelfName}}</span>
                             </span>
@@ -599,11 +598,11 @@
                         <li class="kandan-list-sort">
                             <span class="kandan-sort-img-wrap">
                                 <span class="kandan-sort-img">
-                                <img class="kandan-nb1 lazy" data-original="../images/kandan_nb4.png" alt="">
+                                <img class="kandan-nb1 lazy" src="../images/kandan_nb4.png" alt="">
                                     <span class="kandan-number">4</span>
                                 </span>
                             </span>
-                            <span class="shop-img-wrap"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                            <span class="shop-img-wrap"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                             <span class="kandan-username-sort">
                                 <span class="kandan-username-ellepsis">myName</span>
                             </span>
@@ -614,11 +613,11 @@
                         <li class="kandan-list-sort">
                             <span class="kandan-sort-img-wrap">
                                 <span class="kandan-sort-img">
-                                <img class="kandan-nb1 lazy" data-original="../images/kandan_nb4.png" alt="">
+                                <img class="kandan-nb1 lazy" src="../images/kandan_nb4.png" alt="">
                                     <span class="kandan-number">5</span>
                                 </span>
                             </span>
-                            <span class="shop-img-wrap"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                            <span class="shop-img-wrap"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                             <span class="kandan-username-sort">
                                 <span class="kandan-username-ellepsis">myName</span>
                             </span>
@@ -651,12 +650,12 @@
                        <li class="kandan-list-sort">
                            <span class="kandan-sort-img-wrap">
                                <span class="kandan-sort-img">
-                               <img class="kandan-nb1 lazy" data-original="../images/kandan_nb1.png" alt="">
+                               <img class="kandan-nb1 lazy" src="../images/kandan_nb1.png" alt="">
                                <!--<span class="kandan-number">1</span>-->
                            </span>
                            </span>
 
-                           <span class="shop-img-wrap"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                           <span class="shop-img-wrap"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                            <span class="kandan-username-sort"><span class="kandan-username-ellepsis">myName</span></span>
                            <span class="kandan-sort-use-time">
                                 <span class="kandan-use-hour">3</span>小时<span class="kandan-use-min">6</span>分钟
@@ -665,12 +664,12 @@
                         <li class="kandan-list-sort">
                            <span class="kandan-sort-img-wrap">
                                <span class="kandan-sort-img">
-                               <img class="kandan-nb1 lazy" data-original="../images/kandan_nb2.png" alt="">
+                               <img class="kandan-nb1 lazy" src="../images/kandan_nb2.png" alt="">
                                <!--<span class="kandan-number">2</span>-->
                            </span>
                            </span>
 
-                            <span class="shop-img-wrap"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                            <span class="shop-img-wrap"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                             <span class="kandan-username-sort"><span class="kandan-username-ellepsis">名字</span></span>
                            <span class="kandan-sort-use-time">
                                 <span class="kandan-use-hour">3</span>小时<span class="kandan-use-min">6</span>分钟
@@ -679,12 +678,12 @@
                         <li class="kandan-list-sort">
                            <span class="kandan-sort-img-wrap">
                                <span class="kandan-sort-img">
-                               <img class="kandan-nb1 lazy" data-original="../images/kandan_nb3.png" alt="">
+                               <img class="kandan-nb1 lazy" src="../images/kandan_nb3.png" alt="">
                                <!--<span class="kandan-number">1</span>-->
                            </span>
                            </span>
 
-                            <span class="shop-img-wrap"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                            <span class="shop-img-wrap"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                             <span class="kandan-username-sort"><span class="kandan-username-ellepsis">名字</span></span>
                            <span class="kandan-sort-use-time">
                                 <span class="kandan-use-hour">3</span>小时<span class="kandan-use-min">6</span>分钟
@@ -693,12 +692,12 @@
                         <li class="kandan-list-sort">
                            <span class="kandan-sort-img-wrap">
                                <span class="kandan-sort-img kandan-sort-img1">
-                               <img class="kandan-nb1 kandan-nb4 lazy" data-original="../images/kandan_nb4.png" alt="">
+                               <img class="kandan-nb1 kandan-nb4 lazy" src="../images/kandan_nb4.png" alt="">
                                <span class="kandan-number">10</span>
                            </span>
                            </span>
 
-                            <span class="shop-img-wrap"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                            <span class="shop-img-wrap"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                             <span class="kandan-username-sort"><span class="kandan-username-ellepsis">名字</span></span>
                            <span class="kandan-sort-use-time">
                                 <span class="kandan-use-hour">3</span>小时<span class="kandan-use-min">6</span>分钟
@@ -707,11 +706,11 @@
                         <li class="kandan-list-sort">
                            <span class="kandan-sort-img-wrap">
                                <span class="kandan-sort-img kandan-sort-img1">
-                               <img class="kandan-nb1 kandan-nb4 lazy" data-original="../images/kandan_nb4.png" alt="">
+                               <img class="kandan-nb1 kandan-nb4 lazy" src="../images/kandan_nb4.png" alt="">
                                <span class="kandan-number">5</span>
                            </span>
                            </span>
-                            <span class="shop-img-wrap"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                            <span class="shop-img-wrap"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                             <span class="kandan-username-sort"><span class="kandan-username-ellepsis">名字</span></span>
                            <span class="kandan-sort-use-time">
                                 <span class="kandan-use-hour">3</span>小时<span class="kandan-use-min">6</span>分钟
@@ -720,11 +719,11 @@
                         <li class="kandan-list-sort">
                            <span class="kandan-sort-img-wrap">
                                <span class="kandan-sort-img kandan-sort-img1">
-                               <img class="kandan-nb1 kandan-nb4 lazy" data-original="../images/kandan_nb4.png" alt="">
+                               <img class="kandan-nb1 kandan-nb4 lazy" src="../images/kandan_nb4.png" alt="">
                                <span class="kandan-number">6</span>
                            </span>
                            </span>
-                            <span class="shop-img-wrap"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                            <span class="shop-img-wrap"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                             <span class="kandan-username-sort"><span class="kandan-username-ellepsis">名字</span></span>
                            <span class="kandan-sort-use-time">
                                 <span class="kandan-use-hour">3</span>小时<span class="kandan-use-min">6</span>分钟
@@ -733,11 +732,11 @@
                         <li class="kandan-list-sort">
                            <span class="kandan-sort-img-wrap">
                                <span class="kandan-sort-img kandan-sort-img1">
-                               <img class="kandan-nb1 kandan-nb4 lazy" data-original="../images/kandan_nb4.png" alt="">
+                               <img class="kandan-nb1 kandan-nb4 lazy" src="../images/kandan_nb4.png" alt="">
                                <span class="kandan-number">6</span>
                            </span>
                            </span>
-                            <span class="shop-img-wrap"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                            <span class="shop-img-wrap"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                             <span class="kandan-username-sort"><span class="kandan-username-ellepsis">名字</span></span>
                             <span class="kandan-sort-use-time">
                                 <span class="kandan-use-hour">3</span>小时<span class="kandan-use-min">6</span>分钟
@@ -746,11 +745,11 @@
                         <li class="kandan-list-sort">
                            <span class="kandan-sort-img-wrap">
                                <span class="kandan-sort-img kandan-sort-img1">
-                               <img class="kandan-nb1 kandan-nb4 lazy" data-original="../images/kandan_nb4.png" alt="">
+                               <img class="kandan-nb1 kandan-nb4 lazy" src="../images/kandan_nb4.png" alt="">
                                <span class="kandan-number">6</span>
                            </span>
                            </span>
-                            <span class="shop-img-wrap"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                            <span class="shop-img-wrap"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                             <span class="kandan-username-sort"><span class="kandan-username-ellepsis">名字</span></span>
                             <span class="kandan-sort-use-time">
                                 <span class="kandan-use-hour">3</span>小时<span class="kandan-use-min">6</span>分钟
@@ -759,11 +758,11 @@
                         <li class="kandan-list-sort">
                            <span class="kandan-sort-img-wrap">
                                <span class="kandan-sort-img kandan-sort-img1">
-                               <img class="kandan-nb1 kandan-nb4 lazy" data-original="../images/kandan_nb4.png" alt="">
+                               <img class="kandan-nb1 kandan-nb4 lazy" src="../images/kandan_nb4.png" alt="">
                                <span class="kandan-number">6</span>
                            </span>
                            </span>
-                            <span class="shop-img-wrap"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                            <span class="shop-img-wrap"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                             <span class="kandan-username-sort"><span class="kandan-username-ellepsis">名字</span></span>
                             <span class="kandan-sort-use-time">
                                 <span class="kandan-use-hour">3</span>小时<span class="kandan-use-min">6</span>分钟
@@ -772,11 +771,11 @@
                         <li class="kandan-list-sort">
                            <span class="kandan-sort-img-wrap">
                                <span class="kandan-sort-img kandan-sort-img1">
-                               <img class="kandan-nb1 kandan-nb4 lazy" data-original="../images/kandan_nb4.png" alt="">
+                               <img class="kandan-nb1 kandan-nb4 lazy" src="../images/kandan_nb4.png" alt="">
                                <span class="kandan-number">6</span>
                            </span>
                            </span>
-                            <span class="shop-img-wrap"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                            <span class="shop-img-wrap"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                             <span class="kandan-username-sort"><span class="kandan-username-ellepsis">名字</span></span>
                             <span class="kandan-sort-use-time">
                                 <span class="kandan-use-hour">3</span>小时<span class="kandan-use-min">6</span>分钟
@@ -808,7 +807,7 @@
                 <div class="kandan-contribution-wrap">
                     <span class="kandan-contribution-position">
                         <span class="kandan-contribution-text">好友贡献榜</span>
-                        <img class="kandan-contribution-img lazy" data-original="../images/kandan_contribution.png" alt="">
+                        <img class="kandan-contribution-img lazy" src="../images/kandan_contribution.png" alt="">
                     </span>
                 </div>
 
@@ -816,7 +815,7 @@
                 <ul class="kandan-browse-record">
                     <li class="kandan-browse-alert" id="somebodyKanjia">
                         <!--<div class="kandan-browse-record-list">-->
-                            <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                            <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                             <span class="kandan-username-sort browse-record">
                                 <span class="kandan-friend-name"><span class="kandan-username-ellepsis">名字</span></span>
                                 <span>帮我砍价20元，么么哒～</span>
@@ -825,43 +824,43 @@
                         <span class="kandan-list-bg"></span>
                     </li>
                     <li class="kandan-browse-record-list">
-                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                         <span class="kandan-username-sort browse-record"><span class="kandan-friend-name"><span class="kandan-username-ellepsis">名字</span></span><span>帮我砍价20元，撒花撒花～</span></span>
                     </li>
                     <li class="kandan-browse-record-list">
-                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                         <span class="kandan-username-sort browse-record"><span class="kandan-friend-name"><span class="kandan-username-ellepsis">名字</span></span><span>帮我砍价20元，撒花撒花～</span></span>
                     </li>
                     <li class="kandan-browse-record-list">
-                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                         <span class="kandan-username-sort browse-record"><span class="kandan-friend-name"><span class="kandan-username-ellepsis">名字</span></span><span>帮我砍价20元，撒花撒花～</span></span>
                     </li>
                     <li class="kandan-browse-record-list">
-                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                         <span class="kandan-username-sort browse-record"><span class="kandan-friend-name"><span class="kandan-username-ellepsis">名字</span></span><span>帮我砍价20元，撒花撒花～</span></span>
                     </li>
                     <li class="kandan-browse-record-list">
-                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                         <span class="kandan-username-sort browse-record"><span class="kandan-friend-name"><span class="kandan-username-ellepsis">名字</span></span><span>帮我砍价20元，撒花撒花～</span></span>
                     </li>
                     <li class="kandan-browse-record-list">
-                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                         <span class="kandan-username-sort browse-record"><span class="kandan-friend-name"><span class="kandan-username-ellepsis">名字</span></span><span>帮我砍价20元，撒花撒花～</span></span>
                     </li>
                     <li class="kandan-browse-record-list">
-                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                         <span class="kandan-username-sort browse-record"><span class="kandan-friend-name"><span class="kandan-username-ellepsis">名字</span></span><span>帮我砍价20元，撒花撒花～</span></span>
                     </li>
                     <li class="kandan-browse-record-list">
-                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                         <span class="kandan-username-sort browse-record"><span class="kandan-friend-name"><span class="kandan-username-ellepsis">名字</span></span><span>帮我砍价20元，撒花撒花～</span></span>
                     </li>
                     <li class="kandan-browse-record-list">
-                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                         <span class="kandan-username-sort browse-record"><span class="kandan-friend-name"><span class="kandan-username-ellepsis">名字</span></span><span>帮我砍价20元，撒花撒花～</span></span>
                     </li>
                     <li class="kandan-browse-record-list">
-                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" data-original="../images/retail-goodsDetails-img003.png" alt=""></span>
+                        <span class="shop-img-wrap shop-img-wrap-record"><img class="shop-img lazy" src="../images/retail-goodsDetails-img003.png" alt=""></span>
                         <span class="kandan-username-sort browse-record"><span class="kandan-friend-name"><span class="kandan-username-ellepsis">名字</span></span><span>帮我砍价20元，撒花撒花～</span></span>
                     </li>
                     <li class="kandan-list-last kandan-browse-list-last" style="display:none;">
@@ -884,27 +883,27 @@
                     </li>
                 </ul>
                 <div class="kandan-hot-active-wrap">
-                    <img class="kandan-hot-active lazy" data-original="../images/hot_active.png" alt="">
+                    <img class="kandan-hot-active lazy" src="../images/hot_active.png" alt="">
                 </div>
                 <div class="retail-goodsDetails-show-detail">
-                    <img class="img-responsive lazy" data-original="../images/retail-goodsDetails-img005.png" alt="">
+                    <img class="img-responsive lazy" src="../images/retail-goodsDetails-img005.png" alt="">
                 </div>
-                <img class="img-responsive lazy" data-original="../images/retail-goodsDetails-icon03.png" alt="">
+                <img class="img-responsive lazy" src="../images/retail-goodsDetails-icon03.png" alt="">
                 <div class="retail-goodsDetails-show-detail">
-                    <img class="img-responsive lazy" data-original="../images/retail-goodsDetails-img005.png" alt="">
+                    <img class="img-responsive lazy" src="../images/retail-goodsDetails-img005.png" alt="">
                 </div>
             <!--推荐活动-->
-                <img class="img-responsive lazy" data-original="../images/kandan_recommend.png" alt="">
+                <img class="img-responsive lazy" src="../images/kandan_recommend.png" alt="">
                 <div class="retail-goodsDetails-stores-details">
                     <a href="#">
-                        <img class="img-responsive lazy" data-original="../images/retail-goodsDetails-img001.png" alt="">
+                        <img class="img-responsive lazy" src="../images/retail-goodsDetails-img001.png" alt="">
                         <span>活动<br>详情</span>
                     </a>
                 </div>
                 <div style="width:100%;height:5px;background: #fff"></div>
                 <div class="retail-goodsDetails-stores-details">
                     <a href="#">
-                        <img class="img-responsive lazy" data-original="../images/retail-goodsDetails-img001.png" alt="">
+                        <img class="img-responsive lazy" src="../images/retail-goodsDetails-img001.png" alt="">
                         <span>活动<br>详情</span>
                     </a>
                 </div>
@@ -923,7 +922,7 @@
         <div class="col-xs-12">
             <div class="comafter retail-confirmBuying-img-price">
                 <div class="col-xs-4 retail-confirmBuying-img">
-                    <img class="img-responsive lazy" data-original="../images/retail-goodsDetails-img004.png" alt="">
+                    <img class="img-responsive lazy" src="../images/retail-goodsDetails-img004.png" alt="">
                 </div>
                 <div class="col-xs-8 retail-confirmBuying-price">
                     <span id="js_price" class="retail-confirmBuying-price-num">￥2388</span>
@@ -960,7 +959,7 @@
         <div onclick="buy_click();" class="retail-confirmBuying-buying text-center">
             确认购买
         </div>
-        <img class="js_com_black buying_close lazy" data-original="../images/buying_close.png">
+        <img class="js_com_black buying_close lazy" src="../images/buying_close.png">
     </div>
 </div>
 <!--购买选择款式和数量弹窗end-->

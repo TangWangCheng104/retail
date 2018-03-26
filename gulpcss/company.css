@@ -1,0 +1,79 @@
+body{
+    background: #fff;
+}
+.companyIndex{
+    font-size: 13px;
+    color: #666;
+    font-weight: bold;
+}
+.companyIndex-logo-img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+.companyIndex-logo{
+    padding: 30px 0 25px;
+}
+.companyIndex-name{
+    font-size: 18px;
+    color: #333;
+    padding: 0 12px;
+}
+.companyIndex-code{
+    font-size: 14px;
+    font-weight: normal;
+    padding: 10px 0 25px;
+}
+.companyIndex-nav-icon{
+    height: 51px;
+    padding-bottom:20px;
+}
+.companyIndex-nav{
+    padding: 0 30px;
+}
+.companyIndex-nav-content{
+    font-size: 13px;
+    color: #666;
+    font-weight: bold;
+}
+/*公司简介*/
+.companyIntro{
+    padding: 0 33px;
+    text-indent: 2em;
+}
+.companyIntro-text{
+    padding: 15px 0 20px;
+}
+.companyIntro-img{
+    padding-bottom: 15px;
+}
+.map{
+    margin: 0 13px;
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+}
+.amap-copyright {
+    display: none!important;
+}
+.companyContact-icon{
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}
+.companyContact-item{
+    line-height: 50px;
+    padding: 0 13px;
+    border-bottom: 1px solid #e1e1e1;
+}
+.companyContact-item01{
+    padding: 10px 13px 15px;
+    align-items: flex-start;
+}
+.companyContact-item01 .companyContact-icon{
+    margin-top: 2px;
+}
+.call-tel{
+    color: #000;
+}
+/*公司简介end*/

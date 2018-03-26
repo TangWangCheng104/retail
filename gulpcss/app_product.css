@@ -1,0 +1,77 @@
+.carousel-control{
+    opacity: 0;
+}
+.carousel-control:focus, .carousel-control:hover {
+    opacity: 0;
+}
+.proContent{
+    text-align: center;
+}
+.proContent h3{
+    font-weight: bold;
+}
+.proContent .time{
+    color: #999;
+    display: block;
+    margin-bottom: 10px;
+}
+.proContent p{
+    text-indent: 2em;
+    text-align: left;
+    font-size: 16px;
+}
+.item{
+    height: 300px;
+    background: #000;
+}
+/*弹窗样式开始*/
+.black{
+    width: 100%;
+    height:700px;
+    position: absolute;
+    display:none;
+    top: 0;
+    z-index: 999;
+    background-color:#000;
+    background-repeat: no-repeat;
+    background-position:50% 50%;
+    background-size: contain;
+}
+.black-banner-wrap{
+    width: 100%;
+    height:700px;
+    position: relative;
+}
+.black-banner-wrap .slide{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right:0;
+    margin: auto;
+}
+.black-banner-wrap .carousel-inner {
+    width: 100%;
+    overflow: visible;
+    padding-left: 0;
+}
+.black-banner-wrap .carousel-indicators {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    z-index: 15;
+    width: 60%;
+    padding-left: 0;
+    text-align: center;
+    list-style: none;
+}
+.item img{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right:0;
+    margin: auto;
+}
+/*弹窗样式结束*/

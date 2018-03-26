@@ -1,0 +1,56 @@
+//@import "base";
+html{
+    font-size: 625%;
+}
+body{
+    font-size: 14px;
+}
+
+.alert-wrap{
+    width: 80%;
+    border: none;
+    min-height: .1rem;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    z-index: 1050;
+    font-size: 14px;
+//  overflow: hidden;
+}
+.com_black {
+    width: 100%;
+    height: 1000px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1040;
+    background-color: #000 \9;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1040;
+}
+.alert-close-btn{
+    width: 100%;
+    height: .4rem;
+    background: #fb4fb4;
+    color: #fff;
+    @extend.flexCenter;
+}
+.alert-title{
+    height: .4rem;
+    @extend.alert-close-btn;
+    background: #fff;
+    color: #333;
+    font-size: 16px;
+}
+.alert-list{
+    padding: 0 .15rem .15rem .3rem ;
+    
+}
+.alert-list p{
+    text-indent: -1em;
+}

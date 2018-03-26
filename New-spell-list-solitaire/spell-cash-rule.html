@@ -21,6 +21,7 @@
     <link href="../css/retail-waitingPay.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../css/partner.css">
     <link rel="stylesheet" href="../css/auction.css">
+    <link rel="stylesheet" href="../css/new-spell-list-solitaire.css" />
 </head>
 <body>
 <div class="container-fluid small_screen">
@@ -149,7 +150,7 @@
             <!--2017-5-9收货地址-->
 
             <!--支付时显示-->
-            <div style="display: none">
+            <div style="display: block">
                 <div class=" flex-row auction-bottom">
                     <div class="flex-data text-right retail-waitingPay-topay-money">保证金：<b class="color-zby">￥<span>2564521</span></b></div>
                     <div id="topay" class="js_toPay text-center bgcolor-zby retail-waitingPay-topay flex-column luo-topayBtn">
@@ -163,13 +164,62 @@
                                     <span class="js_ms_show" ms="00">00</span>
                                 </span>
                         </div>-->
-                        <div class="flex-data retail-waitingPay-topay-text">支付</div>
+                        <div class="flex-data retail-waitingPay-topay-text js_buying_btn" >支付</div>
                     </div>
                 </div>
             </div>
-
+			<!--拼单接龙进度条-->
+			
+			<div class="clearfix spell-all-price col-xs-12" style="position: fixed;opacity: 0;z-index: -1;">
+		        <div class="spell-pass-price-wrap Pic1" id="Pic1">
+		            <div class="spell-step-price spell-step-price-after" >
+		                <div class="spell-everybody-price ">￥<span class="spell-price" id="spell-passOne-price">400</span></div>
+		                <div class="spell-everybody">2人</div>
+		            </div>
+		            <img class="spell-pass-price" src="../images/spell_after_price.png" />
+		        </div>
+		        <div class="spell-pass-price-wrap Pic2" id="Pic2">
+		            <div class="spell-step-price spell-step-price-after" >
+		                <div class="spell-everybody-price">￥<span class="spell-price" id="spell-passTwo-price">400</span></div>
+		                <div class="spell-everybody">3人</div>
+		            </div>
+		            <img class="spell-pass-price" src="../images/spell_after_price.png" />
+		        </div>
+		
+		        <div class="spell-pass-price-wrap Pic3" id="Pic3">
+		            <div class="spell-step-price spell-step-price-after" >
+		                <div class="spell-everybody-price">￥<span class="spell-price" id="spell-passThr-price">400</span></div>
+		                <div class="spell-everybody">4人</div>
+		            </div>
+		            <img class="spell-pass-price spell-after-price" src="../images/spell_after_price.png" />
+		        </div>
+		        <div class="spell-pass-price-wrap Pic4" id="Pic4">
+		            <div class="spell-step-price spell-step-price-after" >
+		                <div class="spell-everybody-price">￥<span class="spell-price" id="spell-passFour-price">400</span></div>
+		                <div class="spell-everybody">5人</div>
+		            </div>
+		            <img class="spell-pass-price spell-after-price" src="../images/spell_after_price.png" />
+		        </div>
+		    </div>
+		    <div class="spell-pass-zero-wrap clearfix newsp-progress-bar-wrap"  style="position: fixed;opacity: 0;z-index: -1;">
+		    	<div class="newsp-progress-bar-ImgTest">
+		    		<img class="newsp-progress-bar-userImg" src="../images/author_touxiang.png" alt="" />
+		    		<span class="newsp-change-mode js_buying_btn" >切换款式</span>
+		    	</div>
+		    	<div class="newsp-arrive-bg">
+			        <div class="spell-pass-zero">
+			            <!--<div class="spell-pass-point spell-person1"><span class="spell-pass-two"><span id="Step1">2</span>位</span></div>-->
+			            <div class="spell-pass-point spell-person1"><span class="spell-pass-two"><span id="stepPersonNumber0"></span></span></div>
+			            <div class="spell-pass-point spell-person2"><span class="spell-pass-two"><span id="stepPersonNumber1"></span></span></div>
+			            <div class="spell-pass-point spell-person3"><span class="spell-pass-two"><span id="stepPersonNumber2"></span></span></div>
+			            <div class="spell-pass-point spell-person4"><span class="spell-pass-two"><span id="stepPersonNumber3"></span></span></div>
+			            <!--<span class="nowPerson">当前人数<span>10000</span></span>-->
+			        </div>
+		        </div>
+		    </div>
+			<!--拼单接龙进度条end-->
             <!--这是保证金为0的时候显示-->
-            <div style="display: block">
+            <div style="display: none">
                 <div class=" flex-row auction-bottom">
                     <div class="flex-data text-right retail-waitingPay-topay-money">保证金：<b class="color-zby">￥<span>0.00</span></b></div>
                     <div id="topay" class="js_toPay text-center bgcolor-zby retail-waitingPay-topay flex-column luo-topayBtn">
@@ -264,74 +314,56 @@
                 </div>
             </div>
             <!--购买选择款式和数量弹窗-->
-            <div id="confirmBuying" class="retail-confirmBuying animation" style="display: block;">
-                <div class="comafter" style="position: relative;">
-                    <div class="col-xs-12">
-                        <div class="comafter flex-row retail-confirmBuying-img-price">
-                            <div id="auction-js-storeImg" class="js_storeImg retail-confirmBuying-img">
-                                <img src="../images/retail-goodsDetails-img001.png" alt="">
-                            </div>
-                            <div class="retail-confirmBuying-price">
-                                <span class="retail-confirmBuying-price-num">￥2388</span>
-                                <p>商品货号：<span>2362624</span></p>
-                            </div>
-                        </div>
-                        <div class="lqy-goodsOrder">
-                            <div class="comafter retail-confirmBuying-style auction-order-borderNone">
-                                <p class="retail-confirmBuying-style-title">
-                                    款式
-                                </p>
-                                <!--<div id="js_style" class="retail-confirmBuying-style-type clearfix">
-                                    <span onclick="javascript:style_select(this,1000,7.61)">龙系列凤系列</span>
-                                    <span onclick="style_select(this,1000,7.61)">凤系列凤系列</span>
-                                    <span onclick="style_select(this,1000,7.61)">凤系列凤系列</span>
-                                </div>-->
-                                <div class="auction-class">
-                                    <div>
-                                        <span class="auction-class-content">龙珠系列</span>
-                                    </div>
-                                    <div>
-                                        <span class="auction-class-content">龙珠系列</span>
-                                    </div>
-                                    <div>
-                                        <span class="auction-class-content">龙珠系列</span>
-                                    </div>
-                                    <div>
-                                        <span class="auction-class-content auction-class-content-active">龙珠系列</span>
-                                    </div>
-                                    <div>
-                                        <span class="auction-class-content">龙珠系列</span>
-                                    </div>
-                                    <div>
-                                        <span class="auction-class-content">龙珠系列</span>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="comafter retail-confirmBuying-num-buying">
-                                <div class="comafter">
-                                    <div id="js_num_buying" class="col-xs-6 padding-0px text-left retail-confirmBuying-num-buying-left">
-                                        购买数量
-                                    </div>
-                                    <div class="col-xs-6 padding-0px text-right">
-                                        <span id="js_num" class="retail-confirmBuying-num">
-                                            <span class="sub" onclick="auction_sub()">-</span>
-                                            <input type="number" id="lqyinput" onkeyup="eventCheck(this)" class="num" value="1" onfocus="focusAlert()" onblur="blurAlert()">
-                                            <span class="add" onclick="auction_add()">+</span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="text-right retail-confirmBuying-num-warn">库存不足，这次就少买点吧!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <img class="js_com_black buying_close" src="../images/buying_close.png">
-                </div>
-                <div id="auction-refresh" onclick="auctionRefresh()" class="js_comfirm_buy navbar-fixed-bottom retail-confirmBuying-buying text-center">
-                    确认购买
-                </div>
-            </div>
-            <!--购买选择款式和数量弹窗end-->
+	<div id="confirmBuying" class="js_hide_com retail-confirmBuying animation spell-heightAotu">
+	    <div class="comafter" style="position: relative">
+	        <div class="col-xs-12">
+	            <div class="comafter retail-confirmBuying-img-price">
+	                <div class="col-xs-5 retail-confirmBuying-img newsp-confirmBuying-img">
+	                    <img class="img-responsive" src="../images/retail-goodsDetails-img004.png" alt="">
+	                </div>
+	                <div class="col-xs-7 retail-confirmBuying-price">
+	                    <span id="js_price" class="retail-confirmBuying-price-num">￥2388</span>
+	                    <p>商品货号：<span>2362624</span></p>
+	                </div>
+	            </div>
+	            <!--拼单接龙进度条-->
+					<div class="clearfix spell-all-price col-xs-12"></div>
+					<div class="spell-pass-zero-wrap clearfix newsp-progress-bar-wrap"></div>
+				<!--拼单接龙进度条end-->
+	            <div class="comafter retail-confirmBuying-style" style="line-height: normal;">
+	                <p class="retail-confirmBuying-style-title border-top">
+	                    款式
+	                </p>
+	                <div id="js_style" class="retail-confirmBuying-style-type newsp-shop-style">
+	                    <span onclick="style_select(this,0,2336)" class="disabled">龙系列</span>
+	                    <span onclick="style_select(this,5,236)">凤系列</span>
+	                    <span onclick="style_select(this,50,2336)">燕系列</span>
+	                </div>
+	            </div>
+	            <div class="comafter retail-confirmBuying-num-buying" style="padding-top: 25px;">
+	                <div class="comafter">
+	                    <div id="js_num_buying" class="col-xs-6 padding-0px text-left retail-confirmBuying-num-buying-left">
+	                        购买数量
+	                    </div>
+	                    <div class="col-xs-6 padding-0px text-right">
+	                    <span id="js_num" class="retail-confirmBuying-num">
+	                        <span onclick="sub_click()" class="sub">-</span>
+	                        <input onkeyup="num_keyup()" type="text" class="num" value="1" max="6666">
+	                        <span onclick="add_click()" class="add">+</span>
+	                    </span>
+	                    </div>
+	                </div>
+	                <div class="js_num-warn text-right retail-confirmBuying-num-warn" style="display: none">库存不足，这次就少买点吧!
+	                </div>
+	            </div>
+	        </div>
+	        <div onclick="buy_click();" class="retail-confirmBuying-buying text-center">
+	            确认购买
+	        </div>
+	        <img class="js_com_black buying_close" src="../images/buying_close.png">
+	    </div>
+	</div>
+<!--购买选择款式和数量弹窗end-->
     </div>
 </div>
 </body>
@@ -339,9 +371,348 @@
 <script src="../js/jquery-1.10.2.min.js"></script>
 <script src="../js/auction.js"></script>
 <script src="../js/loginVerify.js"></script>
-<script>
+<script src="../js/retail_cofirmBuying.js"></script>
+<script src="../js/goodDetail.js"></script>
+  <script>
+        /*计时器，这里倒计时传入的时间是毫秒*/
+        /*这是页面的倒计时*/
+        var arrTime1 = [80,80];
+        for(let i =0;i<arrTime1.length;i++){
+            timer(arrTime1[i],i,"spell-index",fn1);
+        }
+        //计时器执行完成之后的回调函数
+        var fn1 = function fn() {
+        };
+        /*这是弹出框的倒计时*/
+        var arrTime2 = [70,70];
+        for(let i =0;i<arrTime2.length;i++){
+            timer(arrTime2[i],i,"spell-alert-time",fn1);
+        }
+        /*这是参与某人的拼单的倒计时*/
+        var arrTime3 = [60];
+        for(let i =0;i<arrTime3.length;i++){
+            timer(arrTime3[i],i,"five-person-spell",fn1);
+        }
+
+        var arrTime4 = [50];
+        for(let i =0;i<arrTime4.length;i++){
+            timer(arrTime4[i],i,"promptSpell",fn1);
+        }
+        $(function () {
+            var $styleList = $("#js_style").children();
+            for (var i = 0; i < $styleList.length; i++) {
+                if ($styleList.eq(i).attr("class") != 'disabled') {
+                    $styleList.eq(i).trigger("click");//模拟点击事件
+                    break;
+                }
+            }
+            //点击购买按钮时弹出的框，加入拼单接龙的进度条
+            $('.js_buying_btn ').click(function(){
+            	$('#confirmBuying .spell-all-price').html( $('.spell-all-price').eq(0).html() );
+            	$('#confirmBuying .newsp-progress-bar-wrap').html( $('.newsp-progress-bar-wrap').eq(0).html() );
+            	//调节选择样式和款式弹出款里面的进度条
+            	let leftWidth = parseInt ( $('#confirmBuying .spell-pass-zero').width() )
+            	$("#confirmBuying .newsp-progress-bar-ImgTest").css("left",parseInt( $("article .newsp-progress-bar-ImgTest").css("left") ) - leftWidth * .03 )
+            	
+            })
+            /*拼单规则弹出框*/
+            //拼单活动时间倒计时
+            timer01(3600 * 24 * 10);
+            //拼单时间倒计时，1为倒计，0只显示时间，但不倒计
+            timer02(3600 * 24 * 3,1);
+            /*这个是获取元素宽高的方法*/
+            function getStyleAttr(obj,attr){
+                if(window.getComputedStyle){
+                    return window.getComputedStyle(obj,null)[attr];
+                }
+                return obj.currentStyle[attr];
+            }
+            /*这是传入参与接龙人数与可参与最高接龙人数,arrStepPerson阶数，personNumber当前参加人数,maxPerson*//*nowPersonNum*/
+            var personNumber= 400,maxPerson=600;
+            var arrStepPerson = [
+                {"number":100,"price":600},
+                {"number":200,"price":500},
+                {"number":300,"price":380},
+                {"number":400,"price":360}
+            ];
+            personNum(arrStepPerson,personNumber,maxPerson);
+            /*确定阶数和人数*/
+            function personNum (arrStepPerson,personNumber,maxPerson){
+                var personNumber = personNumber - 2;
+                var maxPerson = maxPerson - 2;
+                /*var max = 0;*/
+
+//                console.log(personNumber)
+//                console.log(maxPerson)
+                length = arrStepPerson.length;
+                $('.spell-all-price .spell-pass-price-wrap').css('opacity',"0");/*全部透明度设置为0*/
+                $('.spell-pass-zero .spell-pass-point').css("display","none");/*控制人数的字体*/
+                for(let i=0;i<length+1;i++){
+
+                    /* if(i <= maxPerson ){
+                     $('.spell-pass-zero .spell-pass-point').eq(i).css("display","block");/!*控制人数的字体*!/
+                     }*/
+                    $('.spell-pass-zero .spell-pass-point').eq(i).css("display","block");/*控制人数的字体*/
+                    /*for(let k = 0 ; k < arrStepPerson.length ;k++){
+                     const index =
+                     }*/
+                    /*显示阶梯内的价格*/
+                    /*遍历阶数*/
+                    for(let k = 0;k < arrStepPerson.length;k++){
+
+                        if(i == k ){
+//                            console.log(i);
+                            $('.spell-all-price .spell-pass-price-wrap').eq(i).find(".spell-price").text(arrStepPerson[k].price);/*控制价格和字体*/
+                            //控制人数
+                            
+                            $('.spell-all-price .spell-pass-price-wrap').eq(i).find('.spell-everybody').text(arrStepPerson[k].number+"人");
+//                          $('#stepPersonNumber'+i).text(arrStepPerson[i].number);/*控制价格和字体*/
+                        }
+                    }
+
+                    /*遍历，查看最大人数*/
+                    for(let j = 0 ;j < arrStepPerson.length ; j++){
+                        /*找到最大的j对应的阶数*/
+                        /*if(j > max){
+                         max = j;
+                         }*/
+                        /*阶数的控制*/
+                        if(i == j){
+                            /*console.log($('.spell-all-price .spell-pass-price-wrap').eq(arrStepPerson[j]));
+                             console.log(arrStepPerson[j].number-2);*/
+                            $('.spell-all-price .spell-pass-price-wrap').eq(i).css('opacity',1);
+//                            console.log($('.spell-all-price .spell-pass-price-wrap').eq(2).css('opacity'));
+
+                        }
+
+                        else{
+                            for( let k=0;k<length ; k++){
+                                if( personNumber >= arrStepPerson[k].number - 2 ){
+                                    var ma = k;
+                                }
+                            }
+                            /*如果参与人数大于阶梯人数则小鱼当前人数的图片改变为过去的图片样式，当前的就为active图片，改变价格*/
+                            if(ma >= arrStepPerson.length){
+                                //                            $('.spell-all-price .spell-pass-price-wrap').eq(j).find(".spell-pass-price").attr('src',"../images/spell_pass_price.png");/*控制图片*/
+                                for(let k = 0;k <= j;k++){
+                                	/*控制图片为黄色*/
+//                                  $('.spell-all-price .spell-pass-price-wrap').eq(k).find(".spell-pass-price").attr('src',"../images/spell_pass_price.png");
+                                    /*控制图片为灰色*/
+                                    $('.spell-all-price .spell-pass-price-wrap').eq(k).find(".spell-pass-price").attr('src',"../images/spell_after_price.png");
+									
+                                }
+                                /*找到正在进行的那一阶的图片，并且改变价格，m表示第几个阶梯要显示*/
+                            }
 
 
+                            for(let m = ma;m >= 0; m-- ){
+
+                                if($('.spell-all-price .spell-pass-price-wrap').eq(m).css('opacity') == "1" && m == ma){
+
+                                    $('.spell-all-price .spell-pass-price-wrap').eq(m).find(".spell-pass-price").attr('src',"../images/spell_now_price.png");/*控制图片*/
+                                    //                                $('.spell-all-price .spell-pass-price-wrap').eq(m).prevAll(".spell-pass-price-wrap").find(".spell-pass-price").attr('src',"../images/spell_pass_price.png");/*控制图片*/
+                                    //                                    console.log($('.spell-all-price .spell-pass-price-wrap').eq(m).prevAll(".spell-pass-price-wrap").find(".spell-pass-price").attr("src"))
+                                    /*这是当前的各种正在进行的阶梯的各种样式*/
+                                    $('.spell-all-price .spell-pass-price-wrap').eq(m).addClass('spell-pass-price-wrap-active');/*控制最外层的样式*/
+                                    $('.spell-all-price .spell-pass-price-wrap').eq(m).find('.spell-pass-price').addClass('spell-price-active');/*控制内层字体样式*/
+                                    $('.spell-all-price .spell-pass-price-wrap').eq(m).find(".spell-step-price").addClass('spell-step-price-now');/*控制内层字体样式*/
+                                    $('.spell-all-price .spell-pass-price-wrap').eq(m).find(".spell-step-price").removeClass('spell-step-price-after');/*控制内层字体样式*/
+                                    $('.spell-all-price .spell-pass-price-wrap').eq(m).find(".spell-everybody-price").addClass('spell-everybody-price-active');/*控制价格字体*/
+//                                  $('.spell-all-price .spell-pass-price-wrap').eq(m).find(".spell-everybody").text('当前只需');/*控制内层字体样式*/
 
 
-</script>
+                                    /*return;*/
+                                    /* break;*/
+                                    // $('.spell-all-price .spell-pass-price-wrap').eq(m).find(".spell-price").text(arrStepPerson[m].price);/*控制价格和字体*/
+                                }
+                                //                            console.log(m);
+
+                                else if($('.spell-all-price .spell-pass-price-wrap').eq(m).css('opacity') == "1" && m < ma){
+                                	/*控制图片为黄色*/
+//                                  $('.spell-all-price .spell-pass-price-wrap').eq(m).find(".spell-pass-price").attr('src',"../images/spell_pass_price.png");
+                                    /*控制图片为灰色*/
+                                    $('.spell-all-price .spell-pass-price-wrap').eq(m).find(".spell-pass-price").attr('src',"../images/spell_after_price.png");
+                                    //                                $('.spell-all-price .spell-pass-price-wrap').eq(m).prevAll(".spell-pass-price-wrap").find(".spell-pass-price").attr('src',"../images/spell_pass_price.png");/*控制图片*/
+                                    //                                    console.log($('.spell-all-price .spell-pass-price-wrap').eq(m).prevAll(".spell-pass-price-wrap").find(".spell-pass-price").attr("src"))
+                                    /*这是当前的各种正在进行的阶梯的各种样式*/
+                                    $('.spell-all-price .spell-pass-price-wrap').eq(m).removeClass('spell-pass-price-wrap-active');/*控制最外层的样式*/
+                                    $('.spell-all-price .spell-pass-price-wrap').eq(m).find('.spell-pass-price').removeClass('spell-price-active');/*控制内层字体样式*/
+                                    $('.spell-all-price .spell-pass-price-wrap').eq(m).find('.spell-pass-price').removeClass('spell-price-active');/*控制内层字体样式*/
+                                    $('.spell-all-price .spell-pass-price-wrap').eq(m).find(".spell-step-price").removeClass('spell-step-price-now');/*控制内层字体样式*/
+                                    $('.spell-all-price .spell-pass-price-wrap').eq(m).find(".spell-step-price").addClass('spell-step-price-after');/*控制内层字体样式*/
+                                    $('.spell-all-price .spell-pass-price-wrap').eq(m).find(".spell-everybody-price").removeClass('spell-everybody-price-active');/*控制价格字体*/
+//                                  $('.spell-all-price .spell-pass-price-wrap').eq(m).find(".spell-everybody").text('每人只需');/*控制内层字体样式*/
+
+                                }
+                            }
+                            if($('.spell-all-price .spell-pass-price-wrap').eq(ma).css('opacity') == "0"){
+                                for(let k=ma ; k>=0; k--){
+
+                                    if($('.spell-all-price .spell-pass-price-wrap').eq(k).css('opacity') == "1"){
+                                        //                                        console.log($('.spell-all-price .spell-pass-price-wrap').eq(k).css('opacity'))
+                                        //                                    console.log(k);
+                                        $('.spell-all-price .spell-pass-price-wrap').eq(k).find(".spell-pass-price").attr('src',"../images/spell_now_price.png");/*控制图片*/
+                                        //                                $('.spell-all-price .spell-pass-price-wrap').eq(m).prevAll(".spell-pass-price-wrap").find(".spell-pass-price").attr('src',"../images/spell_pass_price.png");/*控制图片*/
+                                        //                                    console.log($('.spell-all-price .spell-pass-price-wrap').eq(m).prevAll(".spell-pass-price-wrap").find(".spell-pass-price").attr("src"))
+                                        /*这是当前的各种正在进行的阶梯的各种样式*/
+                                        $('.spell-all-price .spell-pass-price-wrap').eq(k).addClass('spell-pass-price-wrap-active');/*控制最外层的样式*/
+                                        $('.spell-all-price .spell-pass-price-wrap').eq(k).find('.spell-pass-price').addClass('spell-price-active');/*控制内层字体样式*/
+                                        $('.spell-all-price .spell-pass-price-wrap').eq(k).find(".spell-step-price").addClass('spell-step-price-now');/*控制内层字体样式*/
+                                        $('.spell-all-price .spell-pass-price-wrap').eq(k).find(".spell-step-price").removeClass('spell-step-price-after');/*控制内层字体样式*/
+                                        $('.spell-all-price .spell-pass-price-wrap').eq(k).find(".spell-everybody-price").addClass('spell-everybody-price-active');/*控制价格字体*/
+//                                      $('.spell-all-price .spell-pass-price-wrap').eq(k).find(".spell-everybody").text('当前只需');/*控制内层字体样式*/
+                                        break;
+                                    }
+                                }
+                            } 
+                        }
+                        //spell-price-active宽度
+
+
+//                        $('.spell-all-price .spell-pass-price-wrap').eq(ma).addClass('nowPersonNum');/*这个控制进度条的进度*/
+                        /*删除掉多余的阶数和大于最大人数的人数显示部分*/
+                        for(let k = 0; k < $('.spell-pass-price-wrap').length ; k++){
+                            if( k+1 > arrStepPerson.length ){
+                                $('.spell-pass-price-wrap').eq(k).remove();
+                                $('.spell-pass-two').eq(k).remove();
+                            }
+                        }
+                    }
+                }
+            }
+            $('.spell-price-active').css({"width":parseInt( $(".spell-all-price").eq(0).css("width")  ) /4 })
+            console.log($(".spell-all-price").css("width") )
+            
+            /*这是确定白点位置的方法*/
+            function getWidth(numberPic,spellTwoPerson){
+                var activeWidth = parseInt(getStyleAttr($('.'+numberPic)[0],"width"))/*$('.spell-pass-price-wrap-active')[0].clientLeft;*/;
+                var activeLeft = parseInt($('.'+numberPic)[0].offsetLeft);
+//              console.log( activeWidth );
+//              console.log( activeLeft );
+                $("."+spellTwoPerson).css("left",activeWidth/2 + activeLeft - 10);
+//              console.log( $("."+spellTwoPerson).css("left") )
+                setTimeout(function(){
+                    if( parseInt($(".spell-pass-zero" ).css("width"))+10 >= parseInt( $("."+spellTwoPerson ).css("left"))){
+                    $("."+spellTwoPerson).addClass("spell-bgcl");
+                    }else{
+                        // $("."+spellTwoPerson).removeClass("spell-bgcl");
+                    }
+                },50)
+            }
+            
+            /*获取元素的宽度 */
+            /*拼单接龙人数的白点位置定位*/
+            for(let k = 1;k <= $('.spell-pass-price-wrap').length;k++){
+                getWidth("Pic"+k,"spell-person"+k);
+            }
+
+            /*进度条的位置确定*/
+            for(let k = 1 ; k <= arrStepPerson.length ; k++ ){
+//          	console.log( personNumber )
+//          	console.log( arrStepPerson[k-1].number )
+            	
+                if( personNumber <= arrStepPerson[k-1].number ){
+                	//拼单接龙的框到最左侧的距离
+                    var activeLeft = parseInt( $('.spell-person'+ (k) ).css("left"));
+                    
+                    if( k > 1 ){
+                        var activeLeft = parseInt( $('.spell-person'+ (k-1) ).css("left"));
+                        var activeLeftAfter = parseInt( $('.spell-person'+ (k)).css("left"));
+                        var widthRange = activeLeftAfter - activeLeft;
+//                      console.log(activeLeft)
+//                      console.log(widthRange)
+                        
+                    }else{
+                        var widthRange = activeLeft;
+                    }
+                    if (k == 1 ){
+                    	//numberRange表示现在参与人数所处的阶段eg:商家设置的第0阶到第1阶之间的人数
+                        var numberRange = parseInt(arrStepPerson[k-1].number);
+                        var nowPersonNum = personNumber;
+                        var rangeWidth = nowPersonNum/numberRange * widthRange;
+                        $(".spell-pass-zero").css("width",rangeWidth)
+                        $(".newsp-progress-bar-ImgTest").css("left",parseInt ( parseInt( $(".newsp-progress-bar-ImgTest").css("left") ) + rangeWidth ) - 26 );
+//                      console.log("enter");
+
+                    }else{
+                    	//numberRange表示现在参与人数所处的阶段eg:商家设置的第二阶到第三阶之间的人数
+                        var numberRange = parseInt(arrStepPerson[k-1].number) - parseInt(arrStepPerson[k-2].number);
+                        //nowPersonNum 表示处于当前阶实际人数eg:实际超出第一阶后第二节到第三节的人数
+                        var nowPersonNum =  personNumber - parseInt(arrStepPerson[k-2].number);
+                        //nowPersonNum/numberRange表示实际第二节人数占商家设置人数的比例，
+                        var rangeWidth = nowPersonNum/numberRange * widthRange + activeLeft;
+                        
+                        $(".spell-pass-zero").css("width",rangeWidth)
+                        $(".newsp-progress-bar-ImgTest").css("left",parseInt ( parseInt( $(".newsp-progress-bar-ImgTest").css("left") ) + rangeWidth ) - 26 );
+//                      console.log($(".newsp-progress-bar-ImgTest").css("left"));
+//                      console.log( numberRange );
+//                      console.log( nowPersonNum )
+//                      console.log( arrStepPerson[k-1].number )
+//                      console.log( arrStepPerson[k-2].number )
+                        
+                        
+                    }
+                    var rangeWidth = nowPersonNum/numberRange * widthRange;
+                    break;
+                }
+            }
+            /*头像的个数大于5个时*/
+            /*传入人数，如果人数大于五，后面的就不循环出来*/
+            if( personNumber > 5 ){
+                $("#spellUser .spell_user_touxiang").eq(-1).remove();
+                $("#spellUser .spell_user_touxiang").eq(-2).remove();
+                $('#personNumberlt5').show();
+            }else{
+                $('#personNumberlt5').hide();
+            }
+            /*弹出框,传入人数，如果人数大于五，后面的就不循环出来*/
+            if( personNumber > 5 ){
+                $("#spellInformation .spell-information-photo1").eq(-1).remove();
+                $("#spellInformation .spell-information-photo1").eq(-2).remove();
+                $('#spellInformationPhoto').show();
+            }else{
+                $('#spellInformationPhoto').hide();
+            }
+            /*这是点击查看更多*/
+            $(".spell-check-more").click(function(){
+                $('.vertical-center').hide(300);
+                $('#spell-alert-time').fadeIn(300);
+                $('#com_black').fadeIn(300);
+                $('.vertical-center').fadeIn(300);
+            });
+            //点击去拼单
+            $(".spell-go-spell").click(function(){
+                $('.vertical-center').hide(300);
+                //$('#spell-join-combine-time').fadeIn(300);
+                $('#five-person-spell').fadeIn(300);
+                $('#com_black').fadeIn(300);
+                $('.vertical-center').fadeIn(300);
+            });
+            /*点击最外层的盒子，隐藏他自己*/
+            $('.vertical-center').click(function () {
+                $(this).fadeOut(300)
+            })
+            /*vertical-center进来时消失*/
+            $('.vertical-center').hide();
+            //视频播放
+            $('#videoBtn').click(function(){
+	            video.play()
+	        });
+	        window.addEventListener("popstate", function(e) {
+	//      	video.closeVideo()
+	//      	alert(2)
+	//			if( navigator.userAgent.indexOf('QQBrowser') > 0 ){
+	//				alert(1)
+	//		    	window.location.reload()
+	//				
+	//			}
+	            if (bool) {
+	                video.pause()
+	            }
+	        });
+	        setTimeout(function() {
+	            bool = true;
+	        }, 10);
+        });
+
+    </script>

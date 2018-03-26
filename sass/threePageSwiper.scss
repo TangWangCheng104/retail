@@ -1,0 +1,36 @@
+@import "base";
+.swiper-wrap{
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.5s;
+}
+.swiper-list{
+    float: left;
+    width: 125px;
+//  box-shadow: 0 0 .1rem .05rem #e1e1e1;
+    border-radius: .1rem;
+    @extend.displayFlex;
+    align-items: center;
+    justify-content: center;
+}
+.swiper-list img{
+    width: 100%;
+}
+.next,.prev{
+    position: relative;
+    top: 200px;
+}
+.prev{
+    position: relative;
+    top: 200px;
+    left: 100px;
+}
+.three-page-wrap{
+    height: 375px;
+    overflow:hidden;
+    position: relative;
+}
+.swiper-list.swiper-active{
+//  transform: scale(1.1,1.1) translate(-5%,-5%);
+}

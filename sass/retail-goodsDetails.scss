@@ -1,6 +1,7 @@
 /*零售版消费者商品详情大图样式开始*/
 .retail-goodsDetails{
     padding-bottom: 50px;
+    position: relative;
 }
 .body-position-fixed{
     position: fixed;
@@ -421,8 +422,8 @@ img{
 }
 .os-lingshou-wrap{
     display: block;
-    height: 31px;
-    line-height: 31px;
+    height: 50px;
+    line-height: 50px;
     color: #fff;
     text-align: center;
     font-size: 13px;

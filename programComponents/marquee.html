@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>上下轮播</title>
+		<link rel="stylesheet" href="../css/base.css" />
+		<link rel="stylesheet" href="../css/marquee.css" />
+		<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+	</head>
+	<body>
+		<!--marquee-->
+        <div class="marquee-wrap">
+            <div id="demo" class="marquee-items">
+                <div id="demo1">
+                    <div class="js_text_item_parent">
+                        <span class="js_text_item marquee-item">
+                            <div class="flex-row">
+                                <i class="marquee-item-icon flex-row"><img class="img-responsive" src="../images/icon_message.png" alt=""></i>
+                                <span class="js_kandan_username">罗勇</span>刚刚砍了一下
+                            </div>
+                        </span>
+                    </div>
+                    <div class="js_text_item_parent">
+                        <span class="js_text_item marquee-item">
+                            <div class="flex-row">
+                                <i class="marquee-item-icon flex-row"><img class="img-responsive" src="../images/icon_message.png" alt=""></i>
+                                <span class="js_kandan_username">罗勇</span>刚刚砍了一下
+                            </div>
+                        </span>
+                    </div>
+                    <div class="js_text_item_parent">
+                        <span class="js_text_item marquee-item">
+                            <div class="flex-row">
+                                <i class="marquee-item-icon flex-row"><img class="img-responsive" src="../images/icon_message.png" alt=""></i>
+                                <span class="js_kandan_username">罗勇</span>刚刚砍了一下
+                            </div>
+                        </span>
+                    </div>
+                    
+                </div>
+                <div id="demo2"></div>
+            </div>
+        </div>
+        <!--marquee end-->
+	</body>
+</html>
+<script>
+    var i = 0;
+    var t = setInterval(function(){
+        var m = $(".js_text_item").eq(0).parent().html();
+        var d = '<div class="js_text_item_parent">'+ m + ' </div>';
+        $(".js_text_item").eq(0).animate({
+            "opacity":"0",
+//            "width":"0",
+            "height":"0",
+            "padding":"0"
+        },'1000',function(){
+            $(".js_text_item_parent").eq(0).remove();
+        });
+        $("#demo1").append(d);
+        i++;
+        if(i==4){
+            i=0
+        }
+        console.log(111)
+    },2000);
+</script>

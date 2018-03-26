@@ -5,11 +5,25 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>我的拼团</title>
 		<link rel="stylesheet" type="text/css" href="../css/new-spell-list-solitaire.css"/>
+    	<script src="../js/jquery-1.10.2.min.js"></script>
+    	<script src="../js/retail_cofirmBuying.js"></script>
+    	<script type="text/javascript">
+    		$(function(){
+    			var fn1 = function fn() {
+		        };
+		        /*这是弹出框的倒计时*/
+		        var arrTime2 = [5000,15000];
+		        for(let i =0;i<arrTime2.length;i++){
+		            timer(arrTime2[i],i);
+		        }
+    		})
+    		
+    	</script>
 	</head>
 	<body>
 		<div class="newsp-my-spell">
 			<ul class="list-wrap">
-				<li class="list">
+				<li class="list js_timer">
 					<div class="list-content">
 						<span class="list-left">
 							<img src="../images/retail-goodsDetails-img004.png" alt="" />
@@ -17,7 +31,10 @@
 						</span>
 						<span class="list-right">
 							<span class="list-title">活色生香女神钻石大特价系列，拼单可享受折上折优惠</span>
-							<span class="list-span">剩余时间：0天23小时33分23秒</span>
+							<!--倒计时-->
+							<span class="list-span">
+								<span class="js_day_show padding-5px">00</span>小时<span class="js_hour_show padding-5px">00</span>小时<span class="js_minute_show padding-5px">00</span>分<span class="js_second_show padding-5px">00</span>秒
+							</span>
 							<span class="list-span">活动状态：拼团成功</span>
 							<span class="list-span">参团日期：2018-01-12</span>
 						</span>
@@ -27,11 +44,11 @@
 							查看拼单
 						</span>
 						<span class="newsp-check-order">
-							查看订单
+							立即购买
 						</span>
 					</div>
 				</li>
-				<li class="list">
+				<li class="list js_timer">
 					<div class="list-content">
 						<span class="list-left">
 							<img src="../images/retail-goodsDetails-img004.png" alt="" />
@@ -39,7 +56,10 @@
 						</span>
 						<span class="list-right">
 							<span class="list-title">活色生香女神钻石大特价系列，拼单可享受折上折优惠</span>
-							<span class="list-span">剩余时间：0天23小时33分23秒</span>
+							<!--拼单倒计时-->
+							<span class="list-span">
+								<span class="js_day_show padding-5px">00</span>小时<span class="js_hour_show padding-5px">00</span>小时<span class="js_minute_show padding-5px">00</span>分<span class="js_second_show padding-5px">00</span>秒
+							</span>
 							<span class="list-span">活动状态：拼团失败</span>
 							<span class="list-span">参团日期：2018-01-12</span>
 						</span>

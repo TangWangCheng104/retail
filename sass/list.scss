@@ -1,4 +1,4 @@
-@import "base";
+//@import "base";
 @mixin border-box( $border-box:"border-box" ){
     -webkit-box-sizing: $border-box;
     box-sizing: $border-box;
@@ -11,6 +11,7 @@ $imgWidth : 1.3rem;
 $listLeftMarginRight: .1rem;
 .list-wrap{
     width: 92%; 
+    margin-left: 4%;
     color: #666666; 
     @include border-box(border-content);      
 }
@@ -35,4 +36,33 @@ $listLeftMarginRight: .1rem;
 .list-title{
     font-size: 14px;
     color: #222;
+    width: 100%;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.list-check-btn{
+    @extend.displayFlex;
+    justify-content: flex-end;
+    height: .48rem;
+    align-items: center;
+}
+.list-check-spell{
+    $Color:#222;
+    display: inline-block;
+    padding: .05rem .03rem;
+    @include border(1px solid #222);
+    color: #222;
+    border-radius: .04rem;
+    margin-left: .1rem;
+}
+.list-check-order{
+    $Color:#fe4b4b;
+    @extend.list-check-spell;
+    @include border(1px solid $Color);
+    color: $Color;
+}
+.list-content{
+    @extend.displayFlex;
 }

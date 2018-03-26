@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>我的奖品</title>
+		<link rel="stylesheet" type="text/css" href="../css/extractPirze1.css"/>
+		<script src="../js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/extractPrize.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/goodDetail.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".prize-video-icon").click(function(){
+					$("#prizeVideo").attr("controls","controls")
+					$("#prizeVideo")[0].play();
+					$(this).hide();
+				})
+				marquee.marquee(2000);
+			})
+		</script>
+		<style type="text/css">
+			html,body,.prize-index-wrap{
+				width: 100%;
+				height: 100%;
+			}
+			.prize-index-wrap .header-three-nav{
+		        height: 6%;
+		    }
+			.prize-index-wrap .prize-index-content{
+		        background-image:url('../images/extract_price_index.jpg');
+		        background-repeat: no-repeat;
+		        background-size:cover;
+		        height: 94%;
+		        width: 100%;
+		        position: absolute;
+        		top: 6%;
+		    }
+		</style>
+	</head>
+	<body>
+		
+		<div class="prize-index-wrap">
+			<!--marquee-->
+	        <div class="marquee-wrap">
+	            <div id="demo" class="marquee-items">
+	                <div id="demo1">
+	                    <div class="js_text_item_parent">
+	                        <span class="js_text_item marquee-item">
+	                            <div class="flex-row">
+	                                <i class="marquee-item-icon flex-row"><img class="img-responsive marquee-userHeader" src="../images/icon_message.png" alt=""></i>
+	                                <span class="js_kandan_username usename-style">罗勇</span>刚刚砍了一下
+	                            </div>
+	                        </span>
+	                    </div>
+	                     <div class="js_text_item_parent">
+	                        <span class="js_text_item marquee-item">
+	                            <div class="flex-row">
+	                                <i class="marquee-item-icon flex-row"><img class="img-responsive marquee-userHeader" src="../images/icon_message.png" alt=""></i>
+	                                <span class="js_kandan_username usename-style">罗勇罗勇</span>刚刚砍了一下
+	                            </div>
+	                        </span>
+	                    </div>
+	                     <div class="js_text_item_parent">
+	                        <span class="js_text_item marquee-item">
+	                            <div class="flex-row">
+	                                <i class="marquee-item-icon flex-row"><img class="img-responsive marquee-userHeader" src="../images/icon_message.png" alt=""></i>
+	                                <span class="js_kandan_username usename-style">罗勇罗勇罗勇</span>刚刚砍了一下
+	                            </div>
+	                        </span>
+	                    </div>
+	                    
+	                </div>
+	                <div id="demo2"></div>
+	            </div>
+	        </div>
+	        <!--marquee end-->
+			<div class="header-three-nav">
+				<span class="header-three-left">返回主活动</span>
+				<span class="header-three-center"><span style="display: none;">店铺名称</span><img class="header-three-shop-logo" src="../images/icon-address-car.png" alt="" /></span>
+				<span class="header-three-right">公众号</span>
+			</div>
+			<div class="prize-index-content" >
+				<div class="prize-video-wrap">
+					<div class="prize-video js_videoDiv">
+						<span class="prize-now-btn">
+							立即抽奖
+						</span>
+						<img class="prize-video-icon" src="../images/video_icon.png"  alt="" />
+						<video class="prize-index-video" id="prizeVideo" onended='prizeVideo.playEnd()'>
+							<source src="https://oss.pg.yibaotong.top/files/item_video/20171019_offline/1572865173100.mp4" type="video/mp4"></source>
+							当前浏览器不支持 video直接播放，点击这里下载视频： <a href="https://oss.pg.yibaotong.top/files/item_video/20171019_offline/1572865173100.mp4">下载视频</a>
+						</video>
+					</div>
+				</div>
+			</div>
+			<!--悬浮的我的奖品-->
+			<div class="myprize-icon-wrap">
+				<span class="myprize-numb">1</span>
+				<img class="myprize-icon" src="../images/myprize_icon.png" alt="" />
+			</div>
+			<!--悬浮的我的奖品end-->
+					
+		</div>
+	</body>
+</hmtl>

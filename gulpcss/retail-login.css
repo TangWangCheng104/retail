@@ -1,0 +1,295 @@
+body{
+    background: #fff;
+}
+.retail-seller-iconWrap{
+    text-align: center;
+    margin: 58px auto 0;
+    font-size: 17px;
+}
+.retail-seller-icon{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.retail-seller-btn{
+    background: #fd9281;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 5px;
+    margin-bottom: 24px;
+}
+.retail-seller-btnIconqq{
+    padding-right: 5px;
+}
+.retail-seller-btnWrap{
+    text-align: center;
+    color: #fff;
+    padding: 85px 25px 0;
+    font-size: 14px;
+}
+.retail-seller-webOpen{
+    padding-top: 65px;
+}
+.retail-seller-btnIcon img{
+    width: 22px;
+    margin-right: 5px;
+    margin-bottom: 4px;
+}
+.retail-seller-register{
+    width: 100%;
+    font-size: 14px;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 30px;
+}
+.retail-seller-IconAllow img{
+    width: 9px;
+    margin-left: 5px;
+    padding-bottom: 2px;
+}
+.retail-seller-webOpen-iconWrap{
+    padding: 30px 30px 50px;
+}
+.retail-seller-webOpen-imgWrap{
+    flex: 1;
+}
+.retail-seller-webOpen-img{
+    padding: 0 13px;
+}
+@media (max-width: 350px) {
+    .retail-seller-webOpen-iconWrap{
+        padding: 20px 20px 35px;
+    }
+    .retail-seller-webOpen-img{
+        padding: 0 8px;
+    }
+    .retail-seller-webOpen {
+        padding-top: 50px;
+    }
+    .retail-seller-icon {
+        width: 70px;
+        height: 70px;
+    }
+    .retail-seller-iconWrap {
+        margin: 40px auto 0;
+    }
+}
+/*注册样式开始*/
+.retail-register {
+    padding: 70px 25px;
+}
+.register-veritfy-wrap{
+    border-bottom: 1px solid #d7d7d7;
+}
+.retail-register-phone {
+    margin-bottom: 40px;
+    padding-left: 20px;
+    background: url(../images/icon_phone.png) #fff 0 5px no-repeat;
+}
+.retail-register-username {
+    background: url(../images/icon_name.png) #fff 0 7px no-repeat;
+    background-size: 16px;
+}
+.retail-register-phone-input{
+    padding-left: 5px;
+    height: 30px;
+}
+.retail-register-vertfy {
+    margin-bottom: 80px;
+    background: url(../images/icon_verify.png) #fff 0 5px no-repeat;
+}
+.retail-register-password {
+    margin-bottom: 80px;
+    background: url(../images/icon_password001.png) #fff 0 6px no-repeat;
+    background-size: 16px;
+}
+.retail-register-vertfy-span-line{
+    color: #d7d7d7;
+}
+.partner-input-groupR .retail-register-phone-input,.retail-register-phone-input{
+    width: 100%;
+    height: 30px;
+    border: none;
+    font-size: 16px;
+}
+.register-weixin-wrap{
+    flex: 1;
+    width: 100%;
+}
+.retail-register-vertfy-btn {
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    color: #3b67a4;
+    font-weight: bold;
+    border: none;
+    background: none;
+    font-size: 14px;
+    padding-left: 5px;
+}
+.retail-login-btn-login input{
+    width: 100%;
+    height: 45px;
+    border-radius: 5px;
+    background: #ff865d;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+}
+.retail-login-btn-login input.disabled{
+    background: #d7d7d7;
+    color: #fff;
+}
+.partner-closeBtn {
+    width: 14px;
+    height: 14px;
+    margin: 8px 15px;
+    border-radius: 5px;
+}
+.lqy-input-wrap{
+    width: 100%;
+    flex: 1;
+}
+.partner-input-verify-btn{
+    border: none;
+    border-radius: 5px;
+    line-height: 30px;
+    font-size: 14px;
+    padding-left: 5px;
+    background: none;
+    font-weight: bold;
+    color: #3b67a4;
+}
+.partner-input-verify-btn.disabled,input.partner-input-verify-btn:disabled,input.partner-input-verify-btn[disabled] {
+    color: #d7d7d7;
+    background-color: #fff;
+}
+.retail-comverify label.error {
+    font-size: 11px;
+}
+.register-loginBtn{
+    position: inherit;
+    margin-top: 110px;
+}
+.register-loginBtn a{
+    display: block;
+    padding:10px 30px;
+    font-size:14px;
+}
+.icon_jiantouR{
+    padding-left: 7px;
+}
+/*注册样式end*/
+.lqy-findPassword-empty{
+    width: 100%;
+    height: 50px;
+}
+/*手机号码登录样式开始*/
+.login-password-verify-menu{
+    margin: 30px 0  60px;
+}
+.login-password-verify-menu .item{
+    margin: 10px 0;
+}
+.login-password-verify-menu {
+    height: 25px;
+    line-height: 25px;
+    margin: 30px 0 80px;
+}
+.login-password-verify-menu .item {
+    color: #222222;
+    margin: 10px 0;
+}
+ .login-password-verify-menu .first{
+     border-right: 1px solid #222
+ }
+.login-password-verify-menu .active {
+    color: #ff865d;
+}
+.retail-login-phone-pwd{
+    padding: 0 25px;
+}
+.retail-phoneLogin{
+    margin: 0;
+}
+.retail-login-href{
+    padding: 22px 0 30px;
+    display: inline-block;
+    color: #888;
+}
+.login-password-verify-menu{
+    font-weight: bold;
+}
+.phoneLogin-btnPassword{
+    margin-top: 30px;
+}
+.collect_alert {
+    top: 100px;
+}
+/*手机号码登录样式end*/
+/*弹窗样式开始*/
+.alert-enterName{
+    width: 100%;
+    position: absolute;
+    top: 140px;
+    z-index: 1040;
+}
+.alert-enterName-msg{
+    flex: 1;
+    margin: 0 29px;
+    padding: 25px 29px 20px;
+    height: 235px;
+    background: #f8f8f8;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #999999;
+}
+.alert-enterName-input input{
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    border-radius: 5px;
+    border: #d7d7d7 1px solid;
+    margin: 29px auto 0;
+    padding-left:15px;
+    font-size: 16px;
+    color: #666;
+}
+.retail-login-btn-login{
+    margin: 23px 0 20px;
+}
+.phoneLogin-btnPassword {
+    margin-top: 10px;
+}
+/*弹窗样式开始*/
+/*绑定手机号码样式开始*/
+.reteil-bindPhone{
+    padding: 0 26px;
+}
+.reteil-bindPhone-iconWrap{
+    margin: 58px auto 75px;
+    font-size: 17px;
+}
+/*绑定手机号码样式结束*/
+@media (max-width: 365px) {
+    .register-loginBtn{
+        margin-top: 30px;
+    }
+    .retail-login-btn-login {
+        margin-top: 8px;
+    }
+    .retail-register-vertfy {
+        margin-bottom: 50px;
+    }
+    .reteil-bindPhone-iconWrap {
+        margin: 30px auto 60px;
+        font-size: 17px;
+    }
+}
+@media (min-width: 400px) {
+    .register-loginBtn{
+        margin-top: 150px;
+    }
+}

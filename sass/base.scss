@@ -18,12 +18,12 @@ body {
     background-color: #fff;
     word-wrap: break-word;
 }
-//html{
-//  font-size: 625%;
-//}
-//body{
-//  font-size: 14px;
-//}
+html{
+    font-size: 625%;
+}
+body{
+    font-size: 14px;
+}
 a{
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -197,11 +197,9 @@ img{
 //relative居中
 .positionRelativeCenter{
     position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 //absolute居中
 .positionAbCenter{
@@ -231,8 +229,11 @@ img{
     -webkit-box-shadow: $box-shadow;
     box-shadow: $box-shadow;
 }
-@mixin border-box( $border-box:"border-box" ){
+@mixin border-box( $border-box:border-box ){
     -webkit-box-sizing: $border-box;
+    -moz-box-sizing: $border-box;
+    -o-box-sizing: $border-box;
+    -ms-box-sizing: $border-box;
     box-sizing: $border-box;
 }
 @mixin border($border:1px solid #d7d7d7){

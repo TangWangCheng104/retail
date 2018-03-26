@@ -1,7 +1,8 @@
 @charset "UTF-8";
 /*零售版消费者商品详情大图样式开始*/
 .retail-goodsDetails {
-  padding-bottom: 50px; }
+  padding-bottom: 50px;
+  position: relative; }
 
 .body-position-fixed {
   position: fixed;
@@ -183,7 +184,7 @@ img {
   height: 60px;
   position: fixed;
   z-index: 888;
-  bottom: 200px;
+  bottom: 110px;
   right: 12px; }
 
 .pingdan-goodsDetails-user-timeLimit {
@@ -435,8 +436,8 @@ img {
 
 .os-lingshou-wrap {
   display: block;
-  height: 31px;
-  line-height: 31px;
+  height: 50px;
+  line-height: 50px;
   color: #fff;
   text-align: center;
   font-size: 13px;

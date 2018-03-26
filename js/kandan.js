@@ -101,9 +101,11 @@ function KandanAlert(){
     }
 }
 /*砍价规则显示*/
-function Rule(){
+function Rule(t){
+	$('#'+ t).fadeIn(300);
     $('#kandanRuleAlert').fadeIn(300);
     $('#com_black').show();
+    $("body,html").addClass("ovfHiden");
 }
 /*进阶榜和荣誉榜的相互切换*/
 /*进阶榜*/
@@ -543,7 +545,142 @@ function cantHelpKandanfn() {
     $('#cantHelpKandan').fadeIn(300);
     $("#com_black").fadeIn(300);
 }
-
+//轮播图的js
+var othreePageSwiper = {
+	swiper( speed ){
+		var swiperWrapWidth = parseInt( $(".swiper-wrap").parent().css("width") );
+//		var swiperWrapWidth = parseInt( $(".swiper-wrap").parent().width() );
+//		console.log( parseInt( swiperWrapWidth ) )
+		var swiperListWidth = swiperWrapWidth -80;
+//		var swiperListWidth = swiperWrapWidth - 40;
+		var swiperListLength = $(".swiper-wrap .swiper-list").length;
+		//增加一张轮播图，最后一张变成第一张
+		var lastPic = $(".swiper-wrap .swiper-list").eq( swiperListLength - 1 ).clone();
+		var fristPic = $(".swiper-wrap .swiper-list").eq( 0 ).clone();
+		
+		$( lastPic ).insertBefore( $(".swiper-wrap .swiper-list").eq(0) );
+		$( fristPic ).appendTo( $(".swiper-wrap"));
+		
+		var swiperListLength = $(".swiper-wrap .swiper-list").length;
+		$(".swiper-wrap .swiper-list").css({"width" : swiperListWidth,"height":swiperListWidth});
+		$(".swiper-wrap").css( "width", ( swiperListLength ) * ( swiperListWidth ) );
+//		$(".swiper-wrap").css( "width", swiperListLength * ( swiperListWidth + 14) );
+//		console.log( swiperListLength )
+		$("#threePageSwiper").css({"height": swiperWrapWidth - 40})
+		
+		//轮播
+		//自动轮播
+		var timer = setInterval(autoplaySwiper,speed);
+		var i = 1;
+		$(".swiper-wrap").css({ left:-( swiperListWidth - 40 ),transition:"none" });
+		
+		function autoplaySwiper(){
+			i ++;
+//			$(".swiper-wrap").css({ left:-( i * ( swiperListWidth + 9.5 ) ),transition:"all 0.5s" })
+			$(".swiper-wrap").css({ left:-( i * ( swiperListWidth ) - 40 ),transition:"all 0.5s" })
+			$(".swiper-wrap .swiper-list").eq(i).addClass("swiper-active").siblings().removeClass("swiper-active");
+			$(".swiper-cricle-wrap .swiper-cricle").eq(i-1).addClass("circle-active").siblings().removeClass("circle-active");
+			//如果到了最后一张的时候,就重头再来
+			if( i > swiperListLength - 2 ){
+				i = 1;
+				$(".swiper-wrap").css({ left: 40,transition:"none" });
+//				$(".swiper-wrap").css({ left:14,transition:"none" });
+				var TimeoutTimer = setTimeout(function(){
+					$(".swiper-wrap").css({ left:- ( swiperListWidth - 40)  ,transition:"all 0.5s" })
+					$(".swiper-wrap .swiper-list").eq(i).addClass("swiper-active").siblings().removeClass("swiper-active");
+					$(".swiper-cricle-wrap .swiper-cricle").eq(i-1).addClass("circle-active").siblings().removeClass("circle-active");
+					clearTimeout( TimeoutTimer );
+				},10)
+			}
+			//如果到了第一张之前的时候,到最后一张
+			
+			if( i < 1 ){
+				i = swiperListLength - 2;
+				$(".swiper-wrap").css({ left: -( ( swiperListLength - 1 ) * swiperListWidth ) + 40 ,transition:"none" });
+				var TimeoutTimer = setTimeout(function(){
+					$(".swiper-wrap").css({ left:-( (swiperListLength - 2 ) * ( swiperListWidth ) ) + 40 ,transition:"all 0.5s" })
+//					$(".swiper-wrap").css({ left:-( (swiperListLength-1 ) * ( swiperListWidth + 11 ) ) ,transition:"all 0.5s" })
+					$(".swiper-wrap .swiper-list").eq(i).addClass("swiper-active").siblings().removeClass("swiper-active");
+					$(".swiper-cricle-wrap .swiper-cricle").eq(i-1).addClass("circle-active").siblings().removeClass("circle-active");
+					clearTimeout( TimeoutTimer );
+				},10)
+			}
+			
+		}
+		//下一张
+//		function nextPic(){
+//			clearInterval( timer );
+//			autoplaySwiper();
+//			var timer = setInterval(autoplaySwiper,speed);
+//		}
+		//上一张，下一张的手动滑动事件
+//		let startX ,startY;
+//		$('.swiper3d-list').on("touchstart",function(e){
+//			startX = e.originalEvent.touches[0].clientX;
+//		})
+//		$('.swiper3d-list').on("touchmove",function(e){
+//			endX = e.originalEvent.touches[0].clientX;
+//		})
+//		$('.swiper3d-list').on("touchend",function(e){
+//			if( startX > endX + 5 ){
+//				nextPic();
+//			}
+//			else if( startX < endX - 5 ){
+//				swiper.pre();
+//			}
+//		})
+		$(".uk-swiper-big").click(function(){
+			$(".uk-swiper-big").removeClass("big-swiper-show");
+		})
+		$(".swiper-wrap").on("click",".swiper-list",function(){
+			var index = $(this).index(".swiper-wrap .swiper-list");
+			console.log(index);
+			if( $(this).hasClass("swiper-active") ){
+				var index = $(this).index(".three-page-wrap .swiper-list");
+				$(".uk-swiper-big").addClass("big-swiper-show");
+				$(".carousel-indicators li").eq(i-1).addClass("active").siblings().removeClass("active");
+				$("#bigSlideShow .item").eq(i-1).addClass("active").siblings().removeClass("active");
+			}
+		})
+		//手势滑动，向左滑动
+		$('#threePageSwiper').hammer().on('swipeleft', function(){
+    		next();
+	    });
+	    $('#carousel-bigimg-generic').hammer().on('swipeleft', function(){
+    		$(this).carousel('next');
+    		next();
+	    });
+		//手势滑动，向右滑动
+	    $('#threePageSwiper').hammer().on('swiperight', function(){
+    		prev();
+	    });
+	    $('#carousel-bigimg-generic').hammer().on('swiperight', function(){
+    		$(this).carousel('prev');
+    		prev();
+	    });
+		$("#next").click(function(){
+			next();
+		})
+		$("#prev").click(function(){
+			prev();
+		})
+		function next(){
+			clearInterval( timer );
+			autoplaySwiper();
+			timer = setInterval(autoplaySwiper,speed);
+		}
+		function prev(){
+			clearInterval( timer );
+			i -= 2;
+			autoplaySwiper();
+			timer = setInterval(autoplaySwiper,speed);
+		}
+//		return {
+//			nextPic,
+//			_self : this
+//		}
+	}
+}
 
 
 

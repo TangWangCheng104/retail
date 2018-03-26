@@ -23,7 +23,15 @@ $(function(){
 	    newspSwiper.bigSwiper("bigSwiper3d");
 	    newspSwiper.clickBig( $('Swiper3d .swiper-list') );
     },10)
+    $('#Swiper3d').on("click",".swiper-list",function(){
+    	var index = $(this).index("#Swiper3d .swiper-list")
+    	newspSwiper.clickBig(index);
+    })
+    //点击3d轮播图大图，蒙版和大图消失
     
+    $('#bigSwiper3d').on("click",".swiper-list",function(){
+    	newspSwiper.clickHide()
+    })
 });
 /*清除定时器的一种方法*/
 
@@ -122,20 +130,14 @@ function spellShare(){
     $('#spellShare').fadeIn(300);
     $('#com_black').fadeIn(300);
 }
-/*拼单规则显示*/
-function spellRules(t){
-	$(t).fadeIn(300);
-    $('#pingdanRule').fadeIn(300);
-    $('#com_black').fadeIn(300);
-    $('#pingdanRule').parent().fadeIn(300);
-}
+
 //3d轮播图
 var newspSwiper = {
 	//普通的轮播图，通过css3放大和移动两个属性制作
 	swiper(obj){
 		console.log( $("#"+obj +' .swiper-list').length )
 		if( $('#'+obj+' .swiper-list').length >= 2 ){
-			var i = 0;
+			var i = 1;
 			//Swiper3d宽度
 			var Swiper3dWidth = $("#"+obj).width();
 			$("#"+obj+" .swiper-list").css({
@@ -154,7 +156,7 @@ var newspSwiper = {
 			//list宽度
 			var listWidth = $("#"+obj+" .swiper-list").eq(0).width();
 	//		//第二张是最后一张图
-			var fristPic = $('#'+obj+' .swiper-list').eq( insertBeforeListLength - 1 ).clone().addClass("active3d");
+			var fristPic = $('#'+obj+' .swiper-list').eq( insertBeforeListLength - 1 ).clone();
 			//倒数第二张是第一张
 			var secondPic = $('#'+obj+' .swiper-list').eq( insertBeforeListLength - 2 ).clone();
 			//最后一张是第一张图，这样就形成循环了
@@ -167,7 +169,12 @@ var newspSwiper = {
 			//ul的宽度
 			console.log(  listWidth )
 			$('#'+obj).css({"width":listLength * listWidth})
-			//
+			
+			$("#"+obj).css({
+				"left": -listWidth * i
+			});
+			$('#'+obj+' .swiper-list').eq(i + 1).addClass("active3d").siblings().removeClass("active3d");
+				
 			console.log( $("#"+obj).css("width") )
 			function swiperLeave(){
 				i++;
@@ -178,20 +185,34 @@ var newspSwiper = {
 				//li变大
 				$('#'+obj+' .swiper-list').eq(i + 1).addClass("active3d").siblings().removeClass("active3d");
 				//变红
-				$('#Swiper3dCricle .Swiper3d-cricle-list').eq( i ).addClass('cricleActive3d').siblings().removeClass('cricleActive3d');
+				$('#Swiper3dCricle .Swiper3d-cricle-list').eq( i-1 ).addClass('cricleActive3d').siblings().removeClass('cricleActive3d');
 				if( i >= listLength - 2 ){
 					$("#"+obj).css({
 						"transition":"auto",
 						"left":0
 					})
-					console.log(i)
+					
+					
+					
+//					console.log(i)
+//					$('#'+obj+' .swiper-list').eq( 1 ).css({
+////						"transition":"auto",
+//					}).addClass('active3d');
+				}
+				if( i >= listLength - 3 ){
+					
 					$('#'+obj+' .swiper-list').eq( 1 ).css({
-						"transition":"auto",
+//						"transition":"auto",
 					}).addClass('active3d');
 				}
-				
 				if( i >= listLength - 1 ){
 					i = 0;
+					
+//						$("#"+obj).css({
+//							"left": -listWidth * i,
+////							"transition":"all .5s"
+//						});
+					
 				}
 				if( i < 0 ){
 					$("#"+obj).css({
@@ -205,7 +226,7 @@ var newspSwiper = {
 					
 				}
 			}
-			var timer = setInterval(swiperLeave,1000);
+			var timer = setInterval(swiperLeave,2000);
 			//手势滑动事件
 			//上一张，下一张的手动滑动事件
 			
@@ -216,13 +237,14 @@ var newspSwiper = {
 			endX = startX;
 			$('#'+obj+' .swiper-list').on("touchmove",function(e){
 				endX = e.originalEvent.touches[0].clientX;
+				clearInterval( timer );
 			})
 			$('#'+obj+' .swiper-list').on("touchend",function(e){
 				if( startX > endX + 10 ){
 					clearInterval( timer );
 					console.log("next")
 					swiperLeave()
-					timer = setInterval(swiperLeave,1000);
+					timer = setInterval(swiperLeave,2000);
 					console.log( timer )
 					
 				}
@@ -231,7 +253,7 @@ var newspSwiper = {
 					console.log("prev")
 					i-=2;
 					swiperLeave()
-					timer = setInterval(swiperLeave,1000);
+					timer = setInterval(swiperLeave,2000);
 					console.log( timer )
 					
 				}
@@ -244,6 +266,8 @@ var newspSwiper = {
 				"width":Swiper3dWidth / 3,
 				"height":Swiper3dWidth / 3
 			})
+			$('.newsp-swiper').css({"height":Swiper3dWidth / 3 + 170});
+			console.log($('.newsp-swiper').css("height") )
 			var insertBeforeListLength = 1;
 			//下面小圆点的个数
 			for(var k = 1;k<insertBeforeListLength;k++){
@@ -266,7 +290,7 @@ var newspSwiper = {
 				"transform":"scale(1.5,1.5)"
 			})
 			$("#"+obj +'.swiper-list').eq( 0 ).addClass('active3d');
-			$('.newsp-swiper').css({"height":Swiper3dWidth / 3 * 1.5 + 170});
+			
 		}else if( $("#"+obj +' .swiper-list').length == 2 ){
 //			//Swiper3d宽度
 //			var Swiper3dWidth = $("#"+obj).width();
@@ -303,6 +327,11 @@ var newspSwiper = {
 //			$("#"+obj +'.swiper-list').eq( 0 ).addClass('active3d');
 //			$('.newsp-swiper').css({"height":Swiper3dWidth / 3 * 1.5 + 170});
 		}
+		//点击轮播图，，出现较大的轮播图
+		var that = this;
+		$('#Swiper3d .swiper-list').click(function(){
+			that.clickBig( $('#Swiper3d .swiper-list') );
+		})
 	},
 	bigSwiper(obj){
 		
@@ -316,7 +345,7 @@ var newspSwiper = {
 		var insertBeforeListLength = $("#"+obj+" .swiper-list").length;
 		//下面小圆点的个数
 		for(var k = 1;k<insertBeforeListLength;k++){
-			var cricleDot = '<li class="Swiper3d-cricle-list active3d bigActive3d"></li>'
+			var cricleDot = '<li class="Swiper3d-cricle-list bigActive3d"></li>'
 			$('#bigSwiper3dCricle').append(cricleDot);
 		}
 		//list宽度
@@ -337,7 +366,7 @@ var newspSwiper = {
 		$('#'+obj).css({"width":listLength * listWidth})
 		//
 		console.log( $("#"+obj).css("width") )
-		setInterval(function(){
+		function bigSwiperLeave(){
 			//向右移动
 			i++;
 			$("#"+obj).css({
@@ -345,28 +374,101 @@ var newspSwiper = {
 				"transition":"all .5s"
 			});
 			//li变大
-			$('#'+obj+' .swiper-list').eq(i + 1).addClass("active3d bigActive3d").siblings().removeClass("active3d bigActive3d ");
+			$('#'+obj+' .swiper-list').eq(i + 1).addClass("bigActive3d").siblings().removeClass("bigActive3d");
 			//变红
-			$('#Swiper3dCricle Swiper3d-cricle-list').eq( i + 1).addClass('active3d bigActive3d').siblings().removeClass('active3d bigActive3d');
+			$('#bigSwiper3dCricle .Swiper3d-cricle-list').eq( i - 1 ).addClass('cricleActive3d').siblings().removeClass('cricleActive3d');
+			if( i < 0 ){
+				console.log(i)
+				i = listLength - 3;
+				$("#"+obj).css({
+					"transition":"auto",
+					"left": -listWidth * i
+				})
+				console.log(i)
+			}
 			if( i >= listLength - 2 ){
 				$("#"+obj).css({
 					"transition":"auto",
 					"left":0
 				})
-				$( fristPic ).css({
-					"transition":"auto",
-				}).addClass('active3d bigActive3d');
+//				$( fristPic ).css({
+//					"transition":"auto",
+//				}).addClass('active3d bigActive3d');
 				i = -1;
 			}
-		},9000)
+			
+		}
+		var timer = setInterval(bigSwiperLeave,2000)
+		//手势滑动事件
+			//上一张，下一张的手动滑动事件
+			
+			var startX ,startY,endX;
+			$('#'+obj+' .swiper-list').on("touchstart",function(e){
+				startX = e.originalEvent.touches[0].clientX;
+			})
+			endX = startX;
+			$('#'+obj+' .swiper-list').on("touchmove",function(e){
+				endX = e.originalEvent.touches[0].clientX;
+				clearInterval( timer );
+			})
+			$('#'+obj+' .swiper-list').on("touchend",function(e){
+				if( startX > endX + 5 ){
+					clearInterval( timer );
+					console.log("next")
+					bigSwiperLeave()
+					timer = setInterval(bigSwiperLeave,2000);
+					console.log( timer )
+					
+				}
+				else if( startX < endX - 5 ){
+					clearInterval( timer );
+					console.log("prev")
+					i-=2;
+					bigSwiperLeave()
+					timer = setInterval(bigSwiperLeave,2000);
+					console.log( timer )
+					
+				}
+			})
 	},
 	clickBig(t){
-		if( t.hasClass("active3d") ){
-			for( key in $('#Swiper3d .swiper-list') ){
-				console.log(key);
-			}
+		if($('#Swiper3d .swiper-list').eq(t).hasClass("active3d")){
+
+			$('.newsp-bigSwiper-wrap .newsp-swiper').css({
+				"opacity":1,
+				"z-index":1050
+			});
+			$(".newsp-bigSwiper-wrap").css({
+				"opacity":1,
+				"z-index":1050
+			})
+			$('#bigSwiper3dCricle').css({
+//				"z-index":1050,
+//				"position":"relative"
+			})
+			$('#jsBlackBg').show();
+			$('body html').addClass('ovfHiden');
+
 		}
+		else{
+			
+		}
+	},
+	clickHide(){
+		$('.newsp-bigSwiper-wrap .newsp-swiper').css({
+			"opacity":0,
+			"z-index":-1
+		});
+		$(".newsp-bigSwiper-wrap").css({
+			"z-index":-1
+		})
+		$('#bigSwiper3dCricle').css({
+//			"z-index":-1
+		})
+		$('#jsBlackBg').hide();
+		$('body html').removeClass('ovfHiden');
 	}
+	
 }
 
 //var spellI = 0;

@@ -1,0 +1,33 @@
+.marquee-wrap {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  text-align: left; }
+
+.marquee-items-items {
+  padding: 0 10px;
+  height: 62px;
+  overflow: hidden;
+  display: inline-block; }
+
+.marquee-item {
+  width: inherit;
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  font-size: 11px;
+  border-radius: 20px;
+  color: #666;
+  margin-bottom: 6px;
+  background: #f1cc78;
+  opacity: 0.65;
+  padding-right: 15px;
+  padding-left: 2px; }
+
+.marquee-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden; }
+
+/*# sourceMappingURL=marquee.css.map */

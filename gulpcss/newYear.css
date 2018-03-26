@@ -1,0 +1,472 @@
+html{
+    width: 100%;
+    min-height: 100%;
+    font-size: 625%;
+}
+body{
+    width: 100%;
+    min-height: 100%;
+    background: #f01500;
+}
+.new-year-banner-img,.new-second-kill-four-img,.new-year-shopName-img,.new-year-join-active,.new-year-kanjia-img,.new-kandan-content-img,.new-year-lanterns,.new-year-footer-wenli{
+    width: 100%;
+}
+.new-kandan-content-left-description,.new-year-price,.new-year-pingdan-prcie-text{
+    white-space:nowrap;
+}
+.new-shop-name-img-warp{
+    text-align: center;
+    position: relative;
+    top:.04rem;
+    top:1.1vw;
+}
+.new-year-shopName{
+    display: block;
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    transform: translateY(10%);
+    margin:auto;
+    font-size: 16px;
+    color: #ffffd8;
+    font-size: 4.2vw;
+}
+.new-year-shopName-change{
+    text-align: center;
+    font-size: 16px;
+    position: absolute;
+    top: 2.5%;
+    display: inline-block;
+    left: 0;
+    right:0;
+    margin: auto;
+    color: #ffffd8;
+    z-index:1040;
+}
+.new-shop-name-warp-change{
+    margin-bottom: .7rem;
+}
+.new-step{
+    position: relative;
+    width: 100%;
+}
+.new-year-active-name-wrap{
+    padding:4%;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top:7%;
+}
+.new-year-active-name{
+    text-align: center;
+    flex:1;
+}
+.new-year-active-name-text,.new-year-active-name-time{
+    display: block;
+    color: #910603;
+}
+.new-year-active-name-text{
+    font-size: .13rem;
+}
+.new-year-active-name-time{
+    font-size: .12rem;
+}
+.new-year-kandan-wrap{
+    margin-top: .70rem;
+}
+.new-kandan-content-wrap{
+    position: relative;
+    margin-bottom: .8rem;
+
+}
+.new-kandan-content{
+    position: absolute;
+    height: 100%;
+    top:0;
+}
+.new-year-kandan-wrap .new-kandan-content-wrap:last-child{
+    margin-bottom: 0;
+}
+.new-kandan-content-left{
+    float: left;
+    width: 50%;
+    /*height: 100%;
+    box-sizing: border-box;*/
+}
+.new-kandan-content-right{
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.denglong{
+    width: .20rem;
+}
+.new-year-left-side,.new-year-right-side{
+    height: .19rem;
+    position: relative;
+    top:.02rem;
+}
+.new-kandan-content-right-img{
+    width: 80%;
+    position: relative;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.new-kandan-content-left-title{
+    color: #db3521;
+    font-size: .19rem;
+    margin-top: 15%;
+    margin-left: 20%;
+    font-weight: bold;
+    white-space: nowrap;
+    height: 12.5%;
+    text-align: center;
+}
+.new-kandan-content-left-description{
+    margin-left: 23%;
+    text-align: center;
+    width: 65%;
+    border-top: 1px dashed #4a1309;
+    border-bottom: 1px dashed #4a1309;
+    color:#470f06 ;
+    margin-top: .03rem;
+    height: 10.5%;
+    font-size: .10rem;
+}
+.new-kandan-content-left-price{
+    display: inline-block;
+    padding:0 .10rem;
+    background-color: #ee9b48;
+    margin-top: 10%;
+    margin-left: 3%;
+    padding-left: .05rem;
+    box-sizing: border-box;
+    height: 11%;
+}
+.new-year-price{
+    display: inline-block;
+    padding:0 .15rem;
+    height: .19rem;
+    border-top: 1px solid #862513;
+    border-bottom: 1px solid #862513;
+    box-sizing: border-box;
+    position: relative;
+    top:-.02rem;
+    left: -.04rem;
+    font-size: .13rem;
+    color: #641f0b;
+    text-decoration: line-through;
+}
+.new-year-right-side{
+    position: relative;
+    left:-.08rem;
+}
+.new-year-price-wrap{
+    display: inline-block;
+     background-color: #db3521;
+     position: relative;
+     height: 22%;
+     left: 5%;
+     border-radius: 25px;
+     margin-top: 4%;
+     border: 2px solid #fdf3b8;
+     box-sizing: border-box;
+    padding-right: .48rem;
+    white-space: nowrap;
+}
+.new-year-price-img{
+    width: .47rem;
+    position: relative;
+    top:10%;
+    transform: translateY(-50%);
+    margin-left: .10rem;
+    vertical-align: baseline;
+}
+.new-year-qiling{
+     height: .53rem;
+     position: absolute;
+     right: -.20rem;
+    top:-.10rem;
+}
+.new-year-now-price{
+     color: #fff;
+     font-size: .10rem;
+     text-shadow: -5px -5px 5px #e46a57;
+    position: relative;
+    left: -.07rem;
+}
+
+.new-year-price-number{
+    font-size: .38rem;
+    line-height: .43rem;
+}
+.new-year-sale-all{
+    position: absolute;
+    width: 20%;
+    z-index: 1030;
+    top:-.05rem;
+    right:1%;
+}
+.new-year-pindan-wrap{
+    position: relative;
+}
+.new-pindan-content-left-title{
+    color: #4f0a0b;
+    font-size: .20rem;
+    margin-left: 15%;
+    text-align: center;
+}
+.new-pindan-content-left-description{
+    font-size: .11rem;
+    color: #da4025;
+    border-top:1px solid #e88872;
+    border-bottom:1px solid #e88872;
+}
+.new_year_circle{
+    display: inline-block;
+    background-color: #4c160d;
+    border-radius: 25px;
+    width: .03rem;
+    height: .03rem;
+    margin: 0 .05rem;
+    position: relative;
+    top:-.02rem;
+}
+.new-pindan-content-left-price,.new-pindan-content-left-description,.new-year-now-prcie-wrap{
+    position: relative;
+    left: 58%;
+    transform: translateX(-50%);
+    margin-left: 0;
+}
+.new-pindan-content-left-price{
+    display: inline-block;
+    font-size: .13rem;
+    position: relative;
+    background-color: #f7d49c;
+    padding:.03rem;
+    box-sizing: border-box;
+    width: 1.00rem;
+    text-align: center;
+    color: #641f0b;
+    margin-top:6%;
+}
+
+.new-kandan-content-left-old-price{
+    border: 1px solid #ea5e45;
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+    font-size: .15rem;
+    color: #641f0b;
+}
+.new-year-pindan-botton{
+    width: 100%;
+    height: .10rem;
+}
+.new-year-now-prcie{
+    width: 100%;
+    height:100%;
+    position: absolute;
+    top:0;
+    left: 0;
+}
+.new-year-now-prcie-wrap{
+    display: inline-block;
+    position: relative;
+    padding:0 20% 0 10%;
+    margin-top:4%;
+    height: 30%;
+}
+.new-year-price-pingdan{
+    position: relative;
+    z-index: 2;
+    width: 40%;
+    top:-.10rem;
+}
+.new-year-pingdan-now-prcie{
+    font-size: .10rem;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+.new-year-pingdan-prcie-text{
+    font-size: .33rem;
+}
+.new-year-second-kill-img{
+    width: 100%;
+}
+.new-year-second-kill-wrap{
+    padding-top: .40rem;
+}
+.new-year-second-kill-shop-wrap{
+    padding:0 4%;
+    display: flex;
+}
+.new-year-second-kill-shop{
+    width: 48%;
+    text-align: center;
+    border-image: url("../images/new_year_second_img.png") 30 30 round;
+    border-width: .05rem ;
+    border-color: #000;
+    border-style: solid;
+    border-radius: .05rem;
+    float: left;
+    background-color: #fceedf;
+    box-sizing: border-box;
+    position: relative;
+    margin-top: .50rem;
+    z-index: 10;
+}
+.new-second-kill-shop-change{
+    flex:1;
+    position: relative;
+}
+.new-year-sale-all-change{
+    position: absolute;
+    top:9%;
+    right:1% ;
+    width: 30%;
+}
+.new-year-second-kill-shop-wrap .new-second-kill-shop-change:nth-child(2n) {
+    padding-left:2%;
+}
+.new-year-second-kill-shop-wrap .new-second-kill-shop-change:nth-child(2n) .new-year-sale-all-change{
+    right:-3% ;
+}
+.new-year-second-kill-shop-wrap .new-second-kill-shop-change:nth-child(2n-1) {
+    padding-right:2%;
+}
+
+.new-second-kill-shop-img{
+    width: 100%;
+}
+.new-year-second-kill-shop-wrap .new-year-second-kill-shop:nth-child(2n-1){
+    margin-right: 4%;
+}
+.second-new-year-cont{
+    width: 100%;
+    padding:.03rem;
+    background: #fff;
+    box-sizing: border-box;
+}
+.second-new-year-cont{
+    border-radius: 5px;
+}
+.new-year-second-shopName{
+    width: 80%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top:1px solid #7f5d4f;
+    border-bottom:1px solid #7f5d4f;
+    font-size: .13rem;
+    color: #411506;
+    margin-top: .3rem;
+}
+.new-year-second-shopPrice{
+    height: .32rem;
+    line-height: .32rem;
+}
+.new-second-shopNowPrice-wrap{
+    font-size: 13px;
+    color: #dd3f24;
+}
+.new-year-second-shopNowPrice{
+    font-size: .24rem;
+    font-weight: bold;
+}
+.new-year-second-shopBeforePrice{
+    padding:.02rem .04rem;
+    color: #fff;
+    font-size: .11rem;
+    background: url("../images/new_second_kill_price.png") no-repeat center center/cover;
+    text-decoration: line-through;
+    position: relative;
+    top:-.02rem;
+}
+.new-year-wenli{
+    position: absolute;
+    transform: translateY(-42%);
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: -1;
+    width: 40%;
+}
+.new-year-footer-wenli{
+    margin-top: .52rem;
+}
+.new-year-shopName-img-wrap{
+    position: relative;
+}
+.new-sale-all-pingdan{
+    right:2%;
+}
+.new-second-kill-four-a{
+    display: block;
+    width: 100%;
+}
+.new-second-kill-four-wrap{
+    position: relative;
+}
+.new-year-sale-all-change1,.new-year-sale-all-change2,.new-year-sale-all-change3,.new-year-sale-all-change4{
+    position: absolute;
+    width: 10%;
+    top:10%;
+    left: 10%;
+}
+.new-year-sale-all-change1{
+    top:5%;
+    left: 39%;
+}
+.new-year-sale-all-change2{
+    top:5%;
+    left: 87%;
+}
+.new-year-sale-all-change3{
+    top:55%;
+    left: 39%;
+}
+.new-year-sale-all-change4{
+    top:55%;
+    left: 87%;
+}
+.new-index-nav{
+    position: relative;
+}
+.new-open-music,.new-close-music{
+    position: absolute;
+    top:.27rem;
+    right:.42rem;
+    width: .27rem;
+    z-index:1040;
+}
+.new-open-music{
+    -webkit-animation-name: skyset2;
+    -webkit-animation-duration: 4000ms;
+    -webkit-animation-iteration-count: infinite; /*无限循环*/
+    -webkit-animation-timing-function: linear;
+}
+@keyframes skyset2 {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.medio-gxfc{
+    /*display: none;*/
+    opacity: 0;
+    filter: alpha(opacity:0);
+}
+@media screen and (max-width: 374px) and (min-width:320px) {
+    .new-year-shopName,.new-year-shopName-change {
+        font-size: 14px;
+    }
+}
